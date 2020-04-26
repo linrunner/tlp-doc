@@ -1,0 +1,4 @@
+/* override fixed pagewidth */
+.wy-nav-content {
+    max-width: 1000px;
+}

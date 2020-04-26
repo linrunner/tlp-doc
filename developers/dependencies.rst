@@ -1,0 +1,83 @@
+Dependencies
+============
+TLP depends on (or conflicts with) the tools described below. They should be
+implemented as package dependencies.
+
+Package tlp
+-----------
+acpi-call - *optional*
+     Kernel module needed for :ref:`faq-battery-features` of Sandy Bridge and
+     newer ThinkPads models (X220, T420, et al.).
+
+.. note::
+
+    Do not implement via direct package dependency.
+
+ethtool - *optional*
+    Used to disable Wake-on-LAN.
+
+hdparm - *mandatory*
+    Needed for hard disk advanced power management (APM) and to show information
+    in `tlp-stat`.
+
+iw - *mandatory*
+    Needed for Wi-Fi power save, replaces deprecated `iwconfig`
+    (see wireless-tools below).
+
+laptop-mode-tools - *conflicts*
+    There can only be one power management tool at a time.
+
+lsb-release - *optional*
+    Used to show distribution/release in `tlp-stat`.
+
+pciutils - *mandatory*
+    Provides `lspci` used to show PCI(e) devices in `tlp-stat`.
+
+.. note::
+
+    See :ref:`dev-architecture` for details.
+
+rfkill - *mandatory*
+    Needed for switching radio devices on and off.
+
+smartmontools - *optional*
+    Provides `smartctl` used to show hard disk drive SMART data in `tlp-stat`.
+
+tp-smapi - *optional*
+    Kernel modules needed to implement :ref:`faq-battery-features` on ThinkPads.
+
+.. note::
+
+    The implementation of the package depends considerably on the target
+    distribution and therein on the kernel variant. Do not implement via
+    direct package dependency.
+
+usbutils - *mandatory*
+    Provides `lsusb` used to show USB devices in `tlp-stat`.
+
+util-linux - *mandatory*
+    Provides `dmesg` for ALPM warnings in tlp-stat.
+
+wireless-tools - *deprecated*
+    Provides `iwconfig` for Wi-Fi power saving; only if `iw` and `rfkill`
+    (see above) are not available.
+
+x86_energy_perf_policy - *optional*
+    Linux kernel version specific tool contained in the kernel tree
+    (**tools/power/x86**). Needed to set the energy-performance bias (EPB)
+    for Intel CPU's (kernel < 5.2 only).
+
+.. note::
+
+    Ubuntu provides it via the metapackage `linux-tools`, Debian via
+    `linux-cpupower`. Your mileage with other distributions may vary.
+
+Package tlp-rdw
+---------------
+
+tlp - *mandatory*
+    Provides libraries **tlp-func-base** and **func.d/***.
+
+network-manager - *mandatory*
+    Used to hook ifup/ifdown events and to determine the corresponding
+    interface type LAN/Wi-Fi/WWAN.
