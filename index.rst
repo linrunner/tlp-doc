@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to TLP's new Documentation Site
-#######################################
-.. container:: brand-banner
+TLP - Optimize Linux Laptop Battery Life
+########################################
+.. container:: teaser
 
     TLP is a feature-rich command line utility for Linux, **saving laptop
     battery power**  without the need to delve deeper into technical details.
@@ -16,6 +16,8 @@ Welcome to TLP's new Documentation Site
 
     Nevertheless TLP is **highly customizable** to fulfil your
     specific requirements.
+
+.. rubric:: Welcome to TLP's new Documentation Site
 
 The restructured site improves readability and facilitates access
 through a navigation sidebar. Can't find something right away?
