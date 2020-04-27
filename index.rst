@@ -5,19 +5,21 @@
 
 Welcome to TLP's new Documentation Site
 #######################################
+.. container:: brand-banner
+
+    TLP is a feature-rich command line utility for Linux, **saving laptop
+    battery power**  without the need to delve deeper into technical details.
+
+    TLP’s default settings are already **optimized for battery life** and
+    implement Powertop’s recommendations out of the box. So you may just
+    **install and forget** it.
+
+    Nevertheless TLP is **highly customizable** to fulfil your
+    specific requirements.
+
 The restructured site improves readability and facilitates access
 through a navigation sidebar. Can't find something right away?
-Try the search field.
-
-TLP
-###
-TLP is a feature-rich command line utility for Linux, saving laptop battery power
-without the need to delve deeper into technical details.
-
-TLP’s default settings are already optimized for battery life and implement
-Powertop’s recommendations out of the box. So you may just install and forget it.
-Nevertheless TLP is highly customizable to fulfil your
-specific requirements.
+Try the search field in the navbar.
 
 .. rubric:: Learn
 
