@@ -62,8 +62,8 @@ TLP's default configuration intentionally exempts input devices like mice and
 keyboards as well as scanners handled by `libsane`. To enforce autosuspend
 nevertheless, add the device to :ref:`set-usb-whitelist`.
 
-Powertop shows a very high power consumption for a particular device
---------------------------------------------------------------------
+Powertop shows a very high power consumption for a device
+---------------------------------------------------------
 It is impossible to measure the power consumption of individual laptop components.
-Therefore the readings in 'Device stats' column 'Power est.' are rough estimations
+Therefore the readings in the 'Device stats' column 'Power est.' are rough estimations
 and do not provide a reliable statement.
