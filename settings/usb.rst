@@ -21,7 +21,7 @@ Possible values:
 
 Default when unconfigured: 0
 
-.. note::
+.. important::
 
     Input devices like mice and keyboards as well as scanners handled by
     `libsane` are exluded by default.
@@ -38,7 +38,7 @@ Exclude USB device IDs from autosuspend mode. Useful for devices having difficul
 in waking up from autosuspend. Use :command:`tlp-stat -u` to determine IDs.
 Multiple IDs are separated with blanks.
 
-.. note::
+.. important::
 
     All input devices (driver `usbhid`) and [as of version 1.2] `libsane`-supported
     scanners get excluded by default. It's therefore unnecessary to put them on

@@ -41,7 +41,10 @@ Additional settings - independent of ther power source - are:
 
 .. note::
 
-    * TLP is a pure command line utility with automated background tasks. It
-      does not contain a GUI.
+    TLP is a pure command line utility with automated background tasks. It
+    does not contain a GUI.
+
+.. important::
+
     * TLP implements :doc:`/faq/powertop`'s recommendations out of the box, so
       there is no need to also run :command:`powertop --autotune` on boot.

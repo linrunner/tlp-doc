@@ -19,7 +19,7 @@ shutdown on boot:
 
 Default when unconfigured: 0
 
-.. note::
+.. important::
 
     * The parameters `DEVICES_TO_DISABLE_ON_STARTUP/SHUTDOWN` below are ignored when
       this feature is enabled

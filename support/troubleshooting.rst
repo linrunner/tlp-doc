@@ -43,9 +43,9 @@ To determine if TLP is the source of your problem, disable TLP via
 
 Then reboot the system and check if your symptom disappeared.
 
-.. note::
+.. important::
 
-    Important: in case of sporadic symptoms be sure to allow for enough testing
+    In case of sporadic symptoms be sure to allow for enough testing
     time to reliably reproduce the problem!
 
 If your problem is gone now, re-enable TLP ::
@@ -105,9 +105,9 @@ This step applies the following strategy to isolate a bus oriented device:
 * Blacklist devices one by one
 * Blacklist devices by driver
 
-.. note::
+.. important::
 
-    Important: make shure to reboot the computer after *every* configuration
+    Make shure to reboot the computer after *every* configuration
     change for this step!
 
 6.1 PCIe devices

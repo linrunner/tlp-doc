@@ -32,7 +32,7 @@ For all AMD and older Intel CPUs. Supported governors are:
 Hint: refer to the output of :command:`tlp-stat -p` to determine the active
 scaling driver and available governors.
 
-.. note::
+.. important::
 
     `powersave` for `intel_pstate` and `ondemand` for `acpi-cpufreq` are power
     efficient for almost all workloads and therefore kernel and most distributions

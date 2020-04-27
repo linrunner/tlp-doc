@@ -1,4 +1,4 @@
-.. note::
+.. important::
 
     * Battery charge thresholds, discharge and recalibration are currently only
       supported for IBM/Lenovo *ThinkPads*

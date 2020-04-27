@@ -24,7 +24,7 @@ regardless of whether or not Powertop is installed.
 
 Why does Powertop suggest more power saving settings with TLP already running?
 ------------------------------------------------------------------------------
-.. note::
+.. important::
 
     TLP applies maximum power savings on battery power only, so unplug AC power
     before checking with Powertop.
