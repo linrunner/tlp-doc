@@ -1,5 +1,3 @@
-.. _faq-audio:
-
 Audio
 =====
 When encountering problems with the sound output on battery, for example clicking
@@ -13,4 +11,4 @@ or disable power save completely
 
 .. seealso::
 
-    :ref:`set-audio` Settings.
+    :doc:`/settings/audio` Settings.

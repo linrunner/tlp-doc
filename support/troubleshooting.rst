@@ -1,5 +1,3 @@
-.. _troubleshooting:
-
 Troubleshooting Guide
 =====================
 TLP's default settings are carefully chosen to avoid power saving to
@@ -16,7 +14,7 @@ hardware – possibly leading to:
 and the like.
 
 TLP is not able to make kernel issues disappear but there is (almost) always a
-workaround by tweaking TLP's :ref:`settings`.
+workaround by tweaking TLP's :doc:`/settings/index`.
 
 This document teaches how to isolate the causing device or power saving feature
 and disable it.
@@ -33,13 +31,13 @@ Linux kernel. Reboot.
 Step 2: Check the FAQ
 ---------------------
 
-:ref:`faq` contains many ready-to-use solutions for common problems with TLP.
+:doc:`/faq/index` contains many ready-to-use solutions for common problems with TLP.
 Carefully check it for your symptoms.
 
 Step 3: Disable TLP temporarily
 -------------------------------
 To determine if TLP is the source of your problem, disable TLP via
-:ref:`set-operation` settings: ::
+:doc:`Operation settings </settings/operation>`: ::
 
     TLP_ENABLE=0
 
@@ -80,19 +78,19 @@ disabling associated feature(s) for the power source(s) identified in
 
 For functional device categories, e.g.
 
-* :ref:`set-audio`
-* :ref:`set-disks`
-* :ref:`set-graphics`
-* :ref:`set-networking`
+* :doc:`/settings/audio`
+* :doc:`/settings/disks`
+* :doc:`/settings/graphics`
+* :doc:`/settings/network`
 
-refer to :ref:`settings` and :ref:`faq` how to achieve this.
+refer to :doc:`/settings/index` and :doc:`/faq/index` how to achieve this.
 
 Bus oriented devices, e.g.
 
-* PCIe = :ref:`set-runtimepm`
-* :ref:`set-usb`
+* :doc:`PCIe (Runtime Power Management) </settings/runtimepm>`
+* :doc:`/settings/usb`
 
-can be blacklisted, see :ref:`settings` and :ref:`faq` for the corresponding
+can be blacklisted, see :doc:`/settings/index` and :doc:`/faq/index` for the corresponding
 sections.
 
 When unsure if a device is PCIe or USB examine the output of

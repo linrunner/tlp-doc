@@ -1,12 +1,10 @@
-.. _faq-warnings:
-
 Warnings
 ========
 
 Which types of warnings does `tlp-stat -w` check for?
-----------------------------------------------------i-
+-----------------------------------------------------
 Currently the command checks the kernel log for errors possibly caused by the
-settings for SATA ALPM.
+settings for :ref:`ALPM <set-disks-alpm>`.
 
 What should I do if warnings are shown?
 ---------------------------------------

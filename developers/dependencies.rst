@@ -6,7 +6,7 @@ implemented as package dependencies.
 Package tlp
 -----------
 acpi-call - *optional*
-     Kernel module needed for :ref:`faq-battery-features` of Sandy Bridge and
+     Kernel module needed for :doc:`/faq/battery` of Sandy Bridge and
      newer ThinkPads models (X220, T420, et al.).
 
 .. note::
@@ -35,7 +35,7 @@ pciutils - *mandatory*
 
 .. note::
 
-    See :ref:`dev-architecture` for details.
+    See :doc:`/developers/architecture` for details.
 
 rfkill - *mandatory*
     Needed for switching radio devices on and off.
@@ -44,7 +44,7 @@ smartmontools - *optional*
     Provides `smartctl` used to show hard disk drive SMART data in `tlp-stat`.
 
 tp-smapi - *optional*
-    Kernel modules needed to implement :ref:`faq-battery-features` on ThinkPads.
+    Kernel modules needed to implement :doc:`/faq/battery` on ThinkPads.
 
 .. note::
 

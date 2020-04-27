@@ -1,5 +1,3 @@
-.. _installation:
-
 Installation
 ************
 TLP packages are available for Arch, Debian, Fedora, Gentoo, openSUSE, Ubuntu
@@ -20,4 +18,4 @@ to the corresponding section:
    ubuntu
    others
 
-After completing the installation continue with :ref:`usage`.
+After completing the installation continue with :doc:`/usage/index`.

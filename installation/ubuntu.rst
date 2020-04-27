@@ -1,11 +1,10 @@
-.. _install-ubuntu:
-
 Ubuntu
 ======
 .. rubric:: Scope:
 
 * Officially supported Ubuntu releases
-* Corresponding Linux Mint releases *but not* LMDE – refer to :ref:`install-debian` instead
+* Corresponding Linux Mint releases *but not* LMDE – refer to
+  :doc:`debian` instead
 
 Package Repository
 ------------------
@@ -25,7 +24,7 @@ Package Installation
 Install the following packages
 
 * **tlp** *(PPA or universe)* – Power saving
-* **tlp-rdw** *(PPA or universe)* – optional – :ref:`set-rdw`
+* **tlp-rdw** *(PPA or universe)* – optional – :doc:`/settings/rdw`
 
 either with your favorite package manager or the command: ::
 

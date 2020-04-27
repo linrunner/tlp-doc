@@ -1,5 +1,3 @@
-.. _set-trace-mode:
-
 Trace Mode
 ==========
 For support and debugging purposes TLP provides a trace mode. To enable it add

@@ -1,5 +1,3 @@
-.. _dev-makefile:
-
 Makefile
 ========
 

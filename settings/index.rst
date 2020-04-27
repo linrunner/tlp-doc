@@ -1,10 +1,8 @@
-.. _settings:
-
 Settings
 ********
 
-:ref:`set-intro` explains how TLP's settings are organized, the syntax of the
-parameters used and how to change them.
+:doc:`/settings/introduction` explains how TLP's settings are organized, the
+syntax of the parameters used and how to change them.
 
 .. toctree::
    :hidden:
@@ -31,4 +29,3 @@ The remaining sections describe all of TLP's settings:
    runtimepm
    usb
    trace
-

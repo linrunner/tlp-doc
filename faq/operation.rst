@@ -117,7 +117,7 @@ Symptom: laptop shuts down spontaneously when changing to battery power.
 
 Affected hardware: an Acer Aspire V5-591G user with kernel 4.4 reported this issue.
 
-Solution: disable :ref:`set-audio` power saving.
+Solution: disable :doc:`/settings/audio` power saving.
 
 Ethernet not working after resume
 ---------------------------------

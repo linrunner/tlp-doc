@@ -1,5 +1,3 @@
-.. _faq-battery-features:
-
 Battery Features
 ================
 
@@ -10,7 +8,7 @@ What are the 'Battery Features'?
 
 .. seealso::
 
-    * :ref:`set-battery-thresholds` (Settings)
+    * :doc:`/settings/battery` (Settings)
     * :ref:`cmd-tlp-battery-features` (Commands)
 
 How do I get 'Battery Features' support for my non-ThinkPad Laptop?
@@ -88,7 +86,7 @@ for the following lines
     Install acpi_call kernel module for ThinkPad battery recalibration
 
 and install the required external kernel module package as explained in
-:ref:`installation` for your distribution.
+:doc:`/installation/index` for your distribution.
 
 Almost all ThinkPad models need only one of the above kernel modules. You may
 check the output of :command:`tlp-stat -b` for lines like:
@@ -189,7 +187,7 @@ and use adequate forums to resolve your issue with `acpi-call`.
 .. note::
 
     You may need to disable Secure Boot when `acpi-call` refuses to load.
-    Check your distribution's :ref:`installation` instructions.
+    Check your distribution's :doc:`/installation/index` instructions.
 
 Installation of package `tp-smapi-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,8 +213,8 @@ Symptom (Ubuntu 16.04 HWE kernel 4.8): package install shows
     make KERNELRELEASE=4.8.0-46-generic -C /lib/modules/4.8.0-46-generic/build M=/var/lib/dkms/tp-smapi/0.41/build....(bad exit status: 2)
     Error! Bad return status for module build on kernel: 4.8.0-46-generic (x86_64)
 
-Solution: either enable the TLP PPA (see :ref:`install-ubuntu`) and update your
-packages (recommended) or download version
+Solution: either enable the TLP PPA (see :doc:`/installation/ubuntu`) and update
+your packages (recommended) or download version
 `0.43-1 from Focal <https://packages.ubuntu.com/focal/tp-smapi-dkms>`_
 and install it manually.
 
@@ -241,7 +239,7 @@ issue with `tp-smapi`.
 .. note::
 
     * You may need to disable Secure Boot when `tp-smapi` refuses to load,
-      check your distribution's :ref:`installation` instructions
+      check your distribution's :doc:`/installation/index` instructions
     * `Libreboot` does not support `tp-smapi`
     * `tp-smapi` does not support newer models, check :ref:`faq-which-kernel-module`
 

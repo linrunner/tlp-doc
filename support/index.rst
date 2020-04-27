@@ -1,5 +1,3 @@
-.. _support:
-
 Support
 *******
 
@@ -10,8 +8,8 @@ hardware oriented forum.
 
 .. note::
 
-    Before asking for support, please check :ref:`faq` and
-    :ref:`troubleshooting` first.
+    Before asking for support, please check :doc:`/faq/index` and
+    :doc:`/support/troubleshooting` first.
 
 Necessary Information
 =====================

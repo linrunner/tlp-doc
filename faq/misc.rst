@@ -1,5 +1,3 @@
-.. _faq-misc:
-
 Miscellaneous
 =============
 

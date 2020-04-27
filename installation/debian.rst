@@ -1,5 +1,3 @@
-.. _install-debian:
-
 Debian
 ======
 .. rubric:: Scope:
@@ -37,7 +35,7 @@ Package Installation
 Install the following packages
 
 * **tlp** *(main)* – Power saving
-* **tlp-rdw** *(main)* – optional – :ref:`set-rdw`
+* **tlp-rdw** *(main)* – optional – :doc:`/settings/rdw`
 
 either with your favorite package manager or the command: ::
 

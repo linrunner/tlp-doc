@@ -1,5 +1,3 @@
-.. _set-runtimepm:
-
 Runtime Power Management and ASPM
 =================================
 .. rubric:: Scope:

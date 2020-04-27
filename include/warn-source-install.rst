@@ -1,6 +1,6 @@
 .. note::
 
-    Check :ref:`dev-makefile` options to customize :command:`make install`
+    Check :doc:`/developers/makefile` options to customize :command:`make install`
     to your distribution's requirements.
 
 .. warning::

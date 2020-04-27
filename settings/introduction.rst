@@ -1,5 +1,3 @@
-.. _set-intro:
-
 Introduction
 ============
 This section explains how TLP's settings are organized, the syntax of the

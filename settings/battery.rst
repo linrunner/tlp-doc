@@ -1,5 +1,3 @@
-.. _set-battery-thresholds:
-
 Battery Charge Thresholds
 =========================
 
@@ -34,7 +32,7 @@ Hints:
 * ThinkPad T420(s)/T520/W520/X220 (and all newer models):
   check :ref:`Erratic Battery Behaviour <faq-erratic-battery-behavior>`
 * For further questions concerning charge thresholds please visit the FAQ:
-  :ref:`faq-battery-features`
+  :doc:`/faq/battery`
 
 RESTORE_THRESHOLDS_ON_BAT
 -------------------------

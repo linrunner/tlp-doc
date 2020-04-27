@@ -1,6 +1,5 @@
 tlp-stat
 --------
-
 .. topic:: Purpose
 
     Show TLP's configuration, system information, kernel power saving
@@ -96,7 +95,7 @@ tlp-stat
     tlp-stat -w
     tlp-stat --warn
 
-Please refer to :ref:`faq-warnings` for details.
+Please refer to :doc:`/faq/warnings` for details.
 
 
 .. rubric:: Debugging aids

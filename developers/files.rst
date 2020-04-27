@@ -7,7 +7,7 @@ To be able to install the essential part of TLP without a dependency on
 NetworkManager, it is recommended to provide two packages:
 
 * **tlp** – Essential functionality
-* **tlp-rdw** – :ref:`set-rdw` only (depends on NetworkManager)
+* **tlp-rdw** – :doc:`/settings/rdw` only (depends on NetworkManager)
 
 The following table explains the provided files and assigns them to the
 packages:
@@ -175,22 +175,22 @@ packages:
    * - VERSION
      - n/a
      - n/a
-     - Contains TLP's version number, used by the :ref:`dev-makefile`
+     - Contains TLP's version number, used by the :doc:`makefile`
    * - Makefile
      - n/a
      - n/a
      - Installation of scripts and config file to their respective target dirs;
-       see :ref:`dev-makefile`
+       see :doc:`makefile`
    * - changelog
      - tlp
      - distribution dependent
      - Changelog for TLP – the target directory is distribution specific and
-       therefore it is not installed by the :ref:`dev-makefile`
+       therefore it is not installed by the :doc:`makefile`
    * - README.md
      - tlp
      - distribution dependent
      - README file for TLP – the target directory is distribution specific and
-       therefore it is not installed by the :ref:`dev-makefile`
+       therefore it is not installed by the :doc:`makefile`
    * - AUTHORS
      - n/a
      - distribution dependent

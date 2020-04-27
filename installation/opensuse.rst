@@ -13,7 +13,7 @@ Package Installation
 Packages are available from the official repositories:
 
 * **tlp** – Power saving
-* **tlp-rdw** – optional - :ref:`set-rdw`
+* **tlp-rdw** – optional - :doc:`/settings/rdw`
 
 Install them either with your favorite package manager or the command: ::
 

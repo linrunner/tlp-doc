@@ -13,7 +13,7 @@ Package Installation
 TLP packages are available from the official Fedora repositories:
 
 * **tlp** *(Updates)* – Power saving
-* **tlp-rdw** *(Updates)* – optional – :ref:`set-rdw`
+* **tlp-rdw** *(Updates)* – optional – :doc:`/settings/rdw`
 
 Hint: packages for RHEL/CentOS are available from the EPEL repositories.
 

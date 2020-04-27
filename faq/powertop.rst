@@ -1,5 +1,3 @@
-.. _faq-powertop:
-
 Powertop
 ========
 

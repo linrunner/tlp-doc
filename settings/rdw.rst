@@ -1,5 +1,3 @@
-.. _set-rdw:
-
 Radio Device Wizard
 ===================
 The `Radio Device Wizard` provides the capability to enable or disable builtin

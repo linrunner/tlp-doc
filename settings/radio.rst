@@ -1,11 +1,9 @@
-.. _set-radio-switching:
-
 Radio Device Switching
 ======================
 This section contains settings to switch builtin bluetooth, Wi-Fi and WWAN
 devices on system boot or shutdown and depending on the power source.
 
-For more event based switching refer to :ref:`set-rdw`.
+For more event based switching refer to :doc:`/settings/rdw`.
 
 RESTORE_DEVICE_STATE_ON_STARTUP
 -------------------------------

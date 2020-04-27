@@ -9,7 +9,7 @@ TLP's default settings are already optimized for battery life, so you may just
 install and forget it. Nevertheless TLP is highly customizable to fulfil your
 specific requirements.
 
-:ref:`settings` are organized into two profiles, enabling you to adjust
+:doc:`/settings/index` are organized into two profiles, enabling you to adjust
 between savings and performance independently for battery (BAT) and AC operation.
 
 * Kernel laptop mode and dirty buffer timeouts
@@ -43,5 +43,5 @@ Additional settings - independent of ther power source - are:
 
     * TLP is a pure command line utility with automated background tasks. It
       does not contain a GUI.
-    * TLP implements :ref:`faq-powertop`'s recommendations out of the box, so
+    * TLP implements :doc:`/faq/powertop`'s recommendations out of the box, so
       there is no need to also run :command:`powertop --autotune` on boot.

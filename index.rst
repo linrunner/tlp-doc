@@ -21,21 +21,21 @@ specific requirements.
 
 .. rubric:: Learn
 
-As a new user read :ref:`features` to learn about your benefits,
-then proceed with :ref:`installation` and :ref:`usage`. Finally :ref:`settings`
-will tell you how to customize the configuration if desired. Find out about new
-features in the
-`changelog <https://github.com/linrunner/TLP/blob/master/changelog>`_.
+As a new user read :doc:`/features` to learn about your benefits,
+then proceed with :doc:`/installation/index` and :doc:`/usage/index`.
+Finally :doc:`/settings/index` will tell you how to customize the
+configuration if desired. Find out about new features in the
+`Changelog <https://github.com/linrunner/TLP/blob/master/changelog>`_.
 
 .. rubric:: Resolve
 
-If problems occur during use, you may want to check :ref:`faq`, :ref:`support`
-and the :ref:`troubleshooting`.
+If problems occur during use, you may want to check :doc:`/faq/index`,
+:doc:`/support/index` and the :doc:`/support/troubleshooting`.
 
 .. rubric:: Contribute
 
-If you want to help, check out :ref:`contrib`. Do you like to
-provide TLP packages for your distribution? Enter :ref:`devs`.
+If you want to help, check out :doc:`/contribute`. Do you like to
+provide TLP packages for your distribution? Enter :doc:`/developers/index`.
 
 Contents
 ########

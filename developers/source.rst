@@ -1,7 +1,7 @@
 Source
 ======
 
-.. _dev-get-source:
+.. _dev-source-code:
 
 Code
 ----
@@ -75,7 +75,7 @@ Packages tracking the master branch are available in the AUR:
 
 Installing from Source
 ----------------------
-1. Checkout the master branch (see :ref:`dev-get-source`).
+1. Checkout the master branch (see :ref:`dev-source-code`).
 
 2. In the **tlp.git/** directory ::
 

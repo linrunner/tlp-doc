@@ -1,5 +1,3 @@
-.. _faq:
-
 Frequently Asked Questions
 **************************
 This chapter answers frequently asked questions and provides solutions or

@@ -1,5 +1,3 @@
-.. _set-graphics:
-
 Graphics
 ========
 

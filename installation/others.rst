@@ -1,8 +1,5 @@
-.. _install-others:
-
 Other Linux Distributions
 =========================
-
 .. note::
 
     Before installing from source please check your distribution's repositories

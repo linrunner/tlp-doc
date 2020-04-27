@@ -19,7 +19,7 @@ expected from those conflicts.
 How can I change TLP's settings?
 --------------------------------
 
-See :ref:`settings`.
+See :doc:`/settings/index`.
 
 .. _faq-set-upgrade:
 

@@ -17,7 +17,7 @@ or ::
     RADEON_DPM_STATE_ON_AC=performance
     RADEON_DPM_STATE_ON_BAT=performance
 
-depending on your card/kernel. Refer to :ref:`set-graphics` for details.
+depending on your card/kernel. Refer to :doc:`/settings/graphics` for details.
 
 Kernel message '*ERROR* radeon: ring 0 test failed' on AC power
 ---------------------------------------------------------------
@@ -87,7 +87,7 @@ Hint: to check whether '01:00.0' matches your Nvidia dGPU, use
 
     lspci -v | perl -ne '/VGA/../^$/ and /VGA|Kern/ and print'
 
-Refer to :ref:`set-runtimepm` too.
+Refer to :doc:`/settings/runtimepm` too.
 
 Bumblebee fails to re-enable the dGPU
 -------------------------------------

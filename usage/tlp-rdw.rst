@@ -1,7 +1,7 @@
 tlp-rdw
 -------
 Enable, disable or check automatic event based actions on radio devices
-(aka :ref:`set-rdw`): ::
+(aka :doc:`/settings/rdw`): ::
 
     tlp-rdw [ enable | disable ]
 

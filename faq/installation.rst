@@ -4,12 +4,11 @@ Installation
 
 Does TLP conflict with other power management tools?
 ----------------------------------------------------
-
 Yes. Using another tool simultaneously means that TLP's settings get overwritten
 by the other tools settings (and vice versa), so actual power saving gets
 unpredictable. Special cases are explained in the following.
 
-**Powertop:** please refer to :ref:`faq-powertop`.
+**Powertop:** please refer to :doc:`powertop`.
 
 **thermald:** thermald's purpose is to limit power dissipation before the
 laptop's temperature gets critical. TLP enables power saving features globally
@@ -22,7 +21,6 @@ actions. If you want to use it, disable the feature in TLP by configuring
 
 Does TLP run on my laptop (not a ThinkPad)?
 -------------------------------------------
-
 TLP runs on every laptop brand. A few features are available on IBM/Lenovo
 ThinkPads only.
 
@@ -58,7 +56,7 @@ The package `tlp` recommends `smartmontools` which pulls `postfix`
 
 My Linux distribution does not provide a TLP package, how do I install it?
 --------------------------------------------------------------------------
-See :ref:`install-others`.
+See :doc:`/installation/others`.
 
 How do I install TLP on a development release of my distribution?
 -----------------------------------------------------------------

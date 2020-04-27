@@ -10,7 +10,7 @@ Package Installation
 Packages are available in the offical repositories:
 
 * **tlp** *(Community)* – Power saving
-* **tlp-rdw** *(Community)* – optional, :ref:`set-rdw`
+* **tlp-rdw** *(Community)* – optional, :doc:`/settings/rdw`
 
 Install them either with your favorite package manager or the command: ::
 
@@ -51,12 +51,12 @@ Version 1.2.2 and lower require an additional service: ::
 
    systemctl enable tlp-sleep.service
 
-Using the :ref:`set-rdw` (tlp-rdw) requires yet another service: ::
+Using the :doc:`/settings/rdw` (tlp-rdw) requires yet another service: ::
 
    systemctl enable NetworkManager-dispatcher.service
 
 You should also mask the following services to avoid conflicts and assure proper
-operation of TLP's :ref:`set-radio-switching` options: ::
+operation of TLP's :doc:`/settings/radio` options: ::
 
    systemctl mask systemd-rfkill.service
    systemctl mask systemd-rfkill.socket

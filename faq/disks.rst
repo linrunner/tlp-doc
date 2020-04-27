@@ -1,5 +1,3 @@
-.. _faq-disks:
-
 Disk Drives
 ===========
 

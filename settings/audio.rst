@@ -1,5 +1,3 @@
-.. _set-audio:
-
 Audio
 =====
 
@@ -16,7 +14,7 @@ A value of 0 disables power save.
 .. note::
 
     Power saving mode may cause slight clicks or other disturbances in sound
-    output. See the FAQ: :ref:`faq-audio`.
+    output. See the FAQ: :doc:`/faq/audio`.
 
 SOUND_POWER_SAVE_CONTROLLER
 ---------------------------

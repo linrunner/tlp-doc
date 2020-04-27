@@ -1,5 +1,3 @@
-.. _dev-architecture:
-
 Architecture
 ============
 .. note::

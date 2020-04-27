@@ -1,6 +1,5 @@
 tlp
 ---
-
 .. topic:: Purpose
 
     Apply TLP's settings and change mode of operation.
@@ -78,7 +77,7 @@ Applies thresholds of 70/90% to the main battery (BAT0).
 
     :command:`tlp setcharge` changes the thresholds only temporarily. To make the
     chnage permanent, you must activate or change the related settings in the
-    configuration file. Refer to :ref:`set-battery-thresholds`.
+    configuration file. Refer to :doc:`/settings/battery`.
 
 Charge battery to full capacity
 """""""""""""""""""""""""""""""
@@ -128,7 +127,7 @@ Hints:
 * ThinkPads with two batteries: the battery controller can only handle one
   battery at a time; while discharging one battery with this command the other
   battery can neither be charged nor discharged
-* When encountering problems, see the FAQ: :ref:`faq-battery-features`
+* When encountering problems, see the FAQ: :doc:`/faq/battery`
 
 Recalibrate battery on AC power
 """""""""""""""""""""""""""""""

@@ -1,5 +1,3 @@
-.. faq-input:
-
 Input Devices
 =============
 

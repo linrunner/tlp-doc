@@ -1,5 +1,3 @@
-.. _set-disks:
-
 Disks and Controllers
 =====================
 

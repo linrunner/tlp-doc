@@ -1,6 +1,5 @@
 run-on-ac, run-on-bat
 ---------------------
-
 Conditional execution of a command depending on the current power source: ::
 
     run-on-ac command parameter ...

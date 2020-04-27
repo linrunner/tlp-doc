@@ -5,7 +5,7 @@ Systemd
 -------
 The sources contain the unit :command:`tlp.service`, which calls
 :command:`tlp init start/stop` upon system startup/shutdown. Use the
-`TLP_WITH_SYSTEMD` :ref:`dev-makefile` switch to install it.
+`TLP_WITH_SYSTEMD` :doc:`makefile` switch to install it.
 
 Sysvinit
 --------
