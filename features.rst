@@ -2,8 +2,8 @@
 
 Features
 ********
-TLP is a feature-rich utility for Linux, saving laptop battery power without
-the need to delve deeper into technical details.
+TLP is a feature-rich command line utility for Linux, saving laptop battery power
+without the need to delve deeper into technical details.
 
 TLP's default settings are already optimized for battery life, so you may just
 install and forget it. Nevertheless TLP is highly customizable to fulfil your
@@ -39,10 +39,9 @@ Additional settings - independent of ther power source - are:
 * Bluetooth and WWAN state is restored after suspend/hibernate
 * Battery charge thresholds and recalibration – ThinkPads only
 
-TLP is a pure command line tool with automated background tasks. It does not
-contain a GUI.
-
 .. note::
 
-    TLP implements :ref:`faq-powertop`'s recommendations out of the box, so there is
-    no need to also run :command:`powertop --autotune` on boot.
+    * TLP is a pure command line utility with automated background tasks. It
+      does not contain a GUI.
+    * TLP implements :ref:`faq-powertop`'s recommendations out of the box, so
+      there is no need to also run :command:`powertop --autotune` on boot.

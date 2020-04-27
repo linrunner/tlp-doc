@@ -11,15 +11,13 @@ Try the search field.
 
 TLP
 ###
-TLP is a feature-rich utility for Linux, saving laptop battery power without the
-need to delve deeper into technical details.
+TLP is a feature-rich command line utility for Linux, saving laptop battery power
+without the need to delve deeper into technical details.
 
 TLP’s default settings are already optimized for battery life and implement
 Powertop’s recommendations out of the box. So you may just install and forget it.
-
-Nevertheless TLP is highly customizable to fulfil your specific requirements.
-Settings are organized into two profiles, enabling you to adjust between
-savings and performance independently for battery and AC operation.
+Nevertheless TLP is highly customizable to fulfil your
+specific requirements.
 
 .. rubric:: Learn
 
