@@ -5,6 +5,10 @@
 
 TLP - Optimize Linux Laptop Battery Life
 ########################################
+.. meta::
+    :keywords: Linux, Ubuntu, Debian, Fedora, openSUSE, Arch Linux, Gentoo, ThinkPad
+    :keywords: power management, power save, battery save, battery tweak, improve battery
+
 .. container:: teaser
 
     TLP is a feature-rich command line utility for Linux, **saving laptop
