@@ -27,6 +27,11 @@ against it. Please refer to :doc:`/developers/index` for more information.
 Beta packages are `published here <https://download.linrunner.de/packages/>`_
 once available.
 
+Documentation
+-------------
+Sources for this website are hosted at the `tlp-doc <https://github.com/linrunner/tlp-doc>`_
+GitHub repo. Feel free to submit corrections and improvements there.
+
 Code
 ----
 Read :doc:`/developers/index` before beginning to code.

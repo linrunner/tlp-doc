@@ -6,7 +6,7 @@ install, configure or use TLP, please visit your favorite Linux forum.
 For ThinkPad battery specific issues please ask for advice in a ThinkPad or
 hardware oriented forum.
 
-.. note::
+.. important::
 
     Before asking for support, please check :doc:`/faq/index` and
     :doc:`/support/troubleshooting` first.
@@ -25,11 +25,16 @@ Bug Reports
 Bug reports may be filed via the
 `issue tracker <https://github.com/linrunner/TLP/issues>`_.
 
-.. note::
+.. important::
 
     Please read the
     `Bug Reporting Howto <https://github.com/linrunner/TLP/blob/master/.github/Bug_Reporting_Howto.md>`_
     first.
+
+.. note::
+
+    Submit corrections to this website via the
+    `tlp-doc <https://github.com/linrunner/tlp-doc>`_ GitHub repo.
 
 .. _support-trace-mode:
 
