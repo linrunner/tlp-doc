@@ -10,6 +10,8 @@ TLP uses two settings profiles that are applied depending on the power source:
 * Parameters ending on `_AC` are effective when AC is connected
 * Parameters ending on `_BAT` are effective when running on battery
 
+Parameters ending neither on `_AC` nor `_BAT` apply to both profiles.
+
 Defaults
 --------
 Two classes of parameters exist:
