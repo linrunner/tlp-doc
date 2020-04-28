@@ -32,6 +32,10 @@ Syntax notes
 
 Config Files
 ------------
+.. note::
+
+    Refer to the output of :command:`tlp-stat -s` to determine the TLP version
+    installed.
 
 .. _set-config-files-13:
 
