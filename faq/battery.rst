@@ -501,6 +501,16 @@ My battery does not charge anymore after recalibration showing X% remaining capa
 Most probable cause: battery is defect – and was it even before the recalibration
 attempt.
 
+`tlp recalibrate` terminates with 'Error: battery was not discharged completely. Check your hardware.'
+------------------------------------------------------------------------------------------------------
+Cause: this is a hardware issue either with your battery (likely), charger or laptop.
+
+Impact: recalibration doesn't work at all without a full discharge to tell the
+battery controller (the one *in* the battery) where the actual 0% is.
+
+Solution: make shure AC power is connected during the whole process,
+try to replace your battery next.
+
 .. _faq-cycle-count:
 
 Why does the panel applet show the battery state 'charging' despite charge thresholds are effective?
