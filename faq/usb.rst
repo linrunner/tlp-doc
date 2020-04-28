@@ -9,11 +9,7 @@ mode.
 Solution: lookup the corresponding USB device ID with :command:`lsusb`, add it to
 :ref:`set-usb-blacklist` and reconnect the device.
 
-.. important::
-
-    All input devices (driver `usbhid`) and [as of version 1.2] `libsane`-supported
-    scanners get excluded by default. It's therefore unnecessary to put them on
-    the :ref:`set-usb-blacklist`.
+.. include:: ../include/impt-usb-excluded-devices.rst
 
 Smartphone does not charge when connected
 -----------------------------------------

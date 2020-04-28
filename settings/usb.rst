@@ -21,15 +21,12 @@ Possible values:
 
 Default when unconfigured: 0
 
-.. important::
-
-    Input devices like mice and keyboards as well as scanners handled by
-    `libsane` are exluded by default.
-
 .. _set-usb-blacklist:
 
 USB_BLACKLIST
 -------------
+.. include:: ../include/impt-usb-excluded-devices.rst
+
 ::
 
     USB_BLACKLIST="1111:2222 3333:4444"
@@ -37,13 +34,6 @@ USB_BLACKLIST
 Exclude USB device IDs from autosuspend mode. Useful for devices having difficulties
 in waking up from autosuspend. Use :command:`tlp-stat -u` to determine IDs.
 Multiple IDs are separated with blanks.
-
-.. important::
-
-    All input devices (driver `usbhid`) and [as of version 1.2] `libsane`-supported
-    scanners get excluded by default. It's therefore unnecessary to put them on
-    the :ref:`set-usb-blacklist`. To circumvent the default for certain devices
-    enter the IDs into :ref:`set-usb-whitelist`.
 
 .. _set-usb-blacklist-btusb:
 
