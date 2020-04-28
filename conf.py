@@ -62,7 +62,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
@@ -109,8 +109,6 @@ html_context = {
 html_copy_source = False
 html_show_sourcelink = False
 html_last_updated_fmt = '%b %d, %Y'
-
-exlude_patterns = 'README.rst'
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
