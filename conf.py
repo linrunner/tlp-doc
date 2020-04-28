@@ -28,7 +28,6 @@ version = '1.3'
 # The full version, including alpha/beta/rc tags
 release = '1.3.1'
 
-
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.sphinx_
@@ -109,6 +108,7 @@ html_context = {
 
 html_copy_source = False
 html_show_sourcelink = False
+html_last_updated_fmt = '%b %d, %Y'
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
