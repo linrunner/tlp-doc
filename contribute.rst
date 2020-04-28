@@ -6,13 +6,14 @@ are always welcome!
 Support
 -------
 Experienced users are welcome to help others with TLP in their favorite Linux
-community:
+community
 
 * Reddit
 * StackExchange
 * Forums
-* User groups
-* or elsewhere ...
+* Linux user groups
+
+or elsewhere.
 
 .. note::
 
@@ -30,7 +31,7 @@ once available.
 Documentation
 -------------
 Sources for this website are hosted at the `tlp-doc <https://github.com/linrunner/tlp-doc>`_
-GitHub repo. Feel free to submit corrections and improvements there.
+GitHub repo. Submit corrections and improvements there.
 
 Code
 ----
