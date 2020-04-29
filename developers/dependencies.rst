@@ -7,11 +7,9 @@ Package tlp
 -----------
 acpi-call - *optional*
      Kernel module needed for :doc:`/faq/battery` of Sandy Bridge and
-     newer ThinkPads models (X220, T420, et al.).
+     newer ThinkPads models (X220, T420 et al.).
 
-.. note::
-
-    Do not implement via direct package dependency.
+.. include:: /include/no-package-dep.rst
 
 awk, grep, sed - *mandatory*
     TLP is tested with the GNU version of these essential utilities.
@@ -47,13 +45,9 @@ smartmontools - *optional*
     :command:`tlp-stat -d`.
 
 tp-smapi - *optional*
-    Kernel modules needed to implement :doc:`/faq/battery` on ThinkPads.
+    Kernel modules needed to implement :doc:`/faq/battery` on older ThinkPads.
 
-.. note::
-
-    The implementation of the package depends considerably on the target
-    distribution and therein on the kernel variant. Do not implement via
-    direct package dependency.
+.. include:: /include/no-package-dep.rst
 
 udev *- mandatory*
     Needed for event handling (see :doc:`architecture`) and providing `udevadm`.
