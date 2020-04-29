@@ -65,6 +65,21 @@ Yes. The service units are essential for TLP's operation:
 
     Some distributions's packages won't enable the services by default.
 
+AC or BAT is not detected
+-------------------------
+This also concerns changes from AC to BAT and vice versa.
+
+Possible causes: BIOS bug (DSDT may need fixing) or kernel ACPI bug.
+
+Workaround: to ignore the problematic power source, try to configure ::
+
+    PS_IGNORE=AC
+
+or ::
+
+    PS_IGNORE=BAT
+
+
 .. _faq-ac-quirk:
 
 AC is not detected when plugged in
