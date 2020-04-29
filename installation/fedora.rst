@@ -42,6 +42,12 @@ you which package to install:
   battery charge thresholds, recalibration and specific :command:`tlp-stat -b`
   output for older ThinkPads
 
+.. important::
+
+    The `akmod-*` packages are provided by a volunteer, not by the TLP project.
+    Please *do not file issues* if they are not yet available for the latest
+    Fedora version.
+
 Install them either with your favorite package manager or the command ::
 
    dnf install kernel-devel akmod-acpi_call akmod-tp_smapi
