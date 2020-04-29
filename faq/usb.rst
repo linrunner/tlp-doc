@@ -9,7 +9,7 @@ mode.
 Solution: lookup the corresponding USB device ID with :command:`lsusb`, add it to
 :ref:`set-usb-blacklist` and reconnect the device.
 
-.. include:: ../include/impt-usb-excluded-devices.rst
+.. include:: /include/usb-excluded-devices.rst
 
 Smartphone does not charge when connected
 -----------------------------------------

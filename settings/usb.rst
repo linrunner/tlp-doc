@@ -25,7 +25,7 @@ Default when unconfigured: 0
 
 USB_BLACKLIST
 -------------
-.. include:: ../include/impt-usb-excluded-devices.rst
+.. include:: /include/usb-excluded-devices.rst
 
 ::
 

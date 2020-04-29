@@ -13,12 +13,18 @@ acpi-call - *optional*
 
     Do not implement via direct package dependency.
 
+awk, grep, sed - *mandatory*
+    TLP is tested with the GNU version of these essential utilities.
+    Your mileage with other implementations may vary.
+
+.. include:: /include/busybox-not-supported.rst
+
 ethtool - *optional*
     Used to disable Wake-on-LAN.
 
 hdparm - *mandatory*
     Needed for hard disk advanced power management (APM) and to show information
-    in `tlp-stat`.
+    in :command:`tlp-stat -d`.
 
 iw - *mandatory*
     Needed for Wi-Fi power save, replaces deprecated `iwconfig`
@@ -28,20 +34,17 @@ laptop-mode-tools - *conflicts*
     There can only be one power management tool at a time.
 
 lsb-release - *optional*
-    Used to show distribution/release in `tlp-stat`.
+    Used to show distribution/release in :command:`tlp-stat -s`.
 
 pciutils - *mandatory*
-    Provides `lspci` used to show PCI(e) devices in `tlp-stat`.
-
-.. note::
-
-    See :doc:`/developers/architecture` for details.
+    Provides `lspci` used to show PCI(e) devices in :command:`tlp-stat -e`.
 
 rfkill - *mandatory*
     Needed for switching radio devices on and off.
 
 smartmontools - *optional*
-    Provides `smartctl` used to show hard disk drive SMART data in `tlp-stat`.
+    Provides `smartctl` used to show hard disk drive SMART data in
+    :command:`tlp-stat -d`.
 
 tp-smapi - *optional*
     Kernel modules needed to implement :doc:`/faq/battery` on ThinkPads.
@@ -52,11 +55,16 @@ tp-smapi - *optional*
     distribution and therein on the kernel variant. Do not implement via
     direct package dependency.
 
+udev *- mandatory*
+    Needed for event handling (see :doc:`architecture`) and providing `udevadm`.
+
 usbutils - *mandatory*
-    Provides `lsusb` used to show USB devices in `tlp-stat`.
+    Provides `lsusb` used to show USB devices in :command:`tlp-stat -u`.
 
 util-linux - *mandatory*
-    Provides `dmesg` for ALPM warnings in tlp-stat.
+    Provides `flock` and `dmesg` (for :command:`tlp-stat -w`).
+
+.. include:: /include/busybox-not-supported.rst
 
 wireless-tools - *deprecated*
     Provides `iwconfig` for Wi-Fi power saving; only if `iw` and `rfkill`
