@@ -295,13 +295,12 @@ Yet they do not work.
 
 Cause: bug in Lenovo's Embedded Controller (EC) firmware.
 
-Workaround: remove thresholds completely with
+Workaround:
 
-.. code-block:: sh
-
-    sudo tlp fullcharge
-
-then continue with the workaround for :ref:`faq-disabling-thresholds-does-not-work`.
+* Update BIOS (contains EC firmware) to 1.16 or higher
+* Remove thresholds once from EC with :command:`tlp fullcharge`
+* Leave the thresholds enabled in the config file
+* Reboot, which will restore the configured thresholds
 
 ThinkPad L420/520, SL300/400/500, X121e
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -478,8 +477,8 @@ Cause: after applying a stop threshold value < 100, Lenovo's embedded controller
 
 Solution: update EC firmware (contained in BIOS update)
 
-* T480s: ECP 1.13 (BIOS 1.31)
-* X1 Carbon 6th: ECP 1.12 (BIOS 1.37)
+* T480s: ECP 1.13 (BIOS 1.31) or higher
+* X1 Carbon 6th: ECP 1.12 (BIOS 1.37) or higher
 
 Workaround (without BIOS update):
 
