@@ -34,4 +34,9 @@ WOL_DISABLE
 
 Default when unconfigured: N
 
-Hint: after enabling a reboot is required to ensure that the new setting takes.
+.. note::
+
+    * After enabling, a reboot is required to ensure that the new setting takes.
+    * Your laptop's BIOS may have an option for Wake on LAN too. Some brands
+      even allow to configure Wake on LAN on `AC only`. If you choose the BIOS
+      option, leave `WOL_DISABLE=N`.
