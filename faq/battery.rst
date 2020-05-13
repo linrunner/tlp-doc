@@ -165,6 +165,11 @@ It may be necessary to rebuild the kernel modules (as root): ::
 
 Installation of package `acpi-call-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. important::
+
+    `acpi_call` and derived packages are not provided by the TLP project.
+    Please don't file bug reports for them in the TLP issue tracker.
+
 Symptoms: :command:`tlp-stat -b` shows
 
 .. code-block:: none
@@ -210,6 +215,11 @@ and use adequate forums to resolve your issue with `acpi-call`.
 
 Installation of package `tp-smapi-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. important::
+
+    `tp-smapi` and derived packages are not provided by the TLP project.
+    Please don't file bug reports for them in the TLP issue tracker.
+
 Symptoms (Ubuntu): :command:`tlp-stat -b` shows
 
 .. code-block:: none
