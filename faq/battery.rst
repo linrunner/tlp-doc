@@ -165,8 +165,12 @@ It may be necessary to rebuild the kernel modules (as root): ::
 
 Installation of package `acpi-call-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Debian derivatives with kernel >= 4.12 will need at least package version 1.1.0-4
-(from Debian Buster).
+Debian and Ubuntu derivatives:
+
+* Kernel ≥ 4.12 needs at least package version 1.1.0-4
+  (Debian Buster or Ubuntu 18.04)
+* Kernel ≥ 5.6 needs at least package version 1.1.0-6
+  (Debian unstable or Ubuntu 20.10)
 
 Kernel module `acpi-call` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
