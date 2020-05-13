@@ -165,7 +165,22 @@ It may be necessary to rebuild the kernel modules (as root): ::
 
 Installation of package `acpi-call-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Debian and Ubuntu derivatives:
+Symptoms: :command:`tlp-stat -b` shows
+
+.. code-block:: none
+
+    tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
+
+Package install shows
+
+.. code-block:: none
+
+    Setting up acpi-call-dkms ...
+    Error! Bad return status for module build on kernel: ...
+
+Solution: upgrade the package:
+
+.. rubric:: Debian and Ubuntu derivatives
 
 * Kernel ≥ 4.12 needs at least package version 1.1.0-4
   (Debian Buster or Ubuntu 18.04)
@@ -195,32 +210,43 @@ and use adequate forums to resolve your issue with `acpi-call`.
 
 Installation of package `tp-smapi-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Symptom (Ubuntu): package install shows
+Symptoms (Ubuntu): :command:`tlp-stat -b` shows
 
 .. code-block:: none
 
-    Setting up tp-smapi-dkms (0.41-1) ...
-    Creating symlink /var/lib/dkms/tp-smapi/0.41/source ->
-    /usr/src/tp-smapi-0.41
-    DKMS: add completed.
-    Error! Your kernel headers for kernel 3.X.0-YY-generic cannot be found.
-    Please install the linux-headers-3.X.0-YY-generic package,
-    or use the --kernelsourcedir option to tell DKMS where it's located
+    tp-smapi = inactive (kernel module 'tp_smapi' not installed)
+
+Package install shows
+
+.. code-block:: none
+
+    Setting up tp-smapi-dkms ...
+    Error! Your kernel headers for kernel X.Y.0-NN-generic cannot be found.
+    Please install the linux-headers-X.Y.0-NN-generic package
 
 Solution: install package **linux-generic-headers**.
 
-Symptom (Ubuntu 16.04 HWE kernel 4.8): package install shows
+Symptoms: :command:`tlp-stat -b` shows
 
 .. code-block:: none
 
-    Setting up tp-smapi-dkms (0.41-1) ...
-    make KERNELRELEASE=4.8.0-46-generic -C /lib/modules/4.8.0-46-generic/build M=/var/lib/dkms/tp-smapi/0.41/build....(bad exit status: 2)
-    Error! Bad return status for module build on kernel: 4.8.0-46-generic (x86_64)
+    tp-smapi = inactive (kernel module 'tp_smapi' not installed)
 
-Solution: either enable the TLP PPA (see :doc:`/installation/ubuntu`) and update
-your packages (recommended) or download version
-`0.43-1 from Focal <https://packages.ubuntu.com/focal/tp-smapi-dkms>`_
-and install it manually.
+Package install shows
+
+.. code-block:: none
+
+    Setting up tp-smapi-dkms ...
+    Error! Bad return status for module build on kernel: ...
+
+Solution: upgrade the package:
+
+.. rubric:: Ubuntu 16.04
+
+* Either enable the TLP PPA (see :doc:`/installation/ubuntu`) and update
+  your packages (recommended)
+* or download version `0.43-1 from Focal <https://packages.ubuntu.com/focal/tp-smapi-dkms>`_
+  and install it manually
 
 Kernel module `tp-smapi` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
