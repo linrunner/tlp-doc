@@ -342,10 +342,12 @@ Workaround:
 * Leave the thresholds enabled in the config file
 * Reboot, which will restore the configured thresholds
 
-ThinkPad L420/520, SL300/400/500, X121e
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _faq-unsupported-thinkpads:
+
+ThinkPad L420/520, L512, SL300/400/500, X121e
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 These models are neither supported by `tp-smapi` nor by `tpacpi-bat` or `natacpi`.
-Please refrain from opening issues for this.
+Please refrain from opening issues.
 
 Battery has been removed
 ^^^^^^^^^^^^^^^^^^^^^^^^
