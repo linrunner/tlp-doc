@@ -29,6 +29,8 @@ you which package to install:
 * **tp_smapi** *(Community)* – optional – External kernel module providing battery
   charge thresholds, recalibration and specific :command:`tlp-stat -b` output
   for older ThinkPads
+* **tp_smapi-lts** *(Community)* – optional – Use instead of `tp_smapi` when the
+  LTS kernel is installed
 
 Install them either with your favorite package manager or the command ::
 
