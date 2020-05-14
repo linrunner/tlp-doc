@@ -36,7 +36,7 @@ Install them either with your favorite package manager or the command ::
 
     pacman -S acpi_call tp_smapi
 
-omitting the ones not required by your hardware.
+omitting the one not required by your hardware.
 
 .. note::
 
