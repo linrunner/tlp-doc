@@ -29,7 +29,6 @@ DEVICES_TO_ENABLE_ON_*_DISCONNECT
 ---------------------------------------------
 .. rubric:: Enable on Network Disconnect
 
-
 ::
 
     DEVICES_TO_ENABLE_ON_LAN_DISCONNECT="wifi wwan"
