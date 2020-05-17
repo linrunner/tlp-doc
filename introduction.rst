@@ -44,7 +44,7 @@ System suspend - ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)
 System resume
     Applies the settings profile corresponding to the current power source AC/BAT.
 
-LAN, Wi-Fi, WWAN connect/disconnect, laptop docked/undocked (:doc:`/settings/rdw`)
+LAN, Wi-Fi, WWAN connect/disconnect or laptop docked/undocked (:doc:`/settings/rdw`)
     Enable or disable builtin bluetooth, Wi-Fi and WWAN devices depending on your
     individual settings (this is disabled in the default configuration).
 
