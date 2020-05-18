@@ -16,13 +16,13 @@ How it works
 TLP's actions are event-driven. The following events will cause the settings to
 be applied or changed:
 
-Plugging in the charger (AC power)
+Charger plugged in (AC powered)
     Applies the AC settings profile.
 
-Unplugging the charger (BAT power)
+Charger unplugged (battery powered)
     Applies the BAT settings profile.
 
-Plug in an USB device
+USB device plugged in
     Activates USB autosuspend mode for the device (if not automatically excluded
     or blacklisted).
 
@@ -44,7 +44,7 @@ System suspend - ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)
 System resume
     Applies the settings profile corresponding to the current power source AC/BAT.
 
-LAN, Wi-Fi, WWAN connect/disconnect or laptop docked/undocked (:doc:`/settings/rdw`)
+LAN, Wi-Fi, WWAN connected/disconnected or laptop docked/undocked (:doc:`/settings/rdw`)
     Enable or disable builtin bluetooth, Wi-Fi and WWAN devices depending on your
     individual settings (this is disabled in the default configuration).
 
@@ -59,13 +59,13 @@ LAN, Wi-Fi, WWAN connect/disconnect or laptop docked/undocked (:doc:`/settings/r
 
     TLP does not monitor the above events itself but relies on a range of
     system daemons, namely `systemd`, `udevd` and `NetworkManager`.
-    Therefore TLP does not include a daemon and there is no `tlp` process
-    showing up in the output of :command:`ps`.
+    Therefore TLP does not include a daemon and there is no permanent `tlp`
+    background process showing up in the output of :command:`ps`.
 
 Features
 ========
 :doc:`/settings/index` are organized into two profiles, enabling you to adjust
-between savings and performance independently for battery (BAT) and AC operation.
+between savings and performance independently for battery (BAT) and AC operation:
 
 * Kernel laptop mode and dirty buffer timeouts
 * Processor frequency scaling including 'turbo boost' and 'turbo core'
