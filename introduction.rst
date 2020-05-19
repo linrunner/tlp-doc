@@ -13,8 +13,8 @@ specific requirements.
 
 How it works
 ============
-TLP's actions are event-driven. The following events will cause the settings to
-be applied or changed:
+TLP's actions are event-driven. The following events will cause settings to
+be applied:
 
 Charger plugged in (AC powered)
     Applies the AC settings profile.
