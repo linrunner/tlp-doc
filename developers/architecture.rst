@@ -75,4 +75,4 @@ radio devices.
 
 .. seealso::
 
-    :doc:`/introduction`
+    :doc:`/introduction` has more details on the event-related settings.

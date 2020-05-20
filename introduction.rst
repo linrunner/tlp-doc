@@ -60,7 +60,8 @@ LAN, Wi-Fi, WWAN connected/disconnected or laptop docked/undocked (:doc:`/settin
     TLP does not monitor the above events itself but relies on a range of
     system daemons, namely `systemd`, `udevd` and `NetworkManager`.
     Therefore TLP does not include a daemon and there is no permanent `tlp`
-    background process showing up in the output of :command:`ps`.
+    background process showing up in the output of :command:`ps`. Refer to
+    :doc:`/developers/architecture` for details.
 
 Features
 ========
