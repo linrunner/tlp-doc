@@ -46,7 +46,7 @@ you which package to install:
 
 Install them either with your favorite package manager or the command ::
 
-    sudo apt -install acpi-call-dkms tp-smapi-dkms
+    sudo apt install acpi-call-dkms tp-smapi-dkms
 
 omitting the one not required by your hardware.
 
