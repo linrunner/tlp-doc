@@ -114,10 +114,10 @@ This step applies the following strategy to isolate a bus oriented device:
 ^^^^^^^^^^^^^^^^
 .. rubric:: Disable Runtime Power Management completely
 
-Comment both related config lines with a leading `#`: ::
+Change both related config lines: ::
 
-    #RUNTIME_PM_ON_AC=on
-    #RUNTIME_PM_ON_BAT=auto
+    RUNTIME_PM_ON_AC=
+    RUNTIME_PM_ON_BAT=
 
 When the problem disappears, uncomment above lines and continue with the
 next section. Otherwise the cause is not a PCIe device – proceed to

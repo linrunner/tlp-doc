@@ -14,6 +14,8 @@ Possible values:
 * off – disabled
 * on – enabled
 
+Default when unconfigured: off (AC), on (BAT)
+
 Hint: deprecated config values 1=off/5=on are supported for backwards
 compatibility.
 
@@ -32,7 +34,7 @@ WOL_DISABLE
 * Y – Wake on LAN disabled
 * N – Wake on LAN enabled
 
-Default when unconfigured: N
+Default when unconfigured: Y
 
 .. note::
 

@@ -77,8 +77,6 @@ Default when unconfigured: auto
 
     This setting makes the display flicker briefly when the power source changes.
 
-
 .. seealso::
 
     * `Radeon driver documentation <https://wiki.x.org/wiki/RadeonFeature>`_ – see "KMS Power Management Options"
-

@@ -19,7 +19,7 @@ Possible values:
 * 1 – enable
 * 0 – disable
 
-Default when unconfigured: 0
+Default when unconfigured: 1
 
 .. _set-usb-blacklist:
 

@@ -24,4 +24,4 @@ MAX_LOST_WORK_SECS_ON_AC/BAT
 
 Timeout (in seconds) for writing unsaved data in file system buffers to disk.
 
-Default when unconfigured: 15 (AC and battery)
+Default when unconfigured: 15 (AC), 60 (battery)

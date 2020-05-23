@@ -16,7 +16,7 @@ Controls runtime power management for PCIe devices. Possible values:
 * auto – enabled (power down idle devices)
 * on – disabled (devices powered on permanently)
 
-Hint: to disable this setting completely, insert a `#` in the first column.
+Default when unconfigured: on (AC), auto (BAT)
 
 .. _set-runtimepm-blacklist:
 
@@ -66,6 +66,8 @@ Sets PCIe ASPM power saving mode. Possible values:
 * performance
 * powersave
 * powersupersave
+
+Default when unconfigured: default
 
 .. note::
 
