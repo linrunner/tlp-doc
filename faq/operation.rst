@@ -54,16 +54,19 @@ Make shure, as a prerequisite, that:
 
 systemd: must I enable TLP's service units?
 -------------------------------------------
-Yes. The service units are essential for TLP's operation:
+Yes. The service units are *indispensable* for correct operation:
 
 * **tlp.service**: applies power saving settings and switches radio devices on
   system boot and shutdown
 * **tlp-sleep.service**: applies powers saving upon system suspend and resume
   (not applicable for version 1.3 and higher)
 
-.. warning::
+.. note::
 
-    Some distributions won't enable the services by default.
+    Debian, Fedora and Ubuntu enable the service by default as part of the
+    package :doc:`/installation/index`, others such as Arch Linux don't.
+    If unshure check the output of :command:`tlp-stat -s` for corresponding
+    notes.
 
 How to temporarily use battery settings on AC (and vice versa)?
 ---------------------------------------------------------------
