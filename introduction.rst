@@ -11,6 +11,8 @@ specific requirements.
 
     TLP is a pure command line utility. It does not contain a GUI.
 
+.. _intro-how-it-works:
+
 How it works
 ============
 TLP's actions are event-driven. The following events will cause settings to
@@ -61,7 +63,7 @@ LAN, Wi-Fi, WWAN connected/disconnected or laptop docked/undocked (:doc:`/settin
     system daemons, namely `systemd`, `udevd` and `NetworkManager`.
     Therefore TLP does not include a daemon and there is no permanent `tlp`
     background process showing up in the output of :command:`ps`. Refer to
-    :doc:`/developers/architecture` for details.
+    :doc:`/developers/architecture` for technical details.
 
 Features
 ========

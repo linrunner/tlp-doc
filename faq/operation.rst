@@ -24,6 +24,12 @@ How do I stop or disable TLP completely?
   from applying charge thresholds and switching radios on system startup/shutdown;
   power saving settings are applied nevertheless (see above)*
 
+.. seealso::
+
+    Background: :ref:`intro-how-it-works` (user perspective) and
+    :doc:`/developers/architecture` (technical) explain TLP's event-driven
+    actions.
+
 .. _faq-start-tlp:
 
 How do I start/restart TLP – and apply power saving?
