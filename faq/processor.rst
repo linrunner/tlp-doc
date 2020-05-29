@@ -1,6 +1,22 @@
 Processor
 =========
 
+How to limit power consumption under high CPU loads?
+----------------------------------------------------
+The `intel_pstate` scaling driver offers this possibility. Use the settings ::
+
+    CPU_MAX_PERF_ON_AC=nn
+    CPU_MAX_PERF_ON_BAT=nn
+
+with `nn` < 100 to achieve this. Refer to :ref:`set-cpu-mix-max-perf`.
+
+.. note::
+
+    * Check the output of :command:`tlp-stat -p` to determine the active
+      scaling driver
+    * These settings will not limit the power consumption of the GPU (neither
+      for integrated nor for discrete graphics)
+
 Frequency Scaling Settings do not get applied
 ---------------------------------------------
 Symptom: :command:`tlp-stat -p` shows values that do not reflect configuration.
