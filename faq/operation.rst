@@ -65,6 +65,24 @@ Yes. The service units are essential for TLP's operation:
 
     Some distributions won't enable the services by default.
 
+How to temporarily use battery settings on AC (and vice versa)?
+---------------------------------------------------------------
+Invoke `manual mode` with the following commands: ::
+
+    tlp bat
+    tlp ac
+
+Manual mode will remain until the next reboot or until terminated with the
+command ::
+
+    tlp start
+
+.. seealso::
+
+    * :ref:`set-persistent-default` for a permanent change
+    * :doc:`/usage/tlp` command
+
+
 AC or BAT is not detected
 -------------------------
 This also concerns changes from AC to BAT and vice versa.

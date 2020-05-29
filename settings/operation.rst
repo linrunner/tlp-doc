@@ -20,6 +20,8 @@ TLP_DEFAULT_MODE
 Defines TLP's default operation mode (`AC` or `BAT`) in case a power source cannot
 be detected. Concerns some desktop and embedded hardware only.
 
+.. _set-persistent-default:
+
 TLP_PERSISTENT_DEFAULT
 ----------------------
 ::
@@ -33,8 +35,11 @@ Selects how the operation mode is determined:
 
 Default when unconfigured: 0
 
-Hint: `TLP_DEFAULT_MODE=BAT`, `TLP_PERSISTENT_DEFAULT=1` forces BAT settings
-while AC powered.
+.. note::
+    To force BAT settings while AC powered, use: ::
+
+        TLP_DEFAULT_MODE=BAT
+        TLP_PERSISTENT_DEFAULT=1
 
 TLP_PS_IGNORE
 -------------
@@ -49,5 +54,7 @@ Power supply class to ignore when determining operation mode:
 * `AC`
 * `BAT`
 
-Hint: use as a workaround for laptops where operation mode AC or BAT is
-incorrectly detected.
+.. note::
+
+    Use as a workaround for laptops where operation mode AC or BAT is
+    incorrectly detected.
