@@ -388,10 +388,18 @@ to activate the thresholds.
 .. rubric:: ThinkPad Edge, E / L / S series, SL410/510, Yoga series
 
 On these models the threshold values shown by :command:`tlp-stat -b` do not
-correspond to the written values. For example the setting `START_CHARGE_THRESH_BATx=75`
-/ `STOP_CHARGE_THRESH_BATx=80` shows 75 / 74. The described behavior is caused
-by the firmware (UEFI/BIOS), not by TLP. Nonetheless the charge thresholds work
-as configured.
+correspond to the written values. For example the settings ::
+
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=80
+
+may show up as ::
+
+    /sys/class/power_supply/BAT0/charge_start_threshold         =     75 [%]
+    /sys/class/power_supply/BAT0/charge_stop_threshold          =     74 [%]
+
+The described behavior is caused by the firmware (UEFI/BIOS), not by TLP.
+Nonetheless the charge thresholds work as configured.
 
 .. _faq-start-thresholds-does-not-apply:
 
