@@ -9,14 +9,15 @@ workarounds for common problems. Topics covered are:
    installation
    settings
    audio
-   Battery Features <battery>
-   Disk Drives <disks>
+   battery
+   disks
    graphics
-   Input Devices <input>
+   input
    operation
    powertop
+   powercon
    processor
    radio
    usb
    warnings
-   Miscellaneous <misc>
+   misc

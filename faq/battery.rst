@@ -11,7 +11,7 @@ What are the 'Battery Features'?
     * :doc:`/settings/battery` (Settings)
     * :ref:`cmd-tlp-battery-features` (Commands)
 
-How do I get 'Battery Features' support for my non-ThinkPad Laptop?
+How do I get 'Battery Features' support for my non-ThinkPad laptop?
 -------------------------------------------------------------------
 Battery Features require a kernel driver matching your laptop brand or series.
 Kernel driver development is not part of the project, TLP just probes active
