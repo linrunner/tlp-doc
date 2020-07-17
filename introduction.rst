@@ -7,6 +7,11 @@ TLP's default settings are already optimized for battery life, so you may just
 install and forget it. Nevertheless TLP is highly customizable to fulfil your
 specific requirements.
 
+.. important::
+
+    TLP will take care of the majority of settings that :command:`powertop --autotune`
+    would, and with less trial and error, see :doc:`/faq/powertop`.
+
 .. note::
 
     TLP is a pure command line utility. It does not contain a GUI.
@@ -15,8 +20,28 @@ specific requirements.
 
 How it works
 ============
-TLP's actions are event-driven. The following events will cause settings to
-be applied:
+What TLP basically does is tweaking `kernel settings` that affect power
+consumption.
+
+So what are `kernel settings`?
+------------------------------
+First of all `kernel settings` are of a volatile nature. Their state is held in
+RAM during runtime and the kernel provides no persistence for them.
+Upon boot the kernel creates a default state and changes have to be re-applied
+on every boot by a `user space tool`. TLP is such a `user space tool`.
+
+Profiles
+--------
+TLP provides two independent sets of :doc:`/settings/index` called profiles,
+one for battery (BAT) and one for AC operation.
+This means that TLP must apply the appropriate profile not only at boot, but
+also each time the power source changes.
+
+Event-driven architecture
+-------------------------
+
+To achieve all of the above, TLP's actions are event-driven. The following events
+will cause settings to be applied:
 
 Charger plugged in (AC powered)
     Applies the AC settings profile.
@@ -29,15 +54,18 @@ USB device plugged in
     or blacklisted).
 
 System startup (boot)
-    Applies the settings profile corresponding to the current power source AC/BAT.
+    Applies the settings profile corresponding to the current power source
+    AC/BAT, applies charge thresholds and switches bluetooth, Wi-Fi and WWAN
+    devices depending on your individual settings (this is disabled in the
+    default configuration).
 
 System shutdown (power off)
     Applies the AC settings profile so that the laptop is powered off as fast
     as possible.
 
 System reboot
-    Applies the AC settings profile to reboot swiftly. After reboot applies the
-    settings profile corresponding to the current power source AC/BAT.
+    Applies the AC settings profile to reboot swiftly and after reboot proceeds
+    as described above for system startup.
 
 System suspend - ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)
     Applies the AC settings profile so that the suspend state is reached as
@@ -97,7 +125,4 @@ Additional settings - independent of the power source - are:
 * Bluetooth and WWAN state is restored after suspend/hibernate
 * Battery charge thresholds and recalibration – ThinkPads only
 
-.. important::
-
-    * TLP implements :doc:`/faq/powertop`'s recommendations out of the box, so
-      there is no need to also run :command:`powertop --autotune` on boot.
+.
