@@ -30,6 +30,17 @@ RAM during runtime and the kernel provides no persistence for them.
 Upon boot the kernel creates a default state and changes have to be re-applied
 on every boot by a `user space tool`. TLP is such a `user space tool`.
 
+Most `kernel settings` TLP works on are exported to user space as
+`sysfs nodes <https://en.wikipedia.org/wiki/Sysfs>`_
+i.e. files below **/sys/**. The output of :command:`tlp-stat` will show the
+paths.
+
+.. important::
+
+    Not all `sysfs nodes` shown by :command:`tlp-stat` are actually touched
+    by TLP when applying settings, some are displayed for information or
+    diagnostic purposes only.
+
 Profiles
 --------
 TLP provides two independent sets of :doc:`/settings/index` called profiles,
