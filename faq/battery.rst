@@ -437,8 +437,14 @@ the charge level from around 30% to zero when employing charge thresholds.
 
 Probable cause: conflict with dualmode battery firmware.
 
-Solution: remove battery thresholds completely or use only the start threshold;
-then recalibrate battery once.
+Solution: remove battery thresholds completely or use only the start threshold
+by setting the stop threshold to 100%: ::
+
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=100
+
+
+Then recalibrate the battery once.
 
 .. note::
 
