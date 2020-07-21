@@ -452,9 +452,6 @@ Then recalibrate the battery once.
 
 .. _faq-panel-applet-soc:
 
-In contrast, for ThinkPad models supporting `tp-smapi` :command:`tlp-stat -b`
-shows the correct state in **/sys/devices/platform/smapi/BATx/state**.
-
 Do charge thresholds work even when TLP is not running or the laptop is powered off?
 ------------------------------------------------------------------------------------
 Yes. For ThinkPads the charging process is not controlled by software running on
@@ -572,8 +569,11 @@ Why does the panel applet show the battery state 'charging' despite charge thres
 ----------------------------------------------------------------------------------------------------
 Existing panel applets query `upowerd` or the standard kernel interface which do
 not reflect the charging condition correctly as soon as charge thresholds intervene.
+
 In this situation :command:`tlp-stat -b` shows 'Unknown (threshold effective)' for
-**/sys/class/power_supply/BATx/status**. There is no solution at the moment.
+**/sys/class/power_supply/BATx/status**. For ThinkPad models supporting
+`tp-smapi` :command:`tlp-stat -b`, the correct state is shown in
+**/sys/devices/platform/smapi/BATx/state**.
 
 Why does `tlp-stat -b` display 'cycle_count = (not supported)'?
 ---------------------------------------------------------------
