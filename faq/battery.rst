@@ -572,8 +572,7 @@ not reflect the charging condition correctly as soon as charge thresholds interv
 
 In this situation :command:`tlp-stat -b` shows 'Unknown (threshold effective)' for
 **/sys/class/power_supply/BATx/status**. For ThinkPad models supporting
-`tp-smapi` :command:`tlp-stat -b`, the correct state is shown in
-**/sys/devices/platform/smapi/BATx/state**.
+`tp-smapi`, the correct state 'Idle' is shown for **/sys/devices/platform/smapi/BATx/state**.
 
 Why does `tlp-stat -b` display 'cycle_count = (not supported)'?
 ---------------------------------------------------------------
