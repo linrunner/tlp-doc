@@ -107,7 +107,7 @@ This step applies the following strategy to isolate a bus oriented device:
 
 .. important::
 
-    Make shure to reboot the computer after *every* configuration
+    Make sure to reboot the computer after *every* configuration
     change for this step!
 
 6.1 PCIe devices

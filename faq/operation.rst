@@ -44,7 +44,7 @@ How do I start/restart TLP – and apply power saving?
     having to restart the system, the first time you can start it manually
     as explained above.
 
-Make shure, as a prerequisite, that:
+Make sure, as a prerequisite, that:
 
 * `TLP_ENABLE=1` is configured
 * systemd service units are enabled, see below; the output of
@@ -71,7 +71,7 @@ Yes. The service units are *indispensable* for correct operation:
 
     Debian, Fedora and Ubuntu enable the service by default as part of the
     package :doc:`/installation/index`, others such as Arch Linux don't.
-    If unshure check the output of :command:`tlp-stat -s` for corresponding
+    If unsure check the output of :command:`tlp-stat -s` for corresponding
     notes.
 
 How to temporarily use battery settings on AC (and vice versa)?
