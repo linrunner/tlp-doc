@@ -73,7 +73,7 @@ Which kernel module do I need for my hardware?
 ----------------------------------------------
 .. note::
 
-    Prerequisite: make shure to install the most recent version of TLP for
+    Prerequisite: make sure to install the most recent version of TLP for
     accurate recommendations.
 
 Check the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
@@ -560,7 +560,7 @@ Cause: this is a hardware issue either with your battery (likely), charger or la
 Impact: recalibration doesn't work at all without a full discharge to tell the
 battery controller (the one *in* the battery) where the actual 0% is.
 
-Solution: make shure AC power is connected during the whole process,
+Solution: make sure AC power is connected during the whole process,
 try to replace your battery next.
 
 .. _faq-cycle-count:
