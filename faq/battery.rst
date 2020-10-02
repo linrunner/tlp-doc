@@ -116,8 +116,8 @@ API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`
     tpacpi-bat = active (recalibrate)
     tp-smapi = inactive (ThinkPad not supported)
 
-As of kernel 5.5 the patches for discharge/recalibrate haven't been merged.
-The full implementation will look like this:
+As of kernel 5.9 the patches for discharge/recalibrate haven't been merged.
+A full implementation would look like this:
 
 .. code-block:: none
 
