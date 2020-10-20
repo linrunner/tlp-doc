@@ -17,14 +17,13 @@ Debian stable, testing and unstable
 TLP and ThinkPad-related packages below are available via the official Debian
 repository.
 
-Debian 10.0 "Buster" and 9.0 "Stretch"
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Newer TLP packages are available via `Debian Backports`_.
+Debian 10.0 "Buster"
+^^^^^^^^^^^^^^^^^^^^
+Newer TLP packages are available via `Debian backports`_.
 
-Add the line matching your Debian version to your **/etc/apt/sources.list**: ::
+Add the following line to your **/etc/apt/sources.list**: ::
 
     deb http://ftp.debian.org/debian buster-backports main
-    deb http://ftp.debian.org/debian stretch-backports-sloppy main
 
 Update package data: ::
 
@@ -44,10 +43,6 @@ either with your favorite package manager or the command: ::
 For `Debian Backports`_ use: ::
 
     apt -t buster-backports install tlp tlp-rdw
-
-or ::
-
-    apt -t stretch-backports-sloppy install tlp tlp-rdw
 
 instead.
 
@@ -75,6 +70,11 @@ omitting the one not required by your hardware.
 
     * Refer to :ref:`faq-which-kernel-module` for details
     * You must disable Secure Boot to use the ThinkPad specific packages
+
+.. important::
+
+    When using a kernel from Buster backports, then you must install
+    **acpi-call-dkms** from :ref:`backports too <faq-acpi-call-dkms-package>`.
 
 .. _`Debian Backports`: https://backports.debian.org/Instructions/
 

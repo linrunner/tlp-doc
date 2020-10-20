@@ -163,6 +163,8 @@ It may be necessary to rebuild the kernel modules (as root): ::
 
     akmods --force
 
+.. _faq-acpi-call-dkms-package:
+
 Installation of package `acpi-call-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. important::
