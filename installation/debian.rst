@@ -66,15 +66,20 @@ Install them either with your favorite package manager or the command ::
 
 omitting the one not required by your hardware.
 
+.. important::
+
+    When using a kernel from Buster backports, you must install **acpi-call-dkms**
+    from backports too: ::
+
+        apt -t buster-backports install acpi-call-dkms
+
+    Otherwise the :ref:`DKMS build will fail <faq-acpi-call-dkms-package>`.
+
 .. note::
 
     * Refer to :ref:`faq-which-kernel-module` for details
     * You must disable Secure Boot to use the ThinkPad specific packages
 
-.. important::
-
-    When using a kernel from Buster backports, then you must install
-    **acpi-call-dkms** from :ref:`backports too <faq-acpi-call-dkms-package>`.
 
 .. _`Debian Backports`: https://backports.debian.org/Instructions/
 
