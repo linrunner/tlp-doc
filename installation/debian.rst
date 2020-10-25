@@ -68,7 +68,7 @@ omitting the one not required by your hardware.
 
 .. important::
 
-    When using a kernel from Buster backports, you must install **acpi-call-dkms**
+    When using a kernel from Buster backports, you must install `acpi-call-dkms`
     from backports too: ::
 
         apt -t buster-backports install acpi-call-dkms

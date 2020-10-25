@@ -16,14 +16,15 @@ depends on the active scaling driver:
 For Intel Core i 2nd gen. ("Sandy Bridge") or newer Intel CPUs. Supported
 governors are:
 
-* powersave – recommended (kernel default)
+* powersave – kernel default
 * performance
+* schedutil - kernel default for certain hardware that uses `intel_pstate` passive mode
 
 .. rubric:: acpi-cpufreq
 
-For all AMD and older Intel CPUs. Supported governors are:
+For AMD, other brands and older Intel CPUs. Supported governors are:
 
-* ondemand – recommended (default for most distributions)
+* ondemand – kernel default (for most distributions)
 * schedutil
 * powersave
 * performance
