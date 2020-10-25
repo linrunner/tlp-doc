@@ -66,6 +66,14 @@ Also look for tools already integrated into your specific Linux distribution or
 desktop. Last but not least, your laptop may permit to disable the dGPU in the
 BIOS setup.
 
+Nvidia Optimus with nouveau driver
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Audio power saving is disabled by default on AC. This prevents automatic power
+down of the GPU. Change the :ref:`corresponding setting <set-audio-powersave>`
+to: ::
+
+    SOUND_POWER_SAVE_ON_AC=1
+
 Fan noise on AC power
 ---------------------
 A common reason is elevated power dissipation due to

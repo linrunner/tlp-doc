@@ -1,6 +1,8 @@
 Audio
 =====
 
+.. _set-audio-powersave:
+
 SOUND_POWER_SAVE_ON_AC/BAT
 --------------------------
 ::
