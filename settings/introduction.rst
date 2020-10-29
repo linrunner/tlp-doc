@@ -1,7 +1,8 @@
 Introduction
 ============
-This section explains how TLP's settings are organized, the syntax of the
-parameters used and how to change them.
+This section explains how TLP's settings are `organized <#profiles>`_, the
+`syntax of the parameters <#syntax-notes>`_ used and how to
+`change <#making-changes>`_ them.
 
 Profiles
 --------

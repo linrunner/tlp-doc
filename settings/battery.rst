@@ -17,6 +17,15 @@ Set battery charge thresholds for main battery (BAT0) and auxiliary/Ultrabay
 battery (BAT1). Values are given as a percentage of the full capacity. A value of
 0 is translated to the hardware defaults 96/100%.
 
+.. important::
+
+    * You must always specify both thresholds - *start and stop* - for a battery,
+      otherwise TLP will ignore the setting completely (and silently).
+    * To use only the start threshold set the stop threshold to 100%: ::
+
+        START_CHARGE_THRESH_BAT0=75
+        STOP_CHARGE_THRESH_BAT0=100
+
 .. note::
 
     * Charging starts upon connecting AC power, but only if the charge level is

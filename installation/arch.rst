@@ -21,20 +21,21 @@ ThinkPads only
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
-The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will guide
-you which package to install:
+The output of :command:`tlp-stat -b` will guide you which package to install:
 
 * **acpi_call** *(Community)* – optional – External kernel module providing battery
   charge thresholds and recalibration for newer ThinkPads (X220/T420 and later)
 * **tp_smapi** *(Community)* – optional – External kernel module providing battery
   charge thresholds, recalibration and specific :command:`tlp-stat -b` output
   for older ThinkPads
+* **tp_smapi-lts** *(Community)* – optional – Use instead of `tp_smapi` when the
+  LTS kernel is installed
 
 Install them either with your favorite package manager or the command ::
 
     pacman -S acpi_call tp_smapi
 
-omitting the ones not required by your hardware.
+omitting the one not required by your hardware.
 
 .. note::
 
@@ -47,11 +48,7 @@ To complete the installation you must enable TLP's service: ::
 
    systemctl enable tlp.service
 
-Version 1.2.2 and lower require an additional service: ::
-
-   systemctl enable tlp-sleep.service
-
-Using the :doc:`/settings/rdw` (tlp-rdw) requires yet another service: ::
+Using the :doc:`/settings/rdw` (tlp-rdw) requires one more service: ::
 
    systemctl enable NetworkManager-dispatcher.service
 

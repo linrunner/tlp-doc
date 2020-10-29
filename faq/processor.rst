@@ -1,7 +1,11 @@
 Processor
 =========
 
-Frequency Scaling Settings do not get applied
+.. seealso::
+
+    :ref:`faq-powercon-cpu-dp`
+
+Frequency scaling settings do not get applied
 ---------------------------------------------
 Symptom: :command:`tlp-stat -p` shows values that do not reflect configuration.
 

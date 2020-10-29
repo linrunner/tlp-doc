@@ -67,8 +67,17 @@ actual power source, e.g.:
 * AC – setting named `FEATURE_ON_AC`
 * Battery – setting named `FEATURE_ON_BAT`
 
-Examine your system if the symptom occurs on AC or battery or both. Use the
-result when disabling a power saving feature below. Proceed with the next step.
+Examine your system if the symptom occurs on AC or battery or both. If it
+occurs with one power source only, then you can focus on settings that are
+different for AC and BAT when selectively disabling power saving features
+as described in the following sections.
+
+.. important::
+
+    When a setting is unconfigured (i.e. has a leading `#`), pay attention to the
+    corresponding `Default:` line.
+
+Proceed with the next step.
 
 Step 5: Is the causing device already known?
 --------------------------------------------
@@ -107,17 +116,17 @@ This step applies the following strategy to isolate a bus oriented device:
 
 .. important::
 
-    Make shure to reboot the computer after *every* configuration
+    Make sure to reboot the computer after *every* configuration
     change for this step!
 
 6.1 PCIe devices
 ^^^^^^^^^^^^^^^^
 .. rubric:: Disable Runtime Power Management completely
 
-Comment both related config lines with a leading `#`: ::
+Change both related config lines: ::
 
-    #RUNTIME_PM_ON_AC=on
-    #RUNTIME_PM_ON_BAT=auto
+    RUNTIME_PM_ON_AC=
+    RUNTIME_PM_ON_BAT=
 
 When the problem disappears, uncomment above lines and continue with the
 next section. Otherwise the cause is not a PCIe device – proceed to

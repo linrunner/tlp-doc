@@ -29,7 +29,7 @@ Try the search field in the navbar.
 
 .. rubric:: Learn
 
-As a new user read :doc:`/features` to learn about your benefits,
+As a new user read :doc:`/introduction` to learn about your benefits,
 then proceed with :doc:`/installation/index` and :doc:`/usage/index`.
 Finally :doc:`/settings/index` will tell you how to customize the
 configuration if desired. Find out about new features in the
@@ -52,7 +52,7 @@ Contents
    :maxdepth: 2
    :includehidden:
 
-   features
+   introduction
    installation/index
    usage/index
    settings/index

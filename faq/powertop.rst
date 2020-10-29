@@ -4,7 +4,9 @@ Powertop
 Does Powertop achieve better power saving than TLP?
 ---------------------------------------------------
 Basically no. TLP's default configuration is based on the same policy as Powertop's
-recommendations. Refer to the following sections for details and exceptions.
+recommendations. TLP will take care of the majority of settings that
+:command:`powertop --autotune` would, and with less trial and error.
+Refer to the following sections for details and exceptions.
 
 Does Powertop conflict with TLP?
 --------------------------------
@@ -19,8 +21,13 @@ regardless of whether or not Powertop is installed.
 
 .. note::
 
-    On the other hand, attempting to run :command:`powertop --auto-tune` on each boot
-    may overwrite TLP's settings depending on the actual boot order.
+    * Attempting to run :command:`powertop --auto-tune` on boot may overwrite
+      TLP's settings (depending on whether Powertop or TLP is invoked first
+      in the boot order)
+    * Furthermore TLP will overwrite Powertop's initial settings every time the
+      power source changes
+    * Refer to :ref:`intro-how-it-works` for details
+
 
 Why does Powertop suggest more power saving settings with TLP already running?
 ------------------------------------------------------------------------------

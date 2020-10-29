@@ -25,9 +25,10 @@ Check the output for
    State = enabled
    Last Run = <Time of system start or last change of power source>
 
-.. note::
+.. important::
 
-    There is no TLP background process or daemon that shows up in :command:`ps`.
+    TLP does not include a daemon and there is no `tlp` process
+    showing up in the output of :command:`ps`.
 
 Version
 =======

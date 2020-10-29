@@ -11,7 +11,6 @@ code contributions and packaging of TLP for Linux distributions.
    files
    makefile
    dependencies
-   boot
    architecture
    scripts
    debug

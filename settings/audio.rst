@@ -1,6 +1,8 @@
 Audio
 =====
 
+.. _set-audio-powersave:
+
 SOUND_POWER_SAVE_ON_AC/BAT
 --------------------------
 ::
@@ -10,6 +12,8 @@ SOUND_POWER_SAVE_ON_AC/BAT
 
 Timeout (in seconds) for the audio power saving mode (supports Intel HDA, AC97).
 A value of 0 disables power save.
+
+Default when unconfigured: 0 (AC), 1 (BAT)
 
 .. note::
 

@@ -44,6 +44,8 @@ Some selected values are:
 * 255 – disable APM (not supported by some disk models)
 * keep – special value to skip this setting for the particular disk (synonym: _)
 
+Default when unconfigured: "254 254" (AC), "128 128" (BAT)
+
 Values for multiple disks are separated with blanks.
 
 .. note::
@@ -133,12 +135,13 @@ drives. Possible values (in order of increasing power saving):
   (Kernel ≥ 4.15 required, then recommended)
 * min_power – max power saving / minimum performance
 
+Default when unconfigured: "med_power_with_dipm max_performance" (AC),
+"med_power_with_dipm min_power" (BAT)
+
 Multiple values separated with spaces are tried sequentially until success.
 TLP 1.1 and higher determine automatically when `med_power_with_dipm` is
 available. For that a second value is provided in the default configuration
 as a fallback for older kernels.
-
-Hint: to disable this setting completely, insert a `#` in the first column.
 
 SATA_LINKPWR_BLACKLIST
 ----------------------

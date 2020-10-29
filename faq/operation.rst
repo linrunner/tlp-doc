@@ -24,6 +24,12 @@ How do I stop or disable TLP completely?
   from applying charge thresholds and switching radios on system startup/shutdown;
   power saving settings are applied nevertheless (see above)*
 
+.. seealso::
+
+    Background: :ref:`intro-how-it-works` (user perspective) and
+    :doc:`/developers/architecture` (technical) explain TLP's event-driven
+    actions.
+
 .. _faq-start-tlp:
 
 How do I start/restart TLP – and apply power saving?
@@ -38,7 +44,7 @@ How do I start/restart TLP – and apply power saving?
     having to restart the system, the first time you can start it manually
     as explained above.
 
-Make shure, as a prerequisite, that:
+Make sure, as a prerequisite, that:
 
 * `TLP_ENABLE=1` is configured
 * systemd service units are enabled, see below; the output of
@@ -54,16 +60,37 @@ Make shure, as a prerequisite, that:
 
 systemd: must I enable TLP's service units?
 -------------------------------------------
-Yes. The service units are essential for TLP's operation:
+Yes. The service units are *indispensable* for correct operation:
 
 * **tlp.service**: applies power saving settings and switches radio devices on
   system boot and shutdown
 * **tlp-sleep.service**: applies powers saving upon system suspend and resume
   (not applicable for version 1.3 and higher)
 
-.. warning::
+.. note::
 
-    Some distributions's packages won't enable the services by default.
+    Debian, Fedora and Ubuntu enable the service by default as part of the
+    package :doc:`/installation/index`, others such as Arch Linux don't.
+    If unsure check the output of :command:`tlp-stat -s` for corresponding
+    notes.
+
+How to temporarily use battery settings on AC (and vice versa)?
+---------------------------------------------------------------
+Invoke `manual mode` with the following commands: ::
+
+    tlp bat
+    tlp ac
+
+Manual mode will remain until the next reboot or until terminated with the
+command ::
+
+    tlp start
+
+.. seealso::
+
+    * :ref:`set-persistent-default` for a permanent change
+    * :doc:`/usage/tlp` command
+
 
 AC or BAT is not detected
 -------------------------
@@ -80,7 +107,7 @@ or ::
     PS_IGNORE=BAT
 
 
-.. _faq-ac-quirk:
+.. faq-ac-quirk:
 
 AC is not detected when plugged in
 ----------------------------------
@@ -90,13 +117,17 @@ Symptoms: :command:`tlp-stat -s` shows ::
 
     Power source = battery
 
-:command:`tlp-stat --psus` shows only the battery ::
+:command:`tlp-stat --psus` shows only the battery
+
+.. code-block:: none
 
     /sys/class/power_supply/BAT0/type:Battery
     /sys/class/power_supply/BAT0/present:1
     /sys/class/power_supply/BAT0/device/path:_SB_.BAT0
 
-Charger is present when booted on AC only: ::
+Charger is present when booted on AC only:
+
+.. code-block:: none
 
     /sys/class/power_supply/AC/type:Mains
     /sys/class/power_supply/AC/online:1
@@ -144,7 +175,9 @@ Solution: enable Wake-on-LAN ::
 
 Exit Code 4
 -----------
-Symptom: journal shows the message ::
+Symptom: journal shows the message
+
+.. code-block:: none
 
     ERROR: systemd-udevd[1234]: Process '/usr/bin/tlp auto' failed with exit code 4
 

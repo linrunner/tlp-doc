@@ -11,7 +11,7 @@ What are the 'Battery Features'?
     * :doc:`/settings/battery` (Settings)
     * :ref:`cmd-tlp-battery-features` (Commands)
 
-How do I get 'Battery Features' support for my non-ThinkPad Laptop?
+How do I get 'Battery Features' support for my non-ThinkPad laptop?
 -------------------------------------------------------------------
 Battery Features require a kernel driver matching your laptop brand or series.
 Kernel driver development is not part of the project, TLP just probes active
@@ -73,7 +73,7 @@ Which kernel module do I need for my hardware?
 ----------------------------------------------
 .. note::
 
-    Prerequisite: make shure to install the most recent version of TLP for
+    Prerequisite: make sure to install the most recent version of TLP for
     accurate recommendations.
 
 Check the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
@@ -116,8 +116,8 @@ API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`
     tpacpi-bat = active (recalibrate)
     tp-smapi = inactive (ThinkPad not supported)
 
-As of kernel 5.5 the patches for discharge/recalibrate haven't been merged.
-The full implementation will look like this:
+As of kernel 5.9 the patches for discharge/recalibrate haven't been merged.
+A full implementation would look like this:
 
 .. code-block:: none
 
@@ -163,10 +163,36 @@ It may be necessary to rebuild the kernel modules (as root): ::
 
     akmods --force
 
+.. _faq-acpi-call-dkms-package:
+
 Installation of package `acpi-call-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Debian derivatives with kernel >= 4.12 will need at least package version 1.1.0-4
-(from Debian Buster).
+.. important::
+
+    `acpi_call` and derived packages are not provided by the TLP project.
+    Please don't file bug reports for them in the TLP issue tracker.
+
+Symptoms: :command:`tlp-stat -b` shows
+
+.. code-block:: none
+
+    tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
+
+Package install shows
+
+.. code-block:: none
+
+    Setting up acpi-call-dkms ...
+    Error! Bad return status for module build on kernel: ...
+
+Solution: upgrade the package:
+
+.. rubric:: Debian and Ubuntu derivatives
+
+* Kernel ≥ 4.12 needs at least package version 1.1.0-4
+  (Debian Buster or Ubuntu 18.04)
+* Kernel ≥ 5.6 needs at least package version 1.1.0-6
+  (Debian Buster Backports, Debian unstable or Ubuntu 20.10)
 
 Kernel module `acpi-call` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -191,32 +217,48 @@ and use adequate forums to resolve your issue with `acpi-call`.
 
 Installation of package `tp-smapi-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Symptom (Ubuntu): package install shows
+.. important::
+
+    `tp-smapi` and derived packages are not provided by the TLP project.
+    Please don't file bug reports for them in the TLP issue tracker.
+
+Symptoms (Ubuntu): :command:`tlp-stat -b` shows
 
 .. code-block:: none
 
-    Setting up tp-smapi-dkms (0.41-1) ...
-    Creating symlink /var/lib/dkms/tp-smapi/0.41/source ->
-    /usr/src/tp-smapi-0.41
-    DKMS: add completed.
-    Error! Your kernel headers for kernel 3.X.0-YY-generic cannot be found.
-    Please install the linux-headers-3.X.0-YY-generic package,
-    or use the --kernelsourcedir option to tell DKMS where it's located
+    tp-smapi = inactive (kernel module 'tp_smapi' not installed)
+
+Package install shows
+
+.. code-block:: none
+
+    Setting up tp-smapi-dkms ...
+    Error! Your kernel headers for kernel X.Y.0-NN-generic cannot be found.
+    Please install the linux-headers-X.Y.0-NN-generic package
 
 Solution: install package **linux-generic-headers**.
 
-Symptom (Ubuntu 16.04 HWE kernel 4.8): package install shows
+Symptoms: :command:`tlp-stat -b` shows
 
 .. code-block:: none
 
-    Setting up tp-smapi-dkms (0.41-1) ...
-    make KERNELRELEASE=4.8.0-46-generic -C /lib/modules/4.8.0-46-generic/build M=/var/lib/dkms/tp-smapi/0.41/build....(bad exit status: 2)
-    Error! Bad return status for module build on kernel: 4.8.0-46-generic (x86_64)
+    tp-smapi = inactive (kernel module 'tp_smapi' not installed)
 
-Solution: either enable the TLP PPA (see :doc:`/installation/ubuntu`) and update
-your packages (recommended) or download version
-`0.43-1 from Focal <https://packages.ubuntu.com/focal/tp-smapi-dkms>`_
-and install it manually.
+Package install shows
+
+.. code-block:: none
+
+    Setting up tp-smapi-dkms ...
+    Error! Bad return status for module build on kernel: ...
+
+Solution: upgrade the package:
+
+.. rubric:: Ubuntu 16.04
+
+* Either enable the TLP PPA (see :doc:`/installation/ubuntu`) and update
+  your packages (recommended)
+* or download version `0.43-1 from Focal <https://packages.ubuntu.com/focal/tp-smapi-dkms>`_
+  and install it manually
 
 Kernel module `tp-smapi` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -295,18 +337,19 @@ Yet they do not work.
 
 Cause: bug in Lenovo's Embedded Controller (EC) firmware.
 
-Workaround: remove thresholds completely with
+Workaround:
 
-.. code-block:: sh
+* Update BIOS (contains EC firmware) to 1.16 or higher
+* Remove thresholds once from EC with :command:`tlp fullcharge`
+* Leave the thresholds enabled in the config file
+* Reboot, which will restore the configured thresholds
 
-    sudo tlp fullcharge
+.. _faq-unsupported-thinkpads:
 
-then continue with the workaround for :ref:`faq-disabling-thresholds-does-not-work`.
-
-ThinkPad L420/520, SL300/400/500, X121e
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ThinkPad L420/520, L512, SL300/400/500, X121e
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 These models are neither supported by `tp-smapi` nor by `tpacpi-bat` or `natacpi`.
-Please refrain from opening issues for this.
+Please refrain from opening issues.
 
 Battery has been removed
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -347,10 +390,18 @@ to activate the thresholds.
 .. rubric:: ThinkPad Edge, E / L / S series, SL410/510, Yoga series
 
 On these models the threshold values shown by :command:`tlp-stat -b` do not
-correspond to the written values. For example the setting `START_CHARGE_THRESH_BATx=75`
-/ `STOP_CHARGE_THRESH_BATx=80` shows 75 / 74. The described behavior is caused
-by the firmware (UEFI/BIOS), not by TLP. Nonetheless the charge thresholds work
-as configured.
+correspond to the written values. For example the settings ::
+
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=80
+
+may show up as ::
+
+    /sys/class/power_supply/BAT0/charge_start_threshold         =     75 [%]
+    /sys/class/power_supply/BAT0/charge_stop_threshold          =     74 [%]
+
+The described behavior is caused by the firmware (UEFI/BIOS), not by TLP.
+Nonetheless the charge thresholds work as configured.
 
 .. _faq-start-thresholds-does-not-apply:
 
@@ -388,17 +439,20 @@ the charge level from around 30% to zero when employing charge thresholds.
 
 Probable cause: conflict with dualmode battery firmware.
 
-Solution: remove battery thresholds completely or use only the start threshold;
-then recalibrate battery once.
+Solution: remove battery thresholds completely or use only the start threshold
+by setting the stop threshold to 100%: ::
+
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=100
+
+
+Then recalibrate the battery once.
 
 .. note::
 
     This is a software only issue, no harm is done to the battery.
 
 .. _faq-panel-applet-soc:
-
-In contrast, for ThinkPad models supporting `tp-smapi` :command:`tlp-stat -b`
-shows the correct state in **/sys/devices/platform/smapi/BATx/state**.
 
 Do charge thresholds work even when TLP is not running or the laptop is powered off?
 ------------------------------------------------------------------------------------
@@ -478,8 +532,8 @@ Cause: after applying a stop threshold value < 100, Lenovo's embedded controller
 
 Solution: update EC firmware (contained in BIOS update)
 
-* T480s: ECP 1.13 (BIOS 1.31)
-* X1 Carbon 6th: ECP 1.12 (BIOS 1.37)
+* T480s: ECP 1.13 (BIOS 1.31) or higher
+* X1 Carbon 6th: ECP 1.12 (BIOS 1.37) or higher
 
 Workaround (without BIOS update):
 
@@ -508,7 +562,7 @@ Cause: this is a hardware issue either with your battery (likely), charger or la
 Impact: recalibration doesn't work at all without a full discharge to tell the
 battery controller (the one *in* the battery) where the actual 0% is.
 
-Solution: make shure AC power is connected during the whole process,
+Solution: make sure AC power is connected during the whole process,
 try to replace your battery next.
 
 .. _faq-cycle-count:
@@ -517,8 +571,10 @@ Why does the panel applet show the battery state 'charging' despite charge thres
 ----------------------------------------------------------------------------------------------------
 Existing panel applets query `upowerd` or the standard kernel interface which do
 not reflect the charging condition correctly as soon as charge thresholds intervene.
+
 In this situation :command:`tlp-stat -b` shows 'Unknown (threshold effective)' for
-**/sys/class/power_supply/BATx/status**. There is no solution at the moment.
+**/sys/class/power_supply/BATx/status**. For ThinkPad models supporting
+`tp-smapi`, the correct state 'Idle' is shown for **/sys/devices/platform/smapi/BATx/state**.
 
 Why does `tlp-stat -b` display 'cycle_count = (not supported)'?
 ---------------------------------------------------------------

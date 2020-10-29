@@ -27,7 +27,7 @@ Depending on your model and kernel version external kernel module(s) are require
 to provide battery charge thresholds and recalibration.
 
 The necessary packages are not available from the official Fedora repositories.
-Instead you need to add the RPM Fusion and TLP repositories: ::
+Instead you need to add the `RPM Fusion` and `ThinkPad Extras` repositories: ::
 
    dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
    dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
@@ -36,23 +36,30 @@ The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will 
 you which package to install:
 
 * **kernel-devel** *(Fedora repo)* – Needed for the `akmod` packages below
-* **akmod-acpi_call** *(TLP repo)* – optional – External kernel module providing
+* **akmod-acpi_call** *(ThinkPad Extras repo)* – optional – External kernel module providing
   battery charge thresholds and recalibration for newer ThinkPads (X220/T420 and later)
-* **akmod-tp_smapi** *(TLP repo)* – optional – External kernel module providing
+* **akmod-tp_smapi** *(ThinkPad Extras repo)* – optional – External kernel module providing
   battery charge thresholds, recalibration and specific :command:`tlp-stat -b`
   output for older ThinkPads
 
+.. note::
+
+    The RPM Fusion repo delivers build dependencies for the `akmod-*` packages.
+
 .. important::
 
-    The `akmod-*` packages are provided by a volunteer, not by the TLP project.
-    Please *do not file issues* if they are not yet available for the latest
-    Fedora version.
+    * The `akmod-*` packages are provided "as is" by a volunteer, they are
+      not part of the TLP project
+    * Please *do not file issues* if they are not yet available for the
+      latest Fedora version
+    * In case of difficulties installing them, please ask for help in your
+      preferred Fedora forum
 
 Install them either with your favorite package manager or the command ::
 
    dnf install kernel-devel akmod-acpi_call akmod-tp_smapi
 
-omitting the ones not required by your hardware.
+omitting the one not required by your hardware.
 
 New packages are available first in the testing repository: ::
 
@@ -65,21 +72,21 @@ New packages are available first in the testing repository: ::
 
 How to validate the Repository Keys
 -----------------------------------
-Kernel module packages provided by the TLP repository for Fedora are signed
-with a release specific key. Yo may check the fingerprint with the following
-procedure.
+Kernel module packages provided by the ThinkPad Extras repository for Fedora are
+signed with a release specific key. Yo may check the fingerprint with the
+following procedure.
 
 1. Download the key:
 
 .. code-block:: none
 
-    wget https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-31-primary
+    wget https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-32-primary
 
 2. Get the fingerprint:
 
 .. code-block:: none
 
-    gpg -n -q --import --import-options import-show RPM-GPG-KEY-tlp-fedora-31-primary
+    gpg -n -q --import --import-options import-show RPM-GPG-KEY-tlp-fedora-32-primary
 
 3. Check that the resulting fingerprint matches the fingerprint from the list below.
 
@@ -87,10 +94,14 @@ procedure.
 
 .. code-block:: none
 
-    rpm --import RPM-GPG-KEY-tlp-fedora-28-primary
+    rpm --import RPM-GPG-KEY-tlp-fedora-32-primary
 
 Fingerprints
 ^^^^^^^^^^^^
+RPM-GPG-KEY-tlp-fedora-32-primary: ::
+
+    6BED 8C16 80E0 E9DC D310 94FB 274D 8DB1 A690 281B
+
 RPM-GPG-KEY-tlp-fedora-31-primary: ::
 
     685D B6BB 26B9 A03B 2924 71CF 3CA1 F6C1 B629 712A
