@@ -149,12 +149,14 @@ SATA_LINKPWR_BLACKLIST
 
     SATA_LINKPWR_BLACKLIST="host1"
 
-Exclude listed SATA host devices from link power management. Look into the
-output of :command:`tlp-stat -d`, section `AHCI Link Power Management (ALPM)`,
-to determine valid host identifiers (format: `hostX`). This is intended as a
-workaround for SATA host devices not bearing power management.
+Exclude SATA disk devices from AHCI link power management (ALPM).
+This is intended as a workaround for SATA disk devices not bearing link power
+management.
 
-Separate multiple hosts with spaces.
+Disk devices are specified by their host bus adapter port aka "host".
+Refer to the output of :command:`tlp-stat -d`, section `AHCI Link Power Management (ALPM)`,
+to determine valid host identifiers (format: `hostX`). Separate multiple host
+identifiers with spaces.
 
 .. seealso::
 
