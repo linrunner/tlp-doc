@@ -126,7 +126,7 @@ SATA_LINKPWR_ON_AC/BAT
     SATA_LINKPWR_ON_AC="med_power_with_dipm max_performance"
     SATA_LINKPWR_ON_BAT="med_power_with_dipm min_power"
 
-Sets the power management mode for the SATA links connecting disk and optical
+Sets the power management mode for the SATA links connecting disks and optical
 drives. Possible values (in order of increasing power saving):
 
 * max_performance – minimum power saving / max performance
@@ -149,14 +149,12 @@ SATA_LINKPWR_BLACKLIST
 
     SATA_LINKPWR_BLACKLIST="host1"
 
-Exclude SATA disk devices from AHCI link power management (ALPM).
-This is intended as a workaround for SATA disk devices not bearing link power
-management.
+Exclude SATA disks from AHCI link power management (ALPM). This is intended as
+a workaround for SATA disks not bearing link power management.
 
-Disk devices are specified by their host bus adapter port aka "host".
-Refer to the output of :command:`tlp-stat -d`, section `AHCI Link Power Management (ALPM)`,
-to determine valid host identifiers (format: `hostX`). Separate multiple host
-identifiers with spaces.
+Disks are specified by their host. Refer to the output of :command:`tlp-stat -d`,
+section `AHCI Link Power Management (ALPM)`, to determine the host;
+the format is `hostX`. Separate multiple hosts with spaces.
 
 .. seealso::
 
