@@ -4,6 +4,12 @@ This section lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/master/changelog>`_.
 
+Version 1.4 (under development)
+    Dependencies:
+
+    - Removed: **lsb-release**
+
+
 Version 1.3
     New configuration scheme:
 
