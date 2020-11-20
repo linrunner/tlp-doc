@@ -480,19 +480,19 @@ firmware offers no way to do this, neither manual nor automatic.
 
 Why does the battery not start to discharge when the stop threshold is reached during charging?
 -----------------------------------------------------------------------------------------------
-*Author's remark: sometimes users trap into this misconception without me having
+*Author's remark: sometimes users trap into this misunderstanding without me having
 understood how it happens. This is the attempt to lead them out again.*
 
 The task of the stop threshold is to reduce battery wear by limiting the charge
-level below 100%. So charging stops at the threshold value and the battery will
-not be discharged as long as the charger remains connected.
+level below 100%. So charging stops at the threshold and the battery will not be
+discharged as long as the charger remains connected.
 
-This is the behaviour intended by the manufacturer. It is hard-coded into the EC
-firmware (see above) and behaves identically for the pre-loaded OS.
+This is the behaviour defined by Lenovo. It is hard-coded into the EC firmware
+(see above) and behaves identically for the pre-loaded OS.
 
-In contrast, repeated discharge of the battery during operation on AC power,
-when it has reached the desired maximum state of charge, would lead to absurdly
-high wear (i.e. charging cycles), without any benefit being derived from it.
+In contrast, repeated discharge of the battery during operation on AC power would
+lead to absurdly high wear (i.e. charging cycles) without any benefit being derived
+from it.
 
 Can I prevent discharging the battery by setting the start threshold?
 ---------------------------------------------------------------------
