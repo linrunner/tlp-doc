@@ -29,6 +29,14 @@ RUNTIME_PM_BLACKLIST
 Exclude listed PCIe device addresses from runtime power management. Use
 :command:`lspci` to lookup the addresses (first output column).
 
+.. important::
+
+    * Exclusion of a device means that the value `on` or `auto` as initialized by
+      the kernel default at system startup is used and TLP won't touch it at all
+
+    * A device initialized to `auto` by the kernel cannot be set to `on` by
+      entering it into `RUNTIME_PM_BLACKLIST`
+
 .. _set-runtimepm-driver-blacklist:
 
 RUNTIME_PM_DRIVER_BLACKLIST
@@ -50,6 +58,10 @@ Default when unconfigured: "amdgpu mei_me nouveau nvidia pcieport radeon"
     The default serves to prevent accidential power on of hybrid graphics' discrete
     part. Use an empty list ("") to disable the feature completely (not recommended).
 
+.. important::
+
+    A device initialized to `auto` by the kernel cannot be set to `on` by
+    entering its driver into `RUNTIME_PM_DRIVER_BLACKLIST` (see above).
 
 PCIE_ASPM_ON_AC/BAT
 -------------------
