@@ -1,6 +1,8 @@
 Processor
 =========
 
+.. _set-cpu-scaling-governor:
+
 CPU_SCALING_GOVERNOR_ON_AC/BAT
 ------------------------------
 ::
@@ -16,29 +18,37 @@ depends on the active scaling driver:
 For Intel Core i 2nd gen. ("Sandy Bridge") or newer Intel CPUs. Supported
 governors are:
 
-* powersave – kernel default
 * performance
-* schedutil - kernel default for certain hardware that uses `intel_pstate` passive mode
+* powersave – default
+
+.. rubric:: intel_cpufreq
+
+Starting with kernel 5.7, the `intel_pstate` scaling driver selects "passive mode"
+aka `intel_cpufreq` for CPUs that do not support hardware-managed P-states (HWP).
+Supported governors are identical to the `acpi-cpufreq` driver below, the default
+scheduler is `schedutil`.
 
 .. rubric:: acpi-cpufreq
 
 For AMD, other brands and older Intel CPUs. Supported governors are:
 
-* ondemand – kernel default (for most distributions)
-* schedutil
+* conservative
+* ondemand – default for most distributions
+* userspace
 * powersave
 * performance
-* conservative
+* schedutil – default for newer kernels and the `intel_cpufreq` driver above
 
-Hint: refer to the output of :command:`tlp-stat -p` to determine the active
-scaling driver and available governors.
+.. note::
+
+    Refer to the output of :command:`tlp-stat -p` to determine the active
+    scaling driver and available governors.
 
 .. important::
 
-    `powersave` for `intel_pstate` and `ondemand` for `acpi-cpufreq` are power
-    efficient for almost all workloads and therefore kernel and most distributions
-    have chosen them as defaults; if you still want to change the scaling governor,
-    you should know what you're doing!
+    Default governors listed above are power efficient for almost all workloads,
+    therefore kernel devs and most distributions have chosen them as such. If you
+    still want to change the scaling governor, you should know what you're doing!
 
 CPU_SCALING_MIN/MAX_FREQ_ON_AC/BAT
 ----------------------------------
@@ -86,8 +96,9 @@ Default when unconfigured: balance_performance (AC), balance_power (BAT)
 
 Hints:
 
-* Requires Intel Core i CPU and the `intel_pstate` scaling driver
-* `HWP.EPP` requires kernel 4.10 and Intel Core i Gen. 5 (Skylake) or newer CPU
+* Requires Intel Core i CPU and `intel_pstate` or `intel_cpufreq` scaling driver
+* Hardware-managed P-states aka `HWP.EPP` require kernel 4.10 and Intel Core i
+  Gen. 5 (Skylake) or newer CPU
 * `EPB` requires kernel 5.2 or module msr and x86_energy_perf_policy from linux-tools
 * When `HWP.EPP` is available, `EPB` is not set
 
@@ -131,7 +142,7 @@ percentage (0..100%) of the total available processor performance.
 
 Hints:
 
-* Requires the `intel_pstate` scaling driver
+* Requires `intel_pstate` or `intel_cpufreq` scaling driver
 * The driver imposes a limit > 0 on the min P-state, see `min_perf_pct` in the
   output of :command:`tlp-stat -p`
 * This setting is intended to limit the power dissipation of the CPU
