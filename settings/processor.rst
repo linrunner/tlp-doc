@@ -98,7 +98,7 @@ Hints:
 
 * Requires Intel Core i CPU and `intel_pstate` or `intel_cpufreq` scaling driver
 * Hardware-managed P-states aka `HWP.EPP` require kernel 4.10 and Intel Core i
-  Gen. 5 (Skylake) or newer CPU
+  6th gen. ("Skylake") or newer CPU
 * `EPB` requires kernel 5.2 or module msr and x86_energy_perf_policy from linux-tools
 * When `HWP.EPP` is available, `EPB` is not set
 
@@ -122,7 +122,8 @@ of increasing power saving):
 
 Hints:
 
-* Requires Intel Core i Gen. 5 (Skylake) or newer CPU and the `intel_pstate` scaling driver
+* Requires and Intel Core i 6th gen. ("Skylake") or newer CPU and the `intel_pstate`
+  scaling driver
 * Requires kernel 4.10
 * For version 1.3 and higher this parameter is replaced by :ref:`set-cpu-energy-perf-policy`
 

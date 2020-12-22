@@ -20,8 +20,9 @@ and :command:`tlp-stat -p` displays ::
 
 Cause: starting with kernel 5.7, the `intel_pstate` scaling driver selects
 "passive mode" aka `intel_cpufreq` for CPUs that do not support hardware-managed
-P-states (HWP). The governor `powersave` provided by `intel_cpufreq` works differently
-than the one provided by `intel_pstate` and produces the sluggish behaviour.
+P-states (HWP), i.e. Intel Core i 6th Gen. ("Skylake") or newer. The governor
+`powersave` provided by `intel_cpufreq` works differently than the one provided
+by `intel_pstate` and produces the sluggish behaviour.
 
 Solution: use the default governor – should be `schedutil` - by commenting
 above configuration lines or configure it explictly: ::
