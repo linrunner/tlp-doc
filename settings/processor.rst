@@ -24,7 +24,9 @@ governors are:
 .. rubric:: intel_cpufreq
 
 Starting with kernel 5.7, the `intel_pstate` scaling driver selects "passive mode"
-aka `intel_cpufreq` for CPUs that do not support hardware-managed P-states (HWP).
+aka `intel_cpufreq` for CPUs that do not support hardware-managed P-states (HWP),
+i.e. Intel Core i 5th gen. or older.
+
 Supported governors are identical to the `acpi-cpufreq` driver below, the default
 scheduler is `schedutil`.
 
@@ -96,10 +98,11 @@ Default when unconfigured: balance_performance (AC), balance_power (BAT)
 
 Hints:
 
-* Requires Intel Core i CPU and `intel_pstate` or `intel_cpufreq` scaling driver
-* Hardware-managed P-states aka `HWP.EPP` require kernel 4.10 and Intel Core i
-  6th gen. ("Skylake") or newer CPU
-* `EPB` requires kernel 5.2 or module msr and x86_energy_perf_policy from linux-tools
+* `HWP.EPP` (hardware-managed P-states): requires kernel 4.10, `intel_pstate`
+  scaling driver and Intel Core i  6th gen. ("Skylake") or newer CPU
+* `EPB`: requires kernel 5.2 (or module msr and x86_energy_perf_policy from linux-tools),
+  `intel_pstate` or `intel_cpufreq` scaling driver and Intel Core i 2nd gen.
+  (“Sandy Bridge”) or newer CPU
 * When `HWP.EPP` is available, `EPB` is not set
 
 CPU_HWP_ON_AC/BAT
@@ -122,9 +125,8 @@ of increasing power saving):
 
 Hints:
 
-* Requires and Intel Core i 6th gen. ("Skylake") or newer CPU and the `intel_pstate`
-  scaling driver
-* Requires kernel 4.10
+* Requires kernel 4.10, `intel_pstate` scaling driver and Intel Core i 6th gen.
+  ("Skylake") or newer CPU
 * For version 1.3 and higher this parameter is replaced by :ref:`set-cpu-energy-perf-policy`
 
 .. _set-cpu-mix-max-perf:
@@ -138,12 +140,13 @@ CPU_MIN/MAX_PERF_ON_AC/BAT
     CPU_MIN_PERF_ON_BAT=0
     CPU_MAX_PERF_ON_BAT=30
 
-Define the min/max P-state for Intel Core i processors. Values are stated as a
+Define the min/max P-state for Intel CPUs. Values are stated as a
 percentage (0..100%) of the total available processor performance.
 
 Hints:
 
-* Requires `intel_pstate` or `intel_cpufreq` scaling driver
+* Requires `intel_pstate` or `intel_cpufreq` scaling driver and Intel Core i 2nd gen.
+  ("Sandy Bridge") or newer CPU
 * The driver imposes a limit > 0 on the min P-state, see `min_perf_pct` in the
   output of :command:`tlp-stat -p`
 * This setting is intended to limit the power dissipation of the CPU
@@ -155,13 +158,12 @@ CPU_BOOST_ON_AC/BAT
     CPU_BOOST_ON_AC=1
     CPU_BOOST_ON_BAT=0
 
-Disable CPU "turbo boost" (Intel) or "turbo core" (AMD) feature (0 = disable /
+Configure CPU "turbo boost" (Intel) or "turbo core" (AMD) feature (0 = disable /
 1 = allow).
 
-Hints:
+.. note::
 
-* A value of 1 does not activate boosting, it just allows it
-* This may conflict with your distribution's governor settings
+    A value of 1 does not activate boosting, it just allows it.
 
 SCHED_POWERSAVE_ON_AC/BAT
 -------------------------
@@ -195,7 +197,8 @@ increasing power saving):
 
 Hints:
 
-* Requires the `intel_pstate` scaling driver
+* Requires `intel_pstate` or `intel_cpufreq` scaling driver and Intel Core i 2nd gen.
+  ("Sandy Bridge") or newer CPU
 * Requires the kernel module `msr` and the tool `x86_energy_perf_policy` matching
   your kernel version
 * For version 1.3 and higher this parameter is replaced by :ref:`set-cpu-energy-perf-policy`
