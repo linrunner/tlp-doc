@@ -14,7 +14,7 @@ What are the 'Battery Features'?
 How do I get 'Battery Features' support for my non-ThinkPad laptop?
 -------------------------------------------------------------------
 Battery Features require a kernel driver matching your laptop brand or series.
-Kernel driver development is not part of the project, TLP just probes active
+Kernel driver development is not part of the project, TLP just probes existing
 drivers and provides a unified interface to them.
 
 Thus *your* todos are:
@@ -25,6 +25,14 @@ Thus *your* todos are:
   `natacpi framework <https://github.com/linrunner/TLP/issues/321>`_,
   exposing sysfiles `charge_start_threshold` and `charge_stop_threshold`
 * Result: TLP supports your laptop out of the box
+
+How do battery charge thresholds work?
+--------------------------------------
+See :doc:`/settings/battery`.
+
+What is the purpose of battery charge thresholds?
+-------------------------------------------------
+See :doc:`/settings/battery`.
 
 How to choose good battery charge thresholds?
 ---------------------------------------------
@@ -66,6 +74,58 @@ protective regarding lifespan, with 75/80% charge thresholds.
     to fully charge the battery, when you need to temporarily maximize runtime
     (for example in case of a trip).
 
+How can I check if my configured charge thresholds are working?
+---------------------------------------------------------------
+The output of :command:`tlp-stat -b` shows two characteristics for the positive
+case:
+
+1. The active feature driver for the charge thresholds
+2. The active charge thresholds – read back from the embedded controller
+
+So if there is a line containing `active (thresholds)` and the displayed
+thresholds match the ones you configured, then the charging logic has properly
+received them.
+
+The following are three examples for different ThinkPad generations and kernel
+versions:
+
+.. code-block:: none
+
+    +++ Battery Features
+    natacpi    = active (thresholds)
+    ...
+    /sys/class/power_supply/BAT0/charge_start_threshold         =     75 [%]
+    /sys/class/power_supply/BAT0/charge_stop_threshold          =     80 [%]
+
+.. code-block:: none
+
+    +++ Battery Features
+    tpacpi-bat = active (thresholds, recalibrate)
+    ...
+    tpacpi-bat.BAT0.startThreshold                              =     75 [%]
+    tpacpi-bat.BAT0.stopThreshold                               =     80 [%]
+
+.. code-block:: none
+
+    +++ Battery Features
+    tp-smapi   = active (thresholds, recalibrate)
+    ...
+    /sys/devices/platform/smapi/BAT0/start_charge_thresh        =     75 [%]
+    /sys/devices/platform/smapi/BAT0/stop_charge_thresh         =     80 [%]
+
+If the output does not contain the required characteristics, check the following
+sections for solutions.
+
+.. note::
+
+    On some models the displayed threshold values do not correspond to
+    the configured ones, although they work as they should
+    – refer to :ref:`faq-elsy-threshold-values`.
+
+However, if despite a correctly set up system the charging thresholds do not
+work as you expect them to, then you should first compare your idea of the
+charging process with the description in :doc:`/settings/battery` and subsequently
+check the sections further down for possible explanations.
 
 .. _faq-which-kernel-module:
 
@@ -387,6 +447,8 @@ or
 
 to activate the thresholds.
 
+.. _faq-elsy-threshold-values:
+
 .. rubric:: ThinkPad Edge, E / L / S series, SL410/510, Yoga series
 
 On these models the threshold values shown by :command:`tlp-stat -b` do not
@@ -400,7 +462,7 @@ may show up as ::
     /sys/class/power_supply/BAT0/charge_start_threshold         =     75 [%]
     /sys/class/power_supply/BAT0/charge_stop_threshold          =     74 [%]
 
-The described behavior is caused by the firmware (UEFI/BIOS), not by TLP.
+The described behavior is caused by the firmware, not by TLP.
 Nonetheless the charge thresholds work as configured.
 
 .. _faq-start-thresholds-does-not-apply:
@@ -423,7 +485,7 @@ Affected hardware: ThinkPad T440s (based on user feedback)
 Symptom: despite the stop threshold is set to 100% either by configuration or by
 :command:`tlp fullcharge/setcharge`, charging of BAT1 stops at around 80%.
 
-Cause: this is hardcoded into Lenovo's embedded controller (EC) firmware.
+Cause: this is hard-coded into Lenovo's embedded controller (EC) firmware.
 After BAT1 reaches 80% charging commences with BAT0 until 100%, afterwards BAT1
 continues until 100%. If a stop threshold is set for BAT0, the last step may never
 happen.
@@ -445,7 +507,6 @@ by setting the stop threshold to 100%: ::
     START_CHARGE_THRESH_BAT0=75
     STOP_CHARGE_THRESH_BAT0=100
 
-
 Then recalibrate the battery once.
 
 .. note::
@@ -456,11 +517,15 @@ Then recalibrate the battery once.
 
 Do charge thresholds work even when TLP is not running or the laptop is powered off?
 ------------------------------------------------------------------------------------
-Yes. For ThinkPads the charging process is not controlled by software running on
-the operating system but by the embedded controller (EC) firmware. TLP just writes
-the thresholds to the corresponding EC registers (via `tp-smapi`, `tpacpi-bat` or
-`natacpi`). Once stored the charge thresholds stay effective permanently.
+Yes. The charging process is not controlled by software running on the laptop's
+operating system but by the embedded controller (EC). TLP only passes the
+threshold values to the EC firmware using the appropriate feature driver.
+Once stored in the EC the charge thresholds stay effective permanently.
 See below for removal.
+
+.. seealso::
+
+    Refer to :doc:`/settings/battery` for details of the charging process.
 
 .. _faq-start-threshold:
 
@@ -469,6 +534,10 @@ What exactly does the start charge threshold `START_CHARGE_THRESH_BATx` do?
 The start charge threshold ensures that the battery is not recharged immediately
 after every short discharge process. The charging process starts only when the
 previous discharge was below the value of `START_CHARGE_THRESH_BATx`.
+
+.. seealso::
+
+    Refer to :doc:`/settings/battery` for details of the charging process.
 
 How to designate the battery to discharge when battery powered?
 ---------------------------------------------------------------
@@ -487,17 +556,14 @@ The task of the stop threshold is to reduce battery wear by limiting the charge
 level below 100%. So charging stops at the threshold and the battery will not be
 discharged as long as the charger remains connected.
 
-This is the behaviour defined by Lenovo. It is hard-coded into the EC firmware
-(see above) and behaves identically for the pre-loaded OS.
+This is the behaviour designated by the manufacturer. It cannot (and should not)
+be changed, because repeated discharge of the battery during operation on AC power
+would lead to absurdly high wear (i.e. charging cycles) without any benefit being
+derived from it.
 
-In contrast, repeated discharge of the battery during operation on AC power would
-lead to absurdly high wear (i.e. charging cycles) without any benefit being derived
-from it.
+.. seealso::
 
-Can I prevent discharging the battery by setting the start threshold?
----------------------------------------------------------------------
-No. Discharging the battery can be prevented only by connecting the charger
-or switching off your ThinkPad.
+    Refer to :doc:`/settings/battery` for details of the charging process.
 
 .. _faq-how-to-disable-thresholds:
 
