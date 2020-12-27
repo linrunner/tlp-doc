@@ -76,7 +76,7 @@ Applies thresholds of 70/90% to the main battery (BAT0).
 .. note::
 
     :command:`tlp setcharge` changes the thresholds only temporarily. To make the
-    chnage permanent, you must activate or change the related settings in the
+    change permanent, you must activate or change the related settings in the
     configuration file. Refer to :doc:`/settings/battery`.
 
 Charge battery to full capacity

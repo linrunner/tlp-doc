@@ -1,20 +1,20 @@
 Battery Charge Thresholds
 =========================
-The purpose of battery charge thresholds is to reduce loss of capacity caused
-by ongoing use of the battery. Firstly, this can be achieved by limiting the
-maximum charge level to below 100% (stop threshold). Secondly, you can set
-that after a short discharge, charging does not immediately start again
-when the power supply is plugged in (start threshold).
+The purpose of battery charge thresholds is to reduce the loss of capacity due
+to wear from ongoing battery operation. Firstly, this can be achieved by limiting
+the maximum charge level to below 100% (stop threshold). Secondly, you can set
+that after a short discharge, charging does not immediately start again when the
+power supply is plugged in (start threshold).
 
 .. rubric:: How does it work?
 
 Battery charging is a process controlled by the embedded controller (EC)
 of your laptop. This makes the process work even when the laptop is switched off
-or no operating system is running. The process works as follows:
+or no operating system is running. It works as follows:
 
 * Charging starts upon connecting AC power, but only if the battery charge
-  level is below the start threshold (`START_CHARGE_TRESH_BATx`); when the
-  charge level is above the start threshold, then it will `not` charge
+  level is below the start threshold (`START_CHARGE_TRESH_BATx`); it will not
+  charge when the level is above the start threshold
 * Charging stops when reaching the stop threshold (`STOP_CHARGE_TRESH_BATx`)
 
 You cannot change the basic behavior described above, because it is hard-coded
@@ -31,8 +31,8 @@ thresholds using TLP.
 
 .. seealso::
 
-    For further questions concerning charge thresholds please visit the FAQ:
-    :doc:`/faq/battery`.
+    For further advice concerning charge thresholds please visit
+    the FAQ: :doc:`/faq/battery`.
 
 .. include:: ../include/disc-battery-features.rst
 
