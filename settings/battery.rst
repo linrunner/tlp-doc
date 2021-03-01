@@ -13,7 +13,7 @@ of your laptop. This makes the process work even when the laptop is switched off
 or no operating system is running. It works as follows:
 
 * Charging starts upon connecting AC power, but only if the battery charge
-  level is below the start threshold (`START_CHARGE_TRESH_BATx`); it will not
+  level is below the start threshold (`START_CHARGE_THRESH_BATx`); it will not
   charge when the level is above the start threshold
 * Charging stops when reaching the stop threshold (`STOP_CHARGE_TRESH_BATx`)
 
