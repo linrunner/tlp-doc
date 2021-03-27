@@ -99,6 +99,7 @@ following procedure.
 Fingerprints
 ^^^^^^^^^^^^
 RPM-GPG-KEY-tlp-fedora-35-primary: ::
+
     65C4 7531 819C 6D74 33BE 25D5 5052 26CB 40D9 3801
 
 RPM-GPG-KEY-tlp-fedora-34-primary: ::
@@ -108,7 +109,7 @@ RPM-GPG-KEY-tlp-fedora-34-primary: ::
 RPM-GPG-KEY-tlp-fedora-33-primary: ::
 
     0D3C F36C EB28 B582 D6DE F296 82B6 D96F 1381 B02A
-    
+
 RPM-GPG-KEY-tlp-fedora-32-primary: ::
 
     6BED 8C16 80E0 E9DC D310 94FB 274D 8DB1 A690 281B
