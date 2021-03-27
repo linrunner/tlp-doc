@@ -80,13 +80,13 @@ following procedure.
 
 .. code-block:: none
 
-    wget https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-33-primary
+    wget https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-34-primary
 
 2. Get the fingerprint:
 
 .. code-block:: none
 
-    gpg -n -q --import --import-options import-show RPM-GPG-KEY-tlp-fedora-33-primary
+    gpg -n -q --import --import-options import-show RPM-GPG-KEY-tlp-fedora-34-primary
 
 3. Check that the resulting fingerprint matches the fingerprint from the list below.
 
@@ -94,10 +94,13 @@ following procedure.
 
 .. code-block:: none
 
-    rpm --import RPM-GPG-KEY-tlp-fedora-33-primary
+    rpm --import RPM-GPG-KEY-tlp-fedora-34-primary
 
 Fingerprints
 ^^^^^^^^^^^^
+RPM-GPG-KEY-tlp-fedora-35-primary: ::
+    65C4 7531 819C 6D74 33BE 25D5 5052 26CB 40D9 3801
+
 RPM-GPG-KEY-tlp-fedora-34-primary: ::
 
     1E4F 2F53 A348 6025 FC4E FD86 7704 0BAF FA30 D1C8
