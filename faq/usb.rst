@@ -11,6 +11,17 @@ Solution: lookup the corresponding USB device ID with :command:`lsusb`, add it t
 
 .. include:: /include/usb-excluded-devices.rst
 
+
+Newly inserted USB devices not recognized in battery mode
+---------------------------------------------------------
+Affected hardware: ThinkPad T495
+(see `Issue #436 <https://github.com/linrunner/TLP/issues/436>`_).
+
+Workaround: blacklist the USB controllers with ::
+
+    RUNTIME_PM_BLACKLIST="06:00.3 06:00.4"
+
+
 Smartphone does not charge when connected
 -----------------------------------------
 Solution: exclude the smartphone from autosuspend and reconnect the device.

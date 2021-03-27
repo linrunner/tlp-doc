@@ -31,7 +31,7 @@ iw - *mandatory*
 laptop-mode-tools - *conflicts*
     There can only be one power management tool at a time.
 
-lsb-release - *optional*
+lsb-release - *optional* [before 1.4]
     Used to show distribution/release in :command:`tlp-stat -s`.
 
 pciutils - *mandatory*
