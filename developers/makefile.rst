@@ -74,6 +74,9 @@ Parameters
    * - TLP_BIN
      - /usr/bin
      - Install directory
+   * - TLP_BATD
+     - /usr/share/tlp/bat.d
+     - [from 1.4] Install directory for battery plugins
    * - TLP_ELOD
      - /lib/elogind/system-sleep
      - [from 1.2] Install directory elogind suspend/resume script

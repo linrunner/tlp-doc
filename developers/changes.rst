@@ -9,6 +9,10 @@ Version 1.4 (under development)
 
     - Removed: **lsb-release**
 
+    New battery plugin architecture for wear control on non-ThinkPads:
+
+    - **/usr/share/tlp/bat.d/** – Directory with provided plugins
+
 
 Version 1.3
     New configuration scheme:

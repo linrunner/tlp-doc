@@ -40,6 +40,10 @@ packages:
      - tlp
      - /usr/share/metainfo
      - AppStream metadata
+   * - bat.d/*
+     - tlp
+     - /usr/share/tlp/bat.d/
+     - [from 1.4] TLP battery plugins
    * - func.d/*
      - tlp
      - /usr/share/tlp/func.d/
