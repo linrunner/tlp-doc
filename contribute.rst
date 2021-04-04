@@ -21,8 +21,8 @@ or elsewhere.
 
 Testing
 -------
-You may install and test the `master` branch at any time. Feel free to `file bug
-reports <https://github.com/linrunner/TLP/blob/master/.github/Bug_Reporting_Howto.md>`_
+You may install and test the `main` branch at any time. Feel free to `file bug
+reports <https://github.com/linrunner/TLP/blob/main/.github/Bug_Reporting_Howto.md>`_
 against it. Please refer to :doc:`/developers/index` for more information.
 
 Beta packages are `published here <https://download.linrunner.de/packages/>`_

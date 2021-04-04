@@ -1,4 +1,4 @@
-.. TLP documentation master file, created by
+.. TLP documentation main file, created by
    sphinx-quickstart on Fri Nov 29 09:27:44 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -33,7 +33,7 @@ As a new user read :doc:`/introduction` to learn about your benefits,
 then proceed with :doc:`/installation/index` and :doc:`/usage/index`.
 Finally :doc:`/settings/index` will tell you how to customize the
 configuration if desired. Find out about new features in the
-`Changelog <https://github.com/linrunner/TLP/blob/master/changelog>`_.
+`Changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
 .. rubric:: Resolve
 

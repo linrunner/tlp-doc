@@ -2,17 +2,20 @@ Dev's Changelog
 ===============
 This section lists changes that are relevant for packaging TLP.
 For feature changes see the
-`user oriented changelog <https://github.com/linrunner/TLP/blob/master/changelog>`_.
+`user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
 Version 1.4 (under development)
+    Source:
+
+    - Branch `master` renamed to `main`
+
     Dependencies:
 
     - Removed: **lsb-release**
 
-    New battery plugin architecture for wear control on non-ThinkPads:
+    Files:
 
-    - **/usr/share/tlp/bat.d/** – Directory with provided plugins
-
+    - **/usr/share/tlp/bat.d/** – Directory with provided battery wear control plugins
 
 Version 1.3
     New configuration scheme:

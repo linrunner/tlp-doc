@@ -28,7 +28,7 @@ Bug reports may be filed via the
 .. important::
 
     Please read the
-    `Bug Reporting Howto <https://github.com/linrunner/TLP/blob/master/.github/Bug_Reporting_Howto.md>`_
+    `Bug Reporting Howto <https://github.com/linrunner/TLP/blob/main/.github/Bug_Reporting_Howto.md>`_
     first.
 
 .. note::
