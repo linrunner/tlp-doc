@@ -23,6 +23,8 @@ Install the packages either with your favorite package manager or the command: :
 
 ThinkPads only
 ^^^^^^^^^^^^^^
+.. include:: ../include/thinkpad-kernel-modules.rst
+
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
@@ -37,7 +39,7 @@ you which package to install:
 
 * **kernel-devel** *(Fedora repo)* – Needed for the `akmod` packages below
 * **akmod-acpi_call** *(ThinkPad Extras repo)* – optional – External kernel module providing
-  battery charge thresholds and recalibration for newer ThinkPads (X220/T420 and later)
+  battery recalibration for newer ThinkPads (X220/T420 and later)
 * **akmod-tp_smapi** *(ThinkPad Extras repo)* – optional – External kernel module providing
   battery charge thresholds, recalibration and specific :command:`tlp-stat -b`
   output for older ThinkPads
@@ -55,11 +57,13 @@ you which package to install:
     * In case of difficulties installing them, please ask for help in your
       preferred Fedora forum
 
-Install them either with your favorite package manager or the command ::
+Install the appropriate package either with your favorite package manager
+or the command ::
 
-   dnf install kernel-devel akmod-acpi_call akmod-tp_smapi
+   dnf install kernel-devel akmod-acpi_call
 
-omitting the one not required by your hardware.
+Replace `akmod-acpi_call` with `akmod-tp_smapi` where suitable
+(special case: X220/T420 generation makes use of both).
 
 New packages are available first in the testing repository: ::
 

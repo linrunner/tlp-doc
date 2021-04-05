@@ -21,14 +21,16 @@ Install them either with your favorite package manager or the command: ::
 
 ThinkPads only
 ^^^^^^^^^^^^^^
+.. include:: ../include/thinkpad-kernel-modules.rst
+
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
 The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will
 guide you which package to install:
 
-* **acpi_call** – optional – External kernel module providing battery charge
-  thresholds and recalibration for newer ThinkPads (X220/T420 and later)
+* **acpi_call** – optional – External kernel module providing battery
+  recalibration for newer ThinkPads (X220/T420 and later)
   - `Download acpi_call <https://software.opensuse.org/package/acpi_call>`_
 * **tp_smapi_kmp** – optional – External kernel module providing battery charge
   thresholds, recalibration and specific :command:`tlp-stat -b` output
