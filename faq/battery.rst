@@ -460,7 +460,7 @@ to activate the thresholds.
 
 .. _faq-elsy-threshold-values:
 
-.. rubric:: ThinkPad Edge, E / L / S series, SL410/510, Yoga series
+.. rubric:: ThinkPad 11, Edge, E / L / S series, SL410/510, Yoga series
 
 On these models the threshold values shown by :command:`tlp-stat -b` do not
 correspond to the written values. For example the settings ::
