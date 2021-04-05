@@ -55,17 +55,16 @@ Battery Features
 .. include:: ../include/expl-battery-features.rst
 .. include:: ../include/disc-battery-features.rst
 
-
-Change battery charge thresholds to temporary values
-""""""""""""""""""""""""""""""""""""""""""""""""""""
+Change battery charge thresholds temporarily
+""""""""""""""""""""""""""""""""""""""""""""
 ::
 
-    sudo tlp setcharge [ START_THRESH STOP_THRESH [ BAT0 | BAT1 ] ]
+    sudo tlp setcharge [ START_THRESH STOP_THRESH ] [ BAT0 | BAT1 ]
 
-Sets the thresholds to the given values. Valid thresholds range from 1 to 100;
-`START_THRESH` must be below `STOP_THRESH` - 3. Without parameters the configured
-settings for the main battery (BAT0) are applied. Upon reboot, thresholds are
-reset to the configured settings.
+Changes the charge thresholds for the battery to the given values.
+Valid thresholds range from 1 to 100, `START_THRESH` must be <= `STOP_THRESH` - 4.
+Configured thresholds will be restored at the next boot or by using
+:command:`tlp setcharge` again but without the threshold arguments.
 
 Example: ::
 
@@ -75,9 +74,9 @@ Applies thresholds of 70/90% to the main battery (BAT0).
 
 .. note::
 
-    :command:`tlp setcharge` changes the thresholds only temporarily. To make the
-    change permanent, you must activate or change the related settings in the
-    configuration file. Refer to :doc:`/settings/battery`.
+    :command:`tlp setcharge` changes the charge thresholds only temporarily.
+    To make the change permanent, you must activate or change the related settings
+    in the configuration file. Refer to :doc:`/settings/battery`.
 
 Charge battery to full capacity
 """""""""""""""""""""""""""""""
@@ -85,8 +84,9 @@ Charge battery to full capacity
 
     sudo tlp fullcharge [ BAT0 | BAT1 ]
 
-Applies factory settings i.e. thresholds 96/100% to initiate the charge. Upon
-reboot, thresholds are reset to the configured settings.
+This is done by applying vendor presets to the charge thresholds temporarily.
+Configured thresholds will be restored at the next boot or by using
+:command:`tlp setcharge` without the threshold arguments.
 
 Hint: after setting the thresholds the command terminates; it does not wait for
 the charge to complete.
@@ -97,14 +97,15 @@ Example: ::
 
 Charges the auxiliary battery (BAT1) to full capacity.
 
-Charge battery once to the upper charge threshold
-"""""""""""""""""""""""""""""""""""""""""""""""""
+Charge battery to the stop charge threshold once
+""""""""""""""""""""""""""""""""""""""""""""""""
 ::
 
      sudo tlp chargeonce [ BAT0 | BAT1 ]
 
-Sets the lower threshold to upper threshold - 4 to initiate the charge.
-Upon reboot, thresholds are reset to the configured settings.
+This is done by temporarily lifting the start charge threshold.
+The configured start charge threshold will be restored at the next boot or by using
+:command:`tlp setcharge` without the threshold arguments.
 
 Hint: after setting he thresholds the command terminates; it does not wait for
 the charge to complete.
@@ -137,7 +138,7 @@ Recalibrate battery on AC power
 
 This command works as follows:
 
-* Resets the charge thresholds to factory defaults 96/100 %
+* Applies vendor presets to the charge thresholds
 * Discharges the selected battery completely (see description of
   :command:`tlp discharge` above)
 * When discharging is complete the command terminates; it does not wait for the
@@ -153,6 +154,8 @@ Recalibrates the main battery (BAT0).
 
 Hints:
 
+* Configured thresholds will be restored at the next boot or by using
+  :command:`tlp setcharge` without the threshold arguments
 * ThinkPads with two batteries: the battery controller can only handle one
   battery at a time; while discharging one battery with this command the other
   battery can neither be charged nor discharged
