@@ -34,6 +34,11 @@ Instead you need to add the `RPM Fusion` and `ThinkPad Extras` repositories: ::
    dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
    dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
 
+.. note::
+
+    Above steps are only needed on a new installation of Fedora *but not* after release
+    upgrades.
+
 The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will guide
 you which package to install:
 
@@ -43,19 +48,6 @@ you which package to install:
 * **akmod-tp_smapi** *(ThinkPad Extras repo)* – optional – External kernel module providing
   battery charge thresholds, recalibration and specific :command:`tlp-stat -b`
   output for older ThinkPads
-
-.. note::
-
-    The RPM Fusion repo delivers build dependencies for the `akmod-*` packages.
-
-.. important::
-
-    * The `akmod-*` packages are provided "as is" by a volunteer, they are
-      not part of the TLP project
-    * Please *do not file issues* if they are not yet available for the
-      latest Fedora version
-    * In case of difficulties installing them, please ask for help in your
-      preferred Fedora forum
 
 Install the appropriate package either with your favorite package manager
 or the command ::
@@ -69,8 +61,18 @@ New packages are available first in the testing repository: ::
 
    dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-acpi_call akmod-tp_smapi
 
+.. important::
+
+    * The `akmod-*` packages are provided "as is" by a volunteer, they are
+      not part of the TLP project
+    * Please *do not file issues* if they are not yet available for the
+      latest Fedora version
+    * In case of difficulties installing them, please ask for help in your
+      preferred Fedora forum
+
 .. note::
 
+    * The RPM Fusion repo delivers build dependencies for the `akmod-*` packages
     * Refer to :ref:`faq-which-kernel-module` for details
     * You must disable Secure Boot to use the ThinkPad specific packages
 
