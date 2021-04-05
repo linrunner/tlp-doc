@@ -14,12 +14,13 @@ Solution: lookup the corresponding USB device ID with :command:`lsusb`, add it t
 
 Newly inserted USB devices not recognized in battery mode
 ---------------------------------------------------------
-Affected hardware: ThinkPad T495
+Affected hardware: ThinkPad T495 AMD, T495s AMD
 (see `Issue #436 <https://github.com/linrunner/TLP/issues/436>`_).
 
 Workaround: blacklist the USB controllers with ::
 
-    RUNTIME_PM_BLACKLIST="06:00.3 06:00.4"
+    RUNTIME_PM_BLACKLIST="06:00.3 06:00.4" # T495 AMD
+    RUNTIME_PM_BLACKLIST="05:00.3 05:00.4" # T495s AMD
 
 
 Smartphone does not charge when connected
