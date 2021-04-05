@@ -3,18 +3,18 @@ Settings
 
 Does TLP conflict with my desktop's power settings?
 ---------------------------------------------------
-It depends on the desktop environment and the particular setting. TLP:
+It depends on the individual setting. TLP:
 
-* does not touch display or keyboard backlight brightness → no conflict,
-* does not change suspend / hibernate settings → no conflict,
-* applies Wi-Fi power saving by default → conflict with KDE energy saving
-  settings possible,
-* switches radio devices on and off when configured by the user → conflict with
-  GNOME power settings or KDE energy saving settings possible.
+* Does not touch display or keyboard backlight brightness → no conflict
+* Does not change suspend / hibernate settings → no conflict
+* Applies WiFi power saving by default → conflict with KDE energy saving settings possible
+* Applies charge thresholds  → conflict with KDE charge limit setting possible
+* Switches radio devices on and off when configured by the user →
+  conflict with GNOME power settings or KDE energy saving settings possible
 
 "Conflict possible" means that the setting configured in TLP may get overwritten
-by the desktop's setting (and vice versa). System stability issues are not to be
-expected from those conflicts.
+by the desktop's setting (and vice versa). System stability issues are *not*
+to be expected from those conflicts.
 
 How can I change TLP's settings?
 --------------------------------
