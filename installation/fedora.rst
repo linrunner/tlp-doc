@@ -66,7 +66,7 @@ New packages are available first in the testing repository: ::
     * The `akmod-*` packages are provided "as is" by a volunteer, they are
       not part of the TLP project
     * Please *do not file issues* if they are not yet available for the
-      latest Fedora version
+      latest Fedora version, better watch the `tlp-updates-testing` repository
     * In case of difficulties installing them, please ask for help in your
       preferred Fedora forum
 
