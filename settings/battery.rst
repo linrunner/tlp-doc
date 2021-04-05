@@ -18,7 +18,7 @@ or no operating system is running. It works as follows:
 * Charging stops when reaching the stop threshold (`STOP_CHARGE_TRESH_BATx`)
 
 You cannot change the basic behavior described above, because it is hard-coded
-into the EC firmware by the manufacturer. However, you can control it by setting
+into the EC firmware by the vendor. However, you can control it by setting
 thresholds using TLP.
 
 .. rubric::  What charge thresholds do `not`

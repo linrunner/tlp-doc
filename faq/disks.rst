@@ -8,7 +8,7 @@ The APM setting for battery mode ::
     DISK_APM_LEVEL_ON_BAT=128
 
 corresponds to the Ubuntu default and should cause no problems. Unfortunately
-drive manufacturers interpret the APM levels quite spaciously to save power.
+drive vendors interpret the APM levels quite spaciously to save power.
 
 Solution: try values > 128. See :ref:`set-disks-apm`.
 

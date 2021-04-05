@@ -568,7 +568,7 @@ The task of the stop threshold is to reduce battery wear by limiting the charge
 level below 100%. So charging stops at the threshold and the battery will not be
 discharged as long as the charger remains connected.
 
-This is the behaviour designated by the manufacturer. It cannot (and should not)
+This is the behaviour designated by the vendor. It cannot (and should not)
 be changed, because repeated discharge of the battery during operation on AC power
 would lead to absurdly high wear (i.e. charging cycles) without any benefit being
 derived from it.
