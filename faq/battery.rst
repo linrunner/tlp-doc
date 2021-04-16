@@ -11,21 +11,6 @@ What are the 'Battery Features'?
     * :doc:`/settings/battery` (Settings)
     * :ref:`cmd-tlp-battery-features` (Commands)
 
-How do I get 'Battery Features' support for my non-ThinkPad laptop?
--------------------------------------------------------------------
-Battery Features require a kernel driver matching your laptop brand or series.
-Kernel driver development is not part of the project, TLP just probes existing
-drivers and provides a unified interface to them.
-
-Thus *your* todos are:
-
-* Reengineer your vendor's battery tool for the preloaded OS and document the
-  ACPI calls used for the charge thresholds
-* Implement the ACPI calls in a Linux kernel driver using the
-  `natacpi framework <https://github.com/linrunner/TLP/issues/321>`_,
-  exposing sysfiles `charge_start_threshold` and `charge_stop_threshold`
-* Result: TLP supports your laptop out of the box
-
 How do battery charge thresholds work?
 --------------------------------------
 See :doc:`/settings/battery`.
