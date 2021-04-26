@@ -117,7 +117,7 @@ Symptoms: :command:`tlp-stat -s` shows ::
 
     Power source = battery
 
-:command:`tlp-stat --psus` shows only the battery
+:command:`tlp-stat --psup` shows only the battery
 
 .. code-block:: none
 

@@ -9,8 +9,9 @@ TLP's source code is hosted on `GitHub <https://github.com/linrunner/TLP>`_.
 The repository holds the following branches:
 
 * **main** – current development – releases are tagged with VERSION
-* **debian/current** – Debian/Ubuntu packing for current releases
-* debian/legacy – Debian/Ubuntu packing for old releases (deprecated, unmaintained)
+* **debian/current** – Debian/Ubuntu packaging for current releases
+  (not identical with the official distribution packages)
+* debian/legacy – Debian/Ubuntu packaging for old releases (deprecated, unmaintained)
 
 Obtain the current development version with ::
 
