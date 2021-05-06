@@ -42,10 +42,6 @@ configuration.
 Smartphone does not charge when connected
 -----------------------------------------
 Solution: exclude the smartphone from autosuspend and reconnect the device.
-
-Version 1.0 and higher: configure ::
+Configure ::
 
     USB_BLACKLIST_PHONE=1
-
-Version 0.9 and lower: lookup the smartphone's USB device ID with :command:`lsusb`
-and add it to :ref:`set-usb-blacklist`.

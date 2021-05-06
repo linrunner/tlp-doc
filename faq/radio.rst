@@ -25,19 +25,9 @@ Cause: most internal laptop bluetooth devices and all external bluetooth
 dongles are USB devices. Some do not implement autosuspend mode properly,
 giving trouble to connected devices or preventing discovery or pairing.
 
-.. rubric:: Solutions
+Solution: configure ::
 
-Version 1.0 and newer: configure :ref:`set-usb-blacklist-btusb` =1.
-
-Version 0.9 and before: identify the USB bluetooth device with ::
-
-    tlp-stat -u | grep btusb
-
-and add it to :ref:`set-usb-blacklist`.
-
-Apply the new setting with ::
-
-    sudo tlp usb
+    USB_BLACKLIST_BTUSB=1
 
 
 USB_BLACKLIST_BTUSB=1 does not disable autosuspend
