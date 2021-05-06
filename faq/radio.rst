@@ -5,10 +5,11 @@ Slow or unstable Wi-Fi on battery power
 ---------------------------------------
 Cause: kernel driver does not implement power saving properly.
 
-Solution: disable power saving on battery ::
+Solution: disable power saving on battery in configuration ::
 
     WIFI_PWR_ON_BAT=off
 
+Apply with :command:`tlp start`.
 
 Wi-Fi power saving is activated despite being disabled in TLP's configuration
 -----------------------------------------------------------------------------
@@ -28,6 +29,8 @@ giving trouble to connected devices or preventing discovery or pairing.
 Solution: configure ::
 
     USB_BLACKLIST_BTUSB=1
+
+Apply with :command:`tlp usb`.
 
 
 USB_BLACKLIST_BTUSB=1 does not disable autosuspend
