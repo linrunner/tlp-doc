@@ -54,6 +54,11 @@ Default when unconfigured: 0
 
     This feature is intended to solve stability issues with bluetooth connections.
 
+
+.. seealso::
+
+    :ref:`faq-usb-bt-exclude`
+
 USB_BLACKLIST_PHONE
 -------------------
 ::

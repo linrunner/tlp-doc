@@ -23,6 +23,8 @@ Workaround: blacklist the USB controllers with ::
     RUNTIME_PM_BLACKLIST="05:00.3 05:00.4" # T495s AMD
 
 
+.. _faq-usb-bt-exclude:
+
 USB_BLACKLIST_BTUSB=1 does not disable autosuspend
 --------------------------------------------------
 Symptom: the USB bluetooth device has autosuspend enabled after boot or

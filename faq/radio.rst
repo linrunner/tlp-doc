@@ -9,11 +9,13 @@ Solution: disable power saving on battery ::
 
     WIFI_PWR_ON_BAT=off
 
+
 Wi-Fi power saving is activated despite being disabled in TLP's configuration
 -----------------------------------------------------------------------------
 Cause: conflict with `NetworkManager`.
 
 Solution: remove the file **/etc/NetworkManager/conf.d/default-wifi-powersave-on.conf**.
+
 
 .. _faq-bluetooth-unstable:
 
@@ -37,6 +39,12 @@ Apply the new setting with ::
 
     sudo tlp usb
 
+
+USB_BLACKLIST_BTUSB=1 does not disable autosuspend
+--------------------------------------------------
+Refer to :ref:`faq-usb-bt-exclude`.
+
+
 Bluetooth is not disabled upon system startup
 ---------------------------------------------
 Probable cause: your desktop environment's bluetooth applet – or some other
@@ -45,6 +53,7 @@ installed software – re-enables the bluetooth device after TLP disabled it.
 Solution: disable the relevant applet's setting or disable/remove the causing
 applet. For XFCE/blueman see
 `Disable Bluetooth Auto Power-on in Blueman <https://winaero.com/blog/disable-bluetooth-auto-power-blueman/>`_.
+
 
 Radio states are not restored according to `RESTORE_DEVICE_STATE_ON_STARTUP=1`
 ------------------------------------------------------------------------------
