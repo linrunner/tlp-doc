@@ -207,6 +207,8 @@ Hints:
 
     * `intel_pstate CPU Performance Scaling Driver <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_pstate.html>`_
       – driver documentation
+    * `Intel Hardware P-State (HWP) / Intel Speed Shift <https://smackerelofopinion.blogspot.com/2021/07/intel-hardware-p-state-hwp-intel-speed.html>`_
+      – a consideration of `HWP.EPP`
     * `Intel Performance and Energy Bias Hint <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_epb.html>`_
       – `EPB` documentation
     * `Improvements in CPU frequency management <https://lwn.net/Articles/682391/>`_
