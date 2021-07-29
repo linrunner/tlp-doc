@@ -4,10 +4,11 @@ This section lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
-Version 1.4 (under development)
+Version 1.4 (beta)
     Source:
 
     - Branch `master` renamed to `main`
+    - New directory: **unit-tests/** - do not install!
 
     Dependencies:
 
