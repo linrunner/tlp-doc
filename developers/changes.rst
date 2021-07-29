@@ -15,7 +15,12 @@ Version 1.4 (under development)
 
     Files:
 
-    - **/usr/share/tlp/bat.d/** – Directory with provided battery wear control plugins
+    - New directory with battery driver plugins: **/usr/share/tlp/bat.d/**
+    - New file: **/usr/share/tlp/rename.conf**
+
+    Makefile:
+
+    - New parameters: `TLP_BATD`, `TLP_CONFREN`
 
     Installation:
 
