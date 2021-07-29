@@ -17,6 +17,12 @@ Version 1.4 (under development)
 
     - **/usr/share/tlp/bat.d/** – Directory with provided battery wear control plugins
 
+    Installation:
+
+    - Add `systemctl mask power-profiles-daemon` to the package post-install
+      routine - and vice versa for post-remove
+      (see `Issue #564 <https://github.com/linrunner/TLP/issues/564>`_)
+
 Version 1.3
     New configuration scheme:
 
