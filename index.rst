@@ -21,26 +21,33 @@ TLP - Optimize Linux Laptop Battery Life
     Nevertheless TLP is **highly customizable** to fulfil your
     specific requirements.
 
-.. rubric:: Welcome to TLP's new Documentation Site
+Latest News
+===========
+* :ref:`news-top-1`
 
+:doc:`More news ...</news>`
+
+Welcome to TLP's Documentation Site
+===================================
 The restructured site improves readability and facilitates access
 through a navigation sidebar. Can't find something right away?
 Try the search field in the navbar.
 
-.. rubric:: Learn
-
+Learn
+=====
 As a new user read :doc:`/introduction` to learn about your benefits,
 then proceed with :doc:`/installation/index` and :doc:`/usage/index`.
 Finally :doc:`/settings/index` will tell you how to customize the
 configuration if desired. Find out about new features in the
 `Changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
-.. rubric:: Resolve
-
+Resolve
+=======
 If problems occur during use, you may want to check :doc:`/faq/index`,
 :doc:`/support/index` and the :doc:`/support/troubleshooting`.
 
-.. rubric:: Contribute
+Contribute
+==========
 
 If you want to help, check out :doc:`/contribute`. Do you like to
 provide TLP packages for your distribution? Enter :doc:`/developers/index`.
@@ -61,6 +68,7 @@ Contents
    support/troubleshooting
    contribute
    developers/index
+   news
    privacy
    imprint
 
