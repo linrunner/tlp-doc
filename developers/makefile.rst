@@ -34,7 +34,7 @@ Targets
    * - uninstall-man-rdw
      - Uninstall manpages for package `tlp-rdw`
    * - checkall
-     - Excute all check targets below
+     - Execute all check targets below
    * - checkbashisms
      - Check all shell scripts for bashisms
    * - checkbatdrv
