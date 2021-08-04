@@ -8,7 +8,7 @@ Version 1.4 (beta)
     Source:
 
     - Branch `master` renamed to `main`
-    - New directory: **unit-tests/** - do not install!
+    - New directory: **unit-tests/** - do not install
 
     Dependencies:
 
@@ -22,6 +22,7 @@ Version 1.4 (beta)
     Makefile:
 
     - New parameters: `TLP_BATD`, `TLP_CONFREN`
+    - New target: `chkbatdrv`
 
     Installation:
 

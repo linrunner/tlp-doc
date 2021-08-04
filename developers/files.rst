@@ -58,6 +58,10 @@ packages:
      - tlp
      - /etc/tlp.d/README
      - [from 1.3] Explains the drop-in configuration directory
+   * - rename.conf
+     - tlp
+     - /usr/share/tlp/
+     - [from 1.4] translation table for parameters
    * - tlp
      - tlp
      - /usr/sbin/
@@ -176,6 +180,12 @@ packages:
      - tlp-rdw
      - /etc/NetworkManager/dispatcher.d/
      - Network manager hook for ifup/ifdown events
+   * - unit-tests/*
+     - n/a
+     - n/a
+     - [from 1.4] functional tests of TLP (incomplete coverage);
+       needs specific hardware, not suited for package autotest;
+       see unit-tests.rst for requirements
    * - VERSION
      - n/a
      - n/a
