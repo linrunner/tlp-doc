@@ -99,7 +99,7 @@ Bus oriented devices, e.g.
 * :doc:`PCIe (Runtime Power Management) </settings/runtimepm>`
 * :doc:`/settings/usb`
 
-can be blacklisted, see :doc:`/settings/index` and :doc:`/faq/index` for the corresponding
+can be denylisted, see :doc:`/settings/index` and :doc:`/faq/index` for the corresponding
 sections.
 
 When unsure if a device is PCIe or USB examine the output of
@@ -111,8 +111,8 @@ Step 6: Isolate the causing device
 This step applies the following strategy to isolate a bus oriented device:
 
 * Disable the feature completely
-* Blacklist devices one by one
-* Blacklist devices by driver
+* Denylist devices one by one
+* Denylist devices by driver
 
 .. important::
 
@@ -132,19 +132,19 @@ When the problem disappears, uncomment above lines and continue with the
 next section. Otherwise the cause is not a PCIe device – proceed to
 :ref:`tsg-usb`.
 
-.. rubric:: Blacklist single devices
+.. rubric:: Denylist single devices
 
-Enter every PCIe device address into :ref:set-runtimepm-blacklist` – but only
+Enter every PCIe device address into :ref:set-runtimepm-denylist` – but only
 one device at a time!
 
 As soon as the problem disappears, you have identified the causing PCIe device
 and are finished. Otherwise the cause is not a PCIe device – proceed to
 :ref:`tsg-usb`.
 
-.. rubric:: Blacklist drivers
+.. rubric:: Denylist drivers
 
-As an alternative to device blacklisting, you may blacklist all devices attached
-to a particular driver by means of :ref:`set-runtimepm-driver-blacklist`.
+As an alternative to device denylisting, you may denylist all devices attached
+to a particular driver by means of :ref:`set-runtimepm-driver-denylist`.
 
 If the problem isn't solved by now, proceed to :ref:`tsg-usb`.
 
@@ -162,9 +162,9 @@ When the problem disappears, reenable the feature and continue with the
 next section. Otherwise the causing device cannot be identified – proceed to
 :ref:`tsg-kernel`.
 
-.. rubric:: Blacklist single devices
+.. rubric:: Denylist single devices
 
-Enter every USB device ID into :ref:set-usb-blacklist` – but only one device at
+Enter every USB device ID into :ref:set-usb-denylist` – but only one device at
 a time!
 
 As soon as the problem disappears, you have identified the causing USB device

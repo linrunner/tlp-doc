@@ -10,8 +10,8 @@ Screen flicker
 ---------------
 .. rubric:: Nvidia dGPU
 
-Affected hardware: a Dell Latitude 5480 user reported 'screen flickers at an
-inconsistent rate, though not that sporadic'.
+Affected hardware: a Dell Latitude 5480 user reported *"screen flickers at an
+inconsistent rate, though not that sporadic"*.
 
 Solution: disable ASPM on battery in the configuration ::
 
@@ -19,9 +19,9 @@ Solution: disable ASPM on battery in the configuration ::
 
 .. rubric:: AMD GPU
 
-Symptom: screen flickers once when the power source changes.
+Symptom: screen flickers briefly when the power source changes.
 
-Solution: disable the radeon driver's power saving: ::
+Solution: disable the `radeon` driver's power saving: ::
 
     RADEON_DPM_STATE_ON_AC=performance
     RADEON_DPM_STATE_ON_BAT=performance

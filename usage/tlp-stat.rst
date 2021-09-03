@@ -25,6 +25,14 @@ tlp-stat
     tlp-stat -c
     tlp-stat --config
 
+.. rubric:: Show configuration differing from defaults:
+
+*Version 1.4 and higher*
+
+::
+
+    tlp-stat --cdiff
+
 .. rubric:: Show disk device information:
 
 ::

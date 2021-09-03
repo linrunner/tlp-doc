@@ -28,12 +28,14 @@ giving trouble to connected devices or preventing discovery or pairing.
 
 Solution: configure ::
 
-    USB_BLACKLIST_BTUSB=1
+    USB_EXCLUDE_BTUSB=1
+
+*Version 1.3.1 and lower use USB_BLACKLIST_BTUSB instead*
 
 Apply with :command:`tlp usb`.
 
 
-USB_BLACKLIST_BTUSB=1 does not disable autosuspend
+USB_EXCLUDE_BTUSB=1 does not disable autosuspend
 --------------------------------------------------
 Refer to :ref:`faq-usb-bt-exclude`.
 

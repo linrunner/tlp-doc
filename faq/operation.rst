@@ -149,7 +149,7 @@ Solutions:
 
 Shutdown freezes before poweroff
 --------------------------------
-Solution: add the `mei_me` module to :ref:`set-runtimepm-driver-blacklist`.
+Solution: add the `mei_me` module to :ref:`set-runtimepm-driver-denylist`.
 
 Shutdown reboots instead of poweroff
 ------------------------------------

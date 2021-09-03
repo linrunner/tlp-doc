@@ -7,7 +7,7 @@ DISK_DEVICES
 
     DISK_DEVICES="nvme0n1 sda"
 
-Defines the disk devices the following parameters are effective for. Multiple
+Defines the disk devices on which the following parameters act. Multiple
 devices are separated with blanks.
 
 Default when unconfigured: "nvme0n1 sda"
@@ -50,9 +50,35 @@ Values for multiple disks are separated with blanks.
 
 .. note::
 
-    This setting is ignored for disks attached via USB and IEEE 1394 (FireWire),
-    for many SATA SSDs and for NVMe SSDs. Refer to the output of
-    :command:`tlp-stat -d`.
+    *In version 1.3.1 and lower this setting will not be applied to USB and
+    IEEE 1394 (FireWire) disks.*
+
+
+DISK_APM_CLASS_DENYLIST
+-----------------------
+*Version 1.4 and higher*
+
+::
+
+    DISK_APM_CLASS_DENYLIST="usb ieee1394"
+
+Exclude disk classes from advanced power management (APM). Possible values:
+
+* sata
+* ata
+* usb
+* ieee1394
+
+Default when unconfigured: "usb ieee1394"
+
+Separate multiple classes with spaces.
+
+.. caution::
+
+    USB and IEEE1394 disks may fail to mount or data may get corrupted
+    with APM enabled. Make sure you know what you're doing when removing `usb`
+    or `ieee1394` from the denylist!
+
 
 .. _set-disks-spindown:
 
@@ -143,18 +169,68 @@ TLP 1.1 and higher determine automatically when `med_power_with_dipm` is
 available. For that a second value is provided in the default configuration
 as a fallback for older kernels.
 
-SATA_LINKPWR_BLACKLIST
+.. _SATA_LINKPWR_BLACKLIST:
+
+SATA_LINKPWR_DENYLIST
 ----------------------
+*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
+SATA_LINKPWR_BLACKLIST. 1.4 and higher also recognize the old name.*
+
 ::
 
-    SATA_LINKPWR_BLACKLIST="host1"
+    SATA_LINKPWR_DENYLIST="host1"
 
 Exclude SATA disks from AHCI link power management (ALPM). This is intended as
 a workaround for SATA disks not bearing link power management.
 
-Disks are specified by their host. Refer to the output of :command:`tlp-stat -d`,
-section `AHCI Link Power Management (ALPM)`, to determine the host;
-the format is `hostX`. Separate multiple hosts with spaces.
+Disks are specified by their host. Refer to the output of :command:`tlp-stat -d`
+to determine the host; the format is `hostX`. Separate multiple hosts with spaces.
+
+
+AHCI_RUNTIME_PM_ON_AC/BAT
+-------------------------
+*Version 1.4 and higher*
+
+.. warning::
+
+    *This has been an experimental feature in previous versions. Only with version 1.4
+    the risk of system freezes (and data loss) with the multiqueue scheduler and
+    kernel < 4.19 is eliminated.*
+
+::
+
+    AHCI_RUNTIME_PM_ON_AC=on
+    AHCI_RUNTIME_PM_ON_BAT=auto
+
+
+Controls runtime power management for NVMe, SATA, ATA and USB disks
+as well as SATA ports. Possible values:
+
+* auto – enabled (power down idle devices)
+* on – disabled (devices powered on permanently)
+
+.. note::
+
+    * Works only on disks defined in `DISK_DEVICES`
+    * SATA *controllers* are PCIe bus devices and handled by the corresponding
+      :doc:`RUNTIME_PM settings</settings/runtimepm>`
+
+Default when unconfigured: on (AC), auto (BAT)
+
+
+AHCI_RUNTIME_PM_TIMEOUT
+-----------------------
+*Version 1.4 and higher*
+
+::
+
+    AHCI_RUNTIME_PM_TIMEOUT=15
+
+Seconds of inactivity before a disk or a port is suspended. Effective only when
+`AHCI_RUNTIME_PM_ON_AC/BAT` is activated.
+
+Default when unconfigured: 15
+
 
 .. seealso::
 

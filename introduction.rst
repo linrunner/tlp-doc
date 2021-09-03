@@ -62,7 +62,7 @@ Charger unplugged (battery powered)
 
 USB device plugged in
     Activates USB autosuspend mode for the device (if not automatically excluded
-    or blacklisted).
+    or denylisted).
 
 System startup (boot)
     Applies the settings profile corresponding to the current power source
@@ -114,7 +114,7 @@ between savings and performance independently for battery (BAT) and AC operation
 * Limit max/min P-state to control power dissipation of Intel CPUs
 * Intel CPU energy/performance policies HWP.EPP and EPB
 * Hard disk advanced power magement level (APM) and spin down timeout (per disk)
-* AHCI link power management (ALPM) with device blacklist
+* AHCI link power management (ALPM) with device denylist
 * AHCI runtime power management for host controllers and disks
 * PCIe active state power management (ASPM)
 * Runtime power management for PCIe bus devices
@@ -128,7 +128,7 @@ between savings and performance independently for battery (BAT) and AC operation
 Additional settings - independent of the power source - are:
 
 * I/O scheduler (per disk)
-* USB autosuspend with device blacklist/whitelist
+* USB autosuspend with device denylist/allowlist
 * Enable or disable radio devices (bluetooth, Wi-Fi and WWAN) upon boot and shutdown
 * Restore radio device state on boot (from previous shutdown)
 * Radio device wizard: enable/disable radios upon network connect/disconnect and dock/undock

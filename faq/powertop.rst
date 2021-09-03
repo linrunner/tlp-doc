@@ -67,7 +67,7 @@ not support Wi-Fi power saving.
 
 TLP's default configuration intentionally exempts input devices like mice and
 keyboards as well as scanners handled by `libsane`. To enforce autosuspend
-nevertheless, add the device to :ref:`set-usb-whitelist`.
+nevertheless, add the device to :ref:`set-usb-allowlist`.
 
 Powertop shows a very high power consumption for a device
 ---------------------------------------------------------
