@@ -25,7 +25,7 @@ tlp-stat
     tlp-stat -c
     tlp-stat --config
 
-.. rubric:: Show configuration differing from defaults:
+.. rubric:: Show the difference between default and user configuration:
 
 *Version 1.4 and higher*
 

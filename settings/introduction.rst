@@ -23,8 +23,8 @@ Config Files
 
 TLP 1.3 and higher
 ^^^^^^^^^^^^^^^^^^
-TLP 1.3 introduced a new configuration scheme. Settings are read from the following
-files in the specified order:
+TLP 1.3 introduced an extended configuration scheme. Settings are read from the
+following files in the specified order:
 
 * Intrinsic defaults
 * **/etc/tlp.d/*.conf**: Drop-in customization snippets, read in lexical (alphabetical) order

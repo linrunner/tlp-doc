@@ -1,23 +1,53 @@
-Battery Features
-================
+Battery Care
+============
 
-What are the 'Battery Features'?
---------------------------------
-.. include:: ../include/expl-battery-features.rst
-.. include:: ../include/disc-battery-features.rst
+.. _faq-battery-care:
+
+What is 'Battery Care'?
+-----------------------
+.. include:: ../include/battery-care-explain.rst
+
+.. rubric:: How does it work?
+
+Battery charging is a process controlled by the embedded controller (EC)
+of your laptop. This makes the process work even when the laptop is switched off
+or no operating system is running. It works as follows:
+
+* Charging starts upon connecting AC power, but only if the battery charge
+  level is below the start charge threshold (`START_CHARGE_THRESH_BATx`);
+  it will not charge when the level is above the start charge threshold
+* Charging stops when reaching the stop charge threshold (`STOP_CHARGE_TRESH_BATx`)
+
+You cannot change the basic behavior described above, because it is hard-coded
+into the EC firmware by the vendor. However, you can control it by setting
+thresholds using TLP.
+
+.. rubric::  What charge thresholds do `not` do
+
+* They do not exercise any control over the discharging of the battery,
+  this depends solely on whether AC is connected and if the laptop is switched on
+* In particular, with AC connected, a battery with a charge level higher than
+  the stop charge threshold will not be discharged to the stop charge threshold,
+  nor will there be a (cyclic) discharge down to the start charge threshold
+
+.. _battery-care-scope:
+
+.. include:: ../include/battery-care-scope.rst
 
 .. seealso::
 
-    * :doc:`/settings/battery` (Settings)
-    * :ref:`cmd-tlp-battery-features` (Commands)
+    * Settings: :doc:`/settings/battery`
+    * Commands: :ref:`cmd-tlp-battery-features`
 
-How do battery charge thresholds work?
---------------------------------------
-See :doc:`/settings/battery`.
 
 What is the purpose of battery charge thresholds?
 -------------------------------------------------
-See :doc:`/settings/battery`.
+See :ref:`above <faq-battery-care>`.
+
+How do battery charge thresholds work?
+--------------------------------------
+See :ref:`above <faq-battery-care>`.
+
 
 .. _faq-good-battery-thresholds:
 
@@ -73,36 +103,35 @@ How can I check if my configured charge thresholds are working?
 The output of :command:`tlp-stat -b` shows two characteristics for the positive
 case:
 
-1. An active feature driver for the charge thresholds
+1. An active battery care driver for the charge thresholds
 2. The actual charge thresholds – read back from the embedded controller
 
-So if there is a line containing `active (thresholds)` and the displayed
+So if there is a line containing `active (charge thresholds)` and the displayed
 thresholds match the ones you configured, then the charging logic has properly
 received them.
 
-The following are three examples for different ThinkPad generations and kernel
-versions:
+Two examples for different ThinkPad generations:
 
 .. code-block:: none
 
-    +++ Battery Features
-    natacpi    = active (thresholds)
+    +++ Battery Care
+    Plugin: thinkpad
+    Supported features: charge thresholds, recalibration
+    Driver usage:
+    * natacpi (thinkpad_acpi) = active (charge thresholds)
+    * tpacpi-bat (acpi_call)  = active (recalibration)
     ...
-    /sys/class/power_supply/BAT0/charge_start_threshold         =     75 [%]
-    /sys/class/power_supply/BAT0/charge_stop_threshold          =     80 [%]
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
+    tpacpi-bat.BAT0.forceDischarge                              =      0
 
 .. code-block:: none
 
-    +++ Battery Features
-    tpacpi-bat = active (thresholds, recalibrate)
-    ...
-    tpacpi-bat.BAT0.startThreshold                              =     75 [%]
-    tpacpi-bat.BAT0.stopThreshold                               =     80 [%]
-
-.. code-block:: none
-
-    +++ Battery Features
-    tp-smapi   = active (thresholds, recalibrate)
+    +++ Battery Care
+    Plugin: thinkpad-legacy
+    Supported features: charge thresholds, recalibration
+    Driver usage:
+    * tp-smapi (tp_smapi) = active (status, charge thresholds, recalibration)
     ...
     /sys/devices/platform/smapi/BAT0/start_charge_thresh        =     75 [%]
     /sys/devices/platform/smapi/BAT0/stop_charge_thresh         =     80 [%]
@@ -156,13 +185,11 @@ However it doesn't really hurt to keep both.
 
 .. rubric:: natacpi – Ultimate solution at the horizon
 
-.. note::
-
-    The following requires at least version 1.2.2.
-
 Starting with kernel 4.17 `tpacpi-bat` gets superseded by a new, native kernel
 API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`).
 :command:`tlp-stat -b` indicates this as follows:
+
+*Versions 1.2.2 through 1.3.1*
 
 .. code-block:: none
 
@@ -171,17 +198,33 @@ API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`
     tpacpi-bat = active (recalibrate)
     tp-smapi = inactive (ThinkPad not supported)
 
-As of kernel 5.9 the patches for discharge/recalibrate haven't been merged.
-A full implementation would look like this:
+*Version 1.4 or higher*
 
 .. code-block:: none
 
-    +++ Battery Features
-    natacpi = active (data, thresholds, recalibrate)
-    tpacpi-bat = inactive (superseded by natacpi)
-    tp-smapi = inactive (ThinkPad not supported)
+    +++ Battery Care
+    Plugin: thinkpad
+    Supported features: charge thresholds, recalibration
+    Driver usage:
+    * natacpi (thinkpad_acpi) = active (charge thresholds)
+    * tpacpi-bat (acpi_call)  = active (recalibration)
+    Parameter value ranges:
+    * START_CHARGE_THRESH_BAT0/1:  0(off)..96(default)..99
+    * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
 
-With full `natacpi` support, you won't need external kernel module packages anymore.
+As of kernel 5.14 the patches for discharge/recalibrate haven't been merged.
+With full `natacpi` support, you won't need external kernel module packages
+anymore.
+
+.. seealso::
+
+    * `tp-smapi <https://www.thinkwiki.org/wiki/Tp_smapi>`_
+      – tp-smapi documentation at thinkwiki.org
+    * `tpacpi-bat <https://github.com/teleshoes/tpacpi-bat>`_
+      – tool (included in TLP) to provide battery charge thresholds and
+      recalibration for newer ThinkPads (X220/T420 and later)
+    * `acpi_call <https://github.com/nix-community/acpi_call>`_
+      – kernel module needed by `tpacpi-bat`
 
 .. _faq-thresholds-ignored:
 
@@ -189,12 +232,15 @@ Why is my battery charged up to 100% – ignoring the charge thresholds?
 ----------------------------------------------------------------------
 Possible causes are:
 
-Laptop is not a ThinkPad
-^^^^^^^^^^^^^^^^^^^^^^^^
-Battery charge thresholds and recalibration work with ThinkPads only (see above).
+Laptop is not supported
+^^^^^^^^^^^^^^^^^^^^^^^
+See above for a :ref:`list of supported vendors/brands <battery-care-scope>`.
+
 
 External kernel module is not installed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*ThinkPads only*
+
 Symptom: :command:`tlp-stat -b` shows
 
 .. code-block:: none
@@ -214,6 +260,8 @@ the output for errors. See below for possible causes.
 
 Fedora release upgrade
 ^^^^^^^^^^^^^^^^^^^^^^
+*ThinkPads only*
+
 It may be necessary to rebuild the kernel modules (as root): ::
 
     akmods --force
@@ -222,6 +270,8 @@ It may be necessary to rebuild the kernel modules (as root): ::
 
 Installation of package `acpi-call-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*ThinkPads only*
+
 .. important::
 
     `acpi_call` and derived packages are not provided by the TLP project.
@@ -252,6 +302,8 @@ Solution: upgrade the package:
 
 Kernel module `acpi-call` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*ThinkPads only*
+
 Symptom: :command:`tlp-stat -b` shows
 
 .. code-block:: none
@@ -273,6 +325,8 @@ and use adequate forums to resolve your issue with `acpi-call`.
 
 Installation of package `tp-smapi-dkms` failed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*ThinkPads only*
+
 .. important::
 
     `tp-smapi` and derived packages are not provided by the TLP project.
@@ -318,6 +372,8 @@ Solution: upgrade the package:
 
 Kernel module `tp-smapi` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*ThinkPads only*
+
 Symptom: :command:`tlp-stat -b` shows
 
 .. code-block:: none
@@ -409,8 +465,8 @@ Please refrain from opening issues.
 
 Battery has been removed
 ^^^^^^^^^^^^^^^^^^^^^^^^
-By removing (and re-inserting) the battery the charge thresholds are reset to
-factory settings (96 / 100%) for some models. To restore TLP's settings use
+By removing (and re-inserting) the battery the charge thresholds may be reset to
+vendor specific defauls. To restore TLP's settings use
 
 .. code-block:: sh
 
@@ -486,7 +542,7 @@ After BAT1 reaches 80% charging commences with BAT0 until 100%, afterwards BAT1
 continues until 100%. If a stop threshold is set for BAT0, the last step may never
 happen.
 
-No solution: Lenovo's EC firmware offers no possibilty to change the behaviour.
+No solution: Lenovo's EC firmware offers no possibility to change the behaviour.
 
 .. _faq-erratic-battery-behavior:
 
@@ -514,15 +570,13 @@ Then recalibrate the battery once.
 
 Do charge thresholds work even when TLP is not running or the laptop is powered off?
 ------------------------------------------------------------------------------------
-Yes. The charging process is not controlled by software running on the laptop's
+Yes. The charging process is not controlled by software running on behalf of the
 operating system but by the embedded controller (EC). TLP only passes the
-threshold values to the EC firmware using the appropriate feature driver.
+threshold values to the EC firmware using the appropriate driver.
 Once stored in the EC, the thresholds also take effect when the laptop is switched
 off. See below for removal.
 
-.. seealso::
-
-    Refer to :doc:`/settings/battery` for details of the charging process.
+A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
 
 .. _faq-start-threshold:
 
@@ -532,9 +586,7 @@ The start charge threshold ensures that the battery is not recharged immediately
 after every short discharge process. The charging process starts only when the
 previous discharge was below the value of `START_CHARGE_THRESH_BATx`.
 
-.. seealso::
-
-    Refer to :doc:`/settings/battery` for details of the charging process.
+A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
 
 How to designate the battery to discharge when battery powered?
 ---------------------------------------------------------------
@@ -558,9 +610,8 @@ be changed, because repeated discharge of the battery during operation on AC pow
 would lead to absurdly high wear (i.e. charging cycles) without any benefit being
 derived from it.
 
-.. seealso::
+A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
 
-    Refer to :doc:`/settings/battery` for details of the charging process.
 
 .. _faq-how-to-disable-thresholds:
 
@@ -579,7 +630,7 @@ and use
 
     sudo tlp fullcharge
 
-to immediately activate the factory settings 96/100%.
+to immediately activate vendor specific defaults.
 
 .. _faq-disabling-thresholds-does-not-work:
 
@@ -615,11 +666,15 @@ Workaround (without BIOS update):
 
 My battery does not charge anymore after recalibration showing X% remaining capacity constantly
 -----------------------------------------------------------------------------------------------
+*ThinkPads only*
+
 Most probable cause: battery is defect – and was it even before the recalibration
 attempt.
 
 `tlp recalibrate` terminates with 'Error: battery was not discharged completely. Check your hardware.'
 ------------------------------------------------------------------------------------------------------
+*ThinkPads only*
+
 Cause: this is a hardware issue either with your battery (likely), charger or laptop.
 
 Impact: recalibration doesn't work at all without a full discharge to tell the
@@ -632,12 +687,20 @@ try to replace your battery next.
 
 Why does the panel applet show the battery state 'charging' despite charge thresholds are effective?
 ----------------------------------------------------------------------------------------------------
+*ThinkPads only*
+
 Existing panel applets query `upowerd` or the standard kernel interface which do
 not reflect the charging condition correctly as soon as charge thresholds intervene.
 
-In this situation :command:`tlp-stat -b` shows 'Unknown (threshold effective)' for
-**/sys/class/power_supply/BATx/status**. For ThinkPad models supporting
-`tp-smapi`, the correct state 'Idle' is shown for **/sys/devices/platform/smapi/BATx/state**.
+In this situation :command:`tlp-stat -b` shows
+
+* "Idle" - *Version 1.4 and higher*
+* "Unknown (threshold effective)" - *Version 1.3.1 and lower*
+
+for **/sys/class/power_supply/BATx/status**.
+
+For ThinkPad models supporting `tp-smapi`, the correct state "Idle" is shown
+for **/sys/devices/platform/smapi/BATx/state**.
 
 Why does `tlp-stat -b` display 'cycle_count = (not supported)'?
 ---------------------------------------------------------------

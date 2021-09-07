@@ -30,8 +30,8 @@ without explicit user confirmation and create a backup copy too.
 
 .. _faq-set-mig-from-13:
 
-How do I transfer my settings when upgrading from version 1.2.2 (or lower) to 1.3?
-----------------------------------------------------------------------------------
+How do I transfer my settings when upgrading from version 1.2.2 (and lower) to 1.3?
+-----------------------------------------------------------------------------------
 Read about the :ref:`config files of version 1.3 <set-config-files-13>` first to
 learn about the new configuration scheme in version 1.3.
 

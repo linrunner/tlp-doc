@@ -50,19 +50,26 @@ Hints:
 
 .. _cmd-tlp-battery-features:
 
-Battery Features
-^^^^^^^^^^^^^^^^
-.. include:: ../include/expl-battery-features.rst
-.. include:: ../include/disc-battery-features.rst
+Battery Care
+^^^^^^^^^^^^
+.. include:: ../include/battery-care-scope.rst
+
+.. seealso::
+
+    * Settings: :doc:`/settings/battery`
+    * FAQ: :doc:`/faq/battery`.
+
 
 Change battery charge thresholds temporarily
 """"""""""""""""""""""""""""""""""""""""""""
 ::
 
-    sudo tlp setcharge [ START_THRESH STOP_THRESH ] [ BAT0 | BAT1 ]
+    sudo tlp setcharge [ START_CHARGE_THRESH STOP_CHARGE_THRESH ] [ BAT0 | BAT1 ]
 
 Changes the charge thresholds for the battery to the given values.
-Valid thresholds range from 1 to 100, `START_THRESH` must be <= `STOP_THRESH` - 4.
+
+.. include:: ../include/charge-threshold-values.rst
+
 Configured thresholds will be restored at the next boot or by using
 :command:`tlp setcharge` again but without the threshold arguments.
 
@@ -76,7 +83,7 @@ Applies thresholds of 70/90% to the main battery (BAT0).
 
     :command:`tlp setcharge` changes the charge thresholds only temporarily.
     To make the change permanent, you must activate or change the related settings
-    in the configuration file. Refer to :doc:`/settings/battery`.
+    in the config file. Refer to :doc:`/settings/battery`.
 
 Charge battery to full capacity
 """""""""""""""""""""""""""""""
@@ -99,6 +106,8 @@ Charges the auxiliary battery (BAT1) to full capacity.
 
 Charge battery to the stop charge threshold once
 """"""""""""""""""""""""""""""""""""""""""""""""
+*ThinkPads only*
+
 ::
 
      sudo tlp chargeonce [ BAT0 | BAT1 ]
@@ -112,6 +121,8 @@ the charge to complete.
 
 Discharge battery on AC power
 """""""""""""""""""""""""""""
+*ThinkPads only*
+
 ::
 
     sudo tlp discharge [ BAT0 | BAT1 ]
@@ -132,6 +143,8 @@ Hints:
 
 Recalibrate battery on AC power
 """""""""""""""""""""""""""""""
+*ThinkPads only*
+
 ::
 
     sudo tlp recalibrate [ BAT0 | BAT1 ]
