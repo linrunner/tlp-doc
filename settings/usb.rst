@@ -41,6 +41,22 @@ in waking up from autosuspend. Use :command:`tlp-stat -u` to determine IDs.
 Multiple IDs are separated with blanks.
 
 
+USB_EXCLUDE_AUDIO
+-----------------
+*Version 1.4 and higher*
+
+::
+
+    USB_EXCLUDE_AUDIO=1
+
+Exclude audio devices from autosuspend mode:
+
+* 0 – do not exclude
+* 1 – exclude
+
+Default when unconfigured: 1
+
+
 .. _set-usb-exclude-btusb:
 .. _USB_BLACKLIST_BTUSB:
 
