@@ -11,6 +11,8 @@ It depends on the individual setting. TLP:
 * Applies charge thresholds  → conflict with KDE charge limit setting possible
 * Switches radio devices on and off when configured by the user →
   conflict with GNOME power settings or KDE energy saving settings possible
+* GNOME's power-profiles-daemon disables TLP on boot →
+  :ref:`severe conflict <faq-ppd-conflict>`
 
 "Conflict possible" means that the setting configured in TLP may get overwritten
 by the desktop's setting (and vice versa). System stability issues are *not*

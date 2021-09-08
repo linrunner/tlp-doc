@@ -50,12 +50,16 @@ Hints:
 TLP 1.2.2 and lower
 ^^^^^^^^^^^^^^^^^^^
 All settings are stored in the single config file **/etc/default/tlp**.
+
 Parameter Defaults
 ------------------
 Two kinds of parameters exist:
 
-* Parameters with intrinsic default – marked with `"Default when unconfigured:"` in
-  this documentation - and preceded by `"Default:"` in **/etc/tlp.conf**
+* Parameters with intrinsic default:
+
+    * Marked with `"Default when unconfigured:"` in this documentation
+    * Preceded by `"Default:"` in **/etc/tlp.conf**
+
 * Parameters without intrinsic default
 
 .. note::
@@ -90,7 +94,7 @@ Comments after parameters are not allowed, the whole line will be silently ignor
 
    EXAMPLE="dont use like this" # Parameter in front is ignored!
 
-.. rubric:: Disabling Features
+.. rubric:: Disabling features
 
 Parameters without intrinsic default may be disabled by commenting them out with
 a leading `#`: ::
@@ -107,7 +111,9 @@ Parameters with intrinsic default may be disabled by entering an empty string: :
 
 A nifty feature to add something to an intrinsic default (Example 1):
 
-    Intrinsic default `DISK_DEVICES="nvme0n1 sda"` plus **/etc/tlp.d/01-my.conf**: ::
+    Intrinsic default `DISK_DEVICES="nvme0n1 sda"`
+
+    plus **/etc/tlp.d/01-my.conf**: ::
 
         DISK_DEVICES+="sdb"
 
@@ -151,7 +157,7 @@ file, will take effect only
 
 .. seealso::
 
-    Use :doc:`/usage/tlp-stat` to
+    Use :doc:`/usage/tlp-stat` to:
 
     * Show active configuration files and enabled parameters: :command:`tlp-stat -c`
     * Show the difference between default and user configuration: :command:`tlp-stat --cdiff`

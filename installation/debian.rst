@@ -47,7 +47,7 @@ For `Debian Backports`_ use: ::
 instead.
 
 ThinkPads only
-^^^^^^^^^^^^^^
+--------------
 .. include:: ../include/thinkpad-kernel-modules.rst
 
 Depending on your model and kernel version external kernel module(s) are required

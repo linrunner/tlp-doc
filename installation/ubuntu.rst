@@ -30,8 +30,17 @@ either with your favorite package manager or the command: ::
 
     sudo apt install tlp tlp-rdw
 
+.. include:: ../include/power-profiles-daemon-conflict.rst
+
+.. note::
+
+    * Ubuntu 21.04 with GNOME Desktop installs `power-profiles-daemon.service` by default
+      (`Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_)
+    * Version 1.4 packages from the PPA are already masking `power-profiles-daemon.service`
+
+
 ThinkPads only
-^^^^^^^^^^^^^^
+--------------
 .. include:: ../include/thinkpad-kernel-modules.rst
 
 Depending on your model and kernel version external kernel module(s) are required

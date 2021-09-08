@@ -21,8 +21,11 @@ Install the packages either with your favorite package manager or the command: :
 
    dnf install tlp tlp-rdw
 
+.. include:: ../include/power-profiles-daemon-conflict.rst
+
+
 ThinkPads only
-^^^^^^^^^^^^^^
+--------------
 .. include:: ../include/thinkpad-kernel-modules.rst
 
 Depending on your model and kernel version external kernel module(s) are required
@@ -103,7 +106,7 @@ following procedure.
     rpm --import RPM-GPG-KEY-tlp-fedora-34-primary
 
 Fingerprints
-^^^^^^^^^^^^
+------------
 RPM-GPG-KEY-tlp-fedora-35-primary: ::
 
     65C4 7531 819C 6D74 33BE 25D5 5052 26CB 40D9 3801

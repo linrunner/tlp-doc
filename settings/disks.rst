@@ -76,8 +76,8 @@ Separate multiple classes with spaces.
 .. caution::
 
     USB and IEEE1394 disks may fail to mount or data may get corrupted
-    with APM enabled. Make sure you know what you're doing when removing `usb`
-    or `ieee1394` from the denylist!
+    with APM enabled. Be careful and make sure you have backups of all affected
+    media before removing `usb` or `ieee1394` from the denylist!
 
 
 .. _set-disks-spindown:
@@ -193,9 +193,9 @@ AHCI_RUNTIME_PM_ON_AC/BAT
 
 .. warning::
 
-    *This has been an experimental feature in previous versions. Only with version 1.4
+    This has been an experimental feature in previous versions. Only with version 1.4
     the risk of system freezes (and data loss) with the multiqueue scheduler and
-    kernel < 4.19 is eliminated.*
+    kernel < 4.19 is eliminated.
 
 ::
 
@@ -234,5 +234,5 @@ Default when unconfigured: 15
 
 .. seealso::
 
-    * `Linux I/O schedulers <https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers>`_– Ubuntu Wiki article
+    * `Linux I/O schedulers <https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers>`_ – Ubuntu Wiki article
     * `med_power_with_dipm <https://hansdegoede.livejournal.com/18412.html>`_ – Explanation from kernel developer Hans de Goede

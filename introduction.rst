@@ -61,33 +61,34 @@ Charger unplugged (battery powered)
     Applies the BAT settings profile.
 
 USB device plugged in
-    Activates USB autosuspend mode for the device (if not automatically excluded
-    or denylisted).
+    Activates USB autosuspend mode for the device (if not excluded or denylisted).
 
 System startup (boot)
     Applies the settings profile corresponding to the current power source
-    AC/BAT, applies charge thresholds and switches bluetooth, Wi-Fi and WWAN
-    devices depending on your individual settings (this is disabled in the
-    default configuration).
+    AC/BAT. Applies charge thresholds and switches bluetooth, Wi-Fi and WWAN
+    devices depending on your individual settings (disabled in the default
+    configuration).
 
 System shutdown (power off)
-    Applies the AC settings profile so that the laptop is powered off as fast
-    as possible.
+    Switches bluetooth, Wi-Fi and WWAN devices and disables USB autosuspend
+    depending on your individual settings (disabled in the default configuration).
 
 System reboot
-    Applies the AC settings profile to reboot swiftly and after reboot proceeds
-    as described above for system startup.
+    Same as shutdown, then continues with startup.
 
-System suspend - ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)
-    Applies the AC settings profile so that the suspend state is reached as
-    soon as possible.
+System suspend to ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)
+    Saves bluetooth, Wi-Fi and WWAN device states and powers off removable optical
+    drives depending on your individual settings (disabled in the default
+    configuration).
 
-System resume
+System resume from ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)
     Applies the settings profile corresponding to the current power source AC/BAT.
+    Restores charge thresholds and bluetooth, Wi-Fi and WWAN device states
+    depending on your individual settings (disabled in the default configuration).
 
 LAN, Wi-Fi, WWAN connected/disconnected or laptop docked/undocked (:doc:`/settings/rdw`)
-    Enable or disable builtin bluetooth, Wi-Fi and WWAN devices depending on your
-    individual settings (this is disabled in the default configuration).
+    Enables or disables builtin bluetooth, Wi-Fi and WWAN devices depending on
+    your individual settings (disabled in the default configuration).
 
 .. note::
 
@@ -112,14 +113,15 @@ between savings and performance independently for battery (BAT) and AC operation
 * Kernel laptop mode and dirty buffer timeouts
 * Processor frequency scaling including 'turbo boost' and 'turbo core'
 * Limit max/min P-state to control power dissipation of Intel CPUs
-* Intel CPU energy/performance policies HWP.EPP and EPB
+* Intel CPU energy/performance policies HWP.EPP and EPB and HWP dynamic boost
+* Platform profile to control power/performance levels, thermal and fan speed
 * Hard disk advanced power magement level (APM) and spin down timeout (per disk)
 * AHCI link power management (ALPM) with device denylist
-* AHCI runtime power management for host controllers and disks
+* AHCI runtime power management for NVMe/SATA/USB disks and SATA ports
 * PCIe active state power management (ASPM)
 * Runtime power management for PCIe bus devices
 * Intel GPU frequency limits
-* AMD Radeon GPU power management
+* AMD GPU power management
 * Wi-Fi power save
 * Enable/disable integrated bluetooth, Wi-Fi and WWAN devices
 * Power off removable optical drives (in drive bays)
@@ -134,6 +136,4 @@ Additional settings - independent of the power source - are:
 * Radio device wizard: enable/disable radios upon network connect/disconnect and dock/undock
 * Disable Wake-On-LAN
 * Bluetooth and WWAN state is restored after suspend/hibernate
-* Battery charge thresholds and recalibration – ThinkPads only
-
-.
+* Battery Care: charge thresholds and recalibration

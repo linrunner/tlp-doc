@@ -20,7 +20,7 @@ Install them either with your favorite package manager or the command: ::
         zypper install tlp tlp-rdw
 
 ThinkPads only
-^^^^^^^^^^^^^^
+--------------
 .. include:: ../include/thinkpad-kernel-modules.rst
 
 Depending on your model and kernel version external kernel module(s) are required

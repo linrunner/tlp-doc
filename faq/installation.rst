@@ -8,6 +8,15 @@ Yes. Using another tool simultaneously means that TLP's settings get overwritten
 by the other tools settings (and vice versa), so actual power saving gets
 unpredictable. Special cases are explained in the following.
 
+.. _faq-ppd-conflict:
+
+.. include:: ../include/power-profiles-daemon-conflict.rst
+
+.. seealso::
+
+    * `TLP Issue #564 <https://github.com/linrunner/TLP/issues/564>`_
+    * `Ubuntu Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_
+
 **Powertop:** please refer to :doc:`powertop`.
 
 **thermald:** thermald's purpose is to limit power dissipation before the

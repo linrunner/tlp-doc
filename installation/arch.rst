@@ -16,8 +16,32 @@ Install them either with your favorite package manager or the command: ::
 
    pacman -S tlp tlp-rdw
 
+
+Service Units
+-------------
+To complete the installation you must enable TLP's service: ::
+
+   systemctl enable tlp.service
+
+Using the :doc:`/settings/rdw` (tlp-rdw) requires one more service: ::
+
+   systemctl enable NetworkManager-dispatcher.service
+
+You should also mask the following services to avoid conflicts and assure proper
+operation of TLP's :doc:`/settings/radio` options: ::
+
+   systemctl mask systemd-rfkill.service
+   systemctl mask systemd-rfkill.socket
+
+.. include:: ../include/power-profiles-daemon-conflict.rst
+
+.. seealso::
+
+    * Refer to :ref:`service units <faq-service-units>`
+    * Refer to the `Arch Wiki <https://wiki.archlinux.org/index.php/TLP>`_ as well
+
 ThinkPads only
-^^^^^^^^^^^^^^
+--------------
 .. include:: ../include/thinkpad-kernel-modules.rst
 
 Depending on your model and kernel version external kernel module(s) are required
@@ -46,25 +70,4 @@ Replace `acpi_call` with `tp_smapi` where suitable
 
     * Refer to :ref:`faq-which-kernel-module` for details
     * You must disable Secure Boot to use the ThinkPad specific packages
-
-Service Units
--------------
-To complete the installation you must enable TLP's service: ::
-
-   systemctl enable tlp.service
-
-Using the :doc:`/settings/rdw` (tlp-rdw) requires one more service: ::
-
-   systemctl enable NetworkManager-dispatcher.service
-
-You should also mask the following services to avoid conflicts and assure proper
-operation of TLP's :doc:`/settings/radio` options: ::
-
-   systemctl mask systemd-rfkill.service
-   systemctl mask systemd-rfkill.socket
-
-.. seealso::
-
-    * Refer to :ref:`service units <faq-service-units>`
-    * Refer to the `Arch Wiki <https://wiki.archlinux.org/index.php/TLP>`_ as well
 

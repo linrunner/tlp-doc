@@ -49,9 +49,10 @@ For AMD, other brands and older Intel CPUs. Supported governors are:
 .. important::
 
     Default governors listed above are power efficient for almost all workloads,
-    therefore kernel devs and most distributions have chosen them as such. If you
-    still want to change the scaling governor, you should know what you're doing!
-
+    therefore kernel devs and most distributions have chosen them as such.
+    So *before* changing the scaling governor please do your research about the
+    advantages and disadvantages of the others (refer to the links on the bottom
+    of this page).
 
 CPU_SCALING_MIN/MAX_FREQ_ON_AC/BAT
 ----------------------------------
@@ -70,10 +71,11 @@ Hints:
 
 * Do not use this setting with the `intel_pstate` scaling driver, use
   :ref:`set-cpu-mix-max-perf` instead
-* Min/max frequencies have to be specified for battery and AC modes
+* Min/max frequencies must always be specified for both modes i.e. `AC` and `BAT`
 * To enable processor defaults comment all four settings and reboot
-* Lowering the max frequency on battery power does not conserve power;
-  best results are achieved by the ondemand governor without frequency limits
+* Lowering the max frequency on battery power may not conserve power;
+  best results are to be expected from the ondemand governor without
+  frequency limits
 
 
 .. _set-cpu-energy-perf-policy:
@@ -230,6 +232,8 @@ Hints:
 
 .. seealso::
 
+    * `CPU Performance Scaling <https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html>`_
+      – kernel documentation covering scaling governors et al.
     * `intel_pstate CPU Performance Scaling Driver <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_pstate.html>`_
       – driver documentation
     * `Intel Hardware P-State (HWP) / Intel Speed Shift <https://smackerelofopinion.blogspot.com/2021/07/intel-hardware-p-state-hwp-intel-speed.html>`_
