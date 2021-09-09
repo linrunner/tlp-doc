@@ -3,9 +3,28 @@ News
 
 .. _news-top-1:
 
+09.09.2021 - TLP 1.4 Beta 2 released / Call for Testers
+=======================================================
+Beta 2 accumulates all corrections from the preceding test.
+Check the `release notes <https://github.com/linrunner/TLP/releases>`_
+for details on the bugfixes.
+
+.. rubric:: Call for Testers
+
+A big thanks to all beta 1 testers and bug reporters!
+
+You are now called upon to review beta 2.
+New testers are welcome as well.
+Check the `beta page <https://download.linrunner.de/packages/>`_
+for instructions and packages matching your distribution.
+
+Enjoy :-)
+
+.. _news-top-2:
+
 29.07.2021 - TLP 1.4 Beta 1 released / Call for Testers
 =======================================================
-Concluding an intensive development cycle i present to you the first beta of
+Concluding an intensive development cycle I present to you the first beta of
 TLP 1.4 - packed with awesome new features. Among the highlights are:
 
 * Extended charge threshold support for laptops with a suitable kernel driver:
@@ -20,7 +39,7 @@ for details on features and bugfixes.
 
 .. rubric:: Call for Testers
 
-As with every upcoming release i need help to complete the test coverage. So i'm
+As with every upcoming release I need help to complete the test coverage. So I'm
 reaching out to the community of Linux users to test new and existing
 functionality on their hardware.
 

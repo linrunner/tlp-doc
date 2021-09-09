@@ -24,6 +24,7 @@ TLP - Optimize Linux Laptop Battery Life
 Latest News
 ===========
 * :ref:`news-top-1`
+* :ref:`news-top-2`
 
 :doc:`More news ...</news>`
 
