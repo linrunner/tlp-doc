@@ -105,9 +105,12 @@ LAN, Wi-Fi, WWAN connected/disconnected or laptop docked/undocked (:doc:`/settin
     background process showing up in the output of :command:`ps`. Refer to
     :doc:`/developers/architecture` for technical details.
 
+
+.. _intro-features:
+
 Features
 ========
-:doc:`/settings/index` are organized into two profiles, enabling you to adjust
+:doc:`Power saving settings </settings/index>` are organized into two profiles, enabling you to adjust
 between savings and performance independently for battery (BAT) and AC operation:
 
 * Kernel laptop mode and dirty buffer timeouts
@@ -127,7 +130,7 @@ between savings and performance independently for battery (BAT) and AC operation
 * Power off removable optical drives (in drive bays)
 * Audio power save
 
-Additional settings - independent of the power source - are:
+Additional power saving settings - independent of the power source - are:
 
 * I/O scheduler (per disk)
 * USB autosuspend with device denylist/allowlist
@@ -136,4 +139,7 @@ Additional settings - independent of the power source - are:
 * Radio device wizard: enable/disable radios upon network connect/disconnect and dock/undock
 * Disable Wake-On-LAN
 * Bluetooth and WWAN state is restored after suspend/hibernate
-* Battery Care: charge thresholds and recalibration
+
+Battery care settings are:
+
+* Charge thresholds and recalibration

@@ -32,8 +32,8 @@ Refer to :doc:`/settings/graphics` for details.
 
     Affects `radeon` driver only, not `amdgpu`.
 
-Kernel message '*ERROR* radeon: ring 0 test failed' on AC power
----------------------------------------------------------------
+Kernel message "*ERROR* radeon: ring 0 test failed' on AC power"
+----------------------------------------------------------------
 .. rubric:: AMD GPU
 
 Affected hardware: a Lenovo Ideapad 300 (Intel / Radeon hybrid graphics) user

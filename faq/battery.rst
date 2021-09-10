@@ -1,9 +1,18 @@
 Battery Care
 ============
 
+What is "Battery Life"?
+-----------------------
+* `Battery life` is the amount of time your device runs before it needs to be
+  recharged, it's also called `battery runtime`. It's the task of
+  TLP's power saving :ref:`features <intro-features>` to extend it.
+* In contrast `battery lifespan` is the amount of time your battery lasts until
+  it needs to be replaced. This is where `battery care` comes in.
+
+
 .. _faq-battery-care:
 
-What is 'Battery Care'?
+What is "Battery Care"?
 -----------------------
 .. include:: ../include/battery-care-explain.rst
 
@@ -153,12 +162,17 @@ check the sections further down for possible explanations.
 
 .. _faq-which-kernel-module:
 
-Which kernel module do I need for my ThinkPad?
-----------------------------------------------
+Which external kernel module do I need for my ThinkPad?
+-------------------------------------------------------
 .. note::
 
-    Prerequisite: make sure to install the most recent version of TLP for
-    accurate recommendations.
+    `thinkpad_acpi` is not an external kernel module and you do not normally have
+    to worry about it. It is contained in the standard Linux kernel
+    and all distributions provide it as part of their kernel packages.
+    ThinkPads load it automatically at boot time.
+
+Prerequisite: make sure to install the most recent version of TLP for
+accurate recommendations.
 
 Check the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
 for the following lines
@@ -236,6 +250,35 @@ Laptop is not supported
 ^^^^^^^^^^^^^^^^^^^^^^^
 See above for a :ref:`list of supported vendors/brands <battery-care-scope>`.
 
+Kernel module `thinkpad_acpi` is not loaded
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*ThinkPads only*
+
+Symptoms: ::
+
+    --- TLP 1.4.0 --------------------------------------------
+
+    +++ Battery Care
+    Plugin: generic
+    Supported features: none available
+
+or ::
+
+    --- TLP 1.3.1 --------------------------------------------
+
+    +++ Battery Features: Charge Thresholds and Recalibrate
+    natacpi    = inactive (laptop not supported)
+    tpacpi-bat = inactive (laptop not supported)
+    tp-smapi   = inactive (laptop not supported)
+
+Load attempt with :command:`sudo modprobe thinkpad_acpi` reveals ::
+
+    modprobe: ERROR: could not insert 'thinkpad_acpi': Invalid argument
+
+Cause: your system configuration contains broken boot options for `thinkpad_acpi`.
+
+Solution: check and correct your GRUB config (distribution dependent)
+or module config files (**/etc/modprobe.d/*.conf**).
 
 External kernel module is not installed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -671,21 +714,39 @@ My battery does not charge anymore after recalibration showing X% remaining capa
 Most probable cause: battery is defect – and was it even before the recalibration
 attempt.
 
-`tlp recalibrate` terminates with 'Error: battery was not discharged completely. Check your hardware.'
-------------------------------------------------------------------------------------------------------
+`tlp recalibrate` terminates with an error message
+--------------------------------------------------
 *ThinkPads only*
+
+Impact: recalibration does not work at all without a full discharge to tell the
+battery controller (the one *in* the battery) where the actual 0% is.
+
+Symptom 1: ::
+
+    Warning: battery BAT0 was not discharged completely -- AC/charger removed.
+
+Solution: first make sure AC power is connected during the whole process then
+try a different charger.
+
+Symptom 2: ::
+
+    Error: battery BAT0 was not discharged completely i.e. terminated by the firmware -- check your hardware.
 
 Cause: this is a hardware issue either with your battery (likely), charger or laptop.
 
-Impact: recalibration doesn't work at all without a full discharge to tell the
-battery controller (the one *in* the battery) where the actual 0% is.
+Solution: first try another battery pack then a different charger. If this does not
+remedy the situation, a system board defect could be the reason.
 
-Solution: make sure AC power is connected during the whole process,
-try to replace your battery next.
+.. note::
+
+    If the discharge process regularly stops at 1%, for example, you may prefer
+    to ignore the problem because it is minor. Nevertheless, a battery or
+    hardware defect could be present in this case.
+
 
 .. _faq-cycle-count:
 
-Why does the panel applet show the battery state 'charging' despite charge thresholds are effective?
+Why does the panel applet show the battery state "charging" despite charge thresholds are effective?
 ----------------------------------------------------------------------------------------------------
 *ThinkPads only*
 
@@ -702,7 +763,7 @@ for **/sys/class/power_supply/BATx/status**.
 For ThinkPad models supporting `tp-smapi`, the correct state "Idle" is shown
 for **/sys/devices/platform/smapi/BATx/state**.
 
-Why does `tlp-stat -b` display 'cycle_count = (not supported)'?
+Why does `tlp-stat -b` display "cycle_count = (not supported)"?
 ---------------------------------------------------------------
 Cycle count is not available for all laptops. Positive exceptions are older
 ThinkPads supporting `tp-smapi` and some newer hardware.

@@ -58,7 +58,7 @@ available and enabled by default on Intel Sandy Bridge (or newer) hardware.
 `intel_pstate` supports the governors `powersave` (recommended default) and
 `performance` only, `ondemand` is not available.
 
-`tlp-stat -p` shows 'x86_energy_perf_policy: program for your kernel not installed.'
+`tlp-stat -p` shows "x86_energy_perf_policy: program for your kernel not installed."
 ------------------------------------------------------------------------------------
 Depending on the distribution your mileage may vary:
 
