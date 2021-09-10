@@ -164,6 +164,8 @@ drives. Possible values (in order of increasing power saving):
 Default when unconfigured: "med_power_with_dipm max_performance" (AC),
 "med_power_with_dipm min_power" (BAT)
 
+Use empty strings (“”) to disable the feature completely.
+
 Multiple values separated with spaces are tried sequentially until success.
 TLP 1.1 and higher determine automatically when `med_power_with_dipm` is
 available. For that a second value is provided in the default configuration
