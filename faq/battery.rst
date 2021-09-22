@@ -20,12 +20,9 @@ What is "Battery Care"?
 
 Battery charging is a process controlled by the embedded controller (EC)
 of your laptop. This makes the process work even when the laptop is switched off
-or no operating system is running. It works as follows:
+or no operating system is running:
 
-* Charging starts upon connecting AC power, but only if the battery charge
-  level is below the start charge threshold (`START_CHARGE_THRESH_BATx`);
-  it will not charge when the level is above the start charge threshold
-* Charging stops when reaching the stop charge threshold (`STOP_CHARGE_TRESH_BATx`)
+.. include:: ../include/charge-threshold-effect.rst
 
 You cannot change the basic behavior described above, because it is hard-coded
 into the EC firmware by the vendor. However, you can control it by setting

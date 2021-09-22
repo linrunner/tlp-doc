@@ -20,7 +20,9 @@ START/STOP_CHARGE_THRESH_BATx
     STOP_CHARGE_THRESH_BAT1=80
 
 Set battery charge thresholds for main battery (BAT0) and auxiliary/Ultrabay
-battery (BAT1).
+battery (BAT1):
+
+.. include:: ../include/charge-threshold-effect.rst
 
 .. important::
 
