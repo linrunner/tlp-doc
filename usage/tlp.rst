@@ -32,8 +32,8 @@ the next reboot or :command:`tlp start` is issued to resume automatic mode.
 
 USB Autosuspend
 ^^^^^^^^^^^^^^^
-Apply autosuspend mode for all attached USB devices except input and denylisted
-devices: ::
+Apply autosuspend mode for all attached USB devices except those excluded by
+default or in the configuration: ::
 
     sudo tlp usb
 

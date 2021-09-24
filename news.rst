@@ -3,6 +3,30 @@ News
 
 .. _news-top-1:
 
+24.09.2021 - TLP 1.4 released
+=============================
+After a successful beta test, I am proud to present you the final release of
+TLP 1.4 today - packed with awesome new features. Among the highlights are:
+
+* Extended charge threshold support for laptops with a suitable kernel driver:
+  ASUS, Huawei, LG, Lenovo (non-ThinkPad series), Samsung
+* Select a platform profile to control system operating characteristics around
+  power/performance levels, thermal and fan speed
+* Enable Intel CPU HWP dynamic boost
+
+For a quick glance check the `release notes <https://github.com/linrunner/TLP/releases>`_.
+See the extensive `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_
+for all the details on features and bugfixes.
+
+**Release packages are provided via the repositories of your distribution.**
+
+A big thanks to all contributors, testers and bug reporters!
+
+Have fun :-)
+
+
+.. _news-top-2:
+
 09.09.2021 - TLP 1.4 Beta 2 released / Call for Testers
 =======================================================
 Beta 2 accumulates all corrections from the preceding test.
@@ -20,7 +44,6 @@ for instructions and packages matching your distribution.
 
 Enjoy :-)
 
-.. _news-top-2:
 
 29.07.2021 - TLP 1.4 Beta 1 released / Call for Testers
 =======================================================

@@ -30,7 +30,7 @@ Add `-v` to see battery voltages (if available).
     tlp-stat --config
 
 
-.. rubric:: View the difference between default and user configuration
+.. rubric:: View the difference between defaults and user configuration
 
 *Version 1.4 and higher*
 

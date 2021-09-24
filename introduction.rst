@@ -70,8 +70,9 @@ System startup (boot)
     configuration).
 
 System shutdown (power off)
-    Switches bluetooth, Wi-Fi and WWAN devices and disables USB autosuspend
-    depending on your individual settings (disabled in the default configuration).
+    Saves or switches bluetooth, Wi-Fi and WWAN device state and disables USB
+    autosuspend depending on your individual settings (disabled in the default
+    configuration).
 
 System reboot
     Same as shutdown, then continues with startup.
