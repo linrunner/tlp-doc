@@ -5,8 +5,9 @@ News
 
 24.09.2021 - TLP 1.4 released
 =============================
-After a successful beta test, I am proud to present you the final release of
-TLP 1.4 today - packed with awesome new features. Among the highlights are:
+After a successful beta test, I am proud to present the final release of
+TLP 1.4 to you today. The release is packed with awesome new features, I would
+like to list only the highlights here:
 
 * Extended charge threshold support for laptops with a suitable kernel driver:
   ASUS, Huawei, LG, Lenovo (non-ThinkPad series), Samsung
@@ -14,8 +15,8 @@ TLP 1.4 today - packed with awesome new features. Among the highlights are:
   power/performance levels, thermal and fan speed
 * Enable Intel CPU HWP dynamic boost
 
-For a quick glance check the `release notes <https://github.com/linrunner/TLP/releases>`_.
-See the extensive `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_
+Check the `release notes <https://github.com/linrunner/TLP/releases>`_
+and the complete `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_
 for all the details on features and bugfixes.
 
 **Release packages are provided via the repositories of your distribution.**
