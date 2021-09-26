@@ -1,6 +1,8 @@
 Platform
 ========
 
+.. _set-platform-profile:
+
 PLATFORM_PROFILE_ON_AC/BAT
 --------------------------
 *Version 1.4 and higher*

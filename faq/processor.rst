@@ -32,6 +32,26 @@ above configuration lines or configure it explictly: ::
 
 For details refer to :ref:`set-cpu-scaling-governor`.
 
+CPU_BOOST_ON_BAT/AC=0 decreases scaling_max_freq
+------------------------------------------------
+Affected hardware: ThinkPad X1 Carbon Gen9
+
+Symptom: :command:`tlp-stat -p` shows `scaling_max_freq` way below the nominal
+frequency of the CPU: ::
+
+    +++ Processor
+    CPU model      = 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+
+    /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver    = intel_pstate
+    /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor  = powersave
+    /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq  =  1200000 [kHz]
+
+Probable cause: `intel_pstate` driver or UEFI firmware bug.
+
+Workaround: either do not disable turbo boost or configure additionally
+:ref:`set-platform-profile` (*Version 1.4 and higher only*, see
+`Issue #570 <https://github.com/linrunner/TLP/issues/570>`_ for details).
+
 Frequency scaling settings do not get applied
 ---------------------------------------------
 Symptom: :command:`tlp-stat -p` shows values that do not reflect configuration.
