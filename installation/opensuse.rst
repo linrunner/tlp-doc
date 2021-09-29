@@ -32,6 +32,8 @@ guide you which package to install:
 * **acpi_call** – optional – External kernel module providing battery
   recalibration for newer ThinkPads (X220/T420 and later)
   - `Download acpi_call <https://software.opensuse.org/package/acpi_call>`_
+* **acpi_call-kmp-default** - optional - Tumbleweed only; should be installed together with the acpi_call package 
+  - `Download acpi_call-kmp-default <https://software.opensuse.org/package/acpi_call-kmp-default>`_
 * **tp_smapi_kmp** – optional – External kernel module providing battery charge
   thresholds, recalibration and specific :command:`tlp-stat -b` output
   for older ThinkPads
