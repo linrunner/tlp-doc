@@ -233,7 +233,7 @@ anymore.
       – tp-smapi documentation at thinkwiki.org
     * `tpacpi-bat <https://github.com/teleshoes/tpacpi-bat>`_
       – tool (included in TLP) to provide battery charge thresholds and
-      recalibration for newer ThinkPads (X220/T420 and later)
+      recalibration for newer ThinkPads (X220/T420 i.e. 2013 and later)
     * `acpi_call <https://github.com/nix-community/acpi_call>`_
       – kernel module needed by `tpacpi-bat`
 
