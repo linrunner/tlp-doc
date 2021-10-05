@@ -17,7 +17,7 @@ Packages are available from the official repositories:
 
 Install them either with your favorite package manager or the command: ::
 
-        zypper install tlp tlp-rdw
+    zypper install tlp tlp-rdw
 
 ThinkPads only
 --------------
@@ -26,18 +26,24 @@ ThinkPads only
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
-The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will
-guide you which package to install:
+For openSUSE `Tumbleweed` and newer ThinkPads (X220/T420 i.e. 2013 and later)
+just install the required external kernel module `acpi_call` from the official
+repositories with: ::
+
+    zypper install acpi_call-kmp-default
+
+For openSUSE `Leap` and/or older ThinkPads your mileage may vary as you have to
+browse `openSUSE Software <https://software.opensuse.org/>`_ for community
+packages or build the required module from source. The output of :command:`tlp-stat -b`
+(version 1.2.2 or higher recommended) will guide you which external kernel module
+is required:
 
 * **acpi_call** – optional – External kernel module providing battery
-  recalibration for newer ThinkPads (X220/T420 and later)
-  - `Download acpi_call <https://software.opensuse.org/package/acpi_call>`_
-* **tp_smapi_kmp** – optional – External kernel module providing battery charge
+  recalibration for newer ThinkPads (X220/T420 i.e. 2013 and later)
+* **tp_smapi** – optional – External kernel module providing battery charge
   thresholds, recalibration and specific :command:`tlp-stat -b` output
   for older ThinkPads
-  - `Download tp-smapi <https://software.opensuse.org/package/tp_smapi-kmp>`_
 
 .. seealso::
 
     * Refer to :ref:`faq-which-kernel-module` for details
-
