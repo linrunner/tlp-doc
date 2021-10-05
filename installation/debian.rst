@@ -11,19 +11,15 @@ Debian
 
 Package Repository
 ------------------
-
-Debian stable, testing and unstable
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TLP and ThinkPad-related packages below are available via the official Debian
-repository.
+repositories.
 
-Debian 10.0 "Buster"
-^^^^^^^^^^^^^^^^^^^^
-Newer TLP packages are available via `Debian backports`_.
+Newer TLP packages may be provided via `Debian backports`_. Add the following line
+to your **/etc/apt/sources.list**: ::
 
-Add the following line to your **/etc/apt/sources.list**: ::
+    deb http://ftp.debian.org/debian DIST-backports main
 
-    deb http://ftp.debian.org/debian buster-backports main
+Replace `DIST` with `buster` or `bullseye` according to your installation.
 
 Update package data: ::
 
@@ -42,9 +38,9 @@ either with your favorite package manager or the command: ::
 
 For `Debian Backports`_ use: ::
 
-    apt -t buster-backports install tlp tlp-rdw
+    apt -t DIST-backports install tlp tlp-rdw
 
-instead.
+Replace `DIST` with `buster` or `bullseye` according to your installation.
 
 ThinkPads only
 --------------
