@@ -1,5 +1,16 @@
 Disk Drives
 ===========
+Does SATA ALPM cause disk corruption with Btrfs?
+------------------------------------------------
+No. SATA ALPM has been safe since kernel 4.15.
+
+`Statement of BTRFS developer David Sterba
+<https://www.spinics.net/lists/linux-btrfs/msg101833.html>`_:
+*"It's a hardware problem leading to
+filesystem corruption. It's affecting all filesystem[s] but the detection
+capabilities differ, so it stuck with btrfs.
+[...] the fixes to ATA subsystem have been merged to 4.15."*
+
 
 Why is my HDD parking the read-write heads so frequently (clicking noises)?
 ---------------------------------------------------------------------------
@@ -8,7 +19,7 @@ The APM setting for battery mode ::
     DISK_APM_LEVEL_ON_BAT=128
 
 corresponds to the Ubuntu default and should cause no problems. Unfortunately
-drive manufacturers interpret the APM levels quite spaciously to save power.
+drive vendors interpret the APM levels quite spaciously to save power.
 
 Solution: try values > 128. See :ref:`set-disks-apm`.
 

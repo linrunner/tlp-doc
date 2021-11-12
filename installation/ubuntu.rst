@@ -30,8 +30,19 @@ either with your favorite package manager or the command: ::
 
     sudo apt install tlp tlp-rdw
 
+.. include:: ../include/power-profiles-daemon-conflict.rst
+
+.. note::
+
+    * Ubuntu 21.04 with GNOME Desktop installs `power-profiles-daemon.service` by default
+      (`Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_)
+    * Version 1.4 packages from the PPA are already masking `power-profiles-daemon.service`
+
+
 ThinkPads only
-^^^^^^^^^^^^^^
+--------------
+.. include:: ../include/thinkpad-kernel-modules.rst
+
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
@@ -39,16 +50,18 @@ The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will 
 you which package to install:
 
 * **acpi-call-dkms** *(universe)* – optional – External kernel module providing
-  battery charge thresholds and recalibration for newer ThinkPads (X220/T420 and later)
+  battery recalibration for newer ThinkPads (X220/T420 i.e. 2013 and later)
 * **tp-smapi-dkms** *(PPA or universe)* – optional – External kernel module providing
   battery charge thresholds, recalibration and specific :command:`tlp-stat -b`
   output for older ThinkPads
 
-Install them either with your favorite package manager or the command ::
+Install the appropriate package either with your favorite package manager or
+the command ::
 
-    sudo apt install acpi-call-dkms tp-smapi-dkms
+    sudo apt install acpi-call-dkms
 
-omitting the one not required by your hardware.
+Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable
+(special case: X220/T420 generation makes use of both).
 
 .. seealso::
 

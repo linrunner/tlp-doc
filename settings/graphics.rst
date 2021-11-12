@@ -19,17 +19,52 @@ your hardware. See the output of :command:`tlp-stat -g` for available
 frequencies.
 
 
+RADEON_DPM_PERF_LEVEL_ON_AC/BAT
+-------------------------------
+.. rubric::  AMD GPU
+
+::
+
+    RADEON_DPM_PERF_LEVEL_ON_AC=auto
+    RADEON_DPM_PERF_LEVEL_ON_BAT=auto
+
+Controls the Dynamic power management (DPM) performance level. Supported by
+`amdgpu` *(Version 1.4 and higher only)* and `radeon` drivers. Possible values:
+
+* auto – recommended
+* low
+* high
+
+Default when unconfigured: auto
+
+
+RADEON_DPM_STATE_ON_AC/BAT
+--------------------------
+.. rubric::  AMD GPU
+
+::
+
+    RADEON_DPM_STATE_ON_AC=performance
+    RADEON_DPM_STATE_ON_BAT=battery
+
+Controls the power management method of the GPU. Possible values:
+
+* battery
+* balanced
+* performance
+
+
 RADEON_POWER_PROFILE_ON_AC/BAT
 ------------------------------
-.. rubric::  AMD Radeon GPU (old)
+.. rubric::  AMD GPU (ATI legacy hardware)
 
 ::
 
     RADEON_POWER_PROFILE_ON_AC=default
     RADEON_POWER_PROFILE_ON_BAT=default
 
-Controls the clock for the AMD GPU. Supported by the radeon driver only,
-not fglrx. Possible values:
+Controls the clock of the GPU. Supported by the `radeon` driver on legacy
+ATI hardware only (where DPM is not available). Possible values:
 
 * low
 * mid
@@ -39,43 +74,11 @@ not fglrx. Possible values:
 
 Default when unconfigured: default
 
-RADEON_DPM_STATE_ON_AC/BAT
---------------------------
-.. rubric::  AMD Radeon GPU (new)
-
-Since kernel 3.11 the new radeon dynamic power management (DPM) is available.
-Supported by the radeon driver only, not fglrx.
-
-::
-
-    RADEON_DPM_STATE_ON_AC=performance
-    RADEON_DPM_STATE_ON_BAT=battery
-
-Controls the power management method of the AMD GPU. Possible values:
-
-* battery – default on battery power
-* performance – default on AC power
-
-RADEON_DPM_PERF_LEVEL_ON_AC/BAT
--------------------------------
-.. rubric::  AMD Radeon GPU (new)
-
-::
-
-    RADEON_DPM_PERF_LEVEL_ON_AC=auto
-    RADEON_DPM_PERF_LEVEL_ON_BAT=auto
-
-Controls the performance level. Possible values:
-
-* auto – recommended
-* low
-* high
-
-Default when unconfigured: auto
-
 .. note::
 
-    This setting makes the display flicker briefly when the power source changes.
+    This setting may cause the display to flicker briefly when changing the
+    power source.
+
 
 .. seealso::
 

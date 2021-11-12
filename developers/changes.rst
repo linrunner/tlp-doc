@@ -2,13 +2,33 @@ Dev's Changelog
 ===============
 This section lists changes that are relevant for packaging TLP.
 For feature changes see the
-`user oriented changelog <https://github.com/linrunner/TLP/blob/master/changelog>`_.
+`user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
-Version 1.4 (under development)
+Version 1.4
+    Source:
+
+    - Branch `master` renamed to `main`
+    - New directory: **unit-tests/** - do not install
+
     Dependencies:
 
     - Removed: **lsb-release**
 
+    Files:
+
+    - New directory with battery driver plugins: **/usr/share/tlp/bat.d/**
+    - New file: **/usr/share/tlp/rename.conf**
+
+    Makefile:
+
+    - New parameters: `TLP_BATD`, `TLP_CONFREN`
+    - New target: `chkbatdrv`
+
+    Installation:
+
+    - Add `systemctl mask power-profiles-daemon` to the package post-install
+      routine - and vice versa for post-remove
+      (see `Issue #564 <https://github.com/linrunner/TLP/issues/564>`_)
 
 Version 1.3
     New configuration scheme:

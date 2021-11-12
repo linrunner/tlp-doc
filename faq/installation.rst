@@ -8,6 +8,13 @@ Yes. Using another tool simultaneously means that TLP's settings get overwritten
 by the other tools settings (and vice versa), so actual power saving gets
 unpredictable. Special cases are explained in the following.
 
+.. include:: ../include/power-profiles-daemon-conflict.rst
+
+.. seealso::
+
+    * `TLP Issue #564 <https://github.com/linrunner/TLP/issues/564>`_
+    * `Ubuntu Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_
+
 **Powertop:** please refer to :doc:`powertop`.
 
 **thermald:** thermald's purpose is to limit power dissipation before the
@@ -18,6 +25,36 @@ TLP does not conflict with thermald.
 **throttled:** only throttled's dynamic `HWP_Mode` setting interferes with TLP's
 actions. If you want to use it, disable the feature in TLP by configuring
 `CPU_ENERGY_PERF_POLICY_ON_AC=""`.
+
+
+.. _faq-service-units:
+
+Must I enable TLP's systemd service units?
+------------------------------------------
+Symptoms: :command:`tlp-stat -s` shows ::
+
+    Error: tlp.service is not enabled, power saving will not apply on boot.
+    >>> Invoke 'systemctl enable tlp.service' to correct this!
+
+and/or ::
+
+    Error: tlp-sleep.service is not enabled, power saving will not apply on boot.
+    >>> Invoke 'systemctl enable tlp-sleep.service' to correct this!
+
+Answer: *yes*, the service units are *indispensable* for correct operation:
+
+* **tlp.service**: applies power saving settings and charge thresholds
+  as well as switching radio devices on system boot and shutdown
+* **tlp-sleep.service**: applies powers saving upon system suspend and resume
+  *(not applicable for version 1.3 and higher)*
+
+.. note::
+
+    Debian, Fedora and Ubuntu enable the service by default as part of the
+    package :doc:`/installation/index`, others such as Arch Linux don't.
+    If unsure check the output of :command:`tlp-stat -s` for corresponding
+    notes.
+
 
 Does TLP run on my laptop (not a ThinkPad)?
 -------------------------------------------

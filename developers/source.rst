@@ -8,18 +8,19 @@ Code
 TLP's source code is hosted on `GitHub <https://github.com/linrunner/TLP>`_.
 The repository holds the following branches:
 
-* **master** – current development – releases are tagged with VERSION
-* **debian/current** – Debian/Ubuntu packing for current releases
-* debian/legacy – Debian/Ubuntu packing for old releases (deprecated, unmaintained)
+* **main** – current development – releases are tagged with VERSION
+* **debian/current** – Debian/Ubuntu packaging for current releases
+  (not identical with the official distribution packages)
+* debian/legacy – Debian/Ubuntu packaging for old releases (deprecated, unmaintained)
 
 Obtain the current development version with ::
 
     git clone git://github.com/linrunner/TLP.git tlp.git
     cd tlp.git
 
-Checkout the `master` branch ::
+Checkout the `main` branch ::
 
-    git checkout master
+    git checkout main
 
 or a release version ::
 
@@ -27,10 +28,10 @@ or a release version ::
 
 .. note::
 
-    Please base your pull requests on the `master` branch.
+    Please base your pull requests on the `main` branch.
 
 The current changelog for the development version is
-`here <https://github.com/linrunner/TLP/blob/master/changelog>`_.
+`here <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
 Download release tarballs at the
 `Release page <https://github.com/linrunner/TLP/releases>`_.
@@ -44,13 +45,13 @@ Debian / Ubuntu
 
 * **packaging-dev** – Metapackage providing common packaging tools
 
-2. Checkout debian/current branch ::
+2. Checkout `debian/current` branch ::
 
     git checkout -b debian/current origin/debian/current
 
-3. Checkout master branch ::
+3. Checkout `main` branch ::
 
-    git checkout master
+    git checkout main
 
 4. Populate **debian/** with ::
 
@@ -66,7 +67,7 @@ Debian / Ubuntu
 
 Arch Linux
 ^^^^^^^^^^
-Packages tracking the master branch are available in the AUR:
+Packages tracking the `main` branch are available in the AUR:
 
 * `tlp-git <https://aur.archlinux.org/packages/tlp-git/>`_
 * `tlp-rdw-git <https://aur.archlinux.org/packages/tlp-rdw-git/>`_
@@ -75,7 +76,7 @@ Packages tracking the master branch are available in the AUR:
 
 Installing from Source
 ----------------------
-1. Checkout the master branch (see :ref:`dev-source-code`).
+1. Checkout the `main` branch (see :ref:`dev-source-code`).
 
 2. In the **tlp.git/** directory ::
 

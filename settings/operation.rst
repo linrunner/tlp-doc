@@ -9,7 +9,23 @@ TLP_ENABLE
 
 Set to 0 to disable TLP (reboot needed).
 
-Default when unconfigured: 0
+Default when unconfigured: 1
+
+TLP_WARN_LEVEL
+--------------
+*Version 1.4 and higher*
+::
+
+   TLP_WARN_LEVEL=3
+
+Controls how warnings about invalid settings are issued:
+
+* 0 - disabled
+* 1 - background tasks (boot, resume, change of power source) report to the syslog/journal
+* 2 - shell commands report to the terminal (stderr)
+* 3 - combination of 1 and 2
+
+Default when unconfigured: 3
 
 TLP_DEFAULT_MODE
 ----------------
@@ -43,16 +59,17 @@ Default when unconfigured: 0
 
 TLP_PS_IGNORE
 -------------
-.. versionadded:: 1.3
-
 ::
 
-   TLP_PS_IGNORE=BAT
+   TLP_PS_IGNORE="BAT"
 
-Power supply class to ignore when determining operation mode:
+Power supply class(es) to ignore when determining operation mode:
 
-* `AC`
-* `BAT`
+* AC
+* BAT
+* USB - *Version 1.4 and higher only*
+
+*Version 1.4 and higher only: enter multiple classes separated with spaces.*
 
 .. note::
 

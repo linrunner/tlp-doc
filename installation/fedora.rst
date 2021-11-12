@@ -21,8 +21,13 @@ Install the packages either with your favorite package manager or the command: :
 
    dnf install tlp tlp-rdw
 
+.. include:: ../include/power-profiles-daemon-conflict.rst
+
+
 ThinkPads only
-^^^^^^^^^^^^^^
+--------------
+.. include:: ../include/thinkpad-kernel-modules.rst
+
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
@@ -32,41 +37,45 @@ Instead you need to add the `RPM Fusion` and `ThinkPad Extras` repositories: ::
    dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
    dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
 
+.. note::
+
+    Above steps are only needed on a new installation of Fedora *but not* after release
+    upgrades.
+
 The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will guide
 you which package to install:
 
 * **kernel-devel** *(Fedora repo)* – Needed for the `akmod` packages below
 * **akmod-acpi_call** *(ThinkPad Extras repo)* – optional – External kernel module providing
-  battery charge thresholds and recalibration for newer ThinkPads (X220/T420 and later)
+  battery recalibration for newer ThinkPads (X220/T420 i.e. 2013 and later)
 * **akmod-tp_smapi** *(ThinkPad Extras repo)* – optional – External kernel module providing
   battery charge thresholds, recalibration and specific :command:`tlp-stat -b`
   output for older ThinkPads
 
-.. note::
+Install the appropriate package either with your favorite package manager
+or the command ::
 
-    The RPM Fusion repo delivers build dependencies for the `akmod-*` packages.
+   dnf install kernel-devel akmod-acpi_call
+
+Replace `akmod-acpi_call` with `akmod-tp_smapi` where suitable
+(special case: X220/T420 generation makes use of both).
+
+New packages are available first in the testing repository: ::
+
+   dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-acpi_call akmod-tp_smapi
 
 .. important::
 
     * The `akmod-*` packages are provided "as is" by a volunteer, they are
       not part of the TLP project
     * Please *do not file issues* if they are not yet available for the
-      latest Fedora version
+      latest Fedora version, better watch the `tlp-updates-testing` repository
     * In case of difficulties installing them, please ask for help in your
       preferred Fedora forum
 
-Install them either with your favorite package manager or the command ::
-
-   dnf install kernel-devel akmod-acpi_call akmod-tp_smapi
-
-omitting the one not required by your hardware.
-
-New packages are available first in the testing repository: ::
-
-   dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-acpi_call akmod-tp_smapi
-
 .. note::
 
+    * The RPM Fusion repo delivers build dependencies for the `akmod-*` packages
     * Refer to :ref:`faq-which-kernel-module` for details
     * You must disable Secure Boot to use the ThinkPad specific packages
 
@@ -80,13 +89,13 @@ following procedure.
 
 .. code-block:: none
 
-    wget https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-33-primary
+    wget https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-34-primary
 
 2. Get the fingerprint:
 
 .. code-block:: none
 
-    gpg -n -q --import --import-options import-show RPM-GPG-KEY-tlp-fedora-33-primary
+    gpg -n -q --import --import-options import-show RPM-GPG-KEY-tlp-fedora-34-primary
 
 3. Check that the resulting fingerprint matches the fingerprint from the list below.
 
@@ -94,10 +103,14 @@ following procedure.
 
 .. code-block:: none
 
-    rpm --import RPM-GPG-KEY-tlp-fedora-33-primary
+    rpm --import RPM-GPG-KEY-tlp-fedora-34-primary
 
 Fingerprints
-^^^^^^^^^^^^
+------------
+RPM-GPG-KEY-tlp-fedora-35-primary: ::
+
+    65C4 7531 819C 6D74 33BE 25D5 5052 26CB 40D9 3801
+
 RPM-GPG-KEY-tlp-fedora-34-primary: ::
 
     1E4F 2F53 A348 6025 FC4E FD86 7704 0BAF FA30 D1C8
@@ -105,7 +118,7 @@ RPM-GPG-KEY-tlp-fedora-34-primary: ::
 RPM-GPG-KEY-tlp-fedora-33-primary: ::
 
     0D3C F36C EB28 B582 D6DE F296 82B6 D96F 1381 B02A
-    
+
 RPM-GPG-KEY-tlp-fedora-32-primary: ::
 
     6BED 8C16 80E0 E9DC D310 94FB 274D 8DB1 A690 281B

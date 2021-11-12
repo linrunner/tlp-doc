@@ -23,6 +23,7 @@ The remaining sections describe all of TLP's settings:
    graphics
    kernel
    network
+   platform
    processor
    radio
    rdw

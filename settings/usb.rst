@@ -21,27 +21,53 @@ Possible values:
 
 Default when unconfigured: 1
 
-.. _set-usb-blacklist:
 
-USB_BLACKLIST
+.. _set-usb-denylist:
+.. _USB_BLACKLIST:
+
+USB_DENYLIST
 -------------
+*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
+USB_BLACKLIST. 1.4 and higher also recognize the old name.*
+
 .. include:: /include/usb-excluded-devices.rst
 
 ::
 
-    USB_BLACKLIST="1111:2222 3333:4444"
+    USB_DENYLIST="1111:2222 3333:4444"
 
 Exclude USB device IDs from autosuspend mode. Useful for devices having difficulties
 in waking up from autosuspend. Use :command:`tlp-stat -u` to determine IDs.
 Multiple IDs are separated with blanks.
 
-.. _set-usb-blacklist-btusb:
 
-USB_BLACKLIST_BTUSB
--------------------
+USB_EXCLUDE_AUDIO
+-----------------
+*Version 1.4 and higher*
+
 ::
 
-    USB_BLACKLIST_BTUSB=1
+    USB_EXCLUDE_AUDIO=1
+
+Exclude audio devices from autosuspend mode:
+
+* 0 – do not exclude
+* 1 – exclude
+
+Default when unconfigured: 1
+
+
+.. _set-usb-exclude-btusb:
+.. _USB_BLACKLIST_BTUSB:
+
+USB_EXCLUDE_BTUSB
+-----------------
+*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
+USB_BLACKLIST_BTUSB. 1.4 and higher also recognize the old name.*
+
+::
+
+    USB_EXCLUDE_BTUSB=1
 
 Exclude bluetooth devices from autosuspend mode:
 
@@ -54,11 +80,22 @@ Default when unconfigured: 0
 
     This feature is intended to solve stability issues with bluetooth connections.
 
-USB_BLACKLIST_PHONE
--------------------
+
+.. seealso::
+
+    :ref:`faq-usb-bt-exclude`
+
+
+.. _USB_BLACKLIST_PHONE:
+
+USB_EXCLUDE_PHONE
+-----------------
+*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
+USB_BLACKLIST_PHONE. 1.4 and higher also recognize the old name.*
+
 ::
 
-    USB_BLACKLIST_PHONE=1
+    USB_EXCLUDE_PHONE=1
 
 Exclude smartphones from autosuspend mode to enable charging:
 
@@ -67,11 +104,17 @@ Exclude smartphones from autosuspend mode to enable charging:
 
 Default when unconfigured: 0
 
-USB_BLACKLIST_PRINTER
----------------------
+
+.. _USB_BLACKLIST_PRINTER:
+
+USB_EXCLUDE_PRINTER
+-------------------
+*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
+USB_BLACKLIST_PRINTER. 1.4 and higher also recognize the old name.*
+
 ::
 
-    USB_BLACKLIST_PRINTER=1
+    USB_EXCLUDE_PRINTER=1
 
 Exclude printers from autosuspend mode:
 
@@ -80,11 +123,17 @@ Exclude printers from autosuspend mode:
 
 Default when unconfigured: 1
 
-USB_BLACKLIST_WWAN
-------------------
+
+.. _USB_BLACKLIST_WWAN:
+
+USB_EXCLUDE_WWAN
+----------------
+*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
+USB_BLACKLIST_WWAN. 1.4 and higher also recognize the old name.*
+
 ::
 
-    USB_BLACKLIST_WWAN=0
+    USB_EXCLUDE_WWAN=0
 
 Exclude builtin WWAN devices from autosuspend mode:
 
@@ -95,20 +144,27 @@ Default when unconfigured: 0
 
 .. note::
 
-    This feature is implemented by an internal blacklist currently matching
+    This feature is implemented by an internal denylist currently matching
     cards from Qualcomm, Ericsson and Sierra. Enter WWAN devices not recognized
-    into :ref:`set-usb-blacklist`.
+    into :ref:`set-usb-denylist`.
 
-.. _set-usb-whitelist:
 
-USB_WHITELIST
+.. _set-usb-allowlist:
+.. _USB_WHITELIST:
+
+USB_ALLOWLIST
 -------------
+*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
+USB_WHITELIST. 1.4 and higher also recognize the old name.*
 
-USB_WHITELIST="5555:6666 7777:8888"
+::
+
+    USB_ALLOWLIST="5555:6666 7777:8888"
 
 Re-enable autosuspend mode for USB device IDs already excluded by any of the
-settings above (whitelist always wins). Use :command:`tlp-stat -u` to determine
+settings above (allowlist always wins). Use :command:`tlp-stat -u` to determine
 IDs. Multiple IDs are separated with blanks.
+
 
 USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN
 -----------------------------------

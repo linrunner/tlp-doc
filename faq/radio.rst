@@ -5,15 +5,18 @@ Slow or unstable Wi-Fi on battery power
 ---------------------------------------
 Cause: kernel driver does not implement power saving properly.
 
-Solution: disable power saving on battery ::
+Solution: disable power saving on battery in configuration ::
 
     WIFI_PWR_ON_BAT=off
+
+Apply with :command:`tlp start`.
 
 Wi-Fi power saving is activated despite being disabled in TLP's configuration
 -----------------------------------------------------------------------------
 Cause: conflict with `NetworkManager`.
 
 Solution: remove the file **/etc/NetworkManager/conf.d/default-wifi-powersave-on.conf**.
+
 
 .. _faq-bluetooth-unstable:
 
@@ -23,19 +26,19 @@ Cause: most internal laptop bluetooth devices and all external bluetooth
 dongles are USB devices. Some do not implement autosuspend mode properly,
 giving trouble to connected devices or preventing discovery or pairing.
 
-.. rubric:: Solutions
+Solution: configure ::
 
-Version 1.0 and newer: configure :ref:`set-usb-blacklist-btusb` =1.
+    USB_EXCLUDE_BTUSB=1
 
-Version 0.9 and before: identify the USB bluetooth device with ::
+*Version 1.3.1 and lower use USB_BLACKLIST_BTUSB instead*
 
-    tlp-stat -u | grep btusb
+Apply with :command:`tlp usb`.
 
-and add it to :ref:`set-usb-blacklist`.
 
-Apply the new setting with ::
+USB_EXCLUDE_BTUSB=1 does not disable autosuspend
+--------------------------------------------------
+Refer to :ref:`faq-usb-bt-exclude`.
 
-    sudo tlp usb
 
 Bluetooth is not disabled upon system startup
 ---------------------------------------------
@@ -46,15 +49,46 @@ Solution: disable the relevant applet's setting or disable/remove the causing
 applet. For XFCE/blueman see
 `Disable Bluetooth Auto Power-on in Blueman <https://winaero.com/blog/disable-bluetooth-auto-power-blueman/>`_.
 
-Radio states are not restored according to `RESTORE_DEVICE_STATE_ON_STARTUP=1`
-------------------------------------------------------------------------------
-Cause: conflict with other settings, for instance :ref:`set-radio-disable-on` ff.
+
+Radio states are not as expected after boot or a configured event
+-----------------------------------------------------------------
+Cause 1: conflict with other settings, for instance :ref:`set-radio-disable-on` ff.
 
 Solution: don't use `RESTORE_DEVICE_STATE_ON_STARTUP=1` and
 :ref:`set-radio-disable-on` ff. simultaneously.
 
-Cause: systemd implements its own radio state restore scheme
-`systemd-rfkill.service`
+----
 
-Solution: use either `RESTORE_DEVICE_STATE_ON_STARTUP=1` or systemd's approach
-but not both.
+Cause 2: other conflicting settings from :doc:`/settings/radio` and/or :doc:`/settings/rdw`.
+
+Solution: check if you configured contradictory instructions, for example
+
+::
+
+    DEVICES_TO_DISABLE_ON_BAT="wifi"
+    DEVICES_TO_ENABLE_ON_LAN_DISCONNECT="wifi"
+
+may not turn on Wi-Fi when undocking and changing to battery power.
+
+----
+
+Cause 3: systemd implements its radio state restore scheme.
+
+Symptoms: :command:`tlp-stat -s` shows ::
+
+    Warning: systemd-rfkill.service is not masked, radio device switching may not work as configured.
+    >>> Invoke 'systemctl enable systemd-rfkill.service to correct this!
+
+and/or ::
+
+    Warning: systemd-rfkill.socket is not masked, radio device switching may not work as configured.
+    >>> Invoke 'systemctl enable systemd-rfkill.socket to correct this!
+
+`systemd-rfkill.service/.socket` are part of systemd. Their purpose is
+to restore the state of the radio devices from the last shutdown at system startup.
+In case you enabled settings from :doc:`/settings/radio` or :doc:`/settings/rdw`
+this may lead to a conflict that produces unpredictable results.
+
+Solution: use either `RESTORE_DEVICE_STATE_ON_STARTUP=1` and mask systemd-rfkill.service
+and systemd-rfkill.socket or use systemd's approach but not both.
+

@@ -11,12 +11,12 @@ browser for each requested page.
 
 The above data is automatically recorded in log files to ensure technical
 operation. The log files are only evaluated manually to help analyze errors
-or abuse, otherwise they are automatically deleted after 7 days.
+or abuse, otherwise they are automatically discarded after 7 days.
 
 .. rubric:: No Further Data Processing
 
-This website does not use cookies, does not integrate any external content
-(including analytics tools) and does not contain any interactive content.
+This website does not use cookies and does not integrate external content
+or analytics tools.
 
-This means, that beyond the log files mentioned above, no personal data is
-collected or processed.
+That means that no personal data is collected or processed
+beyond the log files mentioned above.

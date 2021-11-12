@@ -34,9 +34,11 @@ Targets
    * - uninstall-man-rdw
      - Uninstall manpages for package `tlp-rdw`
    * - checkall
-     - Excute all check targets below
+     - Execute all check targets below
    * - checkbashisms
      - Check all shell scripts for bashisms
+   * - checkbatdrv
+     - Verify that bat.d plugins implement the must-have batdrv_() functions
    * - checkdupconst
      - Check shell scripts for duplicate constant definitions
    * - checkwip
@@ -68,12 +70,18 @@ Parameters
    * - TLP_CONFDIR
      - /etc/tlp.d
      - [from 1.3] Directory for drop-in customizations
+   * - TLP_CONFREN
+     - /usr/share/tlp/rename.conf
+     - [from 1.4] Translation table for parameters
    * - TLP_CONFUSR
      - /etc/tlp.conf
      - [from 1.3] User configuration
    * - TLP_BIN
      - /usr/bin
      - Install directory
+   * - TLP_BATD
+     - /usr/share/tlp/bat.d
+     - [from 1.4] Install directory for battery plugins
    * - TLP_ELOD
      - /lib/elogind/system-sleep
      - [from 1.2] Install directory elogind suspend/resume script

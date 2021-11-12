@@ -30,6 +30,7 @@ How do I stop or disable TLP completely?
     :doc:`/developers/architecture` (technical) explain TLP's event-driven
     actions.
 
+
 .. _faq-start-tlp:
 
 How do I start/restart TLP – and apply power saving?
@@ -56,23 +57,6 @@ Make sure, as a prerequisite, that:
   this may immediately power off your W-Fi and/or bluetooth/WWAN and drive bay,
   which might be undesirable; `tlp start` applies only power saving
 
-.. _faq-service-units:
-
-systemd: must I enable TLP's service units?
--------------------------------------------
-Yes. The service units are *indispensable* for correct operation:
-
-* **tlp.service**: applies power saving settings and switches radio devices on
-  system boot and shutdown
-* **tlp-sleep.service**: applies powers saving upon system suspend and resume
-  (not applicable for version 1.3 and higher)
-
-.. note::
-
-    Debian, Fedora and Ubuntu enable the service by default as part of the
-    package :doc:`/installation/index`, others such as Arch Linux don't.
-    If unsure check the output of :command:`tlp-stat -s` for corresponding
-    notes.
 
 How to temporarily use battery settings on AC (and vice versa)?
 ---------------------------------------------------------------
@@ -117,7 +101,7 @@ Symptoms: :command:`tlp-stat -s` shows ::
 
     Power source = battery
 
-:command:`tlp-stat --psus` shows only the battery
+:command:`tlp-stat --psup` shows only the battery
 
 .. code-block:: none
 
@@ -149,7 +133,7 @@ Solutions:
 
 Shutdown freezes before poweroff
 --------------------------------
-Solution: add the `mei_me` module to :ref:`set-runtimepm-driver-blacklist`.
+Solution: add the `mei_me` module to :ref:`set-runtimepm-driver-denylist`.
 
 Shutdown reboots instead of poweroff
 ------------------------------------

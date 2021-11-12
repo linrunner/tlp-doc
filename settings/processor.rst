@@ -49,8 +49,10 @@ For AMD, other brands and older Intel CPUs. Supported governors are:
 .. important::
 
     Default governors listed above are power efficient for almost all workloads,
-    therefore kernel devs and most distributions have chosen them as such. If you
-    still want to change the scaling governor, you should know what you're doing!
+    therefore kernel devs and most distributions have chosen them as such.
+    So *before* changing the scaling governor please do your research about the
+    advantages and disadvantages of the others (refer to the links on the bottom
+    of this page).
 
 CPU_SCALING_MIN/MAX_FREQ_ON_AC/BAT
 ----------------------------------
@@ -69,10 +71,12 @@ Hints:
 
 * Do not use this setting with the `intel_pstate` scaling driver, use
   :ref:`set-cpu-mix-max-perf` instead
-* Min/max frequencies have to be specified for battery and AC modes
+* Min/max frequencies must always be specified for both modes i.e. `AC` and `BAT`
 * To enable processor defaults comment all four settings and reboot
-* Lowering the max frequency on battery power does not conserve power;
-  best results are achieved by the ondemand governor without frequency limits
+* Lowering the max frequency on battery power may not conserve power;
+  best results are to be expected from the ondemand governor without
+  frequency limits
+
 
 .. _set-cpu-energy-perf-policy:
 
@@ -105,6 +109,7 @@ Hints:
   (“Sandy Bridge”) or newer CPU
 * When `HWP.EPP` is available, `EPB` is not set
 
+
 CPU_HWP_ON_AC/BAT
 -----------------
 *Version 1.2.2 and lower*
@@ -127,7 +132,8 @@ Hints:
 
 * Requires kernel 4.10, `intel_pstate` scaling driver and Intel Core i 6th gen.
   ("Skylake") or newer CPU
-* For version 1.3 and higher this parameter is replaced by :ref:`set-cpu-energy-perf-policy`
+* For version 1.3 and higher use :ref:`set-cpu-energy-perf-policy` instead
+
 
 .. _set-cpu-mix-max-perf:
 
@@ -151,6 +157,7 @@ Hints:
   output of :command:`tlp-stat -p`
 * This setting is intended to limit the power dissipation of the CPU
 
+
 CPU_BOOST_ON_AC/BAT
 -------------------
 ::
@@ -165,6 +172,25 @@ Configure CPU "turbo boost" (Intel) or "turbo core" (AMD) feature (0 = disable /
 
     A value of 1 does not activate boosting, it just allows it.
 
+
+CPU_HWP_DYN_BOOST_ON_AC/BAT
+---------------------------
+*Version 1.4 and higher*
+
+::
+
+    CPU_HWP_DYN_BOOST_ON_AC=1
+    CPU_HWP_DYN_BOOST_ON_BAT=0
+
+
+Configure the Intel CPU HWP dynamic boost feature:
+
+* 0 - disable
+* 1 - enable
+
+Hint: requires `intel_pstate` scaling driver in `active` mode and Intel Core i 6th gen.
+("Skylake") or newer CPU
+
 SCHED_POWERSAVE_ON_AC/BAT
 -------------------------
 ::
@@ -176,6 +202,7 @@ Minimize number of used CPU cores/hyper-threads under light load conditions
 (1 = enabled, 0 = disabled). Depends on kernel and processor model.
 
 Default when unconfigured: 0 (AC), 1 (BAT)
+
 
 ENERGY_PERF_POLICY_ON_AC/BAT
 -----------------------------
@@ -201,12 +228,16 @@ Hints:
   ("Sandy Bridge") or newer CPU
 * Requires the kernel module `msr` and the tool `x86_energy_perf_policy` matching
   your kernel version
-* For version 1.3 and higher this parameter is replaced by :ref:`set-cpu-energy-perf-policy`
+* For version 1.3 and higher use :ref:`set-cpu-energy-perf-policy` instead
 
 .. seealso::
 
+    * `CPU Performance Scaling <https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html>`_
+      – kernel documentation covering scaling governors et al.
     * `intel_pstate CPU Performance Scaling Driver <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_pstate.html>`_
       – driver documentation
+    * `Intel Hardware P-State (HWP) / Intel Speed Shift <https://smackerelofopinion.blogspot.com/2021/07/intel-hardware-p-state-hwp-intel-speed.html>`_
+      – a consideration of `HWP.EPP`
     * `Intel Performance and Energy Bias Hint <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_epb.html>`_
       – `EPB` documentation
     * `Improvements in CPU frequency management <https://lwn.net/Articles/682391/>`_

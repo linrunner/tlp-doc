@@ -2,114 +2,149 @@ tlp-stat
 --------
 .. topic:: Purpose
 
-    Show TLP's configuration, system information, kernel power saving
-    settings and diagnostic data.
+    View TLP's configuration, system information, kernel power saving settings
+    and battery data.
 
-.. rubric:: Status report with configuration and all active settings:
+.. rubric:: Invocation without options shows all information categories
 
 ::
 
     sudo tlp-stat
 
-.. rubric:: Show battery information:
+
+.. rubric:: View battery data
 
 ::
 
     sudo tlp-stat -b
     sudo tlp-stat --battery
 
-.. rubric:: Show configuration:
+Add `-v` to see battery voltages (if available).
+
+
+.. rubric:: View active configuration
 
 ::
 
     tlp-stat -c
     tlp-stat --config
 
-.. rubric:: Show disk device information:
+
+.. rubric:: View the difference between defaults and user configuration
+
+*Version 1.4 and higher*
 
 ::
 
-    tlp-stat -d
-    tlp-stat --disk
+    tlp-stat --cdiff
 
-.. rubric:: Show PCIe device information:
 
-::
-
-    tlp-stat -e
-    tlp-stat --pcie
-
-.. rubric:: Show graphics card information:
+.. rubric:: View disk device information
 
 ::
 
-        tlp-stat -g
-        tlp-stat --graphics
+    sudo tlp-stat -d
+    sudo tlp-stat --disk
 
-.. rubric:: Show processor information:
+
+.. rubric:: View PCIe device information
 
 ::
 
-    tlp-stat -p
-    tlp-stat --processor
+    sudo tlp-stat -e
+    sudo tlp-stat --pcie
 
-.. rubric:: Show radio device states:
+*Version 1.4 and higher*: add `-v` to see device runtime status.
+
+
+.. rubric:: View graphics card information
+
+::
+
+    sudo tlp-stat -g
+    sudo tlp-stat --graphics
+
+
+.. rubric:: View processor information
+
+::
+
+    sudo tlp-stat -p
+    sudo tlp-stat --processor
+
+*Version 1.4 and higher*: for clarity the standard output shows only `cpu0`,
+add  `-v` to see all.
+
+
+.. rubric:: View radio device states
 
 ::
 
     tlp-stat -r
     tlp-stat --rfkill
 
-.. rubric:: Show system information:
+
+.. rubric:: View system information
 
 ::
 
     tlp-stat -s
     tlp-stat --system
 
-.. rubric:: Show temperatures and fan speed:
+
+.. rubric:: View temperatures and fan speed
 
 ::
 
     tlp-stat -t
     tlp-stat --temp
 
-.. rubric:: Show USB device information:
+
+.. rubric:: View USB device information
 
 ::
 
     tlp-stat -u
     tlp-stat --usb
 
-.. rubric:: Show more information:
+*Version 1.4 and higher*: add `-v` to see device runtime status.
+
+
+.. rubric:: Show more information in battery, PCIe, processor and USB categories
 
 ::
 
     tlp-stat -v
     tlp-stat --verbose
 
-.. rubric:: Show warnings:
+
+.. rubric:: Diagnostics and debugging
+
+Monitor power supply udev events: ::
+
+    sudo tlp-stat -P
+    sudo tlp-stat --pev
+
+View power supply diagnostics: ::
+
+    tlp-stat --psup
+
+View trace output: ::
+
+    sudo tlp-stat -T
+    sudo tlp-stat --trace
+
+Check if udev rules for power source changes and connecting USB devices are active:
+
+*Version 1.4 and higher*
 
 ::
+
+    tlp-stat --udev
+
+View warnings about SATA disks: ::
 
     tlp-stat -w
     tlp-stat --warn
 
 Please refer to :doc:`/faq/warnings` for details.
-
-
-.. rubric:: Debugging aids
-
-Monitor power supply udev events: ::
-
-    tlp-stat -P
-    tlp-stat --pev
-
-Show power supply diagnostic: ::
-
-    tlp-stat --psup
-
-Show trace output: ::
-
-    tlp-stat -T
-    tlp-stat --trace

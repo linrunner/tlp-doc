@@ -21,9 +21,11 @@ Solution: try the following steps.
 
 .. rubric:: Step 1: Enable Runtime Power Management for GPU drivers
 
-Remove all GPU drivers from the blacklist, leaving only ::
+Remove all GPU drivers from the denylist, leaving only ::
 
-    RUNTIME_PM_DRIVER_BLACKLIST="mei_me"
+    RUNTIME_PM_DRIVER_DENYLIST="mei_me"
+
+*Version 1.3.1 and lower: use RUNTIME_PM_DRIVER_BLACKLIST*
 
 Apply the changed settings with ::
 
@@ -35,10 +37,10 @@ idle state.
 .. note::
 
     * `nouveau`: the open source driver for Nvidia GPUs enables runtime power
-      management by default; keep it in the blacklist to retain power saving on
+      management by default; keep it in the denylist to retain power saving on
       AC power too
     * `radeon`: there is not enough evidence available for the open source driver
-      for older AMD GPUs; watch what happens when you remove it from the blacklist
+      for older AMD GPUs; watch what happens when you remove it from the denylist
     * Remember to uncomment the config line by removing the leading `#`
 
 .. rubric:: Step 2a: Switch to the iGPU
@@ -66,6 +68,8 @@ Also look for tools already integrated into your specific Linux distribution or
 desktop. Last but not least, your laptop may permit to disable the dGPU in the
 BIOS setup.
 
+.. _faq-powercon-nouveau:
+
 Nvidia Optimus with nouveau driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Audio power saving is disabled by default on AC. This prevents automatic power
@@ -89,7 +93,7 @@ Solution:
 
 Significant loss of energy saving after upgrade to 1.0
 ------------------------------------------------------
-Version 1.0 and higher exempt (blacklist) dGPU drivers from runtime power
+Version 1.0 and higher exempt (denylist) dGPU drivers from runtime power
 management. For certain kernel/driver/hardware combinations this means that
 the dGPU is not powered off.
 
