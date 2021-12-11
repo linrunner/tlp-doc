@@ -31,14 +31,16 @@ WOL_DISABLE
 
     WOL_DISABLE=Y
 
-* Y – Wake on LAN disabled
-* N – Wake on LAN enabled
+* Y – Disable Wake-on-LAN
+* N – Do not disable Wake-on-LAN (keep BIOS default)
 
 Default when unconfigured: Y
 
 .. note::
 
-    * After enabling, a reboot is required to ensure that the new setting takes.
-    * Your laptop's BIOS may have an option for Wake on LAN too. Some brands
-      even allow to configure Wake on LAN on `AC only`. If you choose the BIOS
+    * After changing to `WOL_DISABLE=N` a reboot is required to make the
+      new setting effective (or use :command:`sudo ethtool -s <interface> wol g`
+      in a shell).
+    * Your laptop's BIOS may have an option for Wake-on-LAN too. Some vendors
+      even allow to configure Wake-on-LAN on `AC only`. If you choose the BIOS
       option, leave `WOL_DISABLE=N`.
