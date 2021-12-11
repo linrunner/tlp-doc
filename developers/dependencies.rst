@@ -63,7 +63,7 @@ util-linux - *mandatory*
 
 .. include:: /include/busybox-not-supported.rst
 
-wireless-tools - *deprecated*
+wireless-tools - *deprecated* [before 1.5]
     Provides `iwconfig` for Wi-Fi power saving; only if `iw` and `rfkill`
     (see above) are not available.
 

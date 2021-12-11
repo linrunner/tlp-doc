@@ -7,13 +7,14 @@ For feature changes see the
 Version 1.5 (unreleased)
     Files:
 
-    - New command: **nfc** (symlink to bluetooth)
+    - New command: **nfc** (symlink to **bluetooth**)
     - New manpage: **nfc.1**
 
     Dependencies:
 
     - Conflicts `power-profiles-daemon` - instead of masking the service via package
       post-install routine (see `Issue #564 <https://github.com/linrunner/TLP/issues/564#issuecomment-943292082>`_)
+    - Removed: `wireless-tools`
 
 Version 1.4
     Source:
@@ -23,7 +24,7 @@ Version 1.4
 
     Dependencies:
 
-    - Removed: **lsb-release**
+    - Removed: `lsb-release`
 
     Files:
 
