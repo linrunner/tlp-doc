@@ -784,4 +784,11 @@ for **/sys/devices/platform/smapi/BATx/state**.
 Why does `tlp-stat -b` display "cycle_count = (not supported)"?
 ---------------------------------------------------------------
 Cycle count is not available for all laptops. Positive exceptions are older
-ThinkPads supporting `tp-smapi` and some newer hardware.
+ThinkPads supporting `tp-smapi` and certain newer hardware.
+
+.. note::
+
+    For new batteries with zero cycles, :command:`tlp-stat -b` displays
+    `(not supported)` too.  This is because the kernel output does not distinguish
+    zero cycles from unsupported, it is `0` in both cases. With supported hardware
+    the display works again as soon as the battery has at least one cycle.
