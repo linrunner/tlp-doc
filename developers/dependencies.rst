@@ -37,6 +37,9 @@ lsb-release - *optional* [before 1.4]
 pciutils - *mandatory*
     Provides `lspci` used to show PCI(e) devices in :command:`tlp-stat -e`.
 
+power-profiles-daemon - *conflicts* [from 1.5]
+    There can only be one power management tool at a time.
+
 rfkill - *mandatory*
     Needed for switching radio devices on and off.
 

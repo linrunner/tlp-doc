@@ -4,6 +4,17 @@ This section lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
+Version 1.5 (unreleased)
+    Files:
+
+    - New command: **nfc** (symlink to bluetooth)
+    - New manpage: **nfc.1**
+
+    Dependencies:
+
+    - Conflicts `power-profiles-daemon` - instead of masking the service via package
+      post-install routine (see `Issue #564 <https://github.com/linrunner/TLP/issues/564#issuecomment-943292082>`_)
+
 Version 1.4
     Source:
 
