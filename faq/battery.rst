@@ -197,8 +197,9 @@ However it doesn't really hurt to keep both.
 .. rubric:: natacpi – Ultimate solution at the horizon
 
 Starting with kernel 4.17 `tpacpi-bat` gets superseded by a new, native kernel
-API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`).
-:command:`tlp-stat -b` indicates this as follows:
+API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`)
+which supports charge thresholds so far. :command:`tlp-stat -b` indicates this
+as follows:
 
 *Versions 1.2.2 through 1.3.1*
 
@@ -208,6 +209,10 @@ API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`
     natacpi = active (data, thresholds)
     tpacpi-bat = active (recalibrate)
     tp-smapi = inactive (ThinkPad not supported)
+    ...
+    /sys/class/power_supply/BAT0/charge_start_threshold         =     96 [%]
+    /sys/class/power_supply/BAT0/charge_stop_threshold          =    100 [%]
+    tpacpi-bat.BAT0.forceDischarge                              =      0
 
 *Version 1.4 or higher*
 
@@ -219,13 +224,29 @@ API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`
     Driver usage:
     * natacpi (thinkpad_acpi) = active (charge thresholds)
     * tpacpi-bat (acpi_call)  = active (recalibration)
-    Parameter value ranges:
-    * START_CHARGE_THRESH_BAT0/1:  0(off)..96(default)..99
-    * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
+    ...
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     96 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
+    tpacpi-bat.BAT0.forceDischarge                              =      0
 
-As of kernel 5.14 the patches for discharge/recalibrate haven't been merged.
-With full `natacpi` support, you won't need external kernel module packages
-anymore.
+Full `natacpi` which also includes recalibration would look like this
+(*planned for version 1.5*):
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: thinkpad
+    Supported features: charge thresholds, recalibration
+    Driver usage:
+    * natacpi (thinkpad_acpi) = active (charge thresholds, recalibration)
+    ...
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     96 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
+    /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
+
+External kernel module packages would thus become superfluous. However, the
+kernel patches for `charge_behaviour` are in the review process and have not yet
+been merged (as of kernel 5.16).
 
 .. seealso::
 
