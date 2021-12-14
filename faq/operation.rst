@@ -131,6 +131,23 @@ Solutions:
 * Ask the laptop vendor for a corrected BIOS
 * Fix the DSDT yourself
 
+.. faq-resume-freeze:
+
+System freezes on wakeup from suspend on battery
+------------------------------------------------
+Symptom: on battery power, trying to wake up, the laptop freezes (either showing
+a black screen or a static lock screen) and becomes unresponsive to input.
+
+Solution: change your configuration to disable
+:ref:`disk runtime power management <set-disks-ahci-runtime-pm>`
+on battery power: ::
+
+    AHCI_RUNTIME_PM_ON_BAT=on
+
+References: Issues `#587 <https://github.com/linrunner/TLP/issues/587#issuecomment-947376033>`_,
+`#593 <https://github.com/linrunner/TLP/issues/593>`_,
+`#606 <https://github.com/linrunner/TLP/issues/606>`_.
+
 Shutdown freezes before poweroff
 --------------------------------
 Solution: add the `mei_me` module to :ref:`set-runtimepm-driver-denylist`.
