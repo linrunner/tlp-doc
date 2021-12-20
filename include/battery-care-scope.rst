@@ -20,4 +20,8 @@
     * Samsung laptops: fixed stop charge threshold at 80% aka *battery life
       extender*
 
+    *Version 1.5 and higher - additionally:*
+
+    * Sony laptops: stop threshold at 50/80/100% aka *battery care limiter*
+
     **Disclaimer: all other laptop vendors/brands are not supported.**

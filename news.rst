@@ -3,6 +3,33 @@ News
 
 .. _news-top-1:
 
+20.12.2021 - TLP 1.5 Beta 1 released
+====================================
+In preparation for the next feature release today I publish the first beta of
+TLP 1.5. The following features are included:
+
+* Charge threshold support for Sony laptops
+* Preparation for the upcoming kernel interface for recalibration of ThinkPad
+  batteries, which will make the external kernel module *acpi_call* obsolete
+* Support for switching NFC devices (new command :command:`nfc on|off`)
+
+For a quick glance check the `release notes <https://github.com/linrunner/TLP/releases>`_
+or see the `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_
+for details on features and bugfixes.
+
+.. rubric:: Call for Testers
+
+As with every upcoming release I need help to complete the test coverage. So I'm
+reaching out to the community of Linux users to test new and existing
+functionality on their hardware.
+
+Check the `beta page <https://download.linrunner.de/packages/>`_
+for instructions and packages matching your distribution - then join
+the testers.
+
+
+.. _news-top-2:
+
 24.09.2021 - TLP 1.4 released
 =============================
 After a successful beta test, I am proud to present the final release of
@@ -25,8 +52,6 @@ A big thanks to all contributors, testers and bug reporters!
 
 Have fun :-)
 
-
-.. _news-top-2:
 
 09.09.2021 - TLP 1.4 Beta 2 released / Call for Testers
 =======================================================
