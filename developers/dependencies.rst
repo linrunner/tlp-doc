@@ -37,6 +37,9 @@ lsb-release - *optional* [before 1.4]
 pciutils - *mandatory*
     Provides `lspci` used to show PCI(e) devices in :command:`tlp-stat -e`.
 
+power-profiles-daemon - *conflicts* [from 1.5]
+    There can only be one power management tool at a time.
+
 rfkill - *mandatory*
     Needed for switching radio devices on and off.
 
@@ -60,7 +63,7 @@ util-linux - *mandatory*
 
 .. include:: /include/busybox-not-supported.rst
 
-wireless-tools - *deprecated*
+wireless-tools - *deprecated* [before 1.5]
     Provides `iwconfig` for Wi-Fi power saving; only if `iw` and `rfkill`
     (see above) are not available.
 

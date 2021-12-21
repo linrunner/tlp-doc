@@ -32,7 +32,7 @@ scheduler is `schedutil`.
 
 .. rubric:: acpi-cpufreq
 
-For AMD, other brands and older Intel CPUs. Supported governors are:
+For AMD, older Intel CPUs and other vendors. Supported governors are:
 
 * conservative
 * ondemand – default for most distributions

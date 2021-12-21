@@ -189,6 +189,8 @@ Disks are specified by their host. Refer to the output of :command:`tlp-stat -d`
 to determine the host; the format is `hostX`. Separate multiple hosts with spaces.
 
 
+.. _set-disks-ahci-runtime-pm:
+
 AHCI_RUNTIME_PM_ON_AC/BAT
 -------------------------
 *Version 1.4 and higher*

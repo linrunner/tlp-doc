@@ -1,9 +1,10 @@
-bluetooth, wifi, wwan
----------------------
-Enable, disable, toggle or check the state of builtin bluetooth, wifi and wwan
+bluetooth, nfc, wifi, wwan
+--------------------------
+Enable, disable, toggle or check the state of builtin bluetooth, NFC, Wi-Fi and WWAN
 (3G/UMTS, 4G/LTE or 5G) radios: ::
 
         bluetooth [ on | off | toggle ]
+        nfc [ on | off | toggle ]
         wifi [ on | off | toggle ]
         wwan [ on | off | toggle ]
 

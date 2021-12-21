@@ -72,6 +72,7 @@ packages:
        |  tlp,
        |  tlp-stat,
        |  bluetooth,
+       |  nfc [from 1.5],
        |  wifi,
        |  wwan
      -  Bash completion rules
@@ -99,9 +100,10 @@ packages:
      - tlp
      - | /usr/bin/
        |   bluetooth,
+       |   nfc [from 1.5],
        |   wifi,
        |   wwan
-     - Script to turn radio devices on and off (soft links to the same file)
+     - Script to turn radio devices on and off (symlinks to the same file)
    * - tlp.rules
      - tlp
      - /lib/udev/rules.d/85-tlp.rules
@@ -112,7 +114,7 @@ packages:
        |  run-on-bat,
        |  run-on-ac
      - Start commands conditionally depending on the power source
-       (soft links to the same file)
+       (symlinks to the same file)
    * - tlp.service
      - tlp
      - /lib/systemd/system/
