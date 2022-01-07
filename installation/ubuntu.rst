@@ -34,9 +34,10 @@ either with your favorite package manager or the command: ::
 
 .. note::
 
-    * Ubuntu 21.04 with GNOME Desktop installs `power-profiles-daemon.service` by default
-      (`Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_)
-    * Version 1.4 packages from the PPA are already masking `power-profiles-daemon.service`
+    * Ubuntu 21.04 and later with GNOME Desktop installs `power-profiles-daemon.service`
+      by default (`Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_)
+    * Version 1.5 packages from the PPA remove the conflicting **power-profiles-daemon** package
+
 
 
 ThinkPads only

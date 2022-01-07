@@ -44,3 +44,6 @@
 
 
     and reboot.
+
+    Version 1.5 distribution packages will remove the conflicting
+    **power-profiles-daemon** package.
