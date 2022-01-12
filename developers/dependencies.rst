@@ -29,7 +29,7 @@ iw - *mandatory*
     (see wireless-tools below).
 
 laptop-mode-tools - *conflicts*
-    There can only be one power management tool at a time.
+    Only one power management tool may be installed at a time.
 
 lsb-release - *optional* [before 1.4]
     Used to show distribution/release in :command:`tlp-stat -s`.
@@ -37,8 +37,42 @@ lsb-release - *optional* [before 1.4]
 pciutils - *mandatory*
     Provides `lspci` used to show PCI(e) devices in :command:`tlp-stat -e`.
 
+
+.. _dev-depend-ppd:
+
 power-profiles-daemon - *conflicts* [from 1.5]
-    There can only be one power management tool at a time.
+    `power-profiles-daemon` (version 0.10.1) manages the following settings,
+    which TLP also manages:
+
+     * CPU_ENERGY_PERF_POLICY_ON_AC/BAT (activated in default.conf)
+     * CPU_BOOST_ON_AC/BAT
+     * PLATFORM_PROFILE_ON_AC/BAT
+
+    Much more serious is that
+    `power-profiles-daemon.service <https://gitlab.freedesktop.org/hadess/power-profiles-daemon/-/blob/main/data/power-profiles-daemon.service.in>`_
+    breaks the activation of TLP's settings at boot time by preventing the start
+    of `tlp.service`: ::
+
+        Conflicts=tuned.service tlp.service auto-cpufreq.service system76-power.service
+
+    Masking or disabling `power-profiles-daemon.service` is not a viable
+    alternative, as it breaks `powerprofilesctl` and desktop components
+    using it.
+
+    Conclusion: this can only be reliably prevented by not installing `power-profiles-daemon`
+    and `tlp` at the same time.
+
+    .. important::
+
+        Make sure that adding the conflict to a `tlp` distribution package does not
+        unintentionally uninstall essential desktop packages. If necessary,
+        their dependencies on `power-profiles-daemon` must be changed to optional.
+
+    .. seealso::
+
+       * `Issue #564 <https://github.com/linrunner/TLP/issues/564#issuecomment-943292082>`_
+       * `Bug 2028701 <https://bugzilla.redhat.com/show_bug.cgi?id=2028701>`_
+
 
 rfkill - *mandatory*
     Needed for switching radio devices on and off.
@@ -76,6 +110,7 @@ x86_energy_perf_policy - *optional*
 
     Ubuntu provides it via the metapackage `linux-tools`, Debian via
     `linux-cpupower`. Your mileage with other distributions may vary.
+
 
 Package tlp-rdw
 ---------------

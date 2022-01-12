@@ -12,8 +12,10 @@ Version 1.5
 
     Dependencies:
 
-    - Conflicts `power-profiles-daemon` - instead of masking the service via package
-      post-install routine (see `Issue #564 <https://github.com/linrunner/TLP/issues/564#issuecomment-943292082>`_)
+    - **Conflicts power-profiles-daemon** instead of masking the
+      service via package post-install routine; for reasons and further explanation
+      see :ref:`Dependencies <dev-depend-ppd>`
+
     - Removed: `wireless-tools`
 
 Version 1.4
