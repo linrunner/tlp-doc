@@ -274,7 +274,7 @@ Kernel module `thinkpad_acpi` is not loaded
 
 Symptoms: ::
 
-    --- TLP 1.4.0 --------------------------------------------
+    --- TLP 1.5.0 --------------------------------------------
 
     +++ Battery Care
     Plugin: generic

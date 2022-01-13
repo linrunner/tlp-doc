@@ -38,7 +38,7 @@ The command ::
 
 states the program version installed in the first output line: ::
 
-   --- TLP 1.3.1 --------------------------------------------
+   --- TLP 1.5.0 --------------------------------------------
 
 Commands
 ========
