@@ -54,17 +54,12 @@ Battery Care
 ^^^^^^^^^^^^
 .. include:: ../include/battery-care-scope.rst
 
-.. seealso::
-
-    * Settings: :doc:`/settings/battery`
-    * FAQ: :doc:`/faq/battery`.
-
 
 Change battery charge thresholds temporarily
 """"""""""""""""""""""""""""""""""""""""""""
 ::
 
-    sudo tlp setcharge [<START_CHARGE_THRESH> <STOP_CHARGE_THRESH>] [BAT0|BAT1|BAT<x>|CMB0]
+    sudo tlp setcharge [<START_CHARGE_THRESH> <STOP_CHARGE_THRESH>] [BAT0|BAT1|BAT<x>|CMB0|CMB1]
 
 Changes the charge thresholds for the battery to the given values.
 
@@ -77,7 +72,7 @@ Example: ::
 
     sudo tlp setcharge 70 90 BAT0
 
-Applies thresholds of 70/90% to the main battery (BAT0).
+Applies thresholds of 70/90% to battery `BAT0`.
 
 .. note::
 
@@ -89,7 +84,7 @@ Charge battery to full capacity
 """""""""""""""""""""""""""""""
 ::
 
-    sudo tlp fullcharge [BAT0|BAT1|BAT<x>|CMB0]
+    sudo tlp fullcharge [BAT0|BAT1|BAT<x>|CMB0|CMB1]
 
 This is done by applying vendor presets to the charge thresholds temporarily.
 Configured thresholds will be restored at the next boot or by using
@@ -102,7 +97,7 @@ Example: ::
 
     sudo tlp fullcharge BAT1
 
-Charges the auxiliary battery (BAT1) to full capacity.
+Charges battery `BAT1` to full capacity.
 
 Charge battery to the stop charge threshold once
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -127,7 +122,7 @@ Discharge battery on AC power
 
     sudo tlp discharge [BAT0|BAT1]
 
-BAT0 selects the main battery, BAT1 the auxiliary/Ultrabay battery for discharge.
+`BAT0` selects the main/internal battery, `BAT1` the auxiliary/Ultrabay battery for discharge.
 The command continously shows remaining capacity and estimated discharge time.
 Discharging may be stopped at any time with :kbd:`Control-C`.
 

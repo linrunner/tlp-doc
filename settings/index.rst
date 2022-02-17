@@ -17,6 +17,7 @@ The remaining sections describe all of TLP's settings:
    operation
    audio
    battery
+   bc-vendors
    bay
    disks
    filesystem

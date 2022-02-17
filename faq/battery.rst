@@ -36,12 +36,10 @@ thresholds using TLP.
   the stop charge threshold will not be discharged to the stop charge threshold,
   nor will there be a (cyclic) discharge down to the start charge threshold
 
-.. _battery-care-scope:
-
-.. include:: ../include/battery-care-scope.rst
-
 .. seealso::
 
+    * The level of Battery Care support depends on laptop vendor or brand, Linux
+      kernel version and TLP version - consult :doc:`/settings/bc-vendors` for details
     * Settings: :doc:`/settings/battery`
     * Commands: :ref:`cmd-tlp-battery-features`
 
@@ -214,7 +212,7 @@ as follows:
     /sys/class/power_supply/BAT0/charge_stop_threshold          =    100 [%]
     tpacpi-bat.BAT0.forceDischarge                              =      0
 
-*Version 1.4 or higher*
+*Version 1.4*
 
 .. code-block:: none
 
@@ -229,8 +227,10 @@ as follows:
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
     tpacpi-bat.BAT0.forceDischarge                              =      0
 
-Full `natacpi` which also includes recalibration would look like this
-(*planned for version 1.5*):
+*Version 1.5 or higher with kernel 5.17 or higher*
+
+External kernel module packages will become superfluous with kernel 5.17
+(not released yet). Full `natacpi` includes recalibration and looks like this:
 
 .. code-block:: none
 
@@ -243,10 +243,6 @@ Full `natacpi` which also includes recalibration would look like this
     /sys/class/power_supply/BAT0/charge_control_start_threshold =     96 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
     /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
-
-External kernel module packages would thus become superfluous. However, the
-kernel patches for `charge_behaviour` are in the review process and have not yet
-been merged (as of kernel 5.16).
 
 .. seealso::
 
@@ -266,7 +262,7 @@ Possible causes are:
 
 Laptop is not supported
 ^^^^^^^^^^^^^^^^^^^^^^^
-See above for a :ref:`list of supported vendors/brands <battery-care-scope>`.
+:doc:`/settings/bc-vendors` lists supported hardware and explains the prerequisites.
 
 Kernel module `thinkpad_acpi` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -423,13 +419,6 @@ Package install shows
     Error! Bad return status for module build on kernel: ...
 
 Solution: upgrade the package:
-
-.. rubric:: Ubuntu 16.04
-
-* Either enable the TLP PPA (see :doc:`/installation/ubuntu`) and update
-  your packages (recommended)
-* or download version `0.43-1 from Focal <https://packages.ubuntu.com/focal/tp-smapi-dkms>`_
-  and install it manually
 
 Kernel module `tp-smapi` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

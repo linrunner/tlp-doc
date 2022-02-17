@@ -12,4 +12,3 @@ This can be achieved by:
    "full discharge" anchors in the battery controller
 
 Battery Care does *not* comprise additional power saving.
-

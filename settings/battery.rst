@@ -3,11 +3,6 @@ Battery Care
 .. include:: ../include/battery-care-explain.rst
 .. include:: ../include/battery-care-scope.rst
 
-.. seealso::
-
-    For further advice concerning charge thresholds please visit
-    the FAQ: :doc:`/faq/battery`.
-
 
 START/STOP_CHARGE_THRESH_BATx
 -----------------------------
@@ -19,27 +14,22 @@ START/STOP_CHARGE_THRESH_BATx
     START_CHARGE_THRESH_BAT1=75
     STOP_CHARGE_THRESH_BAT1=80
 
-Set battery charge thresholds for main battery (BAT0) and auxiliary/Ultrabay
-battery (BAT1):
+Set battery charge thresholds for main/internal battery `BAT0` and auxiliary/Ultrabay
+battery `BAT1`:
 
 .. include:: ../include/charge-threshold-effect.rst
+
+* Thresholds always go with a lower usable battery capacity, therefore the settings
+  are disabled by default and must be enabled explicitly by removing the leading `#`
+
+.. include:: ../include/charge-threshold-values.rst
 
 .. important::
 
     You must always specify both charge thresholds - *start and stop* - for a battery,
     otherwise TLP will ignore the setting completely (*and up to version 1.3.1
-    silently*).
-
-.. include:: ../include/charge-threshold-values.rst
-
-
-Hints:
-
-* Thresholds always go with a lower usable battery capacity, therefore the settings
-  are disabled by default and must be enabled explicitly by removing the leading `#`
-* ThinkPad T420(s)/T520/W520/X220 (and all newer models):
-  check :ref:`Erratic Battery Behaviour <faq-erratic-battery-behavior>`
-
+    silently*). If you want to apply only one threshold (or your hardware
+    does support only one), then use the value `0` to skip the other one.
 
 RESTORE_THRESHOLDS_ON_BAT
 -------------------------

@@ -3,8 +3,24 @@ News
 
 .. _news-top-1:
 
+17.02.2022 - How can I use Battery Care with my Laptop?
+=======================================================
+TLP includes battery charge thresholds for Lenovo (and IBM) ThinkPads from the
+very beginning. That remained so for a long time. Recently - with version 1.4 and 1.5 -
+numerous vendors have been added: ASUS, Huawei, LG, Lenovo (non-ThinkPad series),
+Samsung and Sony.
+
+The charge control options of the newly supported hardware vary greatly depending
+on the vendor (or brand). The new article :doc:`/settings/bc-vendors` explains
+configuration and prerequisites in detail.
+
+Enjoy :-)
+
+
+.. _news-top-2:
+
 07.01.2022 - TLP 1.5 released
-====================================
+=============================
 Happy New Year!
 
 The final release of TLP 1.5 is out. New features are:
@@ -25,8 +41,6 @@ A big thanks to all contributors, testers and bug reporters!
 
 Have fun :-)
 
-
-.. _news-top-2:
 
 20.12.2021 - TLP 1.5 Beta 1 released
 ====================================
