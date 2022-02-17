@@ -63,8 +63,6 @@ Change battery charge thresholds temporarily
 
 Changes the charge thresholds for the battery to the given values.
 
-.. include:: ../include/charge-threshold-values.rst
-
 Configured thresholds will be restored at the next boot or by using
 :command:`tlp setcharge` again but without the threshold arguments.
 

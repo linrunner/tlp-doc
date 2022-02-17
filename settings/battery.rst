@@ -22,8 +22,6 @@ battery `BAT1`:
 * Thresholds always go with a lower usable battery capacity, therefore the settings
   are disabled by default and must be enabled explicitly by removing the leading `#`
 
-.. include:: ../include/charge-threshold-values.rst
-
 .. important::
 
     You must always specify both charge thresholds - *start and stop* - for a battery,
