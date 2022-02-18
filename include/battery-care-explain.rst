@@ -1,6 +1,6 @@
 *In Version 1.3 and below it is called "Battery Features".*
 
-The purpose of `Battery Care` on laptops is to reduce the loss of capacity due
+The purpose of `battery care` on laptops is to reduce the loss of capacity due
 to wear from ongoing battery operation i.e. to prolongate the `battery lifespan`.
 This can be achieved by:
 
@@ -11,4 +11,4 @@ This can be achieved by:
    battery runtime estimates accurate by setting new "full charge" and
    "full discharge" anchors in the battery controller
 
-Battery Care does *not* comprise additional power saving.
+Battery care does *not* comprise additional power saving.

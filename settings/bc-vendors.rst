@@ -1,6 +1,6 @@
 Battery Care Vendor Specifics
 -----------------------------
-The level of Battery Care support depends on laptop vendor or brand, Linux
+The level of battery care support depends on laptop vendor or brand, Linux
 kernel version and TLP version. The following explains:
 
     * Which laptops are supported
@@ -15,13 +15,6 @@ In order to use charge control thresholds or recalibration with TLP:
     1. The hardware must have the appropriate capability
     2. A suitable kernel driver must make these capabilities usable under Linux
 
-.. note::
-
-    If the hardware does not have the capability or no suitable driver exists,
-    then TLP Battery Care cannot use it. Please do not submit issues for hardware
-    lacking kernel driver support for charge control options. Providing kernel
-    drivers is not part of the TLP project.
-
 As for obtaining kernel drivers, there are two options:
 
     a. Drivers that are maintained in the Linux mainline kernel and shipped with
@@ -31,6 +24,14 @@ As for obtaining kernel drivers, there are two options:
        mainline kernel and require the user to install additional, distribution
        specific packages. This case applies to ThinkPads only and is described
        in :doc:`/installation/index`.
+
+.. note::
+
+    If the hardware does not have the capability or no suitable driver exists,
+    then TLP battery care cannot control it. Please do not submit issues for hardware
+    lacking kernel driver support for charge control options. Providing kernel
+    drivers is not part of the TLP project.
+
 
 Supported Hardware
 ^^^^^^^^^^^^^^^^^^
@@ -157,9 +158,15 @@ Lenovo ThinkPads
      - | Main/internal battery `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
        | Auxiliary/UltraBay battery `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
    * - **Start threshold values**
-     - 0 (off) .. 96 (default) .. 99
+     - | Range: 0 .. 99
+       | Special:
+       | 0 - threshold off
+       | 96 - hardware default
    * - **Stop threshold values**
-     - 1 .. 100 (default)
+     - | Range: 1 .. 100
+       | Special:
+       | 100 - hardware default, threshold off
+
    * - **See also**
      - | - :ref:`faq-which-kernel-module`
        | - :ref:`Erratic Battery Behaviour <faq-erratic-battery-behavior>`
@@ -212,9 +219,13 @@ Lenovo/IBM legacy ThinkPads
      - | Main/internal battery `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
        | Auxiliary/UltraBay battery `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
    * - **Start threshold values**
-     - 2 .. 96 (default)
+     - | Range: 2 .. 96
+       | Special:
+       | 96 - hardware default
    * - **Stop threshold values**
-     - 6 .. 100 (default)
+     - | Range: 6 .. 100
+       | Special:
+       | 100 - hardware default, threshold off
    * - **See also**
      - :ref:`faq-which-kernel-module`
 
@@ -259,16 +270,16 @@ Lenovo non-ThinkPad series
    * - **TLP plugin**
      - lenovo
    * - **Charge control options**
-     - Fixed stop charge threshold at 60% aka *Battery Conservation Mode*
+     - Fixed stop charge threshold at 60% aka *battery conservation mode*
    * - **Threshold configuration**
      - All batteries - `BAT0`, `BAT1` - share the `START/STOP_CHARGE_THRESH_BAT0` parameter
    * - **Stop threshold values**
      - | 1 - batteries charge to 60%
-       | 0 - batteries charges to 100% (battery conservation mode off, )
+       | 0 - batteries charges to 100%, battery conservation mode off
 
 .. rubric:: Sample configuration
 
-Stop charging battery `BAT0` and `BAT1` at 80%: ::
+Stop charging battery `BAT0` and `BAT1` at 60%: ::
 
     START_CHARGE_THRESH_BAT0=0  # dummy value
     STOP_CHARGE_THRESH_BAT0=1
@@ -308,12 +319,12 @@ LG
    * - **TLP plugin**
      - lg
    * - **Charge control options**
-     - Fixed stop charge threshold at 80% aka *Battery Care Limit*
+     - Fixed stop charge threshold at 80% aka *battery care limit*
    * - **Threshold configuration**
      - All batteries - `BAT0`, `BAT1`, `CMB0`, `CMB1` - share the `STOP_CHARGE_THRESH_BAT0` parameter
    * - **Stop threshold values**
      - | 80 - batteries charge to 80%
-       | 100 - batteries charge to 100% (battery care limit off)
+       | 100 - batteries charge to 100%, battery care limit off
 
 .. rubric:: Sample configuration
 
@@ -362,7 +373,7 @@ Samsung
      - All batteries - `BAT0`, `BAT1` - share the `STOP_CHARGE_THRESH_BAT0` parameter
    * - **Stop threshold values**
      - | 1 - batteries charge to 80%
-       | 0 - batteries charge to 100% (battery life extender off)
+       | 0 - batteries charge to 100%, battery life extender off
 
 .. rubric:: Sample configuration
 
@@ -412,7 +423,7 @@ Sony
    * - **Stop threshold values**
      - | 50 - batteries charge to 50%
        | 80 - batteries charge to 80%
-       | 100 - batteries charge to 100% (battery care limiter off)
+       | 100 - batteries charge to 100%, battery care limiter off
 
 .. rubric:: Sample configuration
 

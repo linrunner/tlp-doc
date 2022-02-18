@@ -38,7 +38,7 @@ thresholds using TLP.
 
 .. seealso::
 
-    * The level of Battery Care support depends on laptop vendor or brand, Linux
+    * The level of battery care support depends on laptop vendor or brand, Linux
       kernel version and TLP version - consult :doc:`/settings/bc-vendors` for details
     * Settings: :doc:`/settings/battery`
     * Commands: :ref:`cmd-tlp-battery-features`
@@ -162,7 +162,7 @@ Which external kernel module do I need for my ThinkPad?
 .. note::
 
     `thinkpad_acpi` is not an external kernel module and you do not normally have
-    to worry about it. It is contained in the standard Linux kernel
+    to worry about it. It is contained in the mainline Linux kernel
     and all distributions provide it as part of their kernel packages.
     ThinkPads load it automatically at boot time.
 
