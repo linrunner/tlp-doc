@@ -22,6 +22,11 @@ You may install the source tarball from `Downloads`_:
 3. Enable the services (as root) ::
 
         systemctl enable tlp.service
-        systemctl enable tlp-sleep.service # until TLP 1.2.2
+
+.. seealso::
+
+    * FAQ: :ref:`service units <faq-service-units>`
+    * FAQ: :ref:`faq-ppd-conflict`
+
 
 .. _`Downloads`: https://github.com/linrunner/TLP/releases

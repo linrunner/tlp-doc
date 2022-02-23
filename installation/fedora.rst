@@ -21,8 +21,22 @@ Install the packages either with your favorite package manager or the command: :
 
    dnf install tlp tlp-rdw
 
-.. include:: ../include/power-profiles-daemon-conflict.rst
+*Fedora 35 and higher as well as Rawhide only*
 
+Uninstall the conflicting `power-profiles-daemon` package: ::
+
+   dnf remove power-profiles-daemon
+
+Service Units
+-------------
+To complete the installation you must enable TLP's service: ::
+
+   systemctl enable tlp.service
+
+.. seealso::
+
+    * FAQ: :ref:`service units <faq-service-units>`
+    * FAQ: :ref:`faq-ppd-conflict`
 
 ThinkPads only
 --------------

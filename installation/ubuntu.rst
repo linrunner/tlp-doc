@@ -30,15 +30,15 @@ either with your favorite package manager or the command: ::
 
     sudo apt install tlp tlp-rdw
 
-.. include:: ../include/power-profiles-daemon-conflict.rst
+*Ubuntu 21.10 only*
 
-.. note::
+Uninstall the conflicting `power-profiles-daemon` package: ::
 
-    * Ubuntu 21.04 and later with GNOME Desktop installs `power-profiles-daemon.service`
-      by default (`Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_)
-    * Version 1.5 packages from the PPA remove the conflicting **power-profiles-daemon** package
+   sudo apt remove power-profiles-daemon
 
+.. seealso::
 
+    FAQ: :ref:`faq-ppd-conflict`
 
 ThinkPads only
 --------------

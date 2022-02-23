@@ -33,11 +33,10 @@ operation of TLP's :doc:`/settings/radio` options: ::
    systemctl mask systemd-rfkill.service
    systemctl mask systemd-rfkill.socket
 
-.. include:: ../include/power-profiles-daemon-conflict.rst
-
 .. seealso::
 
-    * Refer to :ref:`service units <faq-service-units>`
+    * FAQ: :ref:`service units <faq-service-units>`
+    * FAQ: :ref:`faq-ppd-conflict`
     * Refer to the `Arch Wiki <https://wiki.archlinux.org/index.php/TLP>`_ as well
 
 ThinkPads only

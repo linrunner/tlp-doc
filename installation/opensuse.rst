@@ -19,6 +19,17 @@ Install them either with your favorite package manager or the command: ::
 
     zypper install tlp tlp-rdw
 
+*openSUSE Leap 15.4 and higher as well as Tumbleweed only*
+
+Uninstall the conflicting `power-profiles-daemon` package: ::
+
+   zypper remove power-profiles-daemon
+
+.. seealso::
+
+    FAQ: :ref:`faq-ppd-conflict`
+
+
 ThinkPads only
 --------------
 .. include:: ../include/thinkpad-kernel-modules.rst

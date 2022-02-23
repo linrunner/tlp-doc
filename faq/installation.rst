@@ -1,19 +1,78 @@
 Installation
 ============
-.. _faq-install-conflict:
+
+.. _faq-ppd-conflict:
+
+Conflict with power-profiles-daemon
+-----------------------------------
+
+.. warning::
+
+    `power-profiles-daemon <https://gitlab.freedesktop.org/hadess/power-profiles-daemon>`_
+    (contained in GNOME 40 and newer) might be contained in the default install
+    of your distribution.
+
+    **Symptom:** `power-profiles-daemon.service` prevents TLP from making power
+    saving settings at system startup. A check with ::
+
+        systemctl status power-profiles-daemon.service tlp.service
+
+    generates the following output in the conflict case: ::
+
+        ● power-profiles-daemon.service - Power Profiles daemon
+             Loaded: loaded (/lib/systemd/system/power-profiles-daemon.service; enabled; vendor preset: enabled)
+             Active: active (running) since Wed 2021-09-08 09:55:50 CEST; 2min 13s ago
+           Main PID: 413 (power-profiles-)
+              Tasks: 3 (limit: 4506)
+             Memory: 1.1M
+             CGroup: /system.slice/power-profiles-daemon.service
+                     └─413 /usr/libexec/power-profiles-daemon
+
+        Sep 08 09:55:50 host systemd[1]: Starting Power Profiles daemon...
+        Sep 08 09:55:50 host systemd[1]: Started Power Profiles daemon.
+
+        ● tlp.service - TLP system startup/shutdown
+             Loaded: loaded (/lib/systemd/system/tlp.service; enabled; vendor preset: enabled)
+             Active: inactive (dead)
+               Docs: https://linrunner.de/tlp
+
+    Beginning with version 1.4 :command:`tlp start` and :command:`tlp-stat -s`
+    will also detect the conflict: ::
+
+        Error: conflicting power-profiles-daemon.service is enabled, power saving will not apply on boot.
+        >>> Invoke 'systemctl mask power-profiles-daemon.service' to correct this!
+
+
+    **Solutions:**
+
+    a. Uninstall the `power-profiles-daemon` package (preferred)
+    b. Disable `power-profiles-daemon` with ::
+
+
+        sudo systemctl mask power-profiles-daemon.service
+
+
+    and reboot.
+
+    The following TLP version 1.5 distribution packages will take care of removing
+    the conflicting *power-profiles-daemon* package when installed:
+
+    * Arch Linux
+    * Debian Bookworm/Sid
+    * Ubuntu 22.04 (also the 21.10 package from the PPA)
+
+
+.. seealso::
+
+    * `TLP Issue #564 <https://github.com/linrunner/TLP/issues/564>`_
+    * `Ubuntu Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_
+
 
 Does TLP conflict with other power management tools?
 ----------------------------------------------------
 Yes. Using another tool simultaneously means that TLP's settings get overwritten
 by the other tools settings (and vice versa), so actual power saving gets
 unpredictable. Special cases are explained in the following.
-
-.. include:: ../include/power-profiles-daemon-conflict.rst
-
-.. seealso::
-
-    * `TLP Issue #564 <https://github.com/linrunner/TLP/issues/564>`_
-    * `Ubuntu Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_
 
 **Powertop:** please refer to :doc:`powertop`.
 
