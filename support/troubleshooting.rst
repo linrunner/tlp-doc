@@ -179,7 +179,7 @@ When all else fails, try to:
 
 * Upgrade the Linux kernel to the latest version,
   e.g. use mainline kernel (Ubuntu) or backports (Debian) or the equivalent for
-  your distribution or compile Linus' kernel yourself
+  your distribution or compile the kernel yourself
 * Update BIOS/UEFI for your laptop
 * Update firmware for the causing device (if possible)
 

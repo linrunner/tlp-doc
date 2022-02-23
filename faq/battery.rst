@@ -351,11 +351,10 @@ Solution: upgrade the package:
 
 .. rubric:: Debian and Ubuntu derivatives
 
-* Kernel ≥ 4.12 needs at least package version 1.1.0-4
-  (Debian Buster or Ubuntu 18.04)
+* Kernel ≥ 5.13 needs at least package version 1.2.2-1
+  (Debian Sid/Bookworm or Ubuntu 22.04)
 * Kernel ≥ 5.6 needs at least package version 1.1.0-5ubuntu0.1 (Ubuntu 20.04)
-  or 1.1.0-6 (Debian Buster Backports, Debian unstable, Ubuntu 20.10)
-
+  or 1.1.0-6 (Debian Bullseye/Buster Backports, Ubuntu 21.10)
 
 Kernel module `acpi-call` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

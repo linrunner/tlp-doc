@@ -36,7 +36,7 @@ either with your favorite package manager or the command: ::
 
     apt install tlp tlp-rdw
 
-For `Debian Backports`_ use: ::
+For `Debian backports`_ use: ::
 
     apt -t DIST-backports install tlp tlp-rdw
 
@@ -66,9 +66,23 @@ or the command ::
 Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable
 (special case: X220/T420 generation makes use of both).
 
+.. warning::
+
+    `acpi-call-dkms` packages in the official Buster and Bullseye repositories
+    are incompatible with **backports kernels ≥ 5.13** and may cause TLP battery care
+    malfunction, system freezes and reboots.
+
+    **Bullseye:** install `acpi-call-dkms` version 1.2.2-1 from backports: ::
+
+        apt -t bullseye-backports install acpi-call-dkms
+
+    **Buster:** download version
+    `1.2.2-1 from backports <https://packages.debian.org/bullseye-backports/all/acpi-call-dkms/download>`_
+    and install manually.
+
 .. important::
 
-    When using a kernel from Buster backports, you must install `acpi-call-dkms`
+    **Buster:** when using **kernel 5.10 from backports**, you must install `acpi-call-dkms`
     from backports too: ::
 
         apt -t buster-backports install acpi-call-dkms
@@ -77,9 +91,10 @@ Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable
 
 .. note::
 
-    * Refer to :ref:`faq-which-kernel-module` for details
+    * See :ref:`faq-which-kernel-module` for details
+    * Refer to `Debian backports`_ for instructions
     * You must disable Secure Boot to use the ThinkPad specific packages
 
 
-.. _`Debian Backports`: https://backports.debian.org/Instructions/
+.. _`Debian backports`: https://backports.debian.org/Instructions/
 

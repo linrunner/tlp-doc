@@ -64,8 +64,19 @@ the command ::
 Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable
 (special case: X220/T420 generation makes use of both).
 
+.. warning::
+
+    On Ubuntu 21.10 and 20.04.4 the `acpi-call-dkms` packages in the official
+    repositories are incompatible with the provided kernel 5.13 and may cause
+    TLP battery care malfunction, system freezes and reboots.
+
+    Solution: download version
+    `1.2.2-1 from Ubuntu 22.04 <https://packages.ubuntu.com/jammy/all/acpi-call-dkms/download>`_
+    and install manually.
+
 .. seealso::
 
     * Refer to :ref:`faq-which-kernel-module` for details
+    * `Issue #615 <https://github.com/linrunner/TLP/issues/615>`_: System freezes and reboots on Ubuntu
     * For systems with Secure Boot enabled, please refer to
       `DKMS Secure Boot <https://wiki.ubuntu.com/UEFI/SecureBoot/DKMS>`_
