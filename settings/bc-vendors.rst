@@ -143,7 +143,7 @@ Lenovo ThinkPads
    :align: center
 
    * - **Hardware**
-     - Lenovo ThinkPad series as of model year 2011 - e.g. T420(s)/T520/W520/X220 and newer
+     - Lenovo ThinkPad series since model year 2011 - e.g. T420(s)/T520/W520/X220
    * - **Kernel drivers**
      -  | `thinkpad_acpi` - required, included in distribution kernels
         | `acpi_call` - optional, enables recalibration for kernels before 5.17;

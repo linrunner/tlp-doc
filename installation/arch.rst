@@ -49,10 +49,10 @@ to provide battery charge thresholds and recalibration.
 The output of :command:`tlp-stat -b` will guide you which package to install:
 
 * **acpi_call** *(Community)* – optional – External kernel module providing battery
-  recalibration for newer ThinkPads (X220/T420 i.e. 2013 and later)
-* **tp_smapi** *(Community)* – optional – External kernel module providing battery
-  charge thresholds, recalibration and specific :command:`tlp-stat -b` output
-  for older ThinkPads
+  recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
+* **tp_smapi** *(Community)* – optional – External kernel module providing
+  battery charge thresholds and recalibration for ThinkPads before model year 2011
+  as well as specific :command:`tlp-stat -b` output until model year 2011
 * **tp_smapi-lts** *(Community)* – optional – Use instead of `tp_smapi` when the
   LTS kernel is installed
 
@@ -61,9 +61,7 @@ or the command ::
 
     pacman -S acpi_call
 
-Replace `acpi_call` with `tp_smapi` where suitable
-(special case: X220/T420 generation makes use of both).
-
+Replace `acpi_call` with `tp_smapi` where suitable.
 
 .. note::
 

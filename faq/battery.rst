@@ -250,7 +250,7 @@ External kernel module packages will become superfluous with kernel 5.17
       – tp-smapi documentation at thinkwiki.org
     * `tpacpi-bat <https://github.com/teleshoes/tpacpi-bat>`_
       – tool (included in TLP) to provide battery charge thresholds and
-      recalibration for newer ThinkPads (X220/T420 i.e. 2013 and later)
+      recalibration for ThinkPads as of model year 2011 - e.g. T420/X220 and newer
     * `acpi_call <https://github.com/nix-community/acpi_call>`_
       – kernel module needed by `tpacpi-bat`
 

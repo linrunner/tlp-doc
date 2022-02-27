@@ -53,18 +53,17 @@ The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will 
 you which package to install:
 
 * **acpi-call-dkms** *(main)* – optional – External kernel module providing
-  battery recalibration for newer ThinkPads (X220/T420 i.e. 2013 and later)
+  battery recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
 * **tp-smapi-dkms** *(main)* – optional – External kernel module providing battery
-  charge thresholds, recalibration and specific :command:`tlp-stat -b` output
-  for older ThinkPads
+  battery charge thresholds and recalibration for ThinkPads before model year 2011
+  as well as specific :command:`tlp-stat -b` output until model year 2011
 
 Install the appropriate package either with your favorite package manager
 or the command ::
 
     apt install acpi-call-dkms
 
-Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable
-(special case: X220/T420 generation makes use of both).
+Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable.
 
 .. warning::
 
