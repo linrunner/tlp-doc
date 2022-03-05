@@ -92,8 +92,9 @@ html_static_path = ['_static']
 html_context = {
     'css_files': [
         '_static/tablewidth.css',  # override wide tables in RTD theme
+        '_static/lineblock.css',   # remove line-block bottom margin
         '_static/pagewidth.css',   # overide page width in RTD theme
-        '_static/teaser.css',     # frontpage teaser
+        '_static/teaser.css',      # frontpage teaser
         ],
      }
 
