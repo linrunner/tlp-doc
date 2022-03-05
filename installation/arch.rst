@@ -35,7 +35,7 @@ operation of TLP's :doc:`/settings/radio` options: ::
 
 .. seealso::
 
-    * FAQ: :ref:`service units <faq-service-units>`
+    * FAQ: :ref:`Service units <faq-service-units>`
     * FAQ: :ref:`faq-ppd-conflict`
     * Refer to the `Arch Wiki <https://wiki.archlinux.org/index.php/TLP>`_ as well
 
@@ -50,6 +50,8 @@ The output of :command:`tlp-stat -b` will guide you which package to install:
 
 * **acpi_call** *(Community)* – optional – External kernel module providing battery
   recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
+* **acpi_call-lts** *(Community)* – optional – Use instead of `acpi_call` when the
+  LTS kernel is installed
 * **tp_smapi** *(Community)* – optional – External kernel module providing
   battery charge thresholds and recalibration for ThinkPads before model year 2011
   as well as specific :command:`tlp-stat -b` output until model year 2011
@@ -61,7 +63,7 @@ or the command ::
 
     pacman -S acpi_call
 
-Replace `acpi_call` with `tp_smapi` where suitable.
+Replace `acpi_call` with `acpi_call-lts`, `tp_smapi` or `tp_smapi-lts` where suitable.
 
 .. note::
 

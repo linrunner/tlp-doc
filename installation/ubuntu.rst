@@ -8,7 +8,7 @@ Ubuntu
 
 Package Repository
 ------------------
-Add the TLP-PPA to your package sources with the commands: ::
+Add the `TLP PPA`_ to your package sources with the commands: ::
 
    sudo add-apt-repository ppa:linrunner/tlp
    sudo apt update
@@ -16,7 +16,7 @@ Add the TLP-PPA to your package sources with the commands: ::
 .. note::
 
    TLP and ThinkPad-related packages below are available via the official Ubuntu
-   repository. Nevertheless it is recommended to use the PPA to stay with the
+   repository. Nevertheless it is recommended to use the `TLP PPA`_ to stay with the
    latest TLP version.
 
 Package Installation
@@ -47,12 +47,11 @@ ThinkPads only
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
-The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will guide
-you which package to install:
+The output of :command:`tlp-stat -b` will guide you which package to install:
 
-* **acpi-call-dkms** *(universe)* – optional – External kernel module providing
+* **acpi-call-dkms** *(PPA or universe)* – optional – External kernel module providing
   battery recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
-* **tp-smapi-dkms** *(PPA or universe)* – optional – External kernel module providing
+* **tp-smapi-dkms** *(universe)* – optional – External kernel module providing
   battery charge thresholds and recalibration for ThinkPads before model year 2011
   as well as specific :command:`tlp-stat -b` output until model year 2011
 
@@ -69,13 +68,16 @@ Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable.
     repositories are incompatible with the provided kernel 5.13 and may cause
     TLP battery care malfunction, system freezes and reboots.
 
-    Solution: download version
-    `1.2.2-1 from Ubuntu 22.04 <https://packages.ubuntu.com/jammy/all/acpi-call-dkms/download>`_
+    Solution: use `acpi-call-dkms` version 1.2.2 from the `TLP PPA`_ or `download
+    from Ubuntu 22.04 <https://packages.ubuntu.com/jammy/all/acpi-call-dkms/download>`_
     and install manually.
 
 .. seealso::
 
-    * Refer to :ref:`faq-which-kernel-module` for details
+    * `TLP PPA`_ - Contains latest TLP packages for Ubuntu
+    * :ref:`faq-which-kernel-module`
     * `Issue #615 <https://github.com/linrunner/TLP/issues/615>`_: System freezes and reboots on Ubuntu
     * For systems with Secure Boot enabled, please refer to
       `DKMS Secure Boot <https://wiki.ubuntu.com/UEFI/SecureBoot/DKMS>`_
+
+.. _`TLP PPA`: https://launchpad.net/~linrunner/+archive/ubuntu/tlp

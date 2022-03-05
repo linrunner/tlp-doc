@@ -49,8 +49,7 @@ ThinkPads only
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
-The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will guide
-you which package to install:
+The output of :command:`tlp-stat -b` will guide you which package to install:
 
 * **acpi-call-dkms** *(main)* – optional – External kernel module providing
   battery recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
@@ -67,22 +66,19 @@ Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable.
 
 .. warning::
 
-    `acpi-call-dkms` packages in the official Buster and Bullseye repositories
-    are incompatible with **backports kernels ≥ 5.13** and may cause TLP battery care
+    **Bullseye**: `acpi-call-dkms` packages in the official repositories are
+    incompatible with **backports kernels ≥ 5.13** and may cause TLP battery care
     malfunction, system freezes and reboots.
 
-    **Bullseye:** install `acpi-call-dkms` version 1.2.2-1 from backports: ::
+    Solution: install `acpi-call-dkms` version 1.2.2 from `Debian backports`_: ::
 
         apt -t bullseye-backports install acpi-call-dkms
 
-    **Buster:** download version
-    `1.2.2-1 from backports <https://packages.debian.org/bullseye-backports/all/acpi-call-dkms/download>`_
-    and install manually.
 
 .. important::
 
-    **Buster:** when using **kernel 5.10 from backports**, you must install `acpi-call-dkms`
-    from backports too: ::
+    **Buster:** when using **kernel 5.10 from backports**, you must install
+    `acpi-call-dkms` from `Debian backports`_ too: ::
 
         apt -t buster-backports install acpi-call-dkms
 
@@ -90,8 +86,8 @@ Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable.
 
 .. note::
 
-    * See :ref:`faq-which-kernel-module` for details
-    * Refer to `Debian backports`_ for instructions
+    * :ref:`faq-which-kernel-module` explains details
+    * Refer to `Debian backports`_ for setup instructions
     * You must disable Secure Boot to use the ThinkPad specific packages
 
 

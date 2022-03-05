@@ -10,7 +10,7 @@ kernel version and TLP version. The following explains:
 
 Prerequisites
 ^^^^^^^^^^^^^
-In order to use charge control thresholds or recalibration with TLP:
+In order to use charge thresholds or recalibration with TLP:
 
     1. The hardware must have the appropriate capability
     2. A suitable kernel driver must make these capabilities usable under Linux

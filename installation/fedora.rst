@@ -21,7 +21,7 @@ Install the packages either with your favorite package manager or the command: :
 
    dnf install tlp tlp-rdw
 
-*Fedora 35 and higher as well as Rawhide only*
+*Fedora 35 and higher as well as Rawhide*
 
 Uninstall the conflicting `power-profiles-daemon` package: ::
 
@@ -35,7 +35,7 @@ To complete the installation you must enable TLP's service: ::
 
 .. seealso::
 
-    * FAQ: :ref:`service units <faq-service-units>`
+    * FAQ: :ref:`Service units <faq-service-units>`
     * FAQ: :ref:`faq-ppd-conflict`
 
 ThinkPads only
@@ -56,8 +56,7 @@ Instead you need to add the `RPM Fusion` and `ThinkPad Extras` repositories: ::
     Above steps are only needed on a new installation of Fedora *but not* after release
     upgrades.
 
-The output of :command:`tlp-stat -b` (version 1.2.2 or higher recommended) will guide
-you which package to install:
+The output of :command:`tlp-stat -b` will guide you which package to install:
 
 * **kernel-devel** *(Fedora repo)* – Needed for the `akmod` packages below
 * **akmod-acpi_call** *(ThinkPad Extras repo)* – optional – External kernel module providing
@@ -75,7 +74,7 @@ Replace `akmod-acpi_call` with `akmod-tp_smapi` where suitable.
 
 New packages are available first in the testing repository: ::
 
-   dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-acpi_call akmod-tp_smapi
+   dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-acpi_call
 
 .. important::
 

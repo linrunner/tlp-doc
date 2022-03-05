@@ -19,7 +19,7 @@ Install them either with your favorite package manager or the command: ::
 
     zypper install tlp tlp-rdw
 
-*openSUSE Leap 15.4 and higher as well as Tumbleweed only*
+*openSUSE Leap 15.4 and higher as well as Tumbleweed*
 
 Uninstall the conflicting `power-profiles-daemon` package: ::
 
@@ -45,8 +45,7 @@ required external kernel module `acpi_call` from the official repositories with:
 For openSUSE `Leap` and/or older ThinkPads your mileage may vary as you have to
 browse `openSUSE Software <https://software.opensuse.org/>`_ for community
 packages or build the required module from source. The output of :command:`tlp-stat -b`
-(version 1.2.2 or higher recommended) will guide you which external kernel module
-is required:
+will guide you which external kernel module is required:
 
 * **acpi_call** – optional – External kernel module providing battery
   recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
