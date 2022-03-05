@@ -40,7 +40,7 @@ ASUS
 """"
 .. list-table::
    :widths: 250 1000
-   :align: center
+   :align: left
 
    * - **Hardware**
      - ASUS laptops
@@ -90,7 +90,7 @@ Huawei
 """"""
 .. list-table::
    :widths: 250 1000
-   :align: center
+   :align: left
 
    * - **Hardware**
      - Huawei MateBooks
@@ -140,7 +140,7 @@ Lenovo ThinkPads
 """"""""""""""""
 .. list-table::
    :widths: 250 1000
-   :align: center
+   :align: left
 
    * - **Hardware**
      - Lenovo ThinkPad series since model year 2011 - e.g. T420(s)/T520/W520/X220
@@ -201,7 +201,7 @@ Lenovo/IBM legacy ThinkPads
 """""""""""""""""""""""""""
 .. list-table::
    :widths: 250 1000
-   :align: center
+   :align: left
 
    * - **Hardware**
      - Lenovo or IBM ThinkPad series before model year 2011
@@ -259,7 +259,7 @@ Lenovo non-ThinkPad series
 """"""""""""""""""""""""""
 .. list-table::
    :widths: 250 1000
-   :align: center
+   :align: left
 
    * - **Hardware**
      - Lenovo laptops (all non-ThinkPad series)
@@ -308,7 +308,7 @@ LG
 ""
 .. list-table::
    :widths: 250 1000
-   :align: center
+   :align: left
 
    * - **Hardware**
      - LG Gram laptops
@@ -357,7 +357,7 @@ Samsung
 """""""
 .. list-table::
    :widths: 250 1000
-   :align: center
+   :align: left
 
    * - **Hardware**
      - Samsung laptops
@@ -406,7 +406,7 @@ Sony
 """"
 .. list-table::
    :widths: 250 1000
-   :align: center
+   :align: left
 
    * - **Hardware**
      - Sony VAIO laptops

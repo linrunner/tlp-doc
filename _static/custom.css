@@ -28,6 +28,11 @@
 
 }
 
+/* disable float for left aligned tables */
+.rst-content .align-left {
+  float: none;
+}
+
 /* remove line-block bottom margin */
 .rst-content .line-block {
     margin-bottom: 0px;

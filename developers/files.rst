@@ -14,7 +14,7 @@ packages:
 
 .. list-table::
    :widths: auto
-   :align: center
+   :align: left
 
    * - **File**
      - **Package**

@@ -5,7 +5,7 @@ Targets
 -------
 .. list-table::
    :widths: auto
-   :align: center
+   :align: left
 
    * - target
      - Purpose
@@ -52,7 +52,7 @@ Parameters
 ----------
 .. list-table::
    :widths: auto
-   :align: center
+   :align: left
 
    * - Parameter
      - Default value
