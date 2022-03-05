@@ -1,0 +1,34 @@
+/* front page teaser block with rounded corners */
+.teaser {
+    border-radius: 5px;
+    border-style: hidden ;
+    padding: 16px ;
+    padding-bottom: 8px ;
+    margin-bottom: 16px ;
+    background-color: #2980b9 ;
+    color: #ffffff ; }
+
+/* override fixed pagewidth */
+.wy-nav-content {
+    max-width: 1000px;
+}
+
+/* override table width restrictions */
+@media screen and (min-width: 400px) {
+
+   .wy-table-responsive table td {
+      /* !important prevents the common CSS stylesheets from overriding
+         this as on RTD they are loaded after this stylesheet */
+      white-space: normal !important;
+   }
+
+   .wy-table-responsive {
+      overflow: visible !important;
+    }
+
+}
+
+/* remove line-block bottom margin */
+.rst-content .line-block {
+    margin-bottom: 0px;
+}
