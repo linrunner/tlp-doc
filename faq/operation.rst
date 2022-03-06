@@ -131,7 +131,7 @@ Solutions:
 * Ask the laptop vendor for a corrected BIOS
 * Fix the DSDT yourself
 
-.. faq-resume-freeze:
+.. _faq-resume-freeze:
 
 System freezes on wakeup from suspend on battery
 ------------------------------------------------

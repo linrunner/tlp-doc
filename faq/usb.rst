@@ -24,6 +24,13 @@ Workaround: denylist the USB controllers with ::
 
 *Version 1.3.1 and lower: use RUNTIME_PM_BLACKLIST instead*
 
+.. note::
+
+    * Other hardware may require different values: check the output of
+      :command:`tlp-stat -e` for lines ending in 'USB controller, xhci_hcd'
+      to identify corresponding devices
+    * Another workaround may also help: :ref:`faq-resume-freeze`
+
 .. _faq-usb-bt-exclude:
 
 USB_EXCLUDE_BTUSB=1 does not disable autosuspend
