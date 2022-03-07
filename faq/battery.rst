@@ -18,15 +18,23 @@ What is "Battery Care"?
 
 .. rubric:: How does it work?
 
-Battery charging is a process controlled by the embedded controller (EC)
-of your laptop. This makes the process work even when the laptop is switched off
-or no operating system is running:
+The process of battery charging is not directly controlled by TLP, but by the
+embedded controller (EC) of your laptop. This makes the process work even when
+the laptop is switched off or no operating system is running. The contribution
+of TLP is to write the threshold values into the corresponding control registers
+of the EC using a hardware specific kernel driver.
+
+The process is as follows:
 
 .. include:: ../include/charge-threshold-effect.rst
 
 You cannot change the basic behavior described above, because it is hard-coded
 into the EC firmware by the vendor. However, you can control it by setting
 thresholds using TLP.
+
+Once charge thresholds have been loaded into the EC registers, they are retained
+when another operating system is started - provided they are not changed by
+software installed there and the hardware supports this.
 
 .. rubric::  What charge thresholds do `not` do
 
@@ -42,6 +50,7 @@ thresholds using TLP.
       kernel version and TLP version - consult :doc:`/settings/bc-vendors` for details
     * Settings: :doc:`/settings/battery`
     * Commands: :ref:`cmd-tlp-battery-features`
+    * :ref:`faq-discharging-misconception`
 
 
 What is the purpose of battery charge thresholds?
@@ -645,8 +654,8 @@ EC firmware offers no way to do this, neither manual nor automatic.
 
 .. _faq-discharging-misconception:
 
-Why does the battery not start to discharge when the stop threshold is reached during charging?
------------------------------------------------------------------------------------------------
+Why does the battery not begin to discharge when the stop threshold is reached?
+-------------------------------------------------------------------------------
 *Author's remark: sometimes users trap into this misunderstanding without me having
 understood how it happens. This is the attempt to lead them out again.*
 
