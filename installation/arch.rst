@@ -2,7 +2,7 @@ Arch Linux
 ==========
 .. note::
 
-    Execute the commands below in a root shell.
+    Execute the commands below in a root shell or with with a preceding :command:`sudo`.
 
 Package Installation
 --------------------
@@ -30,8 +30,7 @@ Using the :doc:`/settings/rdw` (tlp-rdw) requires one more service: ::
 You should also mask the following services to avoid conflicts and assure proper
 operation of TLP's :doc:`/settings/radio` options: ::
 
-   systemctl mask systemd-rfkill.service
-   systemctl mask systemd-rfkill.socket
+   systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 .. seealso::
 

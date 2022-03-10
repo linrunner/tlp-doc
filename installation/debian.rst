@@ -7,7 +7,7 @@ Debian
 
 .. note::
 
-    Execute the commands below in a root shell.
+    Execute the commands below in a root shell or with a preceding :command:`sudo`.
 
 Package Repository
 ------------------

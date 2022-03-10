@@ -6,7 +6,7 @@ Fedora
 
 .. note::
 
-    Execute the commands below in a root shell.
+    Execute the commands below in a root shell or with with a preceding :command:`sudo`.
 
 Package Installation
 --------------------
@@ -32,6 +32,11 @@ Service Units
 To complete the installation you must enable TLP's service: ::
 
    systemctl enable tlp.service
+
+You should also mask the following services to avoid conflicts and assure proper
+operation of TLP's :doc:`/settings/radio` options: ::
+
+   systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 .. seealso::
 
