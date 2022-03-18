@@ -38,6 +38,7 @@ release = '1.5'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx_sitemap',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -109,11 +110,14 @@ html_copy_source = False
 html_show_sourcelink = False
 html_last_updated_fmt = '%b %d, %Y'
 
+# -- Options for sitemap
+html_baseurl = 'https://linrunner.de/tlp'
+sitemap_url_scheme = "subdir/{link}"
+
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'TLPdoc'
-
 
 # -- Options for LaTeX output ------------------------------------------------
 
