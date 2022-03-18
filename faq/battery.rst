@@ -171,9 +171,9 @@ Which external kernel module do I need for my ThinkPad?
 .. note::
 
     `thinkpad_acpi` is not an external kernel module and you do not normally have
-    to worry about it. It is contained in the mainline Linux kernel
-    and all distributions provide it as part of their kernel packages.
-    ThinkPads load it automatically at boot time.
+    to worry about it. It is contained in the Linux kernel and all distributions
+    provide it as part of their kernel packages. ThinkPads load it automatically
+    at boot time.
 
 Prerequisite: make sure to install the most recent version of TLP for
 accurate recommendations.

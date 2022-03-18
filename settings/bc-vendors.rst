@@ -17,13 +17,13 @@ In order to use charge thresholds or recalibration with TLP:
 
 As for obtaining kernel drivers, there are two options:
 
-    a. Drivers that are maintained in the Linux mainline kernel and shipped with
-       each distribution. They are loaded automatically on supported laptops
-       and do not require any user action.
+    a. Drivers that are maintained in the Linux kernel and shipped with each
+       distribution. They are loaded automatically on supported laptops and do
+       not require any user action.
     b. So-called "external kernel drivers", which are not part of the Linux
-       mainline kernel and require the user to install additional, distribution
-       specific packages. This case applies to ThinkPads only and is described
-       in :doc:`/installation/index`.
+       kernel and require the user to install additional, distribution specific
+       packages. This case applies to ThinkPads only and is described in
+       :doc:`/installation/index`.
 
 .. note::
 

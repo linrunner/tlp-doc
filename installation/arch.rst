@@ -38,8 +38,8 @@ operation of TLP's :doc:`/settings/radio` options: ::
     * FAQ: :ref:`faq-ppd-conflict`
     * Refer to the `Arch Wiki <https://wiki.archlinux.org/index.php/TLP>`_ as well
 
-ThinkPads only
---------------
+ThinkPads only: External Kernel Modules
+---------------------------------------
 .. include:: ../include/thinkpad-kernel-modules.rst
 
 Depending on your model and kernel version external kernel module(s) are required

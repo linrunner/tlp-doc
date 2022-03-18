@@ -42,8 +42,8 @@ For `Debian backports`_ use: ::
 
 Replace `DIST` with `buster` or `bullseye` according to your installation.
 
-ThinkPads only
---------------
+ThinkPads only: External Kernel Modules
+---------------------------------------
 .. include:: ../include/thinkpad-kernel-modules.rst
 
 Depending on your model and kernel version external kernel module(s) are required
