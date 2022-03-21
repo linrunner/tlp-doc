@@ -6,8 +6,11 @@ implemented as package dependencies.
 Package tlp
 -----------
 acpi-call - *optional*
-     Kernel module needed for :doc:`/faq/battery` of Sandy Bridge and
-     newer ThinkPads models (X220, T420 et al.).
+     External kernel module to support
+     :ref:`battery recalibration of ThinkPads <bc-vendor-thinkpad>`
+     since model year 2011 - e.g. T420/X220 and newer.
+     Obsolete since kernel 5.17 which provides the sysfs node `charge_behaviour`
+     for this purpose.
 
 .. include:: /include/no-package-dep.rst
 
@@ -82,7 +85,9 @@ smartmontools - *optional*
     :command:`tlp-stat -d`.
 
 tp-smapi - *optional*
-    Kernel modules needed to implement :doc:`/faq/battery` on older ThinkPads.
+    External kernel modules providing battery charge thresholds and recalibration
+    for ThinkPads before model year 2011 as well as specific :command:`tlp-stat -b`
+    output until model year 2011. See :ref:`bc-vendor-thinkpad-legacy`.
 
 .. include:: /include/no-package-dep.rst
 

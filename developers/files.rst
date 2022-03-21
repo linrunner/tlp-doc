@@ -156,8 +156,8 @@ packages:
    * - tpacpi-bat
      - tlp
      - /usr/sbin/
-     - ACPI calls for advanced battery functions of Sandy Bridge and newer
-       ThinkPad models (X220, T420, et al.). Script written by Elliot Wolk.
+     - Script providing battery recalibration for ThinkPads since model year
+       2011 - e.g. T420/X220 and newer. Written by Elliot Wolk.
    * - man-rdw/*
      - tlp-rdw
      - /usr/share/man/man8/

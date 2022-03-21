@@ -238,8 +238,8 @@ as follows:
 
 *Version 1.5 or higher with kernel 5.17 or higher*
 
-External kernel module packages will become superfluous with kernel 5.17
-(not released yet). Full `natacpi` includes recalibration and looks like this:
+External kernel module packages become superfluous with kernel 5.17. Full
+`natacpi` includes recalibration and looks like this:
 
 .. code-block:: none
 
@@ -255,13 +255,15 @@ External kernel module packages will become superfluous with kernel 5.17
 
 .. seealso::
 
-    * `tp-smapi <https://www.thinkwiki.org/wiki/Tp_smapi>`_
-      – tp-smapi documentation at thinkwiki.org
+    * :doc:`/settings/bc-vendors` - Details on hardware support
     * `tpacpi-bat <https://github.com/teleshoes/tpacpi-bat>`_
-      – tool (included in TLP) to provide battery charge thresholds and
-      recalibration for ThinkPads as of model year 2011 - e.g. T420/X220 and newer
+      – Source code for the tool that is included in TLP to provide battery recalibration
+      for ThinkPads since model year 2011 - e.g. T420/X220 and newer
     * `acpi_call <https://github.com/nix-community/acpi_call>`_
-      – kernel module needed by `tpacpi-bat`
+      – Source code of the external kernel module required by `tpacpi-bat`
+    * `tp-smapi <https://www.thinkwiki.org/wiki/Tp_smapi>`_
+      – Documentation for the external kernel modules required for ThinkPads
+      until model year 2011
 
 .. _faq-thresholds-ignored:
 
@@ -361,7 +363,7 @@ Solution: upgrade the package:
 .. rubric:: Debian and Ubuntu derivatives
 
 * Kernel ≥ 5.13 needs at least package version 1.2.2-1
-  (Debian Sid/Bookworm or Ubuntu 22.04)
+  (Debian Sid/Bookworm or Ubuntu 22.04 or TLP PPA)
 * Kernel ≥ 5.6 needs at least package version 1.1.0-5ubuntu0.1 (Ubuntu 20.04)
   or 1.1.0-6 (Debian Bullseye/Buster Backports, Ubuntu 21.10)
 

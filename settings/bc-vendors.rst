@@ -135,6 +135,7 @@ Start charging battery `BAT0` and `BAT1` when below 75% and stop at 80%: ::
 
     /sys/devices/platform/huawei-wmi/charge_control_thresholds  = 75 80
 
+.. _bc-vendor-thinkpad:
 
 Lenovo ThinkPads
 """"""""""""""""
@@ -196,6 +197,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
     /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
 
+.. _bc-vendor-thinkpad-legacy:
 
 Lenovo/IBM legacy ThinkPads
 """""""""""""""""""""""""""
