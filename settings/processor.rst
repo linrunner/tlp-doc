@@ -70,7 +70,7 @@ depend on your CPU. For available frequencies consult the output of
 Hints:
 
 * Do not use this setting with the `intel_pstate` scaling driver, use
-  :ref:`set-cpu-mix-max-perf` instead
+  :ref:`set-cpu-min-max-perf` instead
 * Min/max frequencies must always be specified for both modes i.e. `AC` and `BAT`
 * To enable processor defaults comment all four settings and reboot
 * Lowering the max frequency on battery power may not conserve power;
@@ -135,7 +135,7 @@ Hints:
 * For version 1.3 and higher use :ref:`set-cpu-energy-perf-policy` instead
 
 
-.. _set-cpu-mix-max-perf:
+.. _set-cpu-min-max-perf:
 
 CPU_MIN/MAX_PERF_ON_AC/BAT
 --------------------------
