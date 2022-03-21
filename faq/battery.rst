@@ -238,8 +238,9 @@ as follows:
 
 *Version 1.5 or higher with kernel 5.17 or higher*
 
-External kernel module packages become superfluous with kernel 5.17. Full
-`natacpi` includes recalibration and looks like this:
+Kernel 5.17 adds recalibration and completes `natacpi`. `tpacpi-bat` and the
+external kernel module `acpi_call` together with the distribution-specific
+packages become superfluous. :command:`tlp-stat -b` now looks like this:
 
 .. code-block:: none
 
@@ -252,6 +253,8 @@ External kernel module packages become superfluous with kernel 5.17. Full
     /sys/class/power_supply/BAT0/charge_control_start_threshold =     96 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
     /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
+
+
 
 .. seealso::
 
