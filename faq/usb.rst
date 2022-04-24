@@ -11,7 +11,7 @@ Solution: lookup the corresponding USB device ID with :command:`lsusb`, add it t
 
 .. include:: /include/usb-excluded-devices.rst
 
-Nvidia Jetson TX2 devices not detected in recovery mode
+Nvidia Jetson devices not detected in recovery mode
 -------------------------------------------------------
 Symptom: the device cannot be flashed with SDK Manager, the error message reads:
 
@@ -20,13 +20,18 @@ Symptom: the device cannot be flashed with SDK Manager, the error message reads:
     Could not detect target hardware. Please make sure the target hardware is
     connected and is in recovery mode, click OK and RETRY.
 
-Solution: add the USB device ID to :ref:`set-usb-denylist`: ::
+Solution: add the USB device ID to :ref:`set-usb-denylist` ::
 
     USB_DENYLIST="0955:7c18"
 
-and reconnect the device.
+and reconnect the device. Several Jetson devices with different IDs exist.
+Lookup the corresponding ID with :command:`lsusb | grep '0955'` or check the
+list referenced below.
 
-Reference: `PR #628 <https://github.com/linrunner/TLP/issues/628>`_
+References:
+
+* `PR #628 <https://github.com/linrunner/TLP/issues/628>`_
+* `List of Nvida Jetson USB device IDs (incomplete) <https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-325/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/quick_start.html#wwpID0EMHA>`_
 
 Newly inserted USB devices not recognized in battery mode
 ---------------------------------------------------------
