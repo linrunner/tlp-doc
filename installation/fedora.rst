@@ -47,11 +47,11 @@ ThinkPads only: External Kernel Modules
 ---------------------------------------
 .. important::
 
-    Fedora 36 includes Linux kernel 5.17, which in combination with TLP 1.5,
-    offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from model year 2011 onwards.
-    Therefore no external kernel modules are required with Fedora 36 and you do
-    not need to proceed any further here.
+    Fedora 36 includes Linux kernel 5.17. In combination with TLP 1.5 it offers
+    full battery care support (i.e. charge thresholds and recalibration) for
+    ThinkPads from model year 2011 onwards.
+    Therefore no external kernel modules are required with Fedora 36 or newer
+    and you do not need to proceed any further here.
 
     However, if you are running a Fedora version prior to 36 and want to use
     recalibration or your model is older, read on.

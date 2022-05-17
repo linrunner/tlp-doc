@@ -40,17 +40,25 @@ operation of TLP's :doc:`/settings/radio` options: ::
 
 ThinkPads only: External Kernel Modules
 ---------------------------------------
-.. include:: ../include/thinkpad-kernel-modules.rst
+.. important::
+
+    Arch Linux includes Linux kernel 5.17 (at the time of writing). In
+    combination with TLP 1.5 it offers full battery care support (i.e. charge
+    thresholds and recalibration) for ThinkPads from model year 2011 onwards.
+    Therefore no external kernel modules are required with kernel 5.17 or newer
+    and you do not need to proceed any further here.
+
+    However, if you are running a kernel prior to 5.17 (e.g. `linux-lts`) and want
+    to use recalibration or your model is older, read on.
 
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
 The output of :command:`tlp-stat -b` will guide you which package to install:
 
-* **acpi_call** *(Community)* – optional – External kernel module providing battery
-  recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
-* **acpi_call-lts** *(Community)* – optional – Use instead of `acpi_call` when the
-  LTS kernel is installed
+* **acpi_call-lts** *(Community)* – optional – External kernel module (LTS
+  kernel) providing battery recalibration for ThinkPads since model year 2011
+  - e.g. T420/X220 and newer
 * **tp_smapi** *(Community)* – optional – External kernel module providing
   battery charge thresholds and recalibration for ThinkPads before model year 2011
   as well as specific :command:`tlp-stat -b` output until model year 2011
