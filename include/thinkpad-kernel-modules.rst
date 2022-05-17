@@ -11,3 +11,7 @@
 
     However, if you need the recalibration feature or your model and/or kernel
     is older, read on.
+
+    You may find out your current kernel version with the command
+    :command:`uname -a` or when TLP is already installed with
+    :command:`tlp-stat -s`.
