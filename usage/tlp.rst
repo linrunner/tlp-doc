@@ -6,7 +6,7 @@ tlp
 
 Start or restart TLP
 ^^^^^^^^^^^^^^^^^^^^
-Apply all configured settings according to the actual power source: ::
+Start TLP and apply power saving profile for the actual power source: ::
 
     sudo tlp start
 
@@ -14,7 +14,7 @@ Apply all configured settings according to the actual power source: ::
 
 Battery Mode
 ^^^^^^^^^^^^
-Apply the battery settings profile and enter manual mode: ::
+Apply battery profile and enter manual mode: ::
 
     sudo tlp bat
 
@@ -23,7 +23,7 @@ the next reboot or :command:`tlp start` is issued to resume automatic mode.
 
 AC Mode
 ^^^^^^^
-Apply the AC settings profile and enter manual mode: ::
+Apply AC profile and enter manual mode: ::
 
     sudo tlp ac
 
@@ -33,13 +33,13 @@ the next reboot or :command:`tlp start` is issued to resume automatic mode.
 USB Autosuspend
 ^^^^^^^^^^^^^^^
 Apply autosuspend mode for all attached USB devices except those excluded by
-default or in the configuration: ::
+default or via configuration: ::
 
     sudo tlp usb
 
 Optical Drive
 ^^^^^^^^^^^^^
-Power off optical drive in MediaBay or Ultrabay: ::
+Power off optical drive in MediaBay/Ultrabay: ::
 
     sudo tlp bayoff
 
@@ -112,8 +112,8 @@ The configured start charge threshold will be restored at the next boot or by us
 Hint: after setting he thresholds the command terminates; it does not wait for
 the charge to complete.
 
-Discharge battery on AC power
-"""""""""""""""""""""""""""""
+Force a complete discharge of the battery while on AC power
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *ThinkPads only*
 
 ::
@@ -126,16 +126,18 @@ Discharging may be stopped at any time with :kbd:`Control-C`.
 
 Hints:
 
-* The command terminates automatically when the battery is discharged completely
-* The command needs the AC power supply plugged in
-* Normal use of the ThinkPad is possible during the discharge process
+* The command needs the charger plugged in
+* As soon as the battery is empty, charging begins and the command terminates;
+  it does not wait for the charge to complete
+* Normal use of the ThinkPad is possible during the discharge process;
+  it does *not* suddenly switch off when the battery is empty
 * ThinkPads with two batteries: the battery controller can only handle one
   battery at a time; while discharging one battery with this command the other
   battery can neither be charged nor discharged
 * When encountering problems, see the FAQ: :doc:`/faq/battery`
 
-Recalibrate battery on AC power
-"""""""""""""""""""""""""""""""
+Perform a battery recalibration while on AC power
+"""""""""""""""""""""""""""""""""""""""""""""""""
 *ThinkPads only*
 
 ::
@@ -144,13 +146,19 @@ Recalibrate battery on AC power
 
 This command works as follows:
 
+* The command needs the charger plugged in
 * Applies vendor presets to the charge thresholds
-* Discharges the selected battery completely (see description of
-  :command:`tlp discharge` above)
-* When discharging is complete the command terminates; it does not wait for the
-  charge to complete
+* Discharges the selected battery completely;
+* As soon as the battery is empty, charging begins and the command terminates;
+  it does not wait for the charge to complete
+* Normal use of the ThinkPad is possible during the discharge process;
+  it does *not* suddenly switch off when the battery is empty
 * Important: to complete the recalibration process, let the battery charge to
-  100 % subsequently (you may power off but not remove AC power)
+  100 % subsequently; you may power off but not remove the charger
+* ThinkPads with two batteries: the battery controller can only handle one
+  battery at a time; while discharging one battery with this command the other
+  battery can neither be charged nor discharged
+* When encountering problems, see the FAQ: :doc:`/faq/battery`
 
 Example: ::
 
@@ -175,4 +183,4 @@ Disk IDs
 
     tlp diskid
 
-Shows the IDs of all attached disk drives.
+Shows disk ids for configured drives
