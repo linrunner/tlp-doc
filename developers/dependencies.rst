@@ -56,7 +56,7 @@ power-profiles-daemon - *conflicts* [from 1.5]
     breaks the activation of TLP's settings at boot time by preventing the start
     of `tlp.service`: ::
 
-        Conflicts=tuned.service tlp.service auto-cpufreq.service system76-power.service
+        Conflicts= ... tlp.service ...
 
     Masking or disabling `power-profiles-daemon.service` is not a viable
     alternative, as it breaks `powerprofilesctl` and desktop components
