@@ -74,6 +74,11 @@ Yes. Using another tool simultaneously means that TLP's settings get overwritten
 by the other tools settings (and vice versa), so actual power saving gets
 unpredictable. Special cases are explained in the following.
 
+**power-profiles-daemon:** see above.
+
+**system76-power:** works on the same set of :ref:`kernel settings
+<intro-how-it-works>`. Do not use together with TLP.
+
 **Powertop:** please refer to :doc:`powertop`.
 
 **thermald:** thermald's purpose is to limit power dissipation before the
