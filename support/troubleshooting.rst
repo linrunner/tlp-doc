@@ -128,25 +128,25 @@ Change both related config lines: ::
     RUNTIME_PM_ON_AC=
     RUNTIME_PM_ON_BAT=
 
-When the problem disappears, uncomment above lines and continue with the
-next section. Otherwise the cause is not a PCIe device – proceed to
-:ref:`tsg-usb`.
+When the problem disappears, uncomment above lines and try to narrow
+down the problem to a single device or driver as described in the following
+sections. Otherwise the cause is not a PCIe device – proceed to :ref:`tsg-usb`.
 
 .. rubric:: Denylist single devices
 
-Enter every PCIe device address into :ref:set-runtimepm-denylist` – but only
+Enter every PCIe device address into :ref:`set-runtimepm-denylist` – but only
 one device at a time!
 
 As soon as the problem disappears, you have identified the causing PCIe device
-and are finished. Otherwise the cause is not a PCIe device – proceed to
-:ref:`tsg-usb`.
+and are finished.
 
 .. rubric:: Denylist drivers
 
 As an alternative to device denylisting, you may denylist all devices attached
 to a particular driver by means of :ref:`set-runtimepm-driver-denylist`.
 
-If the problem isn't solved by now, proceed to :ref:`tsg-usb`.
+If no single device or driver can be identified as the cause, it is suggested
+to disable Runtime PM altogether again as described above.
 
 .. _tsg-usb:
 
@@ -158,9 +158,9 @@ Disable the feature as follows (refer to :ref:`set-usb-autosuspend`): ::
 
     USB_AUTOSUSPEND=0
 
-When the problem disappears, reenable the feature and continue with the
-next section. Otherwise the causing device cannot be identified – proceed to
-:ref:`tsg-kernel`.
+When the problem disappears, reenable the feature and try to narrow
+down the problem to a single device as described in the following section.
+Otherwise the cause is not an USB device – proceed to :ref:`tsg-kernel`.
 
 .. rubric:: Denylist single devices
 
@@ -168,8 +168,10 @@ Enter every USB device ID into :ref:`set-usb-denylist` – but only one device a
 a time!
 
 As soon as the problem disappears, you have identified the causing USB device
-and are finished. If no causing device could be found – proceed to the
-next section.
+and are finished.
+
+If no single device can be identified as the cause, it is suggested
+to disable USB autosuspend altogether again as described above.
 
 .. _tsg-kernel:
 
