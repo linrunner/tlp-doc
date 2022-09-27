@@ -164,7 +164,7 @@ next section. Otherwise the causing device cannot be identified – proceed to
 
 .. rubric:: Denylist single devices
 
-Enter every USB device ID into :ref:set-usb-denylist` – but only one device at
+Enter every USB device ID into :ref:`set-usb-denylist` – but only one device at
 a time!
 
 As soon as the problem disappears, you have identified the causing USB device

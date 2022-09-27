@@ -108,7 +108,7 @@ The `intel_pstate` scaling driver offers this possibility. Use the settings ::
     CPU_MAX_PERF_ON_AC=nn
     CPU_MAX_PERF_ON_BAT=nn
 
-with `nn` < 100 to achieve it. Refer to :ref:`set-cpu-mix-max-perf`.
+with `nn` < 100 to achieve it. Refer to :ref:`set-cpu-min-max-perf`.
 
 .. note::
 
