@@ -168,7 +168,7 @@ Enter every USB device ID into :ref:`set-usb-denylist` – but only one device a
 a time!
 
 As soon as the problem disappears, you have identified the causing USB device
-and are finished. Otherwise an causing device cannot be found – proceed to the
+and are finished. If no causing device could be found – proceed to the
 next section.
 
 .. _tsg-kernel:
