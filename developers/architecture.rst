@@ -11,7 +11,7 @@ standard system daemons to monitor the relevant events:
 The following events will cause settings to be applied:
 
 Charger plugged/unplugged - udevd
----------------------------------------
+---------------------------------
 A rule in **tlp.rules** calls :command:`tlp auto` which applies the
 settings profile coresponding to the actual power source or manually forced mode.
 
@@ -20,8 +20,8 @@ USB device plugged in - udevd
 A rule in **tlp.rules** calls :command:`tlp-usb-udev` to activate USB
 autosuspend.
 
-System startup/shutdown/reboot - systemd
-----------------------------------------
+System startup/shutdown/reboot - systemd et al.
+-----------------------------------------------
 Depends on the init system:
 
 Systemd
@@ -42,8 +42,8 @@ Other init system
 
     The parameter after `init` is checked by :command:`tlp`.
 
-System suspend/resume - systemd
--------------------------------
+System suspend/resume - systemd et al.
+--------------------------------------
 *ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)*
 
 Depends on the target distribution:
