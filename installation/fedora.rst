@@ -21,8 +21,6 @@ Install the packages either with your favorite package manager or the command: :
 
    dnf install tlp tlp-rdw
 
-*Fedora 35 and higher as well as Rawhide*
-
 Uninstall the conflicting `power-profiles-daemon` package: ::
 
    dnf remove power-profiles-daemon
@@ -47,17 +45,22 @@ ThinkPads only: External Kernel Modules
 ---------------------------------------
 .. important::
 
-    Fedora 36 includes Linux kernel 5.17. In combination with TLP 1.5 it offers
-    full battery care support (i.e. charge thresholds and recalibration) for
-    ThinkPads from model year 2011 onwards.
-    Therefore no external kernel modules are required with Fedora 36 or newer
-    and you do not need to proceed any further here.
+    Fedora 36 released with Linux kernel 5.17. In combination with TLP 1.5
+    it offers full battery care support (i.e. charge thresholds and recalibration)
+    for ThinkPads from model year 2011 onwards. Therefore the external
+    kernel module `acpi_call` is no longer required with Fedora 36 or
+    newer and you do not need to proceed any further here.
 
-    However, if you are running a Fedora version prior to 36 and want to use
-    recalibration or your model is older, read on.
+    Continue reading if your ThinkPad model is from 2011 or older.
 
-Depending on your model and kernel version external kernel module(s) are required
-to provide battery charge thresholds and recalibration.
+ThinkPad models before 2011 (i.e. T410/X201 and older) require the
+external kernel module `tp_smapi` to provide battery charge thresholds
+and recalibration.
+For T420/X220 (model year 2011) only `tp_smapi` is not a hard requirement
+but they benefit by having :command:`tlp-stat -b` display the battery cycle
+count and other additional information.
+The output of :command:`tlp-stat -b` will recommend to install `tp_smapi`
+accordingly.
 
 The necessary packages are not available from the official Fedora repositories.
 Instead you need to add the `RPM Fusion` and `ThinkPad Extras` repositories: ::
@@ -70,33 +73,29 @@ Instead you need to add the `RPM Fusion` and `ThinkPad Extras` repositories: ::
     Above steps are only needed on a new installation of Fedora *but not* after release
     upgrades.
 
-The output of :command:`tlp-stat -b` will guide you which package to install:
+Required packages:
 
-* **kernel-devel** *(Fedora repo)* – Needed for the `akmod` packages below
-* **akmod-acpi_call** *(ThinkPad Extras repo)* – optional – External kernel module providing
-  battery recalibration forThinkPads since model year 2011 - e.g. T420/X220 and newer
-* **akmod-tp_smapi** *(ThinkPad Extras repo)* – optional – External kernel module providing
-  battery charge thresholds and recalibration for ThinkPads before model year 2011
-  as well as specific :command:`tlp-stat -b` output until model year 2011
+* **kernel-devel** *(Fedora repo)* – Needed to build the kernel module from
+  the `akmod` package
+* **akmod-tp_smapi** *(ThinkPad Extras repo)* – optional – External kernel
+  module source providing battery charge thresholds and recalibration
 
-Install the appropriate package either with your favorite package manager
+Install either with your favorite package manager
 or the command ::
 
-   dnf install kernel-devel akmod-acpi_call
-
-Replace `akmod-acpi_call` with `akmod-tp_smapi` where suitable.
+   dnf install kernel-devel akmod-tp_smapi
 
 New packages are available first in the testing repository: ::
 
-   dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-acpi_call
+   dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-tp_smapi
 
 .. important::
 
-    * The `akmod-*` packages are provided "as is" by a volunteer, they are
+    * The `akmod-*` package is provided "as is" by a volunteer, it is
       not part of the TLP project
-    * Please *do not file issues* if they are not yet available for the
+    * Please *do not file issues* if it is not yet available for the
       latest Fedora version, better watch the `tlp-updates-testing` repository
-    * In case of difficulties installing them, please ask for help in your
+    * In case of difficulties installing, please ask for help in your
       preferred Fedora forum
 
 .. note::
@@ -153,39 +152,3 @@ RPM-GPG-KEY-tlp-fedora-35-primary: ::
 RPM-GPG-KEY-tlp-fedora-34-primary: ::
 
     1E4F 2F53 A348 6025 FC4E FD86 7704 0BAF FA30 D1C8
-
-RPM-GPG-KEY-tlp-fedora-33-primary: ::
-
-    0D3C F36C EB28 B582 D6DE F296 82B6 D96F 1381 B02A
-
-RPM-GPG-KEY-tlp-fedora-32-primary: ::
-
-    6BED 8C16 80E0 E9DC D310 94FB 274D 8DB1 A690 281B
-
-RPM-GPG-KEY-tlp-fedora-31-primary: ::
-
-    685D B6BB 26B9 A03B 2924 71CF 3CA1 F6C1 B629 712A
-
-RPM-GPG-KEY-tlp-fedora-30-primary: ::
-
-    8130 3994 EEAF 1CC5 2AC1 DED7 2DDA 0C47 9F42 55D8
-
-RPM-GPG-KEY-tlp-fedora-29-primary: ::
-
-    45CE 5574 CA74 65D1 90A9 9EB2 F59A C581 180C 9484
-
-RPM-GPG-KEY-tlp-fedora-28-primary: ::
-
-    C807 AEB6 3DD0 4587 E695 9DD2 455A 80BA 1A85 3C73
-
-RPM-GPG-KEY-tlp-fedora-27-primary: ::
-
-    9EEE ADC8 9282 2138 F017 7E41 9D87 D611 5CE7 AC42
-
-RPM-GPG-KEY-tlp-fedora-26-primary: ::
-
-    A6AA 476D 471E 05A5 5CA2 8EDE 097F 6445 1482 D93F
-
-RPM-GPG-KEY-tlp-fedora-25-primary: ::
-
-    F4BC 65CB 2E7E 83F4 7C87 914A 5096 4F53 2058 F5CF
