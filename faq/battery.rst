@@ -24,7 +24,7 @@ the laptop is switched off or no operating system is running. The contribution
 of TLP is to write the threshold values into the corresponding control registers
 of the EC using a hardware specific kernel driver.
 
-The process is as follows:
+The charging process is determined by the charge thresholds:
 
 .. include:: ../include/charge-threshold-effect.rst
 
@@ -110,6 +110,27 @@ protective regarding lifespan, with 75/80% charge thresholds.
     plugged. Remember that TLP provides a command (:command:`tlp fullcharge`)
     to fully charge the battery, when you need to temporarily maximize runtime
     (for example in case of a trip).
+
+How to set battery charge thresholds?
+-------------------------------------
+To make charge thresholds permanent, even in case the hardware forgets them,
+you have to enter them into the :ref:`configuration file <set-config-files>`,
+for example **/etc/tlp.conf**: ::
+
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=80
+
+Then apply your changed configuration with the command
+
+::
+
+    sudo tlp start
+
+.. seealso::
+
+    Please check :doc:`/settings/bc-vendors` for permitted threshold values
+    of your laptop.
+
 
 How can I check if my configured charge thresholds are working?
 ---------------------------------------------------------------
@@ -255,7 +276,6 @@ packages become superfluous. :command:`tlp-stat -b` now looks like this:
     /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
 
 
-
 .. seealso::
 
     * :doc:`/settings/bc-vendors` - Details on hardware support
@@ -267,6 +287,16 @@ packages become superfluous. :command:`tlp-stat -b` now looks like this:
     * `tp-smapi <https://www.thinkwiki.org/wiki/Tp_smapi>`_
       – Documentation for the external kernel modules required for ThinkPads
       until model year 2011
+
+.. _faq-bc-coreboot-thinkpad:
+
+Is a ThinkPad with Coreboot supported?
+--------------------------------------
+Coreboot's capabilities are limited:
+
+* Charge thresholds: works
+* Recalibration: not supported
+
 
 .. _faq-thresholds-ignored:
 

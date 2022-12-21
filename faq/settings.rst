@@ -13,8 +13,12 @@ It depends on the individual setting. TLP:
   conflict with GNOME power settings or KDE energy saving settings possible
 * GNOME's power-profiles-daemon disables TLP on boot → severe conflict
   (see :doc:`/installation/index`)
-* Pop!_OS's system76-power works on the same set of :ref:`kernel settings
-  <intro-how-it-works>` → severe conflict, do not use together with TLP
+* Pop!_OS's system76-power works on the same set of
+  :ref:`kernel settings <intro-how-it-works>`
+  → severe conflict - do not use together with TLP
+* Slimbook Battery uses TLP as backend and overwrites TLP's configuration
+  files → conflict - if you want to configure TLP yourself, you have to
+  uninstall Slimbook Battery
 
 "Conflict possible" means that the setting configured in TLP may get overwritten
 by the desktop's setting (and vice versa). System stability issues are *not*

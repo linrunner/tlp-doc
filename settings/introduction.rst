@@ -132,6 +132,8 @@ Or add values in a subsequent config file (Example 2):
     Results in: `USB_DENYLIST="1111:2222 3333:4444 5555:6666"`
 
 
+.. _set-making-changes:
+
 Making Changes
 --------------
 A config file can be changed with any text editor (root privilege is needed).

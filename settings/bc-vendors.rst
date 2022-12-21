@@ -13,7 +13,8 @@ Prerequisites
 In order to use charge thresholds or recalibration with TLP:
 
     1. The hardware must have the appropriate capability
-    2. A suitable kernel driver must make these capabilities usable under Linux
+    2. An existing kernel driver matching the hardware must provide these
+       capabilities under Linux
 
 As for obtaining kernel drivers, there are two options:
 
@@ -60,9 +61,12 @@ ASUS
        | Special:
        | 0 - threshold off
        | 100 - hardware default
-   * - **Notes**
-     - Some ASUS laptops silently ignore stop threshold values other than
-       40, 60 or 80. Please check if your configuration works as expected.
+   * - **Specifics**
+     - | Some ASUS laptops silently ignore stop threshold values other than 40, 60 or 80.
+         Please check if your configuration works as expected.
+       | When powering on, ASUS laptops reset the charge thresholds. TLP
+         restores them on boot, but due to the hardware's behaviour, there
+         is a short time window where the thresholds do not take effect.
 
 .. rubric:: Sample configuration
 
