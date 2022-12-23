@@ -4,6 +4,14 @@ This section lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
+Version 1.6 (unreleased)
+    Makefile:
+
+    - NetworkManager hook relocated to: **/usr/lib/NetworkManager/dispatcher.d/99tlp-rdw-nm** (TLP_NMDSP) -
+      ensure to remove the old file **/etc/NetworkManager/dispatcher.d/99tlp-rdw-nm**
+      on package upgrade
+
+
 Version 1.5
     Files:
 

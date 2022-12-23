@@ -180,8 +180,9 @@ packages:
      - Handle dock/undock events
    * - tlp-rdw-nm
      - tlp-rdw
-     - /etc/NetworkManager/dispatcher.d/
-     - Network manager hook for ifup/ifdown events
+     - | [from 1.6] /usr/lib/NetworkManager/dispatcher.d
+       | [until 1.5] /etc/NetworkManager/dispatcher.d
+     - NetworkManager hook for ifup/ifdown events
    * - unit-tests/*
      - n/a
      - n/a

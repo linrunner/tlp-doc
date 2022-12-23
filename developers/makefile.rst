@@ -95,8 +95,10 @@ Parameters
      - /usr/share/metainfo
      - Install directory for AppStream metadata
    * - TLP_NMDSP
-     - /etc/NetworkManager/dispatcher.d
-     - Install directory for NM scripts
+     - | [from 1.6] /usr/lib/NetworkManager/dispatcher.d
+       | [until 1.5] /etc/NetworkManager/dispatcher.d
+     - Install directory for NetworkManager hooks
+
    * - TLP_NO_BASHCOMP
      - 0
      - 1=do not install tlp/tlp-rdw.bash_completion
