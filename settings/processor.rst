@@ -107,7 +107,9 @@ Hints:
 * `EPB`: requires kernel 5.2 (or module msr and x86_energy_perf_policy from linux-tools),
   `intel_pstate` or `intel_cpufreq` scaling driver and Intel Core i 2nd gen.
   (“Sandy Bridge”) or newer CPU
-* When `HWP.EPP` is available, `EPB` is not set
+* HWP.EPP and EPB are mutually exclusive: when EPP is available, Intel CPUs
+  will not honor EPB. Only the matching feature will be applied by TLP
+  and shown by by :command:`tlp-stat -p`.
 
 
 CPU_HWP_ON_AC/BAT
