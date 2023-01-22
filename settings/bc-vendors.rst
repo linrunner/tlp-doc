@@ -460,7 +460,27 @@ Stop charging battery `BAT0` and `BAT1` at 100%: ::
 
 Unsupported Hardware
 ^^^^^^^^^^^^^^^^^^^^
-For all laptop vendors/brands without charge control options the output of
+You may encounter the case that although one of the plugins listed above
+is active because the kernel driver matching the vendor/brand/model has been
+detected, and yet no charge control options are available:
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: <any of the above>
+    Supported features: none available
+
+Here the obstacle can be on any level - hardware capabilities or firmware
+of the vendor's model in question as well as the corresponding kernel driver
+- without TLP being able to determine exactly where.
+
+For any laptop vendor/brand/model without
+
+* hardware capabilities or
+* corresponding kernel driver or
+* suitable battery care plugin
+
+the output of
 :command:`tlp-stat -b` looks like this:
 
 .. code-block:: none
