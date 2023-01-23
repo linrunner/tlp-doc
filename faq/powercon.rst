@@ -94,17 +94,6 @@ Symptom: fan speed never goes down
 
 Solution: uninstall or disable **thermald**.
 
-
-Significant loss of energy saving after upgrade to 1.0
-------------------------------------------------------
-Version 1.0 and higher exempt (denylist) dGPU drivers from runtime power
-management. For certain kernel/driver/hardware combinations this means that
-the dGPU is not powered off.
-
-Solution: see :ref:`faq-powercon-hybrid-graphics` above.
-
-.. _faq-powercon-cpu-dp:
-
 How to limit power consumption under high CPU load?
 ---------------------------------------------------
 The `intel_pstate` scaling driver offers this possibility. Use the settings ::
