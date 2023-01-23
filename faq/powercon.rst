@@ -78,18 +78,22 @@ to: ::
 
     SOUND_POWER_SAVE_ON_AC=1
 
-Fan noise on AC power
----------------------
+High fan speed
+--------------
 A common reason is elevated power dissipation due to
-:ref:`faq-powercon-hybrid-graphics`.
+:ref:`faq-powercon-hybrid-graphics`, refer to the the previous section.
 
-Solution:
+Symptom: high fan speed on AC power
 
-* Implement the measures laid out in the previous section
-* Enable :doc:`Runtime Power Management </settings/runtimepm>` on AC power
-  via the configuration ::
+Solution: enable :doc:`Runtime Power Management </settings/runtimepm>` on AC power
+via the configuration ::
 
     RUNTIME_PM_ON_AC=auto
+
+Symptom: fan speed never goes down
+
+Solution: uninstall or disable **thermald**.
+
 
 Significant loss of energy saving after upgrade to 1.0
 ------------------------------------------------------
