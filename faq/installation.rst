@@ -48,14 +48,19 @@ unpredictable. Special cases are explained in the following.
 
 **power-profiles-daemon:** see above.
 
+**Powertop:** please refer to :doc:`powertop`.
+
+**Slimbook Battery:** uses TLP as backend to apply power saving and
+for this purpose continuously overwrites your TLP configuration.
+If you want to configure TLP individually, you need to uninstall Slimbook
+Battery first.
+
 **system76-power:** works on the same set of :ref:`kernel settings
 <intro-how-it-works>`. Do not use together with TLP.
 
-**Powertop:** please refer to :doc:`powertop`.
-
 **thermald:** thermald's purpose is to limit power dissipation before the
-laptop's temperature gets critical. TLP enables power saving features globally
-to optimize battery power especially in idle and low workload situations.
+laptop's temperature gets critical. TLP enables power saving to optimize
+battery power especially in idle and low workload situations.
 TLP does not conflict with thermald.
 
 **throttled:** only throttled's dynamic `HWP_Mode` setting interferes with TLP's
