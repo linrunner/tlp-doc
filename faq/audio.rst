@@ -11,6 +11,6 @@ or disable power save completely ::
 
 see also ::
 
-    :doc: `/settings/audio` 
+    :doc:`/settings/audio` 
     
 For Settings.
