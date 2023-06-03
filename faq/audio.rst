@@ -5,10 +5,12 @@ noises, try to increase the timeout ::
 
     SOUND_POWER_SAVE_ON_BAT=10
 
-or disable power save completely
+or disable power save completely ::
 
     SOUND_POWER_SAVE_ON_BAT=0
 
-.. seealso::
+see also ::
 
-    :doc:`/settings/audio` Settings.
+    :doc: `/settings/audio` 
+    
+For Settings.
