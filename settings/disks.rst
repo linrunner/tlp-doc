@@ -117,7 +117,7 @@ Sets the I/O scheduler per disk. Possible values below.
 
 .. rubric:: Multi queue (blk-mq) schedulers:
 
-* mq-deadline – recommendation
+* mq-deadline – recommended
 * none
 * kyber
 * bfq
@@ -125,7 +125,7 @@ Sets the I/O scheduler per disk. Possible values below.
 
 .. rubric:: Single queue schedulers:
 
-* deadline – recommendation
+* deadline – recommended
 * cfq
 * bfq
 * noop
@@ -158,7 +158,7 @@ drives. Possible values (in order of increasing power saving):
 * max_performance – minimum power saving / max performance
 * medium_power – medium power saving and performance
 * med_power_with_dipm – best balance between power saving and performance
-  (Kernel ≥ 4.15 required, then recommended)
+  (recommended, kernel ≥ 4.15 required)
 * min_power – max power saving / minimum performance
 
 Default when unconfigured: "med_power_with_dipm max_performance" (AC),

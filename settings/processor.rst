@@ -132,8 +132,8 @@ of increasing power saving):
 
 Hints:
 
-* Requires kernel 4.10, `intel_pstate` scaling driver and Intel Core i 6th gen.
-  ("Skylake") or newer CPU
+* Requires Intel Core i 6th gen. ("Skylake") or newer CPU with `intel_pstate`
+  scaling driver
 * For version 1.3 and higher use :ref:`set-cpu-energy-perf-policy` instead
 
 
@@ -153,8 +153,8 @@ percentage (0..100%) of the total available processor performance.
 
 Hints:
 
-* Requires `intel_pstate` or `intel_cpufreq` scaling driver and Intel Core i 2nd gen.
-  ("Sandy Bridge") or newer CPU
+* Requires Intel Core i 2nd gen. ("Sandy Bridge") or newer CPU with
+  `intel_pstate` or `intel_cpufreq` scaling driver
 * The driver imposes a limit > 0 on the min P-state, see `min_perf_pct` in the
   output of :command:`tlp-stat -p`
 * This setting is intended to limit the power dissipation of the CPU
@@ -190,8 +190,8 @@ Configure the Intel CPU HWP dynamic boost feature:
 * 0 - disable
 * 1 - enable
 
-Hint: requires `intel_pstate` scaling driver in `active` mode and Intel Core i 6th gen.
-("Skylake") or newer CPU
+Requires: Intel Core i 6th gen. ("Skylake") or newer CPU with `intel_pstate`
+scaling driver in `active` mode
 
 SCHED_POWERSAVE_ON_AC/BAT
 -------------------------
