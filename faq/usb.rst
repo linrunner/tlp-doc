@@ -40,7 +40,8 @@ Affected hardware: ThinkPad T495 AMD, T495s AMD
 
 Workaround: denylist the USB controllers with ::
 
-    RUNTIME_PM_DENYLIST="06:00.3 06:00.4" # T495 AMD
+    RUNTIME_PM_DENYLIST="06:00.3 06:00.4" # T495 AMD (variant 1)
+    RUNTIME_PM_DENYLIST="04:00.3 04:00.3" # T495 AMD (variant 2)
     RUNTIME_PM_DENYLIST="05:00.3 05:00.4" # T495s AMD
 
 *Version 1.3.1 and lower: use RUNTIME_PM_BLACKLIST instead*
