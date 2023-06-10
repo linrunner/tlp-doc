@@ -94,6 +94,8 @@ Symptom: fan speed never goes down
 
 Solution: uninstall or disable **thermald**.
 
+.. _faq-powercon-high-cpu-load:
+
 How to limit power consumption under high CPU load?
 ---------------------------------------------------
 The `intel_pstate` scaling driver offers this possibility. Use the settings ::

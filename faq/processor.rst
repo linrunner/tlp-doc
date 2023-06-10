@@ -3,7 +3,7 @@ Processor
 
 .. seealso::
 
-    :ref:`faq-powercon-cpu-dp`
+    :ref:`faq-powercon-high-cpu-load`
 
 Sluggish performance with kernel 5.7 (and higher)
 -------------------------------------------------
