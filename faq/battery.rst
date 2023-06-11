@@ -608,6 +608,9 @@ ThinkPad L420/520, L512, SL300/400/500, X121e
 These models are neither supported by `tp-smapi` nor by `tpacpi-bat` or `natacpi`.
 Please refrain from opening issues.
 
+
+.. _faq-asus-threshold-not-set-on-boot:
+
 ASUS laptops: stop charge threshold isn't set at boot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Symptom: Battery stop charge threshold isn't set at boot. But manually running
@@ -761,6 +764,9 @@ Workaround (without BIOS update):
 * Check with :command:`tlp-stat -b` – thresholds should be at factory settings
   96/100% now
 * When unsuccessful, repeat the whole procedure
+
+
+.. _faq-thinkad-misc-battery-malfunc:
 
 Misc Thinkpad battery malfunctions
 ----------------------------------

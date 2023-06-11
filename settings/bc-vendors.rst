@@ -63,10 +63,14 @@ ASUS
        | 100 - hardware default
    * - **Specifics**
      - | Some ASUS laptops silently ignore stop threshold values other than 40, 60 or 80.
-         Please check if your configuration works as expected.
+         Please check if your configuration works as expected
+       | When resuming from suspend TLP restores the threshold
        | When powering on, ASUS laptops reset the charge thresholds. TLP
          restores them on boot, but due to the hardware's behaviour, there
          is a short time window where the thresholds do not take effect.
+   * - **See also**
+     - | :ref:`faq-asus-threshold-not-set-on-boot`
+
 
 .. rubric:: Sample configuration
 
@@ -116,6 +120,9 @@ Huawei
      - | Range: 1 .. 100
        | Special:
        | 100 - hardware default
+   * - **Specifics**
+     - | When resuming from suspend TLP restores the threshold
+
 
 .. rubric:: Sample configuration
 
@@ -171,9 +178,9 @@ Lenovo ThinkPads
      - | Range: 1 .. 100
        | Special:
        | 100 - hardware default, threshold off
-
    * - **See also**
      - | - :ref:`faq-which-kernel-module`
+       | - :ref:`faq-thinkad-misc-battery-malfunc`
        | - :ref:`Erratic Battery Behaviour <faq-erratic-battery-behavior>`
 
 
