@@ -142,18 +142,18 @@ The output of :command:`tlp-stat -b` shows two characteristics for the positive
 case:
 
 1. An active battery care driver for the charge thresholds
-2. The actual charge thresholds – read back from the embedded controller
+2. The actual charge threshold(s) – read back from the embedded controller
 
-So if there is a line containing `Supported features: charge thresholds`
-and the displayed thresholds match the ones you configured, then the charging
-logic has properly received them. The article :doc:`/settings/bc-vendors`
+So if there is a line containing `Supported features: charge threshold(s)`
+and the displayed threshold(s) match(es) the one(s) you configured, then the
+charging logic has properly received them. The article :doc:`/settings/bc-vendors`
 shows :command:`tlp-stat -b` sample outputs for all supported hardware to compare.
 If your :command:`tlp-stat -b` output does not contain the required
 characteristics, check the following sections for solutions.
 
-However, if despite a correctly set up system the charging thresholds do not
-work as you expect them to, then you should first compare your idea of the
-charging process with the description :ref:`above <faq-battery-care>`
+However, if despite a correctly set up system the charge threshold(s) do(es)
+not work as you expect them to, then you should first compare your idea of
+the charging process with the description :ref:`above <faq-battery-care>`
 and subsequently check the sections further down for possible explanations.
 
 .. note::
