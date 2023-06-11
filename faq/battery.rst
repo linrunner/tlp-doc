@@ -144,43 +144,17 @@ case:
 1. An active battery care driver for the charge thresholds
 2. The actual charge thresholds – read back from the embedded controller
 
-So if there is a line containing `active (charge thresholds)` and the displayed
-thresholds match the ones you configured, then the charging logic has properly
-received them.
-
-Two examples for different ThinkPad generations:
-
-.. code-block:: none
-
-    +++ Battery Care
-    Plugin: thinkpad
-    Supported features: charge thresholds, recalibration
-    Driver usage:
-    * natacpi (thinkpad_acpi) = active (charge thresholds)
-    * tpacpi-bat (acpi_call)  = active (recalibration)
-    ...
-    /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
-    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
-    tpacpi-bat.BAT0.forceDischarge                              =      0
-
-.. code-block:: none
-
-    +++ Battery Care
-    Plugin: thinkpad-legacy
-    Supported features: charge thresholds, recalibration
-    Driver usage:
-    * tp-smapi (tp_smapi) = active (status, charge thresholds, recalibration)
-    ...
-    /sys/devices/platform/smapi/BAT0/start_charge_thresh        =     75 [%]
-    /sys/devices/platform/smapi/BAT0/stop_charge_thresh         =     80 [%]
-
-If the output does not contain the required characteristics, check the following
-sections for solutions.
+So if there is a line containing `Supported features: charge thresholds`
+and the displayed thresholds match the ones you configured, then the charging
+logic has properly received them. The article :doc:`/settings/bc-vendors`
+shows :command:`tlp-stat -b` sample outputs for all supported hardware to compare.
+If your :command:`tlp-stat -b` output does not contain the required
+characteristics, check the following sections for solutions.
 
 However, if despite a correctly set up system the charging thresholds do not
 work as you expect them to, then you should first compare your idea of the
-charging process with the description in :doc:`/settings/battery` and subsequently
-check the sections further down for possible explanations.
+charging process with the description :ref:`above <faq-battery-care>`
+and subsequently check the sections further down for possible explanations.
 
 .. note::
 
@@ -661,7 +635,7 @@ to activate the thresholds.
 
 .. _faq-elsy-threshold-values:
 
-.. rubric:: ThinkPad E / L / S series, Yoga series
+.. rubric:: ThinkPad E / L / S / Yoga series
 
 Also affected: ThinkPad Edge series, 11, SL410/510
 
