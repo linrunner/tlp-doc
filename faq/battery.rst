@@ -303,7 +303,7 @@ of :command:`tlp-stat`: ::
     +++ Battery Care
     Plugin: generic
     Supported features: none available
-    [...]
+    ...
     /sys/class/power_supply/BAT0/charge_control_start_threshold =      0 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
 
@@ -337,6 +337,7 @@ When the recognition works, the capabilities are limited:
     /sys/class/power_supply/BAT1/model_name                     = 42T4967
     /sys/class/power_supply/BAT1/cycle_count                    =      0 (or not supported)
     /sys/class/power_supply/BAT1/status                         = Discharging
+    < energy data missing here >
 
     /sys/class/power_supply/BAT1/charge_control_start_threshold =     50 [%]
     /sys/class/power_supply/BAT1/charge_control_end_threshold   =     60 [%]
