@@ -98,7 +98,11 @@ On the contrary, if you use it unplugged most of the time, starting charge at
 85% and stopping at 90% would allow for a much longer runtime and still give a
 lifespan benefit over the factory settings.
 
-Source: `Lenovo Forums [2] <https://forums.lenovo.com/t5/Welcome-FAQs-Knowledge-Base/How-can-I-increase-battery-life-ThinkPad/ta-p/244800>`_
+Sources:
+
+* `Lenovo Support: Use maximum runtime (hours) or maximum lifespan (years) in battery settings?
+  <https://support.lenovo.com/bd/en/solutions/ht078208-how-can-i-increase-battery-life-thinkpad-and-lenovo-vbke-series-notebooks>`_
+* `Lenovo Forums [2] <https://forums.lenovo.com/t5/Welcome-FAQs-Knowledge-Base/How-can-I-increase-battery-life-ThinkPad/ta-p/244800>`_
 
 Default TLP settings (only if you uncomment the relevant lines) are slightly more
 protective regarding lifespan, with 75/80% charge thresholds.
@@ -295,7 +299,7 @@ Are ThinkPads with Coreboot / Libreboot supported?
 --------------------------------------------------
 Some models are not recognized as ThinkPads because of an incorrect model
 string provided by Coreboot/Libreboot. As a result battery care is not activated
-(Issue `#657 <https://github.com/linrunner/TLP/issues/657>`_). Sample output
+(see Issue `#657 <https://github.com/linrunner/TLP/issues/657>`_). Sample output
 of :command:`tlp-stat`: ::
 
     -- TLP 1.5.0 --------------------------------------------
@@ -309,19 +313,19 @@ of :command:`tlp-stat`: ::
 
 When the recognition works, the capabilities are limited:
 
-* Charge thresholds: works
+* Charge thresholds: work.
 * Recalibration: not supported
-  (Issues `#547 <https://github.com/linrunner/TLP/issues/547>`_,
-  `#626 <https://github.com/linrunner/TLP/issues/626>`_); sample output
+  (see `Issues #547 <https://github.com/linrunner/TLP/issues/547>`_,
+  `#626 <https://github.com/linrunner/TLP/issues/626>`_). Sample output
   of :command:`tlp-stat`: ::
 
     /sys/class/power_supply/BAT1/charge_behaviour               = [auto]
 
-* Battery status: tlp-stat -b output is missing battery values `energy_full_design`,
-  `energy_full` and `energy_now` because Coreboot/Libreboot supply incorrect
-  data to the Linux kernel
-  (Issue `#657 <https://github.com/linrunner/TLP/issues/657>`_);
-  sample output of :command:`tlp-stat`: ::
+* Battery status: battery values `energy_full_design`, `energy_full` and
+  `energy_now` are missing from the :command:`tlp-stat -b` output because
+  Coreboot/Libreboot supply incorrect data to the Linux kernel
+  (see `Issue #657 <https://github.com/linrunner/TLP/issues/657>`_);
+  sample output: ::
 
     +++ Battery Care
     Plugin: thinkpad
@@ -604,6 +608,16 @@ ThinkPad L420/520, L512, SL300/400/500, X121e
 These models are neither supported by `tp-smapi` nor by `tpacpi-bat` or `natacpi`.
 Please refrain from opening issues.
 
+ASUS laptops: stop charge threshold isn't set at boot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Symptom: Battery stop charge threshold isn't set at boot. But manually running
+:command:`tlp start` or :command:`tlp setcharge` sets the threshold.
+
+Cause: kernel module `asus_wmi` is loaded too late in the boot sequence.
+
+Solution: add the module to the Initramfs. The procedure depends on your distribution,
+for Arch Linux/Manjaro see `Issue #602 <https://github.com/linrunner/TLP/issues/602>`_.
+
 Battery has been removed
 ^^^^^^^^^^^^^^^^^^^^^^^^
 By removing (and re-inserting) the battery the charge thresholds may be reset to
@@ -716,6 +730,8 @@ and use
 to immediately activate vendor specific defaults.
 
 
+.. _faq-disabling-thresholds-does-not-work:
+
 Disabling the charge thresholds does not work
 ----------------------------------------------
 Affected hardware: ThinkPads E580, T480s, X1 Carbon 6th (based on user feedback)
@@ -748,7 +764,7 @@ Workaround (without BIOS update):
 
 Misc Thinkpad battery malfunctions
 ----------------------------------
-Affected hardware: ThinkPad X280, T480 et. al.
+Affected hardware: ThinkPad T480, X280 et. al.
 
 Sometimes ThinkPads show symptoms where one would actually suspect a defect
 of the battery or the system board. Users have reported, for example:
@@ -756,6 +772,9 @@ of the battery or the system board. Users have reported, for example:
 * External battery BAT1 stopped discharging and stays at 100%. This means that the
   computer shuts off when BAT0 dies, even though the external has charge left.
   Reference: `Arch Linux forum <https://bbs.archlinux.org/viewtopic.php?id=285210>`_.
+* Spontaneous shutdown when removing the external battery BAT1, although the
+  internal battery BAT0 is charged.
+  Reference: `Issue #690 <https://github.com/linrunner/TLP/issues/690>`_.
 * Battery does not charge although the charger is connected and no charge threshold
   is active.
 
@@ -767,6 +786,11 @@ Solutions:
 * Press the emergency reset hole (button) on the bottom of the ThinkPad
   with a paper clip
 * Update EC firmware
+
+.. seealso::
+
+    :ref:`faq-disabling-thresholds-does-not-work`
+
 
 .. _faq-erratic-battery-behavior:
 
@@ -803,10 +827,6 @@ The above means that selecting the active battery for ThinkPads - also
 called "battery balancing" - is impossible because the EC firmware offers
 no way to do this, neither manual nor automatic.
 
-Spontaneous shutdown on battery
-https://bbs.archlinux.org/viewtopic.php?id=285210
-https://github.com/linrunner/TLP/issues/690
-
 
 .. _faq-charging-stops-at-80:
 
@@ -841,9 +861,6 @@ would lead to absurdly high wear (i.e. charging cycles) without any benefit bein
 derived from it.
 
 A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
-
-
-.. _faq-disabling-thresholds-does-not-work:
 
 My battery does not charge anymore after recalibration showing X% remaining capacity constantly
 -----------------------------------------------------------------------------------------------
