@@ -9,8 +9,3 @@ or disable power save completely ::
 
     SOUND_POWER_SAVE_ON_BAT=0
 
-see also ::
-
-    :doc:`/settings/audio` 
-    
-For Settings.
