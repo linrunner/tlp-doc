@@ -13,6 +13,13 @@ power source:
 
 Parameters ending neither in `_AC` nor in `_BAT` apply to both profiles.
 
+.. important::
+
+    Parameters without intrinsic default (see :ref:`below <set-param-defaults>`)
+    must *always* be specified for *both _AC and _BAT*. Omitting one of the two
+    makes the set value effective for both power sources, since a change only
+    occurs when different values are defined.
+
 
 .. _set-config-files:
 
@@ -50,6 +57,9 @@ Hints:
 TLP 1.2.2 and lower
 ^^^^^^^^^^^^^^^^^^^
 All settings are stored in the single config file **/etc/default/tlp**.
+
+
+.. _set-param-defaults:
 
 Parameter Defaults
 ------------------
