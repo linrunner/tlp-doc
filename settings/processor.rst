@@ -109,7 +109,7 @@ Hints:
   (“Sandy Bridge”) or newer CPU
 * HWP.EPP and EPB are mutually exclusive: when EPP is available, Intel CPUs
   will not honor EPB. Only the matching feature will be applied by TLP
-  and shown by by :command:`tlp-stat -p`.
+  and shown by :command:`tlp-stat -p`.
 
 
 CPU_HWP_ON_AC/BAT
@@ -244,3 +244,5 @@ Hints:
       – `EPB` documentation
     * `Improvements in CPU frequency management <https://lwn.net/Articles/682391/>`_
       – LWN article covering the schedutil governor
+    * `Why EPB is not set when HWP.EPP is available <https://bbs.archlinux.org/viewtopic.php?pid=2076591#p2076591>`_
+      – Arch Linux Forums
