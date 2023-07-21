@@ -44,7 +44,7 @@ Other init system
 
 System suspend/resume - systemd et al.
 --------------------------------------
-*ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)*
+*ACPI Sleep States S0ix (Idle Standby), S3 (Suspend to RAM) or S4 (Suspend to disk)*
 
 Depends on the target distribution:
 
@@ -65,7 +65,7 @@ Non-systemd
 LAN, Wi-Fi, WWAN connected/disconnected - NetworkManager
 --------------------------------------------------------
 The sources provide the script
-**tlp-rdw-nm** - installed to **/etc/NetworkManager/dispatcher.d/99tlp-rdw-nm**
+**tlp-rdw-nm** - installed to **/usr/lib/NetworkManager/dispatcher.d/99tlp-rdw-nm**
 by :command:`make install-rdw` - switching the configured radio devices.
 
 Laptop docked/undocked - udevd

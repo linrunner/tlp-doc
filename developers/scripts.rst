@@ -6,7 +6,7 @@ Installation Scripts
 .. code-block:: sh
 
     # Mask conflicting systemd services
-    for i in $(ls /lib/systemd/system 2> /dev/null | egrep "(power-profiles-daemon|systemd-rfkill)"); do
+    for i in systemd-rfkill.service systemd-rfkill.socket; do
         systemctl mask $i 2> /dev/null || true
     done
 
@@ -15,7 +15,7 @@ Installation Scripts
 .. code-block:: sh
 
     # Unmask conflicting systemd services
-    for i in $(ls /lib/systemd/system 2> /dev/null | egrep "(power-profiles-daemon|systemd-rfkill)"); do
+    for i in systemd-rfkill.service systemd-rfkill.socket; do
         systemctl unmask $i 2> /dev/null || true
     done
     ;;

@@ -20,34 +20,49 @@ packages:
      - **Package**
      - **Target directory or file**
      - **Purpose**
-   * - tlp.conf
-     - tlp
-     - /etc/
-     - [from 1.3] User configuration file for both `tlp` and `tlp-rdw`
-   * - default
-     - tlp
-     - /etc/default/tlp
-     - [before 1.3] User configuration file for both `tlp` and `tlp-rdw`
-   * - defaults.conf
-     - tlp
-     - /usr/share/tlp/
-     - [from 1.3] Intrinsic configuration defaults for both `tlp` and `tlp-rdw`
    * - 00-template.conf
      - tlp
      - /etc/tlp.d/
-     - [from 1.3] Template for drop-in configuration
-   * - de.linrunner.tlp.metainfo.xml
-     - tlp
-     - /usr/share/metainfo
-     - AppStream metadata
+     - Template for drop-in configuration
    * - bat.d/*
      - tlp
      - /usr/share/tlp/bat.d/
      - [from 1.4] TLP battery plugins
+   * - | [from 1.6] completions/bash/tlp.bash_completion
+       | [before 1.6] tlp.bash_completion
+     - tlp
+     - | /usr/share/bash-completion/completions/
+       |  tlp,
+       |  tlp-stat,
+       |  bluetooth,
+       |  nfc [from 1.5],
+       |  wifi,
+       |  wwan
+     - Bash completion rules
+   * - | [from 1.6] completions/zsh/_tlp
+       |  _tlp-radio-device
+       |  _tlp-run-on
+       |  _tlp-stat
+     - tlp
+     - /usr/share/zsh/site-functions/
+     - Zsh completion rules
+   * - de.linrunner.tlp.metainfo.xml
+     - tlp
+     - /usr/share/metainfo
+     - AppStream metadata
+   * - defaults.conf
+     - tlp
+     - /usr/share/tlp/
+     - Intrinsic configuration defaults for both `tlp` and `tlp-rdw`
+   * - deprecated.conf
+     - tlp
+     - /usr/share/tlp/
+     - [from 1.6] Deprecated configuration parameters and related messages
+       for :command:`tlp-stat -c`
    * - func.d/*
      - tlp
      - /usr/share/tlp/func.d/
-     - [from 1.2] TLP function libraries
+     - TLP function libraries
    * - man/*
      - tlp
      - | /usr/share/man/
@@ -57,29 +72,23 @@ packages:
    * - README.d
      - tlp
      - /etc/tlp.d/README
-     - [from 1.3] Explains the drop-in configuration directory
+     - Explains the drop-in configuration directory
    * - rename.conf
      - tlp
      - /usr/share/tlp/
      - [from 1.4] translation table for parameters
+   * - tlp.conf
+     - tlp
+     - /etc/
+     - User configuration file for both `tlp` and `tlp-rdw`
    * - tlp
      - tlp
      - /usr/sbin/
      - TLP main program
-   * - tlp.bash_completion
-     - tlp
-     - | /usr/share/bash-completion/completions/
-       |  tlp,
-       |  tlp-stat,
-       |  bluetooth,
-       |  nfc [from 1.5],
-       |  wifi,
-       |  wwan
-     -  Bash completion rules
    * - tlp-func-base
      - tlp
      - /usr/share/tlp/
-     - [from 1.2] TLP base function library
+     - TLP base function library
    * - tlp.init
      - tlp
      - /etc/init.d/tlp
@@ -88,8 +97,7 @@ packages:
        switch radio devices and set the battery thresholds
    * - tlp-pcilist
      - tlp
-     - | [from 1.3] /usr/share/tlp/
-       | [before 1.3] /usr/bin/
+     - /usr/share/tlp/
      - Report settings for PCIe devices; called by :command:`tlp-stat`
    * - tlp-readconfs
      - tlp
@@ -124,17 +132,12 @@ packages:
    * - tlp-sleep
      - tlp
      - /lib/systemd/system-sleep/tlp
-     - [from 1.3] Script to be invoked by systemd upon suspend and resume:
-       calls :command:`tlp resume/suspend` to apply settings
-   * - tlp-sleep.service
-     - tlp
-     - /lib/systemd/system/
-     - [before 1.3] Service to be invoked by systemd upon suspend and resume:
+     - Script to be invoked by systemd upon suspend and resume:
        calls :command:`tlp resume/suspend` to apply settings
    * - tlp-sleep.elogind
      - tlp
      - /lib/elogind/system-sleep/49-tlp-sleep
-     - [from 1.2] Script to be invoked by elogind upon suspend and resume:
+     - Script to be invoked by elogind upon suspend and resume:
        calls :command:`tlp resume/suspend` to apply settings
    * - tlp-stat
      - tlp
@@ -146,8 +149,7 @@ packages:
      - Enable autosuspend for plugged USB devices
    * - tlp-usblist
      - tlp
-     - | [from 1.3] /usr/share/tlp/
-       | [before 1.3] /usr/bin/
+     - /usr/share/tlp/
      - Report USB settings; called by :command:`tlp-stat`
    * - tlp.upstart
      - tlp
@@ -161,11 +163,20 @@ packages:
    * - man-rdw/*
      - tlp-rdw
      - /usr/share/man/man8/
-     - [from 1.2] Manpages
+     - Manpages
    * - tlp-rdw
      - tlp-rdw
      - /usr/bin
-     - [from 1.2] RDW command line tool
+     - RDW command line tool
+   * - | [from 1.6] completions/bash/tlp-rdw.bash_completion
+       | [before 1.6] tlp-rdw.bash_completion
+     - tlp
+     - /usr/share/bash-completion/completions/tlp-rdw
+     - Bash completion rules
+   * - [from 1.6] completions/zsh/_tlp-rdw
+     - tlp
+     - /usr/share/zsh/site-functions/_tlp-rdw
+     - Zsh completion rules
    * - tlp-rdw.bash_completion
      - tlp-rdw
      - /usr/share/bash-completion/completions/tlp-rdw
