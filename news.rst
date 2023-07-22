@@ -3,6 +3,36 @@ News
 
 .. _news-top-1:
 
+20.07.2023 - TLP 1.6 Beta 1 released / Call for Testers
+=======================================================
+The first beta of TLP 1.6 has finally arrived. Highlights are:
+
+* *CPU_ENERGY_PERF_POLICY_ON_AC/BAT* now supports AMD Zen 2 or newer CPUs
+  with *amd-pstate* driver
+* Set CPU driver operation mode (*active*, *guided*, *passive*)
+  with *amd-pstate* or *intel_pstate* driver
+* Change system suspend mode (*deep*, *s2idle*)
+* Battery Care support for System76 and Toshiba/Dynabook laptops
+* Bugfix: deactivate *AHCI_RUNTIME_PM* and *PCIE_ASPM* before suspend to
+  avoid resume freezes
+
+Check the `release notes <https://github.com/linrunner/TLP/releases>`_
+or see the `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_
+for details on features and bugfixes.
+
+.. rubric:: Call for Testers
+
+As with every upcoming release I need help to complete the test coverage. So I'm
+reaching out to the community of Linux users to test new and existing
+functionality on their hardware.
+
+Check the `beta page <https://download.linrunner.de/packages/>`_
+for instructions and packages matching your distribution - then
+`join the testers <https://github.com/linrunner/TLP/issues/700>`_.
+
+
+.. _news-top-2:
+
 17.02.2022 - How can I use Battery Care with my Laptop?
 =======================================================
 TLP includes battery charge thresholds for Lenovo (and IBM) ThinkPads from the
@@ -16,8 +46,6 @@ configuration and prerequisites in detail.
 
 Enjoy :-)
 
-
-.. _news-top-2:
 
 07.01.2022 - TLP 1.5 released
 =============================
