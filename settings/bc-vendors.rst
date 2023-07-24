@@ -46,7 +46,7 @@ ASUS
    * - **Hardware**
      - ASUS laptops
    * - **Kernel driver**
-     - `asus_wmi` - required, included in distribution kernels (5.4 or higher)
+     - `asus_wmi` - required, included in distribution kernels (5.4 or newer)
    * - **TLP version**
      - 1.4 and newer
    * - **TLP plugin**
@@ -63,8 +63,8 @@ ASUS
        | 100 - hardware default
    * - **Specifics**
      - | Some ASUS laptops silently ignore stop threshold values other than 40, 60 or 80.
-         Please check if your configuration works as expected
-       | When resuming from suspend TLP restores the threshold
+         Please check if your configuration works as expected.
+       | When resuming from suspend TLP restores the threshold.
        | When powering on, ASUS laptops reset the charge thresholds. TLP
          restores them on boot, but due to the hardware's behaviour, there
          is a short time window where the thresholds do not take effect.
@@ -103,7 +103,7 @@ Huawei
    * - **Hardware**
      - Huawei MateBooks
    * - **Kernel driver**
-     - `huawei_wmi` - required, included in distribution kernels (5.4 or higher)
+     - `huawei_wmi` - required, included in distribution kernels (5.4 or newer)
    * - **TLP version**
      - 1.4 and newer
    * - **TLP plugin**
@@ -277,7 +277,7 @@ Lenovo non-ThinkPad series
    * - **Hardware**
      - Lenovo laptops (all non-ThinkPad series)
    * - **Kernel driver**
-     - `ideapad_laptop` - required, included in distribution kernels (4.14 or higher)
+     - `ideapad_laptop` - required, included in distribution kernels (4.14 or newer)
    * - **TLP version**
      - 1.4 and newer
    * - **TLP plugin**
@@ -329,8 +329,8 @@ LG
      - `lg_laptop` - required, included in distribution kernels
    * - **TLP version**
      - 1.4 and newer
-   * - **TLP plugin**
-     - lg
+   * - **TLP plugins**
+     - lg, lg-legacy
    * - **Charge control options**
      - Fixed stop charge threshold at 80% aka *battery care limit*
    * - **Threshold configuration**
@@ -338,6 +338,11 @@ LG
    * - **Stop threshold values**
      - | 80 - batteries charge to 80%
        | 100 - batteries charge to 100%, battery care limit off
+   * - **Specifics**
+     - | 1.6 and newer:
+       | - When resuming from suspend TLP restores the threshold
+       | - Plugin lg/kernel 5.18 (and newer): standard sysfs attribute `charge_control_end_threshold` is used
+       | - Plugin lg-legacy/older kernels: `battery_care_limit` is used
 
 .. rubric:: Sample configuration
 
@@ -351,12 +356,22 @@ Stop charging battery `BAT0`, `BAT1`, `CMB0` and `CMB1` at 100%: ::
     START_CHARGE_THRESH_BAT0=0  # dummy value
     STOP_CHARGE_THRESH_BAT0=0
 
-.. rubric:: Sample output of tlp-stat -b
+.. rubric:: Sample outputs of tlp-stat -b
 
 .. code-block:: none
 
     +++ Battery Care
     Plugin: lg
+    Supported features: charge threshold
+    Driver usage:
+    * natacpi (lg_laptop) = active (charge threshold)
+    Parameter value range:
+    * STOP_CHARGE_THRESH_BAT0: 80(on), 100(off)
+    [...]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =      80 [%]
+
+    +++ Battery Care
+    Plugin: lg-legacy
     Supported features: charge threshold
     Driver usage:
     * vendor (lg_laptop) = active (charge threshold)
@@ -463,6 +478,112 @@ Stop charging battery `BAT0` and `BAT1` at 100%: ::
     * STOP_CHARGE_THRESH_BAT0: 50, 80, 100(off) -- battery care limiter
 
     /sys/devices/platform/sony-laptop/battery_care_limiter      =     80 [%]
+
+
+System76
+""""""""
+.. list-table::
+   :widths: 250 1000
+   :align: left
+
+   * - **Hardware**
+     - System76 laptops - models with with **open source EC firmware** only
+   * - **Kernel drivers**
+     -  `system76_acpi` - required, included in distribution kernels (5.16 or newer)
+   * - **TLP version**
+     - 1.6 and newer
+   * - **TLP plugin**
+     - system76
+   * - **Charge control options**
+     - Start and stop charge threshold
+   * - **Threshold configuration**
+     - One battery only - `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
+   * - **Start threshold values**
+     - | Range: 0 .. 99
+       | Special:
+       | 0 - hardware default, threshold off
+   * - **Stop threshold values**
+     - | Range: 1 .. 100
+       | Special:
+       | 100 - hardware default, threshold off
+   * - **Specifics**
+     - | A stop threshold of 100 disables the feature.
+       | A start value of 0 will always enable the charger, and charge up to the stop threshold.
+       | The thresholds will be set to their defaults on EC reset (i.e. AC is unplugged when powered off).
+
+.. rubric:: Sample configuration
+
+Start charging battery `BAT0` when below 75% and stop at 80%: ::
+
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=80
+
+.. rubric:: Sample output of tlp-stat -b
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: system76
+    Supported features: charge thresholds
+    Driver usage:
+    * natacpi (system76_acpi) = active (charge thresholds)
+    Parameter value ranges:
+    * START_CHARGE_THRESH_BAT0:  0(off)..99
+    * STOP_CHARGE_THRESH_BAT0:   1..100(default)
+    [...]
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
+
+Toshiba
+"""""""
+.. list-table::
+   :widths: 250 1000
+   :align: left
+
+   * - **Hardware**
+     - Toshiba and Dynabook laptops
+   * - **Kernel driver**
+     - `toshiba_laptop` - required, included in distribution kernels (6.0 and newer)
+   * - **TLP version**
+     - 1.6 and newer
+   * - **TLP plugins**
+     - toshiba
+   * - **Charge control options**
+     - Fixed stop charge threshold at 80%
+   * - **Threshold configuration**
+     - | `BAT0` uses the `STOP_CHARGE_THRESH_BAT0` parameter
+       | `BAT1` uses the `STOP_CHARGE_THRESH_BAT1` parameter
+   * - **Stop threshold values**
+     - | 80 - battery charges to 80%
+       | 100 - battery charges to 100%, hardware default
+   * - **Specifics**
+     - The threshold is persistent (stored in NVRAM), even if the battery is removed and reinserted.
+
+.. rubric:: Sample configuration
+
+Stop charging battery `BAT1` at 80%: ::
+
+    START_CHARGE_THRESH_BAT1=0  # dummy value
+    STOP_CHARGE_THRESH_BAT1=80
+
+Stop charging battery `BAT1` at 100%: ::
+
+    START_CHARGE_THRESH_BAT1=0  # dummy value
+    STOP_CHARGE_THRESH_BAT1=100
+
+.. rubric:: Sample outputs of tlp-stat -b
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: toshiba
+    Supported features: charge threshold
+    Driver usage:
+    * natacpi (toshiba_acpi) = active (charge threshold)
+    Parameter value range:
+    * STOP_CHARGE_THRESH_BAT0/1: 80(on), 100(off)
+    [...]
+    /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
 
 Unsupported Hardware
