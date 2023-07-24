@@ -32,7 +32,7 @@ Add `-v` to see battery voltages (if available).
 
 .. rubric:: View the difference between defaults and user configuration
 
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 ::
 
@@ -54,7 +54,7 @@ Add `-v` to see battery voltages (if available).
     sudo tlp-stat -e
     sudo tlp-stat --pcie
 
-*Version 1.4 and higher*: add `-v` to see device runtime status.
+*Version 1.4 and newer*: add `-v` to see device runtime status.
 
 
 .. rubric:: View graphics card information
@@ -72,7 +72,7 @@ Add `-v` to see battery voltages (if available).
     sudo tlp-stat -p
     sudo tlp-stat --processor
 
-*Version 1.4 and higher*: for clarity the standard output shows only `cpu0`,
+*Version 1.4 and newer*: for clarity the standard output shows only `cpu0`,
 add  `-v` to see all.
 
 
@@ -107,7 +107,7 @@ add  `-v` to see all.
     tlp-stat -u
     tlp-stat --usb
 
-*Version 1.4 and higher*: add `-v` to see device runtime status.
+*Version 1.4 and newer*: add `-v` to see device runtime status.
 
 
 .. rubric:: Show more information in battery, PCIe, processor and USB categories
@@ -136,7 +136,7 @@ View trace output: ::
 
 Check if udev rules for power source changes and connecting USB devices are active:
 
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 ::
 

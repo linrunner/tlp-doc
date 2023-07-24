@@ -44,7 +44,7 @@ Workaround: denylist the USB controllers with ::
     RUNTIME_PM_DENYLIST="04:00.3 04:00.3" # T495 AMD (variant 2)
     RUNTIME_PM_DENYLIST="05:00.3 05:00.4" # T495s AMD
 
-*Version 1.3.1 and lower: use RUNTIME_PM_BLACKLIST instead*
+*Version 1.3: use RUNTIME_PM_BLACKLIST instead*
 
 .. note::
 
@@ -75,6 +75,6 @@ Solution: exclude the smartphone from autosuspend by configuring ::
 
     USB_EXLUDE_PHONE=1
 
-*Version 1.3.1 and lower: use USB_BLACKLIST_PHONE instead*
+*Version 1.3: use USB_BLACKLIST_PHONE instead*
 
 Then reconnect the device.

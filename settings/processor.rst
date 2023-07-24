@@ -82,7 +82,6 @@ Hints:
 
 CPU_ENERGY_PERF_POLICY_ON_AC/BAT
 --------------------------------
-*Version 1.3 and higher*
 
 ::
 
@@ -110,31 +109,6 @@ Hints:
 * HWP.EPP and EPB are mutually exclusive: when EPP is available, Intel CPUs
   will not honor EPB. Only the matching feature will be applied by TLP
   and shown by :command:`tlp-stat -p`.
-
-
-CPU_HWP_ON_AC/BAT
------------------
-*Version 1.2.2 and lower*
-
-::
-
-    CPU_HWP_ON_AC=balance_performance
-    CPU_HWP_ON_BAT=balance_power
-
-Set Intel CPU energy/performance policy HWP.EPP. Possible values are (in order
-of increasing power saving):
-
-* performance
-* balance_performance
-* default
-* balance_power
-* power
-
-Hints:
-
-* Requires Intel Core i 6th gen. ("Skylake") or newer CPU with `intel_pstate`
-  scaling driver
-* For version 1.3 and higher use :ref:`set-cpu-energy-perf-policy` instead
 
 
 .. _set-cpu-min-max-perf:
@@ -177,7 +151,7 @@ Configure CPU "turbo boost" (Intel) or "turbo core" (AMD) feature (0 = disable /
 
 CPU_HWP_DYN_BOOST_ON_AC/BAT
 ---------------------------
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 ::
 
@@ -193,44 +167,6 @@ Configure the Intel CPU HWP dynamic boost feature:
 Requires: Intel Core i 6th gen. ("Skylake") or newer CPU with `intel_pstate`
 scaling driver in `active` mode
 
-SCHED_POWERSAVE_ON_AC/BAT
--------------------------
-::
-
-    SCHED_POWERSAVE_ON_AC=0
-    SCHED_POWERSAVE_ON_BAT=1
-
-Minimize number of used CPU cores/hyper-threads under light load conditions
-(1 = enabled, 0 = disabled). Depends on kernel and processor model.
-
-Default when unconfigured: 0 (AC), 1 (BAT)
-
-
-ENERGY_PERF_POLICY_ON_AC/BAT
------------------------------
-*Version 1.2.2 and lower*
-
-::
-
-    ENERGY_PERF_POLICY_ON_AC=performance
-    ENERGY_PERF_POLICY_ON_BAT=power
-
-Set Intel CPU energy/performance policy `EPB`. Possible values are (in order of
-increasing power saving):
-
-* performance
-* balance-performance
-* default (deprecated: normal)
-* balance-power
-* power (deprecated: powersave)
-
-Hints:
-
-* Requires `intel_pstate` or `intel_cpufreq` scaling driver and Intel Core i 2nd gen.
-  ("Sandy Bridge") or newer CPU
-* Requires the kernel module `msr` and the tool `x86_energy_perf_policy` matching
-  your kernel version
-* For version 1.3 and higher use :ref:`set-cpu-energy-perf-policy` instead
 
 .. seealso::
 

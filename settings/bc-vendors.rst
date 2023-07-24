@@ -48,7 +48,7 @@ ASUS
    * - **Kernel driver**
      - `asus_wmi` - required, included in distribution kernels (5.4 or higher)
    * - **TLP version**
-     - 1.4 and higher
+     - 1.4 and newer
    * - **TLP plugin**
      - asus
    * - **Charge control options**
@@ -105,7 +105,7 @@ Huawei
    * - **Kernel driver**
      - `huawei_wmi` - required, included in distribution kernels (5.4 or higher)
    * - **TLP version**
-     - 1.4 and higher
+     - 1.4 and newer
    * - **TLP plugin**
      - huawei
    * - **Charge control options**
@@ -279,7 +279,7 @@ Lenovo non-ThinkPad series
    * - **Kernel driver**
      - `ideapad_laptop` - required, included in distribution kernels (4.14 or higher)
    * - **TLP version**
-     - 1.4 and higher
+     - 1.4 and newer
    * - **TLP plugin**
      - lenovo
    * - **Charge control options**
@@ -328,7 +328,7 @@ LG
    * - **Kernel driver**
      - `lg_laptop` - required, included in distribution kernels
    * - **TLP version**
-     - 1.4 and higher
+     - 1.4 and newer
    * - **TLP plugin**
      - lg
    * - **Charge control options**
@@ -377,7 +377,7 @@ Samsung
    * - **Kernel driver**
      - `samsung_laptop` - required, included in distribution kernels
    * - **TLP version**
-     - 1.4 and higher
+     - 1.4 and newer
    * - **TLP plugin**
      - samsung
    * - **Charge control options**
@@ -426,7 +426,7 @@ Sony
    * - **Kernel driver**
      - `sony_laptop` - required, included in distribution kernels
    * - **TLP version**
-     - 1.5 and higher
+     - 1.5 and newer
    * - **TLP plugin**
      - sony
    * - **Charge control options**
@@ -499,7 +499,7 @@ the output of
 
 Final Notes
 ^^^^^^^^^^^
-*Applies to version 1.4 and higher only*
+*Applies to version 1.4 and newer only*
 
     * Consult the output of :command:`tlp-stat -b` for supported charge control
       options and allowed parameter values of your hardware

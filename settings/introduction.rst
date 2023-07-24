@@ -26,12 +26,7 @@ Parameters ending neither in `_AC` nor in `_BAT` apply to both profiles.
 Config Files
 ------------
 
-.. _set-config-files-13:
-
-TLP 1.3 and higher
-^^^^^^^^^^^^^^^^^^
-TLP 1.3 introduced an extended configuration scheme. Settings are read from the
-following files in the specified order:
+Settings are read from the following files in the specified order:
 
 * Intrinsic defaults
 * **/etc/tlp.d/*.conf**: Drop-in customization snippets, read in lexical (alphabetical) order
@@ -54,9 +49,10 @@ Hints:
 * :ref:`Transfer settings when upgrading <faq-set-mig-from-13>` describes how to
   migrate your configuration from versions before 1.3
 
-TLP 1.2.2 and lower
-^^^^^^^^^^^^^^^^^^^
-All settings are stored in the single config file **/etc/default/tlp**.
+.. note::
+
+    TLP versions 1.2.2 and older stored all settings in a single
+    config file named **/etc/default/tlp**.
 
 
 .. _set-param-defaults:
@@ -117,7 +113,7 @@ Parameters with intrinsic default may be disabled by entering an empty string: :
 
 .. rubric:: Concatenation with +=
 
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 A nifty feature to add something to an intrinsic default (Example 1):
 

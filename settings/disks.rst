@@ -50,13 +50,13 @@ Values for multiple disks are separated with blanks.
 
 .. note::
 
-    *In version 1.3.1 and lower this setting will not be applied to USB and
+    *Until version 1.3 this setting will not be applied to USB and
     IEEE 1394 (FireWire) disks.*
 
 
 DISK_APM_CLASS_DENYLIST
 -----------------------
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 ::
 
@@ -167,16 +167,16 @@ Default when unconfigured: "med_power_with_dipm max_performance" (AC),
 Use empty strings (“”) to disable the feature completely.
 
 Multiple values separated with spaces are tried sequentially until success.
-TLP 1.1 and higher determine automatically when `med_power_with_dipm` is
-available. For that a second value is provided in the default configuration
+TLP determines automatically when `med_power_with_dipm` is available.
+Until version 1.5 a second value is provided in the default configuration
 as a fallback for older kernels.
 
 .. _SATA_LINKPWR_BLACKLIST:
 
 SATA_LINKPWR_DENYLIST
 ----------------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-SATA_LINKPWR_BLACKLIST. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+SATA_LINKPWR_BLACKLIST. 1.4 and newer also recognize the old name.*
 
 ::
 
@@ -193,7 +193,7 @@ to determine the host; the format is `hostX`. Separate multiple hosts with space
 
 AHCI_RUNTIME_PM_ON_AC/BAT
 -------------------------
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 .. warning::
 
@@ -224,7 +224,7 @@ Default when unconfigured: on (AC), auto (BAT)
 
 AHCI_RUNTIME_PM_TIMEOUT
 -----------------------
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 ::
 

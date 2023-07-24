@@ -70,24 +70,16 @@ actions. If you want to use it, disable the feature in TLP by configuring
 
 .. _faq-service-units:
 
-Must I enable TLP's systemd service units?
+Must I enable TLP's systemd service unit?
 ------------------------------------------
 Symptoms: :command:`tlp-stat -s` shows ::
 
     Error: tlp.service is not enabled, power saving will not apply on boot.
     >>> Invoke 'systemctl enable tlp.service' to correct this!
 
-and/or ::
-
-    Error: tlp-sleep.service is not enabled, power saving will not apply on boot.
-    >>> Invoke 'systemctl enable tlp-sleep.service' to correct this!
-
-Answer: *yes*, the service units are *indispensable* for correct operation:
-
-* **tlp.service**: applies power saving settings and charge thresholds
-  as well as switching radio devices on system boot and shutdown
-* **tlp-sleep.service**: applies powers saving upon system suspend and resume
-  *(not applicable for version 1.3 and higher)*
+Answer: *yes*, the service unit is *indispensable* for correct operation -
+**tlp.service** applies power saving settings and charge thresholds
+as well as switching radio devices on system boot and shutdown.
 
 .. note::
 

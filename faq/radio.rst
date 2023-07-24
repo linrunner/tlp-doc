@@ -30,7 +30,7 @@ Solution: configure ::
 
     USB_EXCLUDE_BTUSB=1
 
-*Version 1.3.1 and lower use USB_BLACKLIST_BTUSB instead*
+*Version 1.3: use USB_BLACKLIST_BTUSB instead*
 
 Apply with :command:`tlp usb`.
 

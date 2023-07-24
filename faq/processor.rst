@@ -5,7 +5,7 @@ Processor
 
     :ref:`faq-powercon-high-cpu-load`
 
-Sluggish performance with kernel 5.7 (and higher)
+Sluggish performance with kernel 5.7 (and newer)
 -------------------------------------------------
 Symptoms: you have configured the `powersave` scaling governor for `intel_pstate`: ::
 
@@ -49,7 +49,7 @@ frequency of the CPU: ::
 Probable cause: `intel_pstate` driver or UEFI firmware bug.
 
 Workaround: either do not disable turbo boost or configure additionally
-:ref:`set-platform-profile` (*Version 1.4 and higher only*, see
+:ref:`set-platform-profile` (*Version 1.4 and newer only*, see
 `Issue #570 <https://github.com/linrunner/TLP/issues/570>`_ for details).
 
 Frequency scaling settings do not get applied

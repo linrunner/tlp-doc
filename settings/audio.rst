@@ -16,8 +16,8 @@ systems without PulseAudio may require 10. The value 0 disables power save.
 
 Default when unconfigured:
 
-    | 1 (AC), 1 (BAT) - *Version 1.4 and higher*
-    | 0 (AC), 1 (BAT) - *Version 1.3.1 and lower*
+    | 1 (AC), 1 (BAT) - *Version 1.4 and newer*
+    | 0 (AC), 1 (BAT) - *Version 1.3*
 
 .. note::
 

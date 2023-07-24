@@ -29,7 +29,7 @@ RADEON_DPM_PERF_LEVEL_ON_AC/BAT
     RADEON_DPM_PERF_LEVEL_ON_BAT=auto
 
 Controls the Dynamic power management (DPM) performance level. Supported by
-`amdgpu` *(Version 1.4 and higher only)* and `radeon` drivers. Possible values:
+`amdgpu` *(TLP version 1.4 and newer only)* and `radeon` drivers. Possible values:
 
 * auto – recommended
 * low

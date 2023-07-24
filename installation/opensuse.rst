@@ -19,7 +19,7 @@ Install them either with your favorite package manager or the command: ::
 
     zypper install tlp tlp-rdw
 
-*openSUSE Leap 15.4 and higher as well as Tumbleweed*
+*openSUSE Leap 15.4 and newer as well as Tumbleweed*
 
 Uninstall the conflicting `power-profiles-daemon` package: ::
 

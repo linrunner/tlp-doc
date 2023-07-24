@@ -117,7 +117,7 @@ between savings and performance independently for battery (BAT) and AC operation
 * Kernel laptop mode and dirty buffer timeouts
 * Processor frequency scaling including 'turbo boost' and 'turbo core'
 * Limit max/min P-state to control power dissipation of Intel CPUs
-* Intel CPU energy/performance policies HWP.EPP and EPB and HWP dynamic boost
+* AMD/Intel CPU energy/performance policies (EPP) and dynamic boost
 * Platform profile to control power/performance levels, thermal and fan speed
 * Hard disk advanced power magement level (APM) and spin down timeout (per disk)
 * AHCI link power management (ALPM) with device denylist

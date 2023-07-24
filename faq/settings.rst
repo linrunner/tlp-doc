@@ -38,10 +38,10 @@ without explicit user confirmation and create a backup copy too.
 
 .. _faq-set-mig-from-13:
 
-How do I transfer my settings when upgrading from version 1.2.2 (and lower) to 1.3?
------------------------------------------------------------------------------------
-Read about the :ref:`config files of version 1.3 <set-config-files-13>` first to
-learn about the new configuration scheme in version 1.3.
+How do I transfer my settings when upgrading from version 1.2.2 (and older) to 1.3 (and newer)?
+-----------------------------------------------------------------------------------------------
+Read about the :ref:`config files <set-config-files>` first to
+learn about the current configuration scheme (introduced in version 1.3).
 
 There are three migration paths:
 
@@ -52,13 +52,13 @@ Save the pristine **/etc/tlp.conf** and copy **/etc/default/tlp** to
 **/etc/tlp.conf**.
 
 Debian and Ubuntu only: if **/etc/default/tlp** was ever edited by you,
-upgrading to version 1.3 moves it to **/etc/tlp.conf** automatically. The pristine
-**tlp.conf** ends up in **/etc/tlp.conf.dpkg-new**.
+upgrading to version 1.3 or newer moves it to **/etc/tlp.conf** automatically.
+The pristine **tlp.conf** ends up in **/etc/tlp.conf.dpkg-new**.
 
 .. rubric:: 2. Start from Scratch with /etc/tlp.conf
 
 Just enter your specific settings into **/etc/tlp.conf**.
-Other than with version 1.2.2 (and lower) all parameters in **/etc/tlp.conf** are
+Other than with version 1.2.2 and older all parameters in **/etc/tlp.conf** are
 disabled, you have to remove the comment character `#` in the first column for
 parameters you want to change.
 

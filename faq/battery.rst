@@ -207,7 +207,7 @@ API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`
 which supports charge thresholds so far. :command:`tlp-stat -b` indicates this
 as follows:
 
-*Versions 1.2.2 through 1.3.1*
+*Version 1.3*
 
 .. code-block:: none
 
@@ -890,8 +890,8 @@ not reflect the charging condition correctly as soon as charge thresholds interv
 
 In this situation :command:`tlp-stat -b` shows
 
-* "Idle" - *Version 1.4 and higher*
-* "Unknown (threshold effective)" - *Version 1.3.1 and lower*
+* "Idle" - *Version 1.4 and newer*
+* "Unknown (threshold effective)" - *Version 1.3*
 
 for **/sys/class/power_supply/BATx/status**.
 

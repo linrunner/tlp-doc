@@ -27,8 +27,8 @@ Default when unconfigured: 1
 
 USB_DENYLIST
 -------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-USB_BLACKLIST. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+USB_BLACKLIST. 1.4 and newer also recognize the old name.*
 
 .. include:: /include/usb-excluded-devices.rst
 
@@ -43,7 +43,7 @@ Multiple IDs are separated with blanks.
 
 USB_EXCLUDE_AUDIO
 -----------------
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 ::
 
@@ -62,8 +62,8 @@ Default when unconfigured: 1
 
 USB_EXCLUDE_BTUSB
 -----------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-USB_BLACKLIST_BTUSB. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+USB_BLACKLIST_BTUSB. 1.4 and newer also recognize the old name.*
 
 ::
 
@@ -90,8 +90,8 @@ Default when unconfigured: 0
 
 USB_EXCLUDE_PHONE
 -----------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-USB_BLACKLIST_PHONE. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+USB_BLACKLIST_PHONE. 1.4 and newer also recognize the old name.*
 
 ::
 
@@ -109,8 +109,8 @@ Default when unconfigured: 0
 
 USB_EXCLUDE_PRINTER
 -------------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-USB_BLACKLIST_PRINTER. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+USB_BLACKLIST_PRINTER. 1.4 and newer also recognize the old name.*
 
 ::
 
@@ -128,8 +128,8 @@ Default when unconfigured: 1
 
 USB_EXCLUDE_WWAN
 ----------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-USB_BLACKLIST_WWAN. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+USB_BLACKLIST_WWAN. 1.4 and newer also recognize the old name.*
 
 ::
 
@@ -154,8 +154,8 @@ Default when unconfigured: 0
 
 USB_ALLOWLIST
 -------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-USB_WHITELIST. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+USB_WHITELIST. 1.4 and newer also recognize the old name.*
 
 ::
 

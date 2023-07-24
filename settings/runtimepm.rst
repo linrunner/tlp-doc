@@ -24,8 +24,8 @@ Default when unconfigured: on (AC), auto (BAT)
 
 RUNTIME_PM_DENYLIST
 --------------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-RUNTIME_PM_BLACKLIST. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+RUNTIME_PM_BLACKLIST. 1.4 and newer also recognize the old name.*
 
 ::
 
@@ -49,8 +49,8 @@ Exclude listed PCIe device addresses from runtime power management. Use
 
 RUNTIME_PM_DRIVER_DENYLIST
 ---------------------------
-*This parameter was renamed with version 1.4. In 1.3.1 and below it is called
-RUNTIME_PM_DRIVER_BLACKLIST. 1.4 and higher also recognize the old name.*
+*This parameter was renamed with version 1.4. Until 1.3 it was called
+RUNTIME_PM_DRIVER_BLACKLIST. 1.4 and newer also recognize the old name.*
 
 ::
 
@@ -64,8 +64,8 @@ Separate multiple drivers with spaces.
 
 Default when unconfigured:
 
-    | "mei_me nouveau radeon" - *Version 1.4 and higher*
-    | "amdgpu mei_me nouveau nvidia pcieport radeon" - *Version 1.3.1 and lower*
+    | "mei_me nouveau radeon" - *Version 1.4 and newer*
+    | "amdgpu mei_me nouveau nvidia pcieport radeon" - *Version 1.3*
 
 .. note::
 
@@ -81,7 +81,7 @@ Default when unconfigured:
 
 RUNTIME_PM_ENABLE
 -----------------
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 ::
 
@@ -95,7 +95,7 @@ Use :command:`lspci` to get the adresses (1st column).
 
 RUNTIME_PM_DISABLE
 ------------------
-*Version 1.4 and higher*
+*Version 1.4 and newer*
 
 ::
 

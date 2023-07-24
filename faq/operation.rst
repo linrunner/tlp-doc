@@ -126,7 +126,7 @@ References: Issues `#223 <https://github.com/linrunner/TLP/issues/223>`_,
 
 Solutions:
 
-* Update to version 1.2 or higher – recommended
+* Update to the newest version – highly recommended
 * Reboot with AC connected
 * Ask the laptop vendor for a corrected BIOS
 * Fix the DSDT yourself
@@ -173,14 +173,3 @@ Affected hardware: a Dell XPS user with Kernel 4.4 reported this issue.
 Solution: enable Wake-on-LAN ::
 
     WOL_DISABLE=N
-
-Exit Code 4
------------
-Symptom: journal shows the message
-
-.. code-block:: none
-
-    ERROR: systemd-udevd[1234]: Process '/usr/bin/tlp auto' failed with exit code 4
-
-Solution: update to version 1.2 or higher.
-
