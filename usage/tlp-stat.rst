@@ -72,9 +72,10 @@ Add `-v` to see battery voltages (if available).
     sudo tlp-stat -p
     sudo tlp-stat --processor
 
-*Version 1.4 and newer*: for clarity the standard output shows only `cpu0`,
-add  `-v` to see all.
-
+* *Version 1.4 and newer*: for clarity the standard output shows only `cpu0`,
+  add  `-v` to see all.
+* *Version 1.6 and newer*: `-v` will also show `acpi_cppc` performance and
+  frequency attributes.
 
 .. rubric:: View radio device states
 

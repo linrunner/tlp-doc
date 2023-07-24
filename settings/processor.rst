@@ -1,6 +1,62 @@
 Processor
 =========
 
+CPU_DRIVER_OPMODE_ON_AC/BAT
+---------------------------
+::
+
+    CPU_DRIVER_OPMODE_ON_AC=active
+    CPU_DRIVER_OPMODE_ON_BAT=active
+
+Selects a CPU scaling driver operation mode. Configuration depends on the
+active driver:
+
+.. rubric:: amd-pstate
+
+AMD Zen 2 or newer CPUs provide:
+
+* active - requires kernel 6.3 or newer, changes driver name to `amd-pstate-epp`
+* passive
+* guided - requires kernel 6.4 or newer
+
+Since AMD's kernel documentation is hard to penetrate, here is an attempt
+to outline the individual modes (without guarantee):
+
+* In **active** mode, the processor selects the operating frequencies
+  autonomously within the limits imposed by the hardware, including turbo boost.
+  The `powersave` governor can also lead to max frequency.
+  Configuring the min and max frequency (as shown below) is *not* supported.
+* With **guided** mode, you may configure the min and max frequency (see below),
+  and the processor will choose the operating frequency itself in the specified
+  range. Guided is basically active mode with frequency range enforced.
+* In **passive** mode, in contrast to guided, the governor dictates the
+  frequencies as configured.
+
+
+.. note::
+
+    * For kernels older than 6.5 `amd-pstate` must be activated via a kernel
+      boot option; see the driver documentation linked at the bottom.
+    * It should be kept in mind that not all laptop BIOSes allow the activation
+      despite a suitable CPU. Please refrain from opening TLP issues for this.
+
+.. rubric:: intel_pstate
+
+Intel Core i 2nd gen. ("Sandy Bridge") or newer Intel CPUs provide these modes:
+
+* active
+* passive
+
+Starting with kernel 5.7, the `intel_pstate` driver selects passive mode
+aka `intel_cpufreq` for CPUs that do not support hardware-managed P-states
+(HWP), i.e. Intel Core i 5th gen. or older.
+
+.. rubric:: acpi-cpufreq
+
+Older AMD/Intel CPUs and other vendors do not support change of
+driver mode.
+
+
 .. _set-cpu-scaling-governor:
 
 CPU_SCALING_GOVERNOR_ON_AC/BAT
@@ -11,47 +67,41 @@ CPU_SCALING_GOVERNOR_ON_AC/BAT
     CPU_SCALING_GOVERNOR_ON_BAT=powersave
 
 Selects the CPU scaling governor for automatic frequency scaling. Configuration
-depends on the active scaling driver:
+depends on the active driver:
 
-.. rubric:: intel_pstate
-
-For Intel Core i 2nd gen. ("Sandy Bridge") or newer Intel CPUs. Supported
-governors are:
+.. rubric:: amd-pstate | intel_pstate in active mode
 
 * performance
 * powersave – default
 
-.. rubric:: intel_cpufreq
-
-Starting with kernel 5.7, the `intel_pstate` scaling driver selects "passive mode"
-aka `intel_cpufreq` for CPUs that do not support hardware-managed P-states (HWP),
-i.e. Intel Core i 5th gen. or older.
-
-Supported governors are identical to the `acpi-cpufreq` driver below, the default
-scheduler is `schedutil`.
-
-.. rubric:: acpi-cpufreq
-
-For AMD, older Intel CPUs and other vendors. Supported governors are:
+.. rubric:: amd-state in passive or guided mode
+            | intel_pstate in passive mode
+            | acpi-cpufreq
 
 * conservative
 * ondemand – default for most distributions
 * userspace
 * powersave
 * performance
-* schedutil – default for newer kernels and the `intel_cpufreq` driver above
+* schedutil – default for newer kernels and the `amd-pstate`/`intel_pstate`
+  drivers in passive mode
 
 .. note::
 
-    Refer to the output of :command:`tlp-stat -p` to determine the active
-    scaling driver and available governors.
+    * Refer to the output of :command:`tlp-stat -p` to determine the active
+      scaling driver and available governors.
+    * Keep in mind that modularized kernels may not reveal all available
+      governors in the :command:`tlp-stat -p` output after boot.
+      In this case, configure the desired governor anyway and, after
+      :command:`tlp start`, check the output of :command:`tlp-stat -p` again
+      (won't work in versions 1.4 and 1.5).
 
 .. important::
 
     Default governors listed above are power efficient for almost all workloads,
     therefore kernel devs and most distributions have chosen them as such.
     So *before* changing the scaling governor please do your research about the
-    advantages and disadvantages of the others (refer to the links on the bottom
+    advantages and disadvantages of the others (refer to the links at the bottom
     of this page).
 
 CPU_SCALING_MIN/MAX_FREQ_ON_AC/BAT
@@ -88,7 +138,7 @@ CPU_ENERGY_PERF_POLICY_ON_AC/BAT
     CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
     CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
 
-Set Intel CPU energy/performance policies `HWP.EPP` and `EPB` (in order of
+Set CPU energy/performance policies (in order of
 increasing power saving):
 
 * performance
@@ -99,16 +149,22 @@ increasing power saving):
 
 Default when unconfigured: balance_performance (AC), balance_power (BAT)
 
-Hints:
+Requirements:
 
-* `HWP.EPP` (hardware-managed P-states): requires kernel 4.10, `intel_pstate`
-  scaling driver and Intel Core i  6th gen. ("Skylake") or newer CPU
-* `EPB`: requires kernel 5.2 (or module msr and x86_energy_perf_policy from linux-tools),
-  `intel_pstate` or `intel_cpufreq` scaling driver and Intel Core i 2nd gen.
-  (“Sandy Bridge”) or newer CPU
-* HWP.EPP and EPB are mutually exclusive: when EPP is available, Intel CPUs
-  will not honor EPB. Only the matching feature will be applied by TLP
-  and shown by :command:`tlp-stat -p`.
+.. rubric:: AMD
+
+* AMD Zen 2 or newer CPU with kernel 6.3 and `amd-pstate` driver in active mode
+
+.. rubric:: Intel
+
+* **HWP.EPP** (hardware-managed P-states): Intel Core i 6th gen. ("Skylake")
+  or newer CPU with kernel 4.10 and `intel_pstate` driver in active mode
+* **EPB**: Intel Core i 2nd gen. (“Sandy Bridge”) or newer CPU with kernel 5.2
+  and `intel_pstate` driver (or module msr and x86_energy_perf_policy
+  from linux-tools)
+* Note that HWP.EPP and EPB are mutually exclusive. When EPP is available,
+  Intel CPUs will not honor EPB. Only the matching feature will be applied
+  by TLP and shown by :command:`tlp-stat -p`.
 
 
 .. _set-cpu-min-max-perf:
