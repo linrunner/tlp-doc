@@ -90,15 +90,19 @@ Parameter values containing blanks must be enclosed in double quotes: ::
 
 .. rubric:: Comment lines
 
-The content of lines beginning with a `#` in the first columnis ignored completely: ::
+The content of lines beginning with a `#` in the first column
+is ignored completely: ::
 
     #What is written here does not matter.
 
 Empty lines are ignored as well.
 
-Comments after parameters are not allowed, the whole line will be silently ignored: ::
+Until version 1.5 comments after parameters are not allowed, the whole line
+will be silently ignored: ::
 
-   EXAMPLE="dont use like this" # Parameter in front is ignored!
+   EXAMPLE="do not use like this" # Parameter in front is ignored - until version 1.5!
+
+As of version 1.6 the above line is valid and taken into account.
 
 .. rubric:: Disabling features
 

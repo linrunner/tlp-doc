@@ -138,9 +138,12 @@ System freezes on wakeup from suspend on battery
 Symptom: on battery power, trying to wake up, the laptop freezes (either showing
 a black screen or a static lock screen) and becomes unresponsive to input.
 
-Solution: change your configuration to disable
-:ref:`disk runtime power management <set-disks-ahci-runtime-pm>`
-on battery power: ::
+Solutions:
+
+* Update to version 1.6
+* Workaround for older versions: change your configuration to disable
+  :ref:`disk runtime power management <set-disks-ahci-runtime-pm>`
+  on battery power: ::
 
     AHCI_RUNTIME_PM_ON_BAT=on
 

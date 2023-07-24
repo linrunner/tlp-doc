@@ -77,12 +77,12 @@ System shutdown (power off)
 System reboot
     Same as shutdown, then continues with startup.
 
-System suspend to ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)
+System suspend to ACPI Sleep States S0ix (Idle standby), S3 (Suspend to RAM) or S4 (Suspend to disk)
     Saves bluetooth, Wi-Fi and WWAN device states and powers off removable optical
     drives depending on your individual settings (disabled in the default
     configuration).
 
-System resume from ACPI Sleep States S3 (Suspend to RAM) or S4 (Suspend to disk)
+System resume from ACPI Sleep States S0ix (Idle standby), S3 (Suspend to RAM) or S4 (Suspend to disk)
     Applies the settings profile corresponding to the current power source AC/BAT.
     Restores charge thresholds and bluetooth, Wi-Fi and WWAN device states
     depending on your individual settings (disabled in the default configuration).

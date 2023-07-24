@@ -44,7 +44,7 @@ Other init system
 
 System suspend/resume - systemd et al.
 --------------------------------------
-*ACPI Sleep States S0ix (Idle Standby), S3 (Suspend to RAM) or S4 (Suspend to disk)*
+*ACPI Sleep States S0ix (Idle standby), S3 (Suspend to RAM) or S4 (Suspend to disk)*
 
 Depends on the target distribution:
 
