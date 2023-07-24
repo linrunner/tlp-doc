@@ -119,13 +119,13 @@ depend on your CPU. For available frequencies consult the output of
 
 Hints:
 
-* Do not use this setting with the `intel_pstate` scaling driver, use
-  :ref:`set-cpu-min-max-perf` instead
+* Do not use this setting with the `intel_pstate` driver in active mode,
+  use :ref:`set-cpu-min-max-perf` instead
 * Min/max frequencies must always be specified for both modes i.e. `AC` and `BAT`
 * To enable processor defaults comment all four settings and reboot
 * Lowering the max frequency on battery power may not conserve power;
-  best results are to be expected from the ondemand governor without
-  frequency limits
+  best results are to be expected from the above mentioned default governors
+  without frequency limits
 
 
 .. _set-cpu-energy-perf-policy:
