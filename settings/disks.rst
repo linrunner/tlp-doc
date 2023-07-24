@@ -149,8 +149,8 @@ SATA_LINKPWR_ON_AC/BAT
 
 ::
 
-    SATA_LINKPWR_ON_AC="med_power_with_dipm max_performance"
-    SATA_LINKPWR_ON_BAT="med_power_with_dipm min_power"
+    SATA_LINKPWR_ON_AC="med_power_with_dipm"
+    SATA_LINKPWR_ON_BAT="med_power_with_dipm"
 
 Sets the power management mode for the SATA links connecting disks and optical
 drives. Possible values (in order of increasing power saving):
@@ -161,15 +161,16 @@ drives. Possible values (in order of increasing power saving):
   (recommended, kernel ≥ 4.15 required)
 * min_power – max power saving / minimum performance
 
-Default when unconfigured: "med_power_with_dipm max_performance" (AC),
-"med_power_with_dipm min_power" (BAT)
+Default when unconfigured: med_power_with_dipm (AC and BAT)
 
 Use empty strings (“”) to disable the feature completely.
-
 Multiple values separated with spaces are tried sequentially until success.
-TLP determines automatically when `med_power_with_dipm` is available.
-Until version 1.5 a second value is provided in the default configuration
-as a fallback for older kernels.
+
+.. note::
+
+    Until version 1.5 a second value was provided in the default configuration
+    as a fallback for older kernels. TLP determines automatically if
+    `med_power_with_dipm` is available and otherwise uses the second value.
 
 .. _SATA_LINKPWR_BLACKLIST:
 
