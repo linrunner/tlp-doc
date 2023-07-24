@@ -21,7 +21,7 @@ Add the `TLP PPA`_ to your package sources with the commands: ::
 
 Package Installation
 --------------------
-Install the following packages
+Install the packages
 
 * **tlp** *(PPA or universe)* – Power saving
 * **tlp-rdw** *(PPA or universe)* – optional – :doc:`/settings/rdw`
@@ -30,15 +30,13 @@ either with your favorite package manager or the command: ::
 
     sudo apt install tlp tlp-rdw
 
-*Ubuntu 21.10 only*
+*Version 1.5 only*: due to a bug in the Ubuntu packages (official and PPA)
+it is necessary to enable the service manually after installation: ::
 
-Uninstall the conflicting `power-profiles-daemon` package: ::
+    sudo systemctl enable tlp.service
 
-   sudo apt remove power-profiles-daemon
+The problem is resolved for version 1.6.
 
-.. seealso::
-
-    FAQ: :ref:`faq-ppd-conflict`
 
 ThinkPads only: External Kernel Modules
 ---------------------------------------
@@ -49,24 +47,23 @@ to provide battery charge thresholds and recalibration.
 
 The output of :command:`tlp-stat -b` will guide you which package to install:
 
-* **acpi-call-dkms** *(PPA or universe)* – optional – External kernel module providing
-  battery recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
 * **tp-smapi-dkms** *(universe)* – optional – External kernel module providing
   battery charge thresholds and recalibration for ThinkPads before model year 2011
   as well as specific :command:`tlp-stat -b` output until model year 2011
+* **acpi-call-dkms** *(PPA or universe)* – optional **(kernel 5.16 and older only)** –
+  External kernel module providing battery recalibration for ThinkPads
+  since model year 2011 - e.g. T420/X220 and newer
 
 Install the appropriate package either with your favorite package manager or
 the command ::
 
-    sudo apt install acpi-call-dkms
-
-Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable.
+    sudo apt install tp-smapi-dkms
 
 .. warning::
 
-    On Ubuntu 21.10 and 20.04.4 the `acpi-call-dkms` packages in the official
-    repositories are incompatible with the provided kernel 5.13 and may cause
-    TLP battery care malfunction, system freezes and reboots.
+    On Ubuntu 20.04.4 the `acpi-call-dkms` package in the official
+    repositories is incompatible with the provided kernels 5.13 or 5.15
+    and may cause TLP battery care malfunction, system freezes and reboots.
 
     Solution: use `acpi-call-dkms` version 1.2.2 from the `TLP PPA`_ or `download
     from Ubuntu 22.04 <https://packages.ubuntu.com/jammy/all/acpi-call-dkms/download>`_
@@ -76,8 +73,11 @@ Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable.
 
     * `TLP PPA`_ - Contains latest TLP packages for Ubuntu
     * :ref:`faq-which-kernel-module`
-    * `Issue #615 <https://github.com/linrunner/TLP/issues/615>`_: System freezes and reboots on Ubuntu
+    * `Debian Bug #1034233 <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1034233>`_ -
+      Cause of the not enabled service with the 1.5 packages
+    * `Issue #615 <https://github.com/linrunner/TLP/issues/615>`_ - System freezes and reboots on Ubuntu
     * For systems with Secure Boot enabled, please refer to
       `DKMS Secure Boot <https://wiki.ubuntu.com/UEFI/SecureBoot/DKMS>`_
+    * :ref:`faq-ppd-conflict` - FAQ
 
 .. _`TLP PPA`: https://launchpad.net/~linrunner/+archive/ubuntu/tlp

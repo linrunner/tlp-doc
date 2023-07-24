@@ -45,13 +45,14 @@ ThinkPads only: External Kernel Modules
 ---------------------------------------
 .. important::
 
-    Fedora 36 released with Linux kernel 5.17. In combination with TLP 1.5
-    it offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from model year 2011 onwards. Therefore the external
-    kernel module `acpi_call` is no longer required with Fedora 36 or
-    newer and you do not need to proceed any further here.
+    Fedora 36 was released with Linux kernel 5.17. In combination with TLP 1.5
+    or newer it offers full battery care support (i.e. charge thresholds and
+    recalibration) for ThinkPads from model year 2011 onwards.
 
-    Continue reading if your ThinkPad model is from 2011 or older.
+    **Therefore no external kernel modules are required and you do not need to proceed
+    any further here.**
+
+    However, continue reading if your ThinkPad model is from 2011 or older.
 
 ThinkPad models before 2011 (i.e. T410/X201 and older) require the
 external kernel module `tp_smapi` to provide battery charge thresholds

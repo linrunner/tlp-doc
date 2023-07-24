@@ -19,7 +19,7 @@ to your **/etc/apt/sources.list**: ::
 
     deb http://ftp.debian.org/debian DIST-backports main
 
-Replace `DIST` with `buster` or `bullseye` according to your installation.
+Replace `DIST` with the codename of your installed Debian version.
 
 Update package data: ::
 
@@ -40,7 +40,7 @@ For `Debian backports`_ use: ::
 
     apt -t DIST-backports install tlp tlp-rdw
 
-Replace `DIST` with `buster` or `bullseye` according to your installation.
+Replace `DIST` with the codename of your installed Debian version.
 
 ThinkPads only: External Kernel Modules
 ---------------------------------------
@@ -51,22 +51,23 @@ to provide battery charge thresholds and recalibration.
 
 The output of :command:`tlp-stat -b` will guide you which package to install:
 
-* **acpi-call-dkms** *(main)* – optional – External kernel module providing
-  battery recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
-* **tp-smapi-dkms** *(main)* – optional – External kernel module providing battery
+* **tp-smapi-dkms** *(main)* – optional – External kernel module providing
   battery charge thresholds and recalibration for ThinkPads before model year 2011
   as well as specific :command:`tlp-stat -b` output until model year 2011
+* **acpi-call-dkms** *(main)* – optional **(kernel 5.16 and older only)** –
+  External kernel module providing battery recalibration for ThinkPads
+  since model year 2011 - e.g. T420/X220 and newer
+
 
 Install the appropriate package either with your favorite package manager
 or the command ::
 
-    apt install acpi-call-dkms
+    apt install tp-smapi-dkms
 
-Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable.
 
 .. warning::
 
-    **Bullseye**: `acpi-call-dkms` packages in the official repositories are
+    **Bullseye**: the `acpi-call-dkms` package in the official repositories is
     incompatible with **backports kernels ≥ 5.13** and may cause TLP battery care
     malfunction, system freezes and reboots.
 
@@ -74,15 +75,6 @@ Replace `acpi-call-dkms` with `tp-smapi-dkms` where suitable.
 
         apt -t bullseye-backports install acpi-call-dkms
 
-
-.. important::
-
-    **Buster:** when using **kernel 5.10 from backports**, you must install
-    `acpi-call-dkms` from `Debian backports`_ too: ::
-
-        apt -t buster-backports install acpi-call-dkms
-
-    Otherwise the :ref:`DKMS build will fail <faq-acpi-call-dkms-package>`.
 
 .. note::
 

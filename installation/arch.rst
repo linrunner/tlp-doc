@@ -42,23 +42,20 @@ ThinkPads only: External Kernel Modules
 ---------------------------------------
 .. important::
 
-    Arch Linux includes Linux kernel 5.17 (at the time of writing). In
-    combination with TLP 1.5 it offers full battery care support (i.e. charge
-    thresholds and recalibration) for ThinkPads from model year 2011 onwards.
-    Therefore no external kernel modules are required with kernel 5.17 or newer
-    and you do not need to proceed any further here.
+    At the time of writing Arch Linux offers kernel 6.4 (linux) or 6.1 (linux-lts).
+    In combination with TLP 1.5 or newer this enables full battery care support
+    (i.e. charge thresholds and recalibration) for ThinkPads from model year 2011 onwards.
 
-    However, if you are running a kernel prior to 5.17 (e.g. `linux-lts`) and want
-    to use recalibration or your model is older, read on.
+    **Therefore no external kernel modules are required and you do not need to proceed
+    any further here.**
+
+    However, continue reading if your ThinkPad model is from 2011 or older.
 
 Depending on your model and kernel version external kernel module(s) are required
 to provide battery charge thresholds and recalibration.
 
 The output of :command:`tlp-stat -b` will guide you which package to install:
 
-* **acpi_call-lts** *(Community)* – optional – External kernel module (LTS
-  kernel) providing battery recalibration for ThinkPads since model year 2011
-  - e.g. T420/X220 and newer
 * **tp_smapi** *(Community)* – optional – External kernel module providing
   battery charge thresholds and recalibration for ThinkPads before model year 2011
   as well as specific :command:`tlp-stat -b` output until model year 2011
@@ -68,9 +65,7 @@ The output of :command:`tlp-stat -b` will guide you which package to install:
 Install the appropriate package  either with your favorite package manager
 or the command ::
 
-    pacman -S acpi_call
-
-Replace `acpi_call` with `acpi_call-lts`, `tp_smapi` or `tp_smapi-lts` where suitable.
+    pacman -S tp_smapi
 
 .. note::
 

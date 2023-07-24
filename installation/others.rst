@@ -25,7 +25,7 @@ You may install the source tarball from `Downloads`_:
 
 .. seealso::
 
-    * FAQ: :ref:`service units <faq-service-units>`
+    * FAQ: :ref:`Service unit <faq-service-units>`
     * FAQ: :ref:`faq-ppd-conflict`
 
 
