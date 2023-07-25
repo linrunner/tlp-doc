@@ -226,11 +226,12 @@ scaling driver in `active` mode
 
 .. seealso::
 
+    * FAQ: :doc:`../faq/processor`
     * `CPU Performance Scaling <https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html>`_
       – kernel documentation covering scaling governors et al.
-    * `intel_pstate CPU Performance Scaling Driver <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_pstate.html>`_
-      – driver documentation
     * `amd-pstate CPU Performance Scaling Driver <https://docs.kernel.org/admin-guide/pm/amd-pstate.html>`_
+      – driver documentation
+    * `intel_pstate CPU Performance Scaling Driver <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_pstate.html>`_
       – driver documentation
     * `Intel Hardware P-State (HWP) / Intel Speed Shift <https://smackerelofopinion.blogspot.com/2021/07/intel-hardware-p-state-hwp-intel-speed.html>`_
       – a consideration of `HWP.EPP`

@@ -65,7 +65,6 @@ Example: ::
 
     /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies = 2400000 1600000 800000 [kHz]
 
-
 .. rubric:: No `ondemand` governor with `intel_pstate`
 
 Symptom: :command:`tlp-stat -p` displays ::
@@ -77,6 +76,21 @@ Works as designed: since kernel 3.9 the new scaling driver `intel_pstate` is
 available and enabled by default on Intel Sandy Bridge (or newer) hardware.
 `intel_pstate` supports the governors `powersave` (recommended default) and
 `performance` only, `ondemand` is not available.
+
+.. _faq-cpu-gov-locks-epp:
+
+Governor `performance` also locks EPP to `performance`
+------------------------------------------------------
+Symptom: `energy_performance_preference` is set to `performance` regardless of
+`CPU_ENERGY_PERF_POLICY_ON_AC/BAT`. Happens with `amd_pstate` and `intel_pstate`
+in active mode. :command:`tlp-stat -p` gives ::
+
+    /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver    = amd-pstate-epp | intel_pstate
+    /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor  = performance
+    /sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference = performance [EPP]
+
+Works as designed: full throttle and brake at the same time isn't permitted
+by the kernel driver. Makes sense, doesn't it?
 
 `tlp-stat -p` shows "x86_energy_perf_policy: program for your kernel not installed."
 ------------------------------------------------------------------------------------
