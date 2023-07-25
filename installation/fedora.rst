@@ -1,5 +1,21 @@
 Fedora
 ======
+
+.. warning::
+
+    The TLP 1.5 packages from the official Fedora repositories for F38 do
+    not currently work:
+
+    * When changing the power source, the profile settings are not applied
+    * RDW does not work
+    * Trace mode does not work
+
+    Cause are SELinux AVCs when trying to read the configuration.
+    For this reason upstream support for Fedora via the *Issue tracker*
+    is currently *not possible*. There will be no 1.6 Beta packages as well.
+
+    **Please open Fedora bugs for the AVCs.**
+
 .. rubric:: Scope:
 
 * Officially supported Fedora releases
