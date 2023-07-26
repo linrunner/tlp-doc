@@ -43,23 +43,30 @@ operation of TLP's :doc:`/settings/radio` options: ::
 
 ThinkPads only: External Kernel Modules
 ---------------------------------------
-.. include:: ../include/thinkpad-kernel-modules.rst
+.. important::
 
-Depending on your model and kernel version external kernel module(s) are required
-to provide battery charge thresholds and recalibration.
+    OpenSUSE Tumbleweed (at the time of writing) provides Linux kernel 6.4.
+    In combination with TLP 1.5 or newer it offers full battery care support
+    (i.e. charge thresholds and recalibration) for ThinkPads from model
+    year 2011 onwards.
 
-For openSUSE `Tumbleweed` and  ThinkPads as of model year 2011 just install the
-required external kernel module `acpi_call` from the official repositories with: ::
+    **Therefore OpenSUSE Tumbleweed requires no external kernel modules and you
+    do not need to proceed any further here.**
 
-    zypper install acpi_call-kmp-default
+    Linux kernel 5.15 distributed with OpenSUSE Leap 15.4 and 15.5 provides
+    only charge threshold functionality but no recalibration. If this is
+    sufficient for you, stop reading here. However, if you need the recalibration
+    feature or your model and/or kernel is older, read on. You may find out your
+    current kernel version with the command uname -a or when TLP is already
+    installed with tlp-stat -s.
 
-For openSUSE `Leap` and/or older ThinkPads your mileage may vary as you have to
-browse `openSUSE Software <https://software.opensuse.org/>`_ for community
-packages or build the required module from source. The output of :command:`tlp-stat -b`
-will guide you which external kernel module is required:
+For openSUSE Leap (with kernel < 5.17) and/or ThinkPads of model year 2011 and older
+your mileage may vary as you have to browse `openSUSE Software <https://software.opensuse.org/>`_
+for community packages or build the required module from source. The output of
+:command:`tlp-stat -b` will guide you which external kernel module is required:
 
-* **acpi_call** – optional – External kernel module providing battery
-  recalibration for ThinkPads since model year 2011 - e.g. T420/X220 and newer
+* **acpi_call** – optional – External kernel module providing battery recalibration
+  for ThinkPads as of model year 2011 - e.g. T420/X220 and newer
 * **tp_smapi** – optional – External kernel module providing battery charge
   thresholds and recalibration for ThinkPads before model year 2011
   as well as specific :command:`tlp-stat -b` output until model year 2011
