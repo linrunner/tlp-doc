@@ -42,7 +42,7 @@ ThinkPads only: External Kernel Modules
 ---------------------------------------
 .. important::
 
-    At the time of writing Arch Linux offers kernel 6.4 (linux) or 6.1 (linux-lts).
+    Arch Linux (at the time of writing) offers kernel 6.4 (linux) or 6.1 (linux-lts).
     In combination with TLP 1.5 or newer this enables full battery care support
     (i.e. charge thresholds and recalibration) for ThinkPads from model year 2011 onwards.
 
