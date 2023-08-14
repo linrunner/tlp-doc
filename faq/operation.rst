@@ -147,9 +147,9 @@ Solutions:
 
     AHCI_RUNTIME_PM_ON_BAT=on
 
-References: Issues `#587 <https://github.com/linrunner/TLP/issues/587#issuecomment-947376033>`_,
-`#593 <https://github.com/linrunner/TLP/issues/593>`_,
-`#606 <https://github.com/linrunner/TLP/issues/606>`_.
+Related issues: `#593 <https://github.com/linrunner/TLP/issues/593>`_,
+`#606 <https://github.com/linrunner/TLP/issues/606>`_,
+`#698 <https://github.com/linrunner/TLP/issues/698>`_.
 
 Shutdown freezes before poweroff
 --------------------------------

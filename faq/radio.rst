@@ -35,6 +35,11 @@ Solution: configure ::
 Apply with :command:`tlp usb`.
 
 
+Bluetooth stops working after change to battery power
+-----------------------------------------------------
+See :ref:`faq-usb-not-working-on-battery`.
+
+
 USB_EXCLUDE_BTUSB=1 does not disable autosuspend
 --------------------------------------------------
 Refer to :ref:`faq-usb-bt-exclude`.
