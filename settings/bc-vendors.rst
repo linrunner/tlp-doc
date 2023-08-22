@@ -501,7 +501,8 @@ System76
    * - **Start threshold values**
      - | Range: 0 .. 99
        | Special:
-       | 0 - hardware default, threshold off
+       | 0 - threshold off
+       | 90 - hardware default
    * - **Stop threshold values**
      - | Range: 1 .. 100
        | Special:
