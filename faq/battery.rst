@@ -32,9 +32,10 @@ You cannot change the basic behavior described above, because it is hard-coded
 into the EC firmware by the vendor. However, you can control it by setting
 thresholds using TLP.
 
-Once charge thresholds have been loaded into the EC registers, they are retained
+Charge thresholds written into the EC registers are persistently stored
+in the hardware of many vendors. Which means they are retained
 when another operating system is started - provided they are not changed by
-software installed there and the hardware supports this.
+software installed there and the hardware actually supports persistence.
 
 .. rubric::  What charge thresholds do `not` do
 
@@ -115,11 +116,16 @@ protective regarding lifespan, with 75/80% charge thresholds.
     to fully charge the battery, when you need to temporarily maximize runtime
     (for example in case of a trip).
 
-How to set battery charge thresholds?
--------------------------------------
-To make charge thresholds permanent, even in case the hardware forgets them,
-you have to enter them into the :ref:`configuration file <set-config-files>`,
-for example **/etc/tlp.conf**: ::
+
+.. _faq-how-to-set-thresholds:
+
+How to enable charge thresholds?
+--------------------------------
+It is not enough to set charge thresholds once with the
+:command:`tlp setcharge` :ref:`command <cmd-tlp-battery-features>`.
+To make charge thresholds permanent, even if the hardware does not have the
+ability to keep them persistent, you have to enter them into the
+:ref:`configuration file <set-config-files>`, for example **/etc/tlp.conf**: ::
 
     START_CHARGE_THRESH_BAT0=75
     STOP_CHARGE_THRESH_BAT0=80
@@ -132,8 +138,9 @@ Then apply your changed configuration with the command
 
 .. seealso::
 
-    Please check :doc:`/settings/bc-vendors` for permitted threshold values
-    of your laptop.
+    * Please check :doc:`/settings/bc-vendors` for permitted threshold values
+      of your laptop.
+    * :ref:`faq-how-to-disable-thresholds`
 
 
 How can I check if my configured charge thresholds are working?
@@ -689,22 +696,26 @@ A general explanation of charge thresholds is given :ref:`above <faq-battery-car
 
 .. _faq-how-to-disable-thresholds:
 
-How do I disable the charge thresholds?
----------------------------------------
-Remove the charge thresholds from the configuration by inserting a leading `#`
+How to disable the charge thresholds?
+-------------------------------------
+As explained :ref:`above <faq-battery-care>`, in many cases the charge
+thresholds are persistently stored in the hardware.
+Therefore, it is not sufficient to simply remove the thresholds from
+the configuration (by the way, disabling or uninstalling TLP is not
+enough either). In fact, two steps are necessary for deactivation:
+
+1. Removing the charge thresholds from the configuration by inserting a leading `#`
 
 .. code-block:: none
 
     #START_CHARGE_THRESH_BAT0=75
     #STOP_CHARGE_THRESH_BAT0=80
 
-and use
+2. Reverting to vendor specific defaults with the command
 
 .. code-block:: sh
 
     sudo tlp fullcharge
-
-to immediately activate vendor specific defaults.
 
 
 .. _faq-disabling-thresholds-does-not-work:

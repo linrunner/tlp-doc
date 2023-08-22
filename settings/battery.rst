@@ -19,8 +19,8 @@ battery `BAT1`:
 
 .. include:: ../include/charge-threshold-effect.rst
 
-* Thresholds always go with a lower usable battery capacity, therefore the settings
-  are disabled by default and must be enabled explicitly by removing the leading `#`.
+Thresholds always go with a lower usable battery capacity, therefore the settings
+are disabled by default and must be enabled explicitly by removing the leading `#`.
 
 .. important::
 
@@ -28,6 +28,11 @@ battery `BAT1`:
     otherwise TLP will ignore the setting completely (*and until version 1.3
     silently*). If you want to apply only one threshold (or your hardware
     does support only one), then use the dummy value `0` to skip the other one.
+
+.. seealso::
+
+    * :ref:`faq-how-to-set-thresholds`
+    * :ref:`faq-how-to-disable-thresholds`
 
 RESTORE_THRESHOLDS_ON_BAT
 -------------------------
