@@ -3,6 +3,8 @@ Processor
 
 CPU_DRIVER_OPMODE_ON_AC/BAT
 ---------------------------
+*Version 1.6 and newer*
+
 ::
 
     CPU_DRIVER_OPMODE_ON_AC=active
@@ -152,6 +154,8 @@ Default when unconfigured: balance_performance (AC), balance_power (BAT)
 Requirements:
 
 .. rubric:: AMD
+
+*Version 1.6 and newer*
 
 * AMD Zen 2 or newer CPU with kernel 6.3 and `amd-pstate` driver in active mode
 
