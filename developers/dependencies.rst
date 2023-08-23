@@ -5,7 +5,7 @@ implemented as package dependencies.
 
 Package tlp
 -----------
-acpi-call - *optional*
+acpi-call - *obsolete*
      External kernel module to support
      :ref:`battery recalibration of ThinkPads <bc-vendor-thinkpad>`
      since model year 2011 - e.g. T420/X220 and newer.

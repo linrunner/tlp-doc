@@ -25,6 +25,10 @@ Version 1.6
       - **completion/zsh/_tlp***
       - **deprecated.conf**
 
+    Dependencies:
+
+    - Remove: **acpi-call** - kernel 5.17 satisfies all requirements
+      of ThinkPad battery care
 
 Version 1.5
     Files:
