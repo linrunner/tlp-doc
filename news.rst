@@ -3,6 +3,32 @@ News
 
 .. _news-top-1:
 
+24.08.2023 - TLP 1.6 released
+=============================
+After a successful beta test, I am proud to announce the final release of
+TLP 1.6 with many exciting features. Highlights are:
+
+* *CPU_DRIVER_OPMODE_ON_AC/BAT*: set CPU driver operation mode
+  (*active*, *guided*, *passive*) with *amd-pstate* or *intel_pstate* driver
+* *CPU_ENERGY_PERF_POLICY_ON_AC/BAT*: now supports AMD Zen 2 or newer CPUs
+  with *amd-pstate* driver
+* *MEM_SLEEP_ON_AC/BAT*: change system suspend mode (*deep*, *s2idle*)
+* Battery Care support for System76 and Toshiba/Dynabook laptops
+* Bugfix: deactivate *AHCI_RUNTIME_PM* and *PCIE_ASPM* before suspend to
+  avoid resume freezes
+
+Check the `release notes <https://github.com/linrunner/TLP/releases>`_
+and the complete `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_
+for details.
+
+**Release packages are provided via the repositories of your distribution.**
+
+A big thanks to all contributors, testers and bug reporters!
+
+Have fun :-)
+
+.. _news-top-2:
+
 20.07.2023 - TLP 1.6 Beta 1 released / Call for Testers
 =======================================================
 The first beta of TLP 1.6 has finally arrived. Highlights are:
@@ -31,7 +57,6 @@ for instructions and packages matching your distribution - then
 `join the testers <https://github.com/linrunner/TLP/issues/700>`_.
 
 
-.. _news-top-2:
 
 17.02.2022 - How can I use Battery Care with my Laptop?
 =======================================================
