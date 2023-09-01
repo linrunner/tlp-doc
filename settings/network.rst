@@ -1,6 +1,8 @@
 Networking
 ==========
 
+.. _set-wifi-pwr:
+
 WIFI_PWR_ON_AC/BAT
 ------------------
 ::

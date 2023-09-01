@@ -1,6 +1,25 @@
 Power Consumption
 =================
 
+High fan speed
+---------------
+
+A common cause of high fan speed is elevated power dissipation due to
+:ref:`faq-powercon-hybrid-graphics`, refer to the section below.
+
+----
+
+Symptom: high fan speed on AC power
+
+Solution: refer to :ref:`opt-reduce-power-on-ac`
+
+----
+
+Symptom: fan speed never goes down
+
+Solution: uninstall or disable **thermald**.
+
+
 .. _faq-powercon-hybrid-graphics:
 
 Hybrid graphics
@@ -78,38 +97,8 @@ to: ::
 
     SOUND_POWER_SAVE_ON_AC=1
 
-High fan speed
---------------
-A common reason is elevated power dissipation due to
-:ref:`faq-powercon-hybrid-graphics`, refer to the the previous section.
+.. seealso ::
 
-Symptom: high fan speed on AC power
-
-Solution: enable :doc:`Runtime Power Management </settings/runtimepm>` on AC power
-via the configuration ::
-
-    RUNTIME_PM_ON_AC=auto
-
-Symptom: fan speed never goes down
-
-Solution: uninstall or disable **thermald**.
-
-.. _faq-powercon-high-cpu-load:
-
-How to limit power consumption under high CPU load?
----------------------------------------------------
-The `intel_pstate` scaling driver offers this possibility. Use the settings ::
-
-    CPU_MAX_PERF_ON_AC=nn
-    CPU_MAX_PERF_ON_BAT=nn
-
-with `nn` < 100 to achieve it. Refer to :ref:`set-cpu-min-max-perf`.
-
-.. note::
-
-    * Check the output of :command:`tlp-stat -p` to determine the active
-      scaling driver
-    * This will not limit the power consumption of the GPU (neither
-      for integrated nor for discrete graphics)
-
-
+    * :doc:`/support/optimizing` - Improvements ordered by objectives
+    * :doc:`/support/troubleshooting` - Provides help to isolate problems
+      caused by TLP's power saving

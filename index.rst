@@ -38,8 +38,9 @@ Learn
 =====
 As a new user read :doc:`/introduction` to learn about your benefits,
 then proceed with :doc:`/installation/index` and :doc:`/usage/index`.
-Finally :doc:`/settings/index` will tell you how to customize the
-configuration if desired. Find out about new features in the
+If desired, :doc:`/settings/index` will teach you how to customize the
+configuration. Finally check out the :doc:`/support/optimizing` or
+experience new features in the
 `Changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
 Resolve
@@ -66,6 +67,7 @@ Contents
    settings/index
    faq/index
    support/index
+   support/optimizing
    support/troubleshooting
    contribute
    developers/index

@@ -194,6 +194,8 @@ Hints:
 * This setting is intended to limit the power dissipation of the CPU
 
 
+.. _set-cpu-boost:
+
 CPU_BOOST_ON_AC/BAT
 -------------------
 ::
