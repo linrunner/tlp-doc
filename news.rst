@@ -3,6 +3,19 @@ News
 
 .. _news-top-1:
 
+03.09.2023 - Optimizing Guide
+=============================
+TLP’s default settings should save as much energy on battery power as possible,
+but in reality there are limits to what can be done based on the default settings.
+The brand new :doc:`/support/optimizing` explores possibilities to tune
+TLP individually and achieve even better battery runtime or performance
+on AC respectively.
+
+Enjoy and save!
+
+
+.. _news-top-2:
+
 24.08.2023 - TLP 1.6 released
 =============================
 After a successful beta test, I am proud to announce the final release of
@@ -26,8 +39,6 @@ for details.
 A big thanks to all contributors, testers and bug reporters!
 
 Have fun :-)
-
-.. _news-top-2:
 
 20.07.2023 - TLP 1.6 Beta 1 released / Call for Testers
 =======================================================
@@ -55,7 +66,6 @@ functionality on their hardware.
 Check the `beta page <https://download.linrunner.de/packages/>`_
 for instructions and packages matching your distribution - then
 `join the testers <https://github.com/linrunner/TLP/issues/700>`_.
-
 
 
 17.02.2022 - How can I use Battery Care with my Laptop?

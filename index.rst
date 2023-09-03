@@ -39,9 +39,9 @@ Learn
 As a new user read :doc:`/introduction` to learn about your benefits,
 then proceed with :doc:`/installation/index` and :doc:`/usage/index`.
 If desired, :doc:`/settings/index` will teach you how to customize the
-configuration. Finally check out the :doc:`/support/optimizing` or
-experience new features in the
-`Changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+configuration. Want to find out how to get even more out of it? Check
+the :doc:`/support/optimizing`. Last but not least discover new features
+in the `Changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
 Resolve
 =======

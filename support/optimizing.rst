@@ -1,26 +1,30 @@
 Optimizing Guide
 ================
-This guide's suggestions are intended to help you tune TLP individually
-to achieve additional battery runtime or better performance on AC
-and other objectives.
+This page is intended to help tune TLP individually to achieve additional
+battery runtime or better performance on AC if possible.
 
-Rationale: TLP's default settings are designed to save as much energy on
-battery as possible, however possibilites are limited:
+Rationale: TLP's default settings should save as much energy on
+battery power as possible (and of course not cost any performance on AC),
+but in reality there are limits to what can be done:
 
-* TLP's concept provides only one set of defaults for AC and one for battery
-* User requirements are quite different, there is no way to cover them all
+* For simplicity, TLP's settings are limited to a single set for AC
+  and battery respectively, the same applies to the defaults
+* User requirements can vary greatly, there is no way to cover them all
   within defaults
 * Defaults must not cause problems with common hardware
 
-Therefore, TLP's defaults may not achieve the maximum savings for any
-hardware and use case.
+Therefore TLP's defaults can not achieve the maximum savings for any
+hardware and use case. It may be necessary to make adjustments yourself
+to get the optimum out of it.
 
 .. note::
 
-    * TLP's settings must always be specified in pairwise for AC and BAT.
-      Therefore both are listed below, the setting to be changed is highlighted.
-    * Please activate and test the following suggestions individually if possible.
-      This way, any problems that may occur will be isolated immediately.
+    * TLP's parameters must always be specified pairwise for AC and BAT
+      respectively. Therefore both parameters are listed below, the one
+      to be changed is highlighted.
+    * Please activate and test the following suggestions individually if
+      possible. This way, any problems that may occur will stand out
+      immediately.
 
 Extend battery runtime
 ----------------------
@@ -145,6 +149,6 @@ Improve performance on battery power
 
 .. seealso::
 
-    * :doc:`/faq/powercon` (FAQ) - More solutions
+    * :doc:`/faq/powercon` (FAQ) - Additional solutions
     * :doc:`/support/troubleshooting` - Provides help to isolate problems
       caused by TLP's power saving
