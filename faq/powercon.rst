@@ -3,15 +3,18 @@ Power Consumption
 
 High fan speed
 ---------------
-
-A common cause of high fan speed is elevated power dissipation due to
-:ref:`faq-powercon-hybrid-graphics`, refer to the section below.
-
-----
-
 Symptom: high fan speed on AC power
 
 Solution: refer to :ref:`opt-reduce-power-on-ac`
+
+----
+
+Symptom: high fan speed during video playback
+
+Cause: missing hardware video acceleration
+
+Solution: check the web how to enable hardware video acceleration for
+your Linux distribution and/or web browser
 
 ----
 

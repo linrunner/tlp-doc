@@ -108,10 +108,9 @@ Reduce power consumption / fan noise on AC power
 
 .. seealso::
 
-    A common cause of high fan speed is elevated power dissipation
-    due to hybrid graphics. Check the :ref:`FAQ <faq-powercon-hybrid-graphics>`
-    for solutions.
-
+    Missing *hardware video acceleration* and *hybrid graphics* are other
+    common causes of high fan speed and elevated power dissipation.
+    There is more about these topics in the FAQ: :doc:`/faq/powercon`.
 
 .. _faq-powercon-high-cpu-load:
 
@@ -149,6 +148,6 @@ Improve performance on battery power
 
 .. seealso::
 
-    * :doc:`/faq/powercon` (FAQ) - Additional solutions
+    * :doc:`/faq/powercon` (FAQ) - More about the topics *fan noise* and *power consumption*
     * :doc:`/support/troubleshooting` - Provides help to isolate problems
       caused by TLP's power saving
