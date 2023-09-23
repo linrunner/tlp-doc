@@ -2,7 +2,7 @@ Arch Linux
 ==========
 .. note::
 
-    Execute the commands below in a root shell or with with a preceding :command:`sudo`.
+    Execute the commands below in a root shell or with a preceding :command:`sudo`.
 
 Package Installation
 --------------------
