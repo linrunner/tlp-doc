@@ -23,6 +23,8 @@ TLP - Optimize Linux Laptop Battery Life
 
 Latest News
 ===========
+Follow us at `fosstodon.org/@linrunner <https://fosstodon.org/@linrunner>`_ (`#TLPlinux <https://fosstodon.org/tags/TLPlinux>`_)!
+
 * :ref:`news-top-1`
 * :ref:`news-top-2`
 

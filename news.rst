@@ -1,5 +1,6 @@
 News
 ****
+Follow us at `fosstodon.org/@linrunner <https://fosstodon.org/@linrunner>`_ (`#TLPlinux <https://fosstodon.org/tags/TLPlinux>`_)!
 
 .. _news-top-1:
 
