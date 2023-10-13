@@ -39,6 +39,7 @@ release = '1.6'
 # ones.
 extensions = [
     'sphinx_sitemap',
+    'sphinx_design',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -93,6 +94,7 @@ html_static_path = ['_static']
 # Custom styles
 html_css_files = [
     'custom.css',
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
 
 # Custom sidebar templates, must be a dictionary that maps document names
