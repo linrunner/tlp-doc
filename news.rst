@@ -1,7 +1,7 @@
 News
 ****
 `#TLPlinux <https://fosstodon.org/tags/TLPlinux>`_ - Follow us at
-`@linrunner@fosstodon.org <https://fosstodon.org/@linrunner>`_ :fab:`mastodon`
+`@linrunner@fosstodon.org <https://fosstodon.org/@linrunner>`_
 
 .. _news-top-1:
 

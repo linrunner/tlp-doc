@@ -11,4 +11,3 @@ Imprint
 
 :Fediverse:
     `@linrunner@fosstodon.org <https://fosstodon.org/@linrunner>`_
-    :fab:`mastodon`
