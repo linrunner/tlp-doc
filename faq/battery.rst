@@ -774,9 +774,9 @@ operations independently of the operating system.
 
 Solutions:
 
-* Press the emergency reset hole (button) on the bottom of the ThinkPad
-  with a paper clip
-* Update EC firmware
+* Shut down the system, then press the emergency reset hole (button) on the bottom
+  of the ThinkPad with a paper clip
+* Update to the latest EC firmware (most elegantly with `fwupdmgr`)
 
 .. seealso::
 
