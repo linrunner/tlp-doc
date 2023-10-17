@@ -753,7 +753,7 @@ Workaround (without BIOS update):
 
 .. _faq-thinkad-misc-battery-malfunc:
 
-Misc Thinkpad battery malfunctions
+Misc ThinkPad battery malfunctions
 ----------------------------------
 Affected hardware: ThinkPad T480, X280 et. al.
 
@@ -768,14 +768,16 @@ of the battery or the system board. Users have reported, for example:
   Reference: `Issue #690 <https://github.com/linrunner/TLP/issues/690>`_.
 * Battery does not charge although the charger is connected and no charge threshold
   is active.
+* :command:`tlp recalibrate` fails with "Error: discharge BATx malfunction --
+  check your hardware (battery, charger)".
 
 Possible cause: malfunction of the EC firmware, which controls all charging
 operations independently of the operating system.
 
 Solutions:
 
-* Shut down the system, then press the emergency reset hole (button) on the bottom
-  of the ThinkPad with a paper clip
+* Reset the EC: shut down the system, then press the emergency reset hole (button)
+  on the bottom of the ThinkPad with a paper clip
 * Update to the latest EC firmware (most elegantly with `fwupdmgr`)
 
 .. seealso::
