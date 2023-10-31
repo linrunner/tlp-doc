@@ -3,8 +3,8 @@ Fedora
 
 .. warning::
 
-    The TLP 1.5 packages from the official Fedora repositories for F38 do
-    not currently work:
+    The TLP packages from the official Fedora repositories for F38
+    (and newer) do not currently work:
 
     * When changing the power source, the profile settings are not applied
     * RDW does not work
@@ -41,6 +41,10 @@ Uninstall the conflicting `power-profiles-daemon` package: ::
 
    dnf remove power-profiles-daemon
 
+.. seealso::
+
+    FAQ: :doc:`/faq/ppd`
+
 Service Units
 -------------
 To complete the installation you must enable TLP's service: ::
@@ -54,8 +58,7 @@ operation of TLP's :doc:`/settings/radio` options: ::
 
 .. seealso::
 
-    * FAQ: :ref:`Service units <faq-service-units>`
-    * FAQ: :ref:`faq-ppd-conflict`
+    FAQ: :ref:`Service units <faq-service-units>`
 
 ThinkPads only: External Kernel Modules
 ---------------------------------------
