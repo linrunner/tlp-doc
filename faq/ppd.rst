@@ -32,7 +32,7 @@ One also needs to know that many (especially older) laptops do not
 support `PLATFORM_PROFILE_ON_AC/BAT`.
 
 **Conclusion:** to find out which tool ultimately delivers better results,
-do comparative measurements on your target hardware with your usage pattern..
+do comparative measurements on your target hardware with your usage pattern.
 
 Does power-profiles-daemon conflict with TLP?
 ---------------------------------------------
