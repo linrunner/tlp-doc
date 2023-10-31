@@ -5,40 +5,27 @@ Installation
 
 Conflict with power-profiles-daemon
 -----------------------------------
-`power-profiles-daemon <https://gitlab.freedesktop.org/hadess/power-profiles-daemon>`_
-(contained in GNOME 40 and newer) might be contained in the default install
-of your distribution.
+Most distributions install power-profiles-daemon by default with their
+GNOME and KDE desktop environments. power-profiles-daemon uses kernel
+settings that are also controlled by TLP, which leads to unpredictable
+results.
 
 Beginning with version 1.4 :command:`tlp start` and :command:`tlp-stat -s`
 will detect the conflict: ::
 
-    Error: conflicting power-profiles-daemon.service is enabled, power saving will not apply on boot.
-    >>> Invoke 'systemctl mask power-profiles-daemon.service' to correct this!
-
+    Warning: TLP's power saving will not apply on boot because the conflicting power-profiles-daemon.service is enabled.
+    >>> Uninstall power-profiles-daemon or invoke 'systemctl mask power-profiles-daemon.service' to ensure the full functionality of TLP. to correct this!
 
 **Solutions:**
 
 a. Uninstall the `power-profiles-daemon` package (preferred)
 b. Disable `power-profiles-daemon` with ::
 
-
     sudo systemctl mask power-profiles-daemon.service
-
-
-and reboot.
-
-The following TLP version 1.5 distribution packages will take care of removing
-the conflicting *power-profiles-daemon* package when installed:
-
-* Arch Linux
-* Debian Bookworm/Sid
-
 
 .. seealso::
 
-    * `TLP Issue #564 <https://github.com/linrunner/TLP/issues/564>`_
-    * `Ubuntu Bug #1934944 <https://bugs.launchpad.net/ubuntu/+source/tlp/+bug/1934944>`_
-
+    * FAQ: :doc:`/faq/ppd`
 
 Does TLP conflict with other power management tools?
 ----------------------------------------------------
@@ -46,7 +33,7 @@ Yes. Using another tool simultaneously means that TLP's settings get overwritten
 by the other tools settings (and vice versa), so actual power saving gets
 unpredictable. Special cases are explained in the following.
 
-**power-profiles-daemon:** see above.
+**power-profiles-daemon:** see above and refer to :doc:`/faq/ppd`.
 
 **Powertop:** please refer to :doc:`powertop`.
 

@@ -14,8 +14,9 @@ workarounds for common problems. Topics covered are:
    graphics
    input
    operation
-   powertop
    powercon
+   powertop
+   ppd
    processor
    radio
    usb
