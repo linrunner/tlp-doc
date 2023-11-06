@@ -161,11 +161,15 @@ Affected hardware: HP laptops (based on user feedback)
 
 Solution: deactivate Wake-on-LAN in the BIOS.
 
-Spontaneous shutdown on battery
--------------------------------
-Symptom: laptop shuts down spontaneously when changing to battery power.
+Spontaneous shutdown (on battery)
+---------------------------------
+Symptoms: laptop shuts down spontaneously when:
 
-Affected hardware: an Acer Aspire V5-591G user with kernel 4.4 reported this issue.
+* Changing to battery power
+* Headphone jack is plugged in
+
+Affected hardware: Acer Aspire V5-591G (kernel 4.4),
+Acer Extensa 2520G (Ubuntu 22.04)
 
 Solution: disable :doc:`/settings/audio` power saving.
 
