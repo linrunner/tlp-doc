@@ -657,7 +657,10 @@ may show up as ::
     /sys/class/power_supply/BAT0/charge_start_threshold         =     75 [%]
     /sys/class/power_supply/BAT0/charge_stop_threshold          =     74 [%]
 
-The described behavior is caused by the EC firmware, not by TLP.
+or similar. Common feature is that one of the two threshold values is always
+displayed incorrectly.
+
+The described behavior is caused by Lenovo's EC firmware, not by TLP.
 Nonetheless the charge thresholds work as configured.
 
 
