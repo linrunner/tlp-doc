@@ -283,16 +283,25 @@ Lenovo non-ThinkPad series
    * - **TLP plugin**
      - lenovo
    * - **Charge control options**
-     - Fixed stop charge threshold at 60% aka *battery conservation mode*
+     - Fixed stop charge threshold aka *battery conservation mode*
    * - **Threshold configuration**
      - All batteries - `BAT0`, `BAT1` - share the `START/STOP_CHARGE_THRESH_BAT0` parameter
    * - **Stop threshold values**
-     - | 1 - batteries charge to 60%
-       | 0 - batteries charges to 100%, battery conservation mode off
+     - | 1 - batteries charge to the fixed threshold
+       | 0 - batteries charge to 100%, conservation mode off
+   * - **Specifics**
+     - | The fixed stop threshold value varies depending on the laptop model,
+         60% or 80% are common.
+       | There is no way to read out the actual threshold in Linux, therefore it
+         cannot be displayed by :command:`tlp-stat -b`. The figure of 60% shown up to
+         version 1.6 was based on an assumption, but (according to user feedback)
+         does not apply to all models.
+       | Some models ignore the setting, conservation mode remains
+         off permanently.
 
 .. rubric:: Sample configuration
 
-Stop charging battery `BAT0` and `BAT1` at 60%: ::
+Stop charging battery `BAT0` and `BAT1` at the fixed threshold: ::
 
     START_CHARGE_THRESH_BAT0=0  # dummy value
     STOP_CHARGE_THRESH_BAT0=1
