@@ -53,14 +53,18 @@ Apply the changed settings with ::
 
     sudo tlp start
 
-Anticipated result: the GPU will be suspended (power off) automatically when in
+Anticipated result: the GPU will be suspended (power down) automatically when in
 idle state.
 
 .. note::
 
     * `nouveau`: the open source driver for Nvidia GPUs enables runtime power
-      management by default; keep it in the denylist to retain power saving on
-      AC power too
+      management by default; keep it in `RUNTIME_PM_DRIVER_DENYLIST`
+      to enable power saving and power down on AC too
+    * `nvidia`: to enable power saving and power down on AC with the proprietary
+      Nvidia GPU driver, enable runtime power management generally with
+      `RUNTIME_PM_ON_AC="auto"` or selectively for GPU id and sound controller id
+      only with `RUNTIME_PM_ENABLE`.
     * `radeon`: there is not enough evidence available for the open source driver
       for older AMD GPUs; watch what happens when you remove it from the denylist
     * Remember to uncomment the config line by removing the leading `#`
@@ -105,7 +109,8 @@ to: ::
 
 .. seealso ::
 
-    * :ref:`set-audio-powersave`
+    * Settings: :doc:`/settings/runtimepm`
+    * Settings: :doc:`/settings/audio`
     * :doc:`/support/optimizing` - Improvements ordered by objectives
     * :doc:`/support/troubleshooting` - Provides help to isolate problems
       caused by TLP's power saving
