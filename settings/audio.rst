@@ -23,8 +23,8 @@ Default when unconfigured:
 
     * Power saving mode may cause slight clicks or other disturbances in sound
       output, see the FAQ: :doc:`/faq/audio`
-    * 1 for AC is required for :ref:`automatic power down
-      of Nvidia Optimus GPUs with nouveau driver <faq-powercon-nouveau>`
+    * Audio power saving mode is a prerequisite for :ref:`automatic power down
+      of Nvidia Optimus GPUs <faq-powercon-optimus-audio>`
     * The recommendation of 1 for PulseAudio originates from the
       `pulseaudio-discussion mailing list <https://lists.freedesktop.org/archives/pulseaudio-discuss/2017-December/029154.html>`_
 

@@ -90,18 +90,20 @@ Also look for tools already integrated into your specific Linux distribution or
 desktop. Last but not least, your laptop may permit to disable the dGPU in the
 BIOS setup.
 
-.. _faq-powercon-nouveau:
+.. _faq-powercon-optimus-audio:
 
-Nvidia Optimus with nouveau driver
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Audio power saving is disabled by default on AC. This prevents automatic power
-down of the GPU. Change the :ref:`corresponding setting <set-audio-powersave>`
+Nvidia Optimus with nouveau and nvidia driver
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Disabling audio power saving on AC prevents automatic power down of the GPU.
+Make shure you either use TLP's defaults or change your different configuration
 to: ::
 
     SOUND_POWER_SAVE_ON_AC=1
+    SOUND_POWER_SAVE_ON_BAT=1
 
 .. seealso ::
 
+    * :ref:`set-audio-powersave`
     * :doc:`/support/optimizing` - Improvements ordered by objectives
     * :doc:`/support/troubleshooting` - Provides help to isolate problems
       caused by TLP's power saving
