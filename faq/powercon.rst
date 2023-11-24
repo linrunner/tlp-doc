@@ -3,22 +3,22 @@ Power Consumption
 
 High fan speed
 ---------------
-Symptom: high fan speed on AC power
+Symptom: high fan speed on AC power.
 
-Solution: refer to :ref:`opt-reduce-power-on-ac`
+Solution: refer to :ref:`opt-reduce-power-on-ac`.
 
 ----
 
-Symptom: high fan speed during video playback
+Symptom: high fan speed during video playback.
 
-Cause: missing hardware video acceleration
+Cause: missing hardware video acceleration.
 
 Solution: check the web how to enable hardware video acceleration for
-your Linux distribution and/or web browser
+your Linux distribution and/or web browser.
 
 ----
 
-Symptom: fan speed never goes down
+Symptom: fan speed never goes down.
 
 Solution: uninstall or disable **thermald**.
 
