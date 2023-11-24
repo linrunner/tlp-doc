@@ -92,8 +92,10 @@ BIOS setup.
 
 .. _faq-powercon-optimus-audio:
 
-Nvidia Optimus with nouveau and nvidia driver
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Nvidia Optimus and Audio power saving
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*Concerns nouveau and nvidia drivers.*
+
 Disabling audio power saving on AC prevents automatic power down of the GPU.
 Make shure you either use TLP's defaults or change your different configuration
 to: ::
