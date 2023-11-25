@@ -101,7 +101,7 @@ Nvidia Optimus and Audio power saving
 *Concerns nouveau and nvidia drivers.*
 
 Disabling audio power saving on AC prevents automatic power down of the GPU.
-Make shure you either use TLP's defaults or change your different configuration
+Make sure you either use TLP's defaults or change your different configuration
 to: ::
 
     SOUND_POWER_SAVE_ON_AC=1
