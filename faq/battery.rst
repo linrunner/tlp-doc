@@ -47,6 +47,8 @@ software installed there and the hardware actually supports persistence.
 
 .. seealso::
 
+    * `How to prolong lithium-based batteries <https://batteryuniversity.com/article/bu-808-how-to-prolong-lithium-based-batteries>`_
+      - Basics on the ageing of batteries and the effect of charge thresholds
     * The level of battery care support depends on laptop vendor or brand, Linux
       kernel version and TLP version - consult :doc:`/settings/bc-vendors` for details
     * Settings: :doc:`/settings/battery`
