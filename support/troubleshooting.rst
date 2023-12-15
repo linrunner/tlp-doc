@@ -175,7 +175,14 @@ to disable USB autosuspend altogether again as described above.
 
 .. _tsg-kernel:
 
-Step 7: Upgrade kernel or firmware
+Step 7: Upgrade TLP
+-------------------
+Depending on their update policy, distributions may not provide the latest
+version of TLP. To ensure you have the most up-to-date version, consider
+obtaining TLP packages from the PPA, backports, or a newer version of your
+distribution.
+
+Step 8: Upgrade kernel or firmware
 ----------------------------------
 When all else fails, try to:
 
