@@ -4,67 +4,71 @@ Most distributions install power-profiles-daemon by default with their
 GNOME and KDE desktop environments. This article compares TLP and
 power-profiles-daemon and explains how to replace the latter with TLP.
 
-Does power-profiles-daemon achieve better power savings than TLP?
------------------------------------------------------------------
-power-profiles-daemon covers only a subset of TLP's settings:
+Does power-profiles-daemon save power over TLP?
+-----------------------------------------------
+power-profiles-daemon is a CPU throttle that mainly affects the CPU
+during application usage. It does not have any settings to reduce power
+consumption when the CPU is idle, unlike TLP.
 
-* `PLATFORM_PROFILE_ON_AC/BAT`
-* `CPU_ENERGY_PERF_POLICY_ON_AC/BAT`
-* `CPU_BOOST_ON_AC/BAT`
+power-profiles-daemon only covers a subset of TLP's settings:
 
-Due to the choice of settings, power-profiles-daemon represents a CPU
-throttle which mainly takes effect when the CPU is under load by applications.
-power-profiles-daemon does *not* include any settings to reduce power
-consumption when the CPU is idle like TLP provides them.
+1. `PLATFORM_PROFILE_ON_AC/BAT`
+2. `CPU_ENERGY_PERF_POLICY_ON_AC/BAT`
+3. `CPU_BOOST_ON_AC/BAT`
 
-So it depends on your workload:
+The second item is only activated if the first item is not supported
+by the hardware. When the second item is active, turbo boost (third item)
+is also disabled at high CPU temperatures.
 
-* If the laptop often runs under medium or high load (e.g. video playback,
-  compiling, etc.), then power-profiles-daemon using its `power-saver`
-  profile may achieve savings similar to TLP
-* When the laptop is mostly idle or running with low load (e.g. text editing,
-  browsing, etc.), then TLP offers advantages over power-profiles-daemon
+Which of these tools will save you more power depends on your workload:
 
-Finally, note that the TLP's default settings do not enable `PLATFORM_PROFILE_ON_AC/BAT`
-and `CPU_BOOST_ON_AC/BAT`. To achieve truly comparable results, they must
-be explicitly configured in TLP.
-One also needs to know that many (especially older) laptops do not
+* If the laptop is often running under medium or high load, such as video
+  playback or compiling, using the `power-saver` profile
+  in power-profiles-daemon may achieve similar savings to TLP.
+* However, if the laptop is mostly idle or running with low load,
+  such as text editing or browsing, TLP offers advantages over
+  power-profiles-daemon.
+
+Note that TLP's default settings do not enable `PLATFORM_PROFILE_ON_AC/BAT`
+and `CPU_BOOST_ON_AC/BAT`. To achieve truly comparable results, these settings
+must be explicitly configured in TLP.
+It is also important to note that some laptops, especially older ones, may not
 support `PLATFORM_PROFILE_ON_AC/BAT`.
 
-**Conclusion:** to find out which tool ultimately delivers better results,
-do comparative measurements on your target hardware with your usage pattern.
+**Conclusion:** To determine which tool provides superior results, conduct
+comparative measurements on your target hardware using your specific usage
+pattern.
+
 
 Does power-profiles-daemon conflict with TLP?
 ---------------------------------------------
-Yes. power-profiles-daemon uses kernel settings that TLP also
-controls (see above). Using both tools simultaneously means that TLP’s
-settings get overwritten by power-profiles-daemon (and vice versa)
-resulting in unpredictable outcomes for the settings in question.
+Yes, it does. Using both tools simultaneously can result in unpredictable
+outcomes as they partially change the same kernel settings and may overwrite
+each other's settings.
 
-For this reason many distributions prevent the simultaneous installation
-of their packages for TLP and power-profiles-daemon. In all other cases,
-*uninstalling* power-profiles-daemon *is recommended*.
+To prevent conflicts, most Linux distributions do not permit the
+installation of both TLP and power-profiles-daemon packages simultaneously.
+It is advisable to uninstall power-profiles-daemon in all other scenarios.
 
 
-How can I achieve the effect of power-profiles-daemon with TLP?
----------------------------------------------------------------
-First of all, it is important to understand the fundamental differences
+How can I use TLP to achieve the same effect as power-profiles-daemon?
+----------------------------------------------------------------------
+Firstly, it is important to understand the fundamental differences
 between the two tools:
 
-* TLP implements an "automatic transmission". Depending on the power source
-  the corresponding one of the two settings profiles `AC` or `BAT` is applied
-  *automatically*.
-* power-profiles-daemon implements a "manual transmission", meaning there are
-  three profiles ("gears") `power-saver`, `balanced` and `performance`,
-  which you have to select *manually* via the panel applet. Nothing happens
-  automatically. The preset profile is `balanced`.
-* power-profiles-daemon's profiles' settings are hardcoded, while TLP's
-  profiles can be customized as desired.
+* TLP *automatically* selects the corresponding profile based on the power
+  source: either `AC` or `BAT`.
+* power-profiles-daemon offers three profiles: `power-saver`, `balanced`
+  and `performance`. These profiles must be *manually* selected through
+  the panel applet, as there is no automatic  switching between them.
+  The default profile is `balanced`.
+* The settings for power-profiles-daemon's profiles are hardcoded, while
+  TLP's profiles can be customized to meet specific needs.
 
-From what has been said above, it is clear that the behavior of power-profiles-daemon
-cannot be completely reproduced with TLP. It is possible to map two of
-power-profiles-daemon's profiles to the `AC` and the `BAT` profile of TLP
-as shown in the following examples:
+It is evident from the above that TLP cannot fully replicate the behavior
+of power-profiles-daemon. However, two of power-profiles-daemon's profiles
+can be mapped to TLP's `AC` and `BAT` profiles, as demonstrated in the
+following examples:
 
 .. rubric:: Example 1: map `balanced` to `AC` and `power-saver` to `BAT`
 
