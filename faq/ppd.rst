@@ -111,5 +111,5 @@ Last but not least you may select TLP's profile manually with a
     * Settings: :doc:`/settings/processor`
     * :doc:`/support/optimizing`
     * `TLP Issue #564 <https://github.com/linrunner/TLP/issues/564>`_
-    * `power-profiles-daemon <https://gitlab.freedesktop.org/hadess/power-profiles-daemon>`_
+    * `power-profiles-daemon <https://gitlab.freedesktop.org/upower/power-profiles-daemon>`_
       - Project homepage
