@@ -76,7 +76,7 @@ Start :command:`nvidia-settings`, goto `PRIME Profiles`, select `Intel (Power
 Saving Mode)`. Logon again (or reboot).
 
 Result: rendering the screen content is shifted to the iGPU, sending the dGPU to
-idle state, thus permitting runtime power management to power off the dGPU
+idle state, thus permitting runtime power management to power down the dGPU
 (see Step 1).
 
 .. rubric:: Step 2b: Switch to the iGPU - *Other GPU hardware, drivers or tools*
@@ -100,7 +100,7 @@ Nvidia Optimus and Audio power saving
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *Concerns nouveau and nvidia drivers.*
 
-Disabling audio power saving on AC prevents automatic power down of the GPU.
+Disabling audio power saving on AC prevents automatic power down of the dGPU.
 Make sure you either use TLP's defaults or change your different configuration
 to: ::
 
