@@ -1,6 +1,8 @@
 Settings
 ========
 
+.. _faq-set-desktop-conflict:
+
 Does TLP conflict with my desktop environment's power savings?
 --------------------------------------------------------------
 It depends, TLP:

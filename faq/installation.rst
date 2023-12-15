@@ -38,6 +38,10 @@ therefore does not conflict with TLP.
 actions. If you want to use it, disable the feature in TLP by configuring
 `CPU_ENERGY_PERF_POLICY_ON_AC=""`.
 
+.. seealso::
+
+    :ref:`faq-set-desktop-conflict`
+
 
 .. _faq-service-units:
 
