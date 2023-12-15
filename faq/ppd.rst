@@ -50,6 +50,12 @@ To prevent conflicts, most Linux distributions do not permit the
 installation of both TLP and power-profiles-daemon packages simultaneously.
 It is advisable to uninstall power-profiles-daemon in all other scenarios.
 
+.. note::
+
+    If your distribution allows for parallel installation, TLP version 1.6
+    and later will automatically *not* apply the settings listed above
+    if a running power-profiles-daemon is detected.
+
 
 How can I use TLP to achieve the same effect as power-profiles-daemon?
 ----------------------------------------------------------------------
