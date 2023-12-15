@@ -1,54 +1,38 @@
 Installation
 ============
 
-.. _faq-ppd-conflict:
-
-Conflict with power-profiles-daemon
------------------------------------
-Most distributions install power-profiles-daemon by default with their
-GNOME and KDE desktop environments. power-profiles-daemon uses kernel
-settings that are also controlled by TLP, which leads to unpredictable
-results.
-
-Beginning with version 1.4 :command:`tlp start` and :command:`tlp-stat -s`
-will detect the conflict: ::
-
-    Warning: TLP's power saving will not apply on boot because the conflicting power-profiles-daemon.service is enabled.
-    >>> Uninstall power-profiles-daemon or invoke 'systemctl mask power-profiles-daemon.service' to ensure the full functionality of TLP. to correct this!
-
-**Solutions:**
-
-a. Uninstall the `power-profiles-daemon` package (preferred)
-b. Disable `power-profiles-daemon` with ::
-
-    sudo systemctl mask power-profiles-daemon.service
-
-.. seealso::
-
-    * FAQ: :doc:`/faq/ppd`
-
 Does TLP conflict with other power management tools?
 ----------------------------------------------------
-Yes. Using another tool simultaneously means that TLP's settings get overwritten
-by the other tools settings (and vice versa), so actual power saving gets
-unpredictable. Special cases are explained in the following.
+In principle, yes.
 
-**power-profiles-daemon:** see above and refer to :doc:`/faq/ppd`.
+Simultaneous use of another tool means that TLP's settings will be
+overwritten by the other tool's settings (and vice versa), making actual
+power savings unpredictable. Special cases are explained below.
+
+**auto-cpufreq:** only impacts CPU settings that are not active
+in TLP's default configuration. There will be no conflict as long as
+these remain deactivated. Please note that auto-cpufreq is intended
+to improve power consumption only when the CPU is under load.
+However, TLP also takes into account low load and idle states,
+such as when there is no user input.
+
+**GNOME and KDE Desktop:** usually include `power-profiles-daemon`, see below.
+
+**power-profiles-daemon:** check :doc:`/faq/ppd`.
 
 **Powertop:** please refer to :doc:`powertop`.
 
-**Slimbook Battery:** uses TLP as backend to apply power saving and
-for this purpose continuously overwrites your TLP configuration.
-If you want to configure TLP individually, you need to uninstall Slimbook
-Battery first.
+**Slimbook Battery:** uses TLP as a backend to apply power saving measures.
+However, it continuously overwrites your TLP configuration.
+If you wish to configure TLP individually, you must first uninstall
+Slimbook Battery.
 
 **system76-power:** works on the same set of :ref:`kernel settings
-<intro-how-it-works>`. Do not use together with TLP.
+<intro-how-it-works>` as TLP. Do not use together with TLP.
 
-**thermald:** thermald's purpose is to limit power dissipation before the
-laptop's temperature gets critical. TLP enables power saving to optimize
-battery power especially in idle and low workload situations.
-TLP does not conflict with thermald.
+**thermald:** limits power dissipation to prevent the laptop from overheating.
+It does not provide power saving functionality for other situations and
+therefore does not conflict with TLP.
 
 **throttled:** only throttled's dynamic `HWP_Mode` setting interferes with TLP's
 actions. If you want to use it, disable the feature in TLP by configuring

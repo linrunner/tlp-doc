@@ -6,9 +6,10 @@ power-profiles-daemon and explains how to replace the latter with TLP.
 
 Does power-profiles-daemon save power over TLP?
 -----------------------------------------------
-power-profiles-daemon is a CPU throttle that mainly affects the CPU
-during application usage. It does not have any settings to reduce power
-consumption when the CPU is idle, unlike TLP.
+Simply put, power-profiles-daemon is a CPU throttle that is most
+effective when high or medium load applications are in use.
+Unlike TLP, it has no settings to reduce power consumption when the CPU
+is idle. such as when there is no user input.
 
 power-profiles-daemon only covers a subset of TLP's settings:
 
@@ -39,22 +40,43 @@ support `PLATFORM_PROFILE_ON_AC/BAT`.
 comparative measurements on your target hardware using your specific usage
 pattern.
 
+.. _faq-ppd-conflict:
 
 Does power-profiles-daemon conflict with TLP?
 ---------------------------------------------
 Yes, it does. Using both tools simultaneously can result in unpredictable
-outcomes as they partially change the same kernel settings and may overwrite
-each other's settings.
+outcomes as they partially change the same kernel settings (see above)
+and overwrite each other's settings.
 
 To prevent conflicts, most Linux distributions do not permit the
 installation of both TLP and power-profiles-daemon packages simultaneously.
 It is advisable to uninstall power-profiles-daemon in all other scenarios.
 
-.. note::
+If your distribution allows for parallel installation, the behaviour
+depends on the version of TLP:
 
-    If your distribution allows for parallel installation, TLP version 1.6
-    and later will automatically *not* apply the settings listed above
-    if a running power-profiles-daemon is detected.
+*Version 1.6* and later will automatically *not* apply the settings listed
+above if a running power-profiles-daemon is detected. In addition the
+:command:`tlp start` issues a warning about the conflict:
+
+.. code-block:: none
+
+    Warning: PLATFORM_PROFILE_ON_AC/BAT is not set because power-profiles-daemon is running.
+
+*Version 1.5 and 1.4* merely detect the situation and the commands
+:command:`tlp start` and :command:`tlp-stat -s` issue a message about the conflict:
+
+.. code-block:: none
+
+    Error: conflicting power-profiles-daemon.service is enabled, power saving will not apply on boot.
+    >>> Invoke 'systemctl mask power-profiles-daemon.service' to correct this!
+
+If you do not want to use power-profiles-daemon in parallel, you can either
+uninstall the package (preferred) or, if that would uninstall essential packages,
+stop and disable the service with ::
+
+    sudo systemctl stop power-profiles-daemon.service
+    sudo systemctl mask power-profiles-daemon.service
 
 
 How can I use TLP to achieve the same effect as power-profiles-daemon?
