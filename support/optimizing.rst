@@ -25,6 +25,8 @@ to get the optimum out of it.
     * Please activate and test the following suggestions individually if
       possible. This way, any problems that may occur will stand out
       immediately.
+    * **If adjusting the settings does not yield the desired results,
+      it may be worthwhile to experiment with a more recent kernel.**
 
 Extend battery runtime
 ----------------------
