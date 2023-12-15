@@ -7,7 +7,7 @@ In principle, yes.
 
 Simultaneous use of another tool means that TLP's settings will be
 overwritten by the other tool's settings (and vice versa), making actual
-power savings unpredictable. Special cases are explained below.
+power savings unpredictable. The individual tools are discussed below.
 
 **auto-cpufreq:** only impacts CPU settings that are not active
 in TLP's default configuration. There will be no conflict as long as

@@ -1,14 +1,14 @@
 Settings
 ========
 
-Does TLP conflict with my desktop environment's power settings?
----------------------------------------------------------------
+Does TLP conflict with my desktop environment's power savings?
+--------------------------------------------------------------
 It depends, TLP:
 
 * Does not touch display or keyboard backlight brightness → no conflict.
 * Does not change suspend / hibernate settings → no conflict.
 * Applies WiFi power saving by default → conflict with KDE energy saving
-  is settings possible.
+  settings is possible.
 * Applies charge thresholds → conflict with KDE charge limit setting is
   possible.
 * Switches radio devices on and off when configured by the user →
