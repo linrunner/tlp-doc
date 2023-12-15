@@ -1,28 +1,33 @@
 Settings
 ========
 
-Does TLP conflict with my desktop's power settings?
----------------------------------------------------
-It depends on the individual setting. TLP:
+Does TLP conflict with my desktop environment's power settings?
+---------------------------------------------------------------
+It depends, TLP:
 
-* Does not touch display or keyboard backlight brightness → no conflict
-* Does not change suspend / hibernate settings → no conflict
-* Applies WiFi power saving by default → conflict with KDE energy saving settings possible
-* Applies charge thresholds  → conflict with KDE charge limit setting possible
+* Does not touch display or keyboard backlight brightness → no conflict.
+* Does not change suspend / hibernate settings → no conflict.
+* Applies WiFi power saving by default → conflict with KDE energy saving
+  is settings possible.
+* Applies charge thresholds → conflict with KDE charge limit setting is
+  possible.
 * Switches radio devices on and off when configured by the user →
-  conflict with GNOME power settings or KDE energy saving settings possible
-* GNOME's power-profiles-daemon disables TLP on boot → severe conflict
-  (see :doc:`/installation/index`)
+  conflict with GNOME power settings or KDE energy saving settings possible.
+* TLP's power savings will not be applied during boot when using GNOME or KDE
+  desktop environments that have power-profiles-daemon installed →
+  severe conflict - see :doc:`/faq/ppd`.
 * Pop!_OS's system76-power works on the same set of
   :ref:`kernel settings <intro-how-it-works>`
-  → severe conflict - do not use together with TLP
+  → severe conflict - do not use together with TLP.
 * Slimbook Battery uses TLP as backend and overwrites TLP's configuration
-  files → conflict - if you want to configure TLP yourself, you have to
-  uninstall Slimbook Battery
+  files → conflict - if you wish to configure TLP individually, you must
+  first uninstall Slimbook Battery.
 
-"Conflict possible" means that the setting configured in TLP may get overwritten
-by the desktop's setting (and vice versa). System stability issues are *not*
-to be expected from those conflicts.
+.. note::
+
+    "Conflict" refers to the situation where settings configured in
+    TLP are overwritten by the desktop environment's settings (and vice
+    versa), resulting in unpredictable power savings.
 
 How can I change TLP's settings?
 --------------------------------
