@@ -16,13 +16,13 @@ How do I stop or disable TLP completely?
 
 *Wrong ways:*
 
-* :command:`systemctl stop tlp.service` – *this will not prevent TLP from applying
-  power saving settings when the power source AC/battery changes; depending on
-  your configuration this may also immediately power off your Wi-Fi and/or
-  bluetooth/WWAN, which might be undesirable*
-* :command:`systemctl disable/mask tlp.service` – *this will only prevent TLP
-  from applying charge thresholds and switching radios on system startup/shutdown;
-  power saving settings are applied nevertheless (see above)*
+* :command:`systemctl stop tlp.service` – This will not prevent TLP from applying
+  power saving settings when the power source AC/battery changes. Depending on
+  your configuration, it may also immediately power off your Wi-Fi and/or
+  bluetooth/WWAN, which might be undesirable.
+* :command:`systemctl disable/mask tlp.service` – This will only prevent TLP
+  from applying charge thresholds and switching radios on system startup/shutdown.
+  Power saving settings are applied nevertheless (see above).
 
 .. seealso::
 
@@ -48,14 +48,16 @@ How do I start/restart TLP – and apply power saving?
 Make sure, as a prerequisite, that:
 
 * `TLP_ENABLE=1` is configured
-* systemd service units are enabled, see below; the output of
-  :command:`tlp-stat -s` will tell you  when this is not the case
+* systemd service units are enabled, see below. The output of
+  :command:`tlp-stat -s` will tell you  when this is not the case.
 
 *Wrong way:*
 
-* :command:`systemctl start/restart tlp.service` – depending on your configuration
-  this may immediately power off your W-Fi and/or bluetooth/WWAN and drive bay,
-  which might be undesirable; `tlp start` applies only power saving
+* :command:`systemctl start/restart tlp.service` –
+  The service is intended for system startup and shutdown only. Depending on
+  your configuration, it may immediately power off your Wi-Fi and/or
+  bluetooth/WWAN and drive bay, which might be undesirable.
+  `tlp start` applies only power saving.
 
 
 How to temporarily use battery settings on AC (and vice versa)?
