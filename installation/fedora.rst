@@ -3,18 +3,22 @@ Fedora
 
 .. warning::
 
-    The TLP packages from the official Fedora repositories for F38
-    (and newer) do not currently work:
+    TLP currently has very limited functionality on Fedora (F38 and later):
 
-    * When changing the power source, the profile settings are not applied
-    * RDW does not work
+    * Power saving profiles are not applied when switching from AC to battery (or vice versa)
+    * The :doc:`Radio Device Wizard </settings/rdw>` does not work
     * Trace mode does not work
 
-    Cause are SELinux AVCs when trying to read the configuration.
-    For this reason upstream support for Fedora via the *Issue tracker*
-    is currently *not possible*. There will be no 1.6 Beta packages as well.
+    The problem lies in SELinux denials that prevent the configuration files
+    from being read. You can work around the problem for the time being by
+    `setting SELinux to permissive <https://docs.fedoraproject.org/en-US/quick-docs/selinux-changing-states-and-modes/#_changing_to_permissive_mode>`_,
+    but you should be aware of the impact on system security.
 
-    **Please open Fedora bugs for the AVCs.**
+    To help get this resolved, please file a
+    `Fedora bug <https://docs.fedoraproject.org/en-US/quick-docs/bugzilla-file-a-bug/>`_ (package `selinux-policy`)
+    or a `GitHub issue <https://github.com/fedora-selinux/selinux-policy/issues>`_
+    for your SELinux denials (refer to
+    `Troubleshooting problems related to SELinux <https://docs.fedoraproject.org/en-US/quick-docs/selinux-troubleshooting/>`_).
 
 .. rubric:: Scope:
 
