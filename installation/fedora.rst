@@ -5,7 +5,7 @@ Fedora
 
     TLP currently has very limited functionality on Fedora (F38 and later):
 
-    * Power saving profiles are not applied when switching from AC to battery (or vice versa)
+    * **Power saving profiles are not applied when switching from AC to battery (or vice versa)**
     * The :doc:`Radio Device Wizard </settings/rdw>` does not work
     * Trace mode does not work
 
