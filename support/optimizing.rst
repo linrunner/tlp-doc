@@ -73,7 +73,7 @@ Improve performance on AC power
 5. Enable the :ref:`platform profile <set-platform-profile>` `performance`:
 
 .. code-block::
-    :emphasize-lines: 2
+    :emphasize-lines: 1
 
     PLATFORM_PROFILE_ON_AC=performance
     PLATFORM_PROFILE_ON_BAT=balanced
