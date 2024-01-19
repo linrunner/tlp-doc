@@ -1,11 +1,11 @@
 .. important::
 
-    As of version 5.17, the Linux kernel in combination with TLP 1.5 or newer
+    As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
     offers full battery care support (i.e. charge thresholds and recalibration)
     for ThinkPads from model year 2011 onwards.
 
     **Therefore no external kernel modules are required with kernel 5.17
-    or newer and you do not need to proceed any further here.**
+    or later and you do not need to proceed any further here.**
 
     Linux kernels 4.19 through 5.16 provide only charge threshold functionality
     but no recalibration. If this is sufficient for you, stop reading here.

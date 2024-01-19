@@ -61,13 +61,18 @@ the command ::
 
 .. warning::
 
-    On Ubuntu 20.04.4 the `acpi-call-dkms` package in the official
-    repositories is incompatible with the provided kernels 5.13 or 5.15
-    and may cause TLP battery care malfunction, system freezes and reboots.
+    * In *Ubuntu 23.10* the `tp-smapi-dkms` package from the official
+      repositories is broken and does not build and install the kernel module.
+      Solution: download a working package from
+      `Debian Sid <https://packages.debian.org/sid/all/tp-smapi-dkms/download>`_
+      and install manually.
 
-    Solution: use `acpi-call-dkms` version 1.2.2 from the `TLP PPA`_ or `download
-    from Ubuntu 22.04 <https://packages.ubuntu.com/jammy/all/acpi-call-dkms/download>`_
-    and install manually.
+    * In *Ubuntu 20.04.4* the `acpi-call-dkms` package from the official
+      repositories is incompatible with the provided kernels 5.13 or 5.15
+      and may cause TLP battery care malfunction, system freezes and reboots.
+      Solution: use `acpi-call-dkms` version 1.2.2 from the `TLP PPA`_ or `download
+      from Ubuntu 22.04 <https://packages.ubuntu.com/jammy/all/acpi-call-dkms/download>`_
+      and install manually.
 
 .. seealso::
 

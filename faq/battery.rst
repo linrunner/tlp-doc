@@ -176,6 +176,8 @@ and subsequently check the sections further down for possible explanations.
 
 Which external kernel module do I need for my ThinkPad?
 -------------------------------------------------------
+.. include:: ../include/thinkpad-kernel-modules.rst
+
 .. note::
 
     `thinkpad_acpi` is not an external kernel module and you do not normally have
@@ -192,46 +194,50 @@ for the following lines
 .. code-block:: none
 
     Install tp-smapi kernel modules for ThinkPad battery thresholds and recalibration
-    Install acpi_call kernel module for ThinkPad battery thresholds and recalibration
     Install acpi_call kernel module for ThinkPad battery recalibration
 
 and install the required external kernel module package as explained in
 :doc:`/installation/index` for your distribution.
 
-Almost all ThinkPad models need only one of the above kernel modules. You may
-check the output of :command:`tlp-stat -b` for lines like:
+Most ThinkPads only need one of the two external kernel modules, if any.
+Check the output of :command:`tlp-stat -b` for lines like:
 
 .. code-block:: none
 
-    tpacpi-bat = inactive (ThinkPad not supported)
     tp-smapi = inactive (ThinkPad not supported)
+    tpacpi-bat (acpi_call)  = inactive (superseded by natacpi)
 
-and remove the unnecessary module package (`tpacpi-bat` means `acpi_call`).
-However it doesn't really hurt to keep both.
+and remove the unnecessary module package(s).
 
-.. rubric:: natacpi – Ultimate solution at the horizon
 
-Starting with kernel 4.17 `tpacpi-bat` gets superseded by a new, native kernel
-API called `natacpi` (contained in the ubiquitious kernel module `thinkpad_acpi`)
-which supports charge thresholds so far. :command:`tlp-stat -b` indicates this
-as follows:
+.. rubric:: natacpi – Ultimate solution
 
-*Version 1.3*
+Starting with kernel 5.17 `tpacpi-bat` is completely superseded by the new,
+native kernel API called `natacpi` (contained in the ubiquitious kernel module
+`thinkpad_acpi`). :command:`tlp-stat -b` indicates this as follows:
+
+*Version 1.5 and later*
 
 .. code-block:: none
+    :emphasize-lines: 5
 
-    +++ Battery Features
-    natacpi = active (data, thresholds)
-    tpacpi-bat = active (recalibrate)
-    tp-smapi = inactive (ThinkPad not supported)
+    +++ Battery Care
+    Plugin: thinkpad
+    Supported features: charge thresholds, recalibration
+    Driver usage:
+    * natacpi (thinkpad_acpi) = active (charge thresholds, recalibration)
     ...
-    /sys/class/power_supply/BAT0/charge_start_threshold         =     96 [%]
-    /sys/class/power_supply/BAT0/charge_stop_threshold          =    100 [%]
-    tpacpi-bat.BAT0.forceDischarge                              =      0
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     96 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
+    /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
+
+Kernels 4.19 through 5.16 support only charge thresholds and still require
+the help of the external kernel module `acpi_call` for recalibration:
 
 *Version 1.4*
 
 .. code-block:: none
+    :emphasize-lines: 6
 
     +++ Battery Care
     Plugin: thinkpad
@@ -244,48 +250,46 @@ as follows:
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
     tpacpi-bat.BAT0.forceDischarge                              =      0
 
-*Version 1.5 or higher with kernel 5.17 or higher*
-
-Kernel 5.17 adds recalibration and completes `natacpi`. `tpacpi-bat` and the
-external kernel module `acpi_call` together with the distribution-specific
-packages become superfluous. :command:`tlp-stat -b` now looks like this:
+*Version 1.3*
 
 .. code-block:: none
+    :emphasize-lines: 3
 
-    +++ Battery Care
-    Plugin: thinkpad
-    Supported features: charge thresholds, recalibration
-    Driver usage:
-    * natacpi (thinkpad_acpi) = active (charge thresholds, recalibration)
+    +++ Battery Features
+    natacpi = active (data, thresholds)
+    tpacpi-bat = active (recalibrate)
+    tp-smapi = inactive (ThinkPad not supported)
     ...
-    /sys/class/power_supply/BAT0/charge_control_start_threshold =     96 [%]
-    /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
-    /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
-
+    /sys/class/power_supply/BAT0/charge_start_threshold         =     96 [%]
+    /sys/class/power_supply/BAT0/charge_stop_threshold          =    100 [%]
+    tpacpi-bat.BAT0.forceDischarge                              =      0
 
 .. seealso::
 
     * :doc:`/settings/bc-vendors` - Details on hardware support
+    * `tp-smapi <https://www.thinkwiki.org/wiki/Tp_smapi>`_
+      – Documentation for the external kernel modules required for ThinkPads
+      until model year 2011
     * `tpacpi-bat <https://github.com/teleshoes/tpacpi-bat>`_
       – Source code for the tool that is included in TLP to provide battery recalibration
       for ThinkPads since model year 2011 - e.g. T420/X220 and newer
     * `acpi_call <https://github.com/nix-community/acpi_call>`_
       – Source code of the external kernel module required by `tpacpi-bat`
-    * `tp-smapi <https://www.thinkwiki.org/wiki/Tp_smapi>`_
-      – Documentation for the external kernel modules required for ThinkPads
-      until model year 2011
 
 
 .. _faq-bc-coreboot-thinkpad:
 
-Are ThinkPads with Coreboot / Libreboot supported?
---------------------------------------------------
-Some models are not recognized as ThinkPads because of an incorrect model
-string provided by Coreboot/Libreboot. As a result battery care is not activated
-(see Issue `#657 <https://github.com/linrunner/TLP/issues/657>`_). Sample output
-of :command:`tlp-stat`: ::
+Are ThinkPads with coreboot supported?
+--------------------------------------
+*Version 1.5 and older*
 
-    -- TLP 1.5.0 --------------------------------------------
+Some models are not recognized as ThinkPads because of an incorrect model
+string provided by coreboot. As a result battery care is not activated
+(see Issue `#657 <https://github.com/linrunner/TLP/issues/657>`_). Sample output
+of :command:`tlp-stat`:
+
+.. code-block:: none
+    :emphasize-lines: 2, 3
 
     +++ Battery Care
     Plugin: generic
@@ -304,11 +308,14 @@ When the recognition works, the capabilities are limited:
 
     /sys/class/power_supply/BAT1/charge_behaviour               = [auto]
 
-* Battery status: battery values `energy_full_design`, `energy_full` and
+* Battery status: battery readings `energy_full_design`, `energy_full` and
   `energy_now` are missing from the :command:`tlp-stat -b` output because
-  Coreboot/Libreboot supply incorrect data to the Linux kernel
+  coreboot supplies incorrect data to the Linux kernel
   (see `Issue #657 <https://github.com/linrunner/TLP/issues/657>`_);
-  sample output: ::
+  sample output:
+
+.. code-block:: none
+    :emphasize-lines: 15
 
     +++ Battery Care
     Plugin: thinkpad
@@ -324,12 +331,16 @@ When the recognition works, the capabilities are limited:
     /sys/class/power_supply/BAT1/model_name                     = 42T4967
     /sys/class/power_supply/BAT1/cycle_count                    =      0 (or not supported)
     /sys/class/power_supply/BAT1/status                         = Discharging
-    < energy data missing here >
+    < battery readings missing here >
 
     /sys/class/power_supply/BAT1/charge_control_start_threshold =     50 [%]
     /sys/class/power_supply/BAT1/charge_control_end_threshold   =     60 [%]
     /sys/class/power_supply/BAT1/charge_behaviour               = [auto]
 
+.. note::
+
+    * Version 1.6 correctly recognizes ThinkPads with coreboot
+    * Version 1.7 (unreleased) will display complete battery readings
 
 .. _faq-thresholds-ignored:
 
@@ -345,24 +356,16 @@ Kernel module `thinkpad_acpi` is not loaded
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *ThinkPads only*
 
-Symptoms: ::
+Symptoms:
 
-    --- TLP 1.5.0 --------------------------------------------
+.. code-block:: none
+    :emphasize-lines: 2, 3
 
     +++ Battery Care
     Plugin: generic
     Supported features: none available
 
-or ::
-
-    --- TLP 1.3.1 --------------------------------------------
-
-    +++ Battery Features: Charge Thresholds and Recalibrate
-    natacpi    = inactive (laptop not supported)
-    tpacpi-bat = inactive (laptop not supported)
-    tp-smapi   = inactive (laptop not supported)
-
-Load attempt with :command:`sudo modprobe thinkpad_acpi` reveals ::
+Trying to load it with :command:`sudo modprobe thinkpad_acpi` will reveal ::
 
     modprobe: ERROR: could not insert 'thinkpad_acpi': Invalid argument
 
@@ -375,104 +378,44 @@ External kernel module is not installed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *ThinkPads only*
 
-Symptom: :command:`tlp-stat -b` shows
+Symptom: :command:`tlp-stat -b` shows one of the following messages:
 
 .. code-block:: none
 
     tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
-
-or
 
 .. code-block:: none
 
     tp-smapi = inactive (kernel module 'tp_smapi' not installed)
 
 Solution: read :ref:`faq-which-kernel-module` and install the necessary packages.
-If :command:`tlp-stat -b` still claims 'not installed' after installing
+If :command:`tlp-stat -b` still claims "not installed" after installing
 the appropriate package, reinstall the package via shell command and check
 the output for errors. See below for possible causes.
 
-Fedora release upgrade
-^^^^^^^^^^^^^^^^^^^^^^
-*ThinkPads only*
 
-It may be necessary to rebuild the kernel modules (as root): ::
+.. _faq-dkms-package:
 
-    akmods --force
-
-
-.. _faq-acpi-call-dkms-package:
-
-Installation of package `acpi-call-dkms` failed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installation of package `tp-smapi-dkms` or `acpi-call-dkms` failed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *ThinkPads only*
 
 .. important::
 
-    `acpi_call` and derived packages are not provided by the TLP project.
+    `tp-smapi`, `acpi_call` and derived packages are not provided by the TLP project.
     Please don't file bug reports for them in the TLP issue tracker.
 
-Symptoms: :command:`tlp-stat -b` shows
-
-.. code-block:: none
-
-    tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
-
-Package install shows
-
-.. code-block:: none
-
-    Setting up acpi-call-dkms ...
-    Error! Bad return status for module build on kernel: ...
-
-Solution: upgrade the package:
-
-.. rubric:: Debian and Ubuntu derivatives
-
-* Kernel ≥ 5.13 needs at least package version 1.2.2-1
-  (Debian Sid/Bookworm or Ubuntu 22.04 or TLP PPA)
-* Kernel ≥ 5.6 needs at least package version 1.1.0-5ubuntu0.1 (Ubuntu 20.04)
-  or 1.1.0-6 (Debian Bullseye/Buster Backports, Ubuntu 21.10)
-
-Kernel module `acpi-call` is not loaded
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-*ThinkPads only*
-
-Symptom: :command:`tlp-stat -b` shows
-
-.. code-block:: none
-
-    tpacpi-bat = inactive (kernel module 'acpi_call' load error)
-
-Solution: try to load manually with
-
-.. code-block:: sh
-
-    sudo modprobe -v acpi_call
-
-and use adequate forums to resolve your issue with `acpi-call`.
-
-.. note::
-
-    You may need to disable Secure Boot when `acpi-call` refuses to load.
-    Check your distribution's :doc:`/installation/index` instructions.
-
-Installation of package `tp-smapi-dkms` failed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-*ThinkPads only*
-
-.. important::
-
-    `tp-smapi` and derived packages are not provided by the TLP project.
-    Please don't file bug reports for them in the TLP issue tracker.
-
-Symptoms (Ubuntu): :command:`tlp-stat -b` shows
+Symptom 1 (Ubuntu): :command:`tlp-stat -b` shows one of the following messages
 
 .. code-block:: none
 
     tp-smapi = inactive (kernel module 'tp_smapi' not installed)
 
-Package install shows
+.. code-block:: none
+
+    tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
+
+while the package installation reports
 
 .. code-block:: none
 
@@ -482,30 +425,43 @@ Package install shows
 
 Solution: install package **linux-generic-headers**.
 
-Symptoms: :command:`tlp-stat -b` shows
+Symptom 2 (Debian, Ubuntu): :command:`tlp-stat -b` displays
 
 .. code-block:: none
 
-    tp-smapi = inactive (kernel module 'tp_smapi' not installed)
+    tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
 
-Package install shows
+while package installation reports
 
 .. code-block:: none
 
-    Setting up tp-smapi-dkms ...
+    Setting up acpi-call-dkms ...
     Error! Bad return status for module build on kernel: ...
 
-Solution: upgrade the package:
+Solutions:
 
-Kernel module `tp-smapi` is not loaded
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Upgrade the kernel to 5.17 or later together with TLP version 1.5
+for full natacpi support, rendering acpi_call obsolete.
+Alternatively upgrade the `acpi-call-dkms` package:
+
+* Kernel ≥ 5.13 needs at least acpi-call-dkms 1.2.2-1
+  (Debian Sid/Bookworm or Ubuntu 22.04 or TLP PPA)
+* Kernel ≥ 5.6 needs at least acpi-call-dkms 1.1.0-5ubuntu0.1 (Ubuntu 20.04)
+  or 1.1.0-6 (Debian Bullseye/Buster Backports)
+
+Kernel module `tp-smapi` or `acpi_call` is not loaded
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *ThinkPads only*
 
-Symptom: :command:`tlp-stat -b` shows
+Symptom: :command:`tlp-stat -b` displays one of the following messages
 
 .. code-block:: none
 
     tp-smapi = inactive (kernel module 'tp_smapi' load error)
+
+.. code-block:: none
+
+    tpacpi-bat = inactive (kernel module 'acpi_call' load error)
 
 Solution: try to load manually with
 
@@ -513,16 +469,24 @@ Solution: try to load manually with
 
     sudo modprobe -v tp_smapi
 
-and check `tp-smapi Troubleshooting <http://www.thinkwiki.org/wiki/Tp_smapi#Troubleshooting>`_
-for a solution matching the error message or use adequate forums to resolve your
-issue with `tp-smapi`.
+Go through `tp-smapi Troubleshooting <http://www.thinkwiki.org/wiki/Tp_smapi#Troubleshooting>`_
+for a solution that matches the error message displayed. If this is not successful,
+ask in relevant forums. The latter also applies to issues with `acpi-call`.
 
 .. note::
 
-    * You may need to disable Secure Boot when `tp-smapi` refuses to load,
+    * You may need to disable Secure Boot if `tp-smapi` or `acpi_call` refuses to load,
       check your distribution's :doc:`/installation/index` instructions
-    * `Libreboot` does not support `tp-smapi`
+    * `Coreboot` and `Libreboot` do not support `tp-smapi`
     * `tp-smapi` does not support newer models, check :ref:`faq-which-kernel-module`
+
+Fedora release upgrade
+^^^^^^^^^^^^^^^^^^^^^^
+*ThinkPads only*
+
+It may be necessary to rebuild the kernel modules (as root): ::
+
+    akmods --force
 
 ThinkPad E495
 ^^^^^^^^^^^^^
@@ -548,11 +512,8 @@ Workaround:
 
 ThinkPad T430(s)/T530/W530/X230 (and all later models)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Solutions:
-
-* Install a kernel ≥ 4.19 to make natacpi available
-* TLP automatically uses `tpacpi-bat` when the kernel module `acpi_call` is
-  available, see :ref:`faq-which-kernel-module`
+Solution: install version 1.5 or later and a kernel ≥ 5.17 for
+full `natacpi` support.
 
 ThinkPad T420(s)/T520/W520/X220
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -575,13 +536,10 @@ generation ThinkPads. Symptoms are:
 
 .. code-block:: none
 
-    Error: discharge function not available for this laptop.
+    Error: battery discharge/recalibrate not available.
 
-Solutions:
-
-* Install a kernel ≥ 4.19 to make natacpi available
-* TLP automatically uses `tpacpi-bat` when the kernel module `acpi_call` is
-  available, see :ref:`faq-which-kernel-module`
+Solution: install version 1.5 or later and a kernel ≥ 5.17 for
+full `natacpi` support.
 
 
 .. _faq-unsupported-thinkpads:
@@ -707,7 +665,7 @@ As explained :ref:`above <faq-battery-care>`, in many cases the charge
 thresholds are persistently stored in the hardware.
 Therefore, it is not sufficient to simply remove the thresholds from
 the configuration (by the way, disabling or uninstalling TLP is not
-enough either). In fact, two steps are necessary for deactivation:
+enough either). In fact, two steps are required to disable the thresholds:
 
 1. Removing the charge thresholds from the configuration by inserting a leading `#`
 
@@ -726,8 +684,8 @@ enough either). In fact, two steps are necessary for deactivation:
 .. _faq-disabling-thresholds-does-not-work:
 
 Disabling the charge thresholds does not work
-----------------------------------------------
-Affected hardware: ThinkPads E580, T480s, X1 Carbon 6th (based on user feedback)
+---------------------------------------------
+Affected hardware: ThinkPad E580, T480s, X1 Carbon 6th Gen (and possibly others)
 
 Symptom: after resetting the thresholds as described above, :command:`tlp-stat -b`
 shows the stop threshold unchanged.
@@ -738,7 +696,7 @@ accept values higher than the previously set value.
 Solution: update EC firmware (contained in BIOS update)
 
 * T480s: ECP 1.13 (BIOS 1.31) or higher
-* X1 Carbon 6th: ECP 1.12 (BIOS 1.37) or higher
+* X1 Carbon 6th Gen: ECP 1.12 (BIOS 1.37) or higher
 
 Workaround (without BIOS update):
 
@@ -756,28 +714,33 @@ Workaround (without BIOS update):
 * When unsuccessful, repeat the whole procedure
 
 
-.. _faq-thinkad-misc-battery-malfunc:
+.. _faq-thinkpad-battery-malfunc:
 
-Misc ThinkPad battery malfunctions
-----------------------------------
-Affected hardware: ThinkPad T480, X280 et. al.
+Various ThinkPad battery malfunctions
+-------------------------------------
+Affected hardware: ThinkPad T480, X280, X1 Carbon 4th Gen (and possibly others)
 
-Sometimes ThinkPads show symptoms where one would actually suspect a defect
-of the battery or the system board. Users have reported, for example:
+.. note::
 
-* External battery BAT1 stopped discharging and stays at 100%. This means that the
-  computer shuts off when BAT0 dies, even though the external has charge left.
+    TLP does not cause the symptoms described in this section.
+
+At times, ThinkPads may exhibit symptoms that suggest a battery or hardware defect.
+Users have reported the following:
+
+* ThinkPad switches off as soon as the internal battery BAT0 is empty,
+  even if the external battery BAT1 is still charged.
   Reference: `Arch Linux forum <https://bbs.archlinux.org/viewtopic.php?id=285210>`_.
-* Spontaneous shutdown when removing the external battery BAT1, although the
-  internal battery BAT0 is charged.
+* ThinkPad unexpectedly switches off when the external battery BAT1 is removed,
+  even if the internal battery BAT0 is still charged.
   Reference: `Issue #690 <https://github.com/linrunner/TLP/issues/690>`_.
-* Battery does not charge although the charger is connected and no charge threshold
-  is active.
+* Battery is not charging even though the charger is connected and no
+  charge threshold is active.
 * :command:`tlp recalibrate` fails with "Error: discharge BATx malfunction --
   check your hardware (battery, charger)".
 
-Possible cause: malfunction of the EC firmware, which controls all charging
-operations independently of the operating system.
+However, in the mentioned cases, there was no battery or hardware defect,
+but rather a malfunction of the EC firmware, which controls all battery
+functions independently of the operating system.
 
 Solutions:
 
@@ -792,8 +755,8 @@ Solutions:
 
 .. _faq-erratic-battery-behavior:
 
-Erratic battery behavior on ThinkPad T420(s)/T520/W520/X220 (and all later models)
-----------------------------------------------------------------------------------
+Erratic battery behavior on ThinkPad T420(s)/T520/W520/X220 (and possibly later models)
+---------------------------------------------------------------------------------------
 Symptom: some users report severely reduced battery capacity or sudden drops of
 the charge level from around 30% to zero when employing charge thresholds.
 
@@ -814,16 +777,15 @@ Then recalibrate the battery once.
 
 How to designate the battery to discharge when battery powered?
 ---------------------------------------------------------------
-For ThinkPads with two batteries the embedded controller (EC) alone
-determines the order in which the batteries are used (discharged) and
-charged as well as the switching point. Furthermore the Lenovo EC firmware
-offers no way to change the behaviour (except indirectly via charge
-thresholds and force-discharge of course). In addition, the behavior may
-differ depending on the model.
+On dual battery ThinkPads, the embedded controller (EC) alone determines
+the order in which the batteries are used (discharged) and charged, as well
+as the switching point. The Lenovo EC firmware does not provide any way
+to change this behavior (except indirectly through charge thresholds and
+forced discharge, of course). Also, the behavior may vary from model to model.
 
 The above means that selecting the active battery for ThinkPads - also
-called "battery balancing" - is impossible because the EC firmware offers
-no way to do this, neither manual nor automatic.
+called "battery balancing" - is impossible because the EC firmware provides
+no way to do this, either manually or automatically.
 
 
 .. _faq-charging-stops-at-80:
@@ -832,11 +794,10 @@ no way to do this, neither manual nor automatic.
 ------------------------------------
 Affected hardware: ThinkPad T440s (based on user feedback)
 
-Symptom: despite the stop threshold is set to 100% either by configuration or by
-:command:`tlp fullcharge/setcharge`, charging of BAT1 stops at around 80%.
-As soon as BAT1 reaches 80%, charging commences with BAT0 until 100%,
-afterwards BAT1 continues until 100%. If a stop threshold is set for BAT0,
-the last step may never happen.
+Symptom: although the stop threshold is set to 100% either by configuration
+or by :command:`tlp fullcharge/setcharge`, the charge of BAT1 stops at about
+80%. When BAT1 reaches 80%, BAT0 starts charging to 100%, then BAT1 continues
+to 100%. If a stop threshold is set for BAT0, the last step may never happen.
 
 No solution: Lenovo's EC firmware offers no possibility to change the behaviour
 (see above).
@@ -846,33 +807,24 @@ No solution: Lenovo's EC firmware offers no possibility to change the behaviour
 
 Why does the battery not begin to discharge when the stop threshold is reached?
 -------------------------------------------------------------------------------
-*Author's remark: sometimes users trap into this misunderstanding without me having
-understood how it happens. This is the attempt to lead them out again.*
+*Author's note: sometimes users get into this misunderstanding without me
+understanding how it happens. This is an attempt to get them out.*
 
-The task of the stop threshold is to reduce battery wear by limiting the charge
-level below 100%. So charging stops at the threshold and the battery will not be
-discharged as long as the charger remains connected.
-
-This is the behaviour designated by the vendor. It cannot (and should not)
-be changed, because repeated discharge of the battery during operation on AC power
-would lead to absurdly high wear (i.e. charging cycles) without any benefit being
-derived from it.
+The purpose of the stop threshold is to reduce battery wear by limiting the
+charge level below 100%. So charging stops at the threshold and the battery
+is not discharged as long as the charger remains connected.
+This is the manufacturer's intended behavior. It cannot (and should not) be
+changed, because repeatedly discharging the battery while operating on AC power
+would lead to absurdly high wear (i.e. charging cycles) without any benefit.
 
 A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
-
-My battery does not charge anymore after recalibration showing X% remaining capacity constantly
------------------------------------------------------------------------------------------------
-*ThinkPads only*
-
-Most probable cause: battery is defect – and was it even before the recalibration
-attempt.
 
 `tlp recalibrate` terminates with an error message
 --------------------------------------------------
 *ThinkPads only*
 
-Impact: recalibration does not work at all without a full discharge to tell the
-battery controller (the one *in* the battery) where the actual 0% is.
+Impact: Recalibration will not work without a full discharge. This is to tell
+the battery controller (the one *in* the battery) where the actual 0% is.
 
 Symptom 1: ::
 
@@ -883,7 +835,7 @@ try a different charger.
 
 Symptom 2: ::
 
-    Error: battery BAT0 was not discharged completely i.e. terminated by the firmware -- check your hardware.
+    Error: battery BAT0 was not discharged completely i.e. terminated by the firmware -- check your hardware (battery, charger).
 
 Cause: this is a hardware issue either with your battery (likely), charger or laptop.
 
@@ -892,10 +844,10 @@ remedy the situation, a system board defect could be the reason.
 
 .. note::
 
-    If the discharge process regularly stops at 1%, for example, you may prefer
-    to ignore the problem because it is minor. Nevertheless, a battery or
-    hardware defect could be present in this case.
-
+    * If the discharge process regularly stops at 1%, for example, you may prefer
+      to ignore the problem because it is minor (could be a rounding error).
+      With higher values, however, it could be a battery or hardware defect.
+    * Values ≤ 1% will not trigger an error message in version 1.7 (yet unreleased).
 
 .. _faq-panel-applet-soc:
 
@@ -908,7 +860,7 @@ not reflect the charging condition correctly as soon as charge thresholds interv
 
 In this situation :command:`tlp-stat -b` shows
 
-* "Idle" - *Version 1.4 and newer*
+* "Idle" - *Version 1.4 and later*
 * "Unknown (threshold effective)" - *Version 1.3*
 
 for **/sys/class/power_supply/BATx/status**.

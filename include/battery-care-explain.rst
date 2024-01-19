@@ -1,14 +1,13 @@
 *In Version 1.3 and below it is called "Battery Features".*
 
-The purpose of `battery care` on laptops is to reduce the loss of capacity due
-to wear from ongoing battery operation i.e. to prolongate the `battery lifespan`.
-This can be achieved by:
+Battery care aims to extend the lifespan of the battery by reducing wear
+and capacity loss resulting from ongoing operation. This can be achieved by:
 
-1. Limiting the maximum charge level to below 100%: *stop charge threshold*
-2. After a short discharge, prevent the charging process from continuing as
-   soon as the charger is connected: *start charge threshold*
-3. *Recalibration*: helps keeping charge level (SOC) readings and
-   battery runtime estimates accurate by setting new "full charge" and
-   "full discharge" anchors in the battery controller
+1. Limiting the maximum charge level to below 100% (stop charge threshold)
+2. Preventing the charging process from continuing as soon as the charger
+   is connected after a short discharge (start charge threshold)
+3. Recalibration helps keep the charge level readings and battery
+   runtime estimates accurate by setting new "full charge" and "full discharge"
+   anchors in the battery controller.
 
-Battery care does *not* comprise additional power saving.
+Battery care does *not* involve additional power saving.
