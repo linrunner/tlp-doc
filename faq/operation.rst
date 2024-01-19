@@ -26,7 +26,8 @@ How do I stop or disable TLP completely?
 
 .. seealso::
 
-    Background: :ref:`intro-how-it-works` (user perspective) and
+    Background: the service is intended for system startup and shutdown only.
+    :ref:`intro-how-it-works` (user perspective) and
     :doc:`/developers/architecture` (technical) explain TLP's event-driven
     actions.
 

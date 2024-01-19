@@ -9,7 +9,7 @@ Does power-profiles-daemon save power over TLP?
 Simply put, power-profiles-daemon is a CPU throttle that is most
 effective when high or medium load applications are in use.
 Unlike TLP, it has no settings to reduce power consumption when the CPU
-is idle. such as when there is no user input.
+is idle, such as when there is no user input.
 
 power-profiles-daemon only covers a subset of TLP's settings:
 
