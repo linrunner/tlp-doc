@@ -62,7 +62,7 @@ Extend battery runtime
 Improve performance on AC power
 -------------------------------
 4. Change :ref:`CPU energy/performance policy <set-cpu-energy-perf-policy>`
-   to `performance` (default is `balance_performace`):
+   to `performance` (default is `balance_performance`):
 
 .. code-block::
     :emphasize-lines: 1
