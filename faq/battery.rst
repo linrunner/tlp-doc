@@ -550,6 +550,32 @@ These models are neither supported by `tp-smapi` nor by `tpacpi-bat` or `natacpi
 Please refrain from opening issues.
 
 
+.. _faq-thinkpad-thresholds-not-respected:
+
+ThinkPad charge thresholds not respected
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sometimes, a ThinkPad may ignore the charge thresholds even though the output
+of the :command:`tlp-stat -b` shows that they were correctly written to the
+hardware: ::
+
+    /sys/class/power_supply/BAT1/charge_control_start_threshold =     75 [%]
+    /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
+
+The cause may be a malfunction of the embedded controller (EC) e.g. a firmware
+bug or a "hiccup" of the firmware.
+
+Solutions:
+
+* Reset the EC: shut down the system, then press the emergency reset hole (button)
+  on the bottom of the ThinkPad with a paper clip. On older models, the EC is reset
+  by shutting down, removing all batteries, disconnecting the power supply and
+  pressing the power button for 30 seconds.
+* Update to the latest EC firmware (most elegantly with `fwupdmgr`).
+
+If the measures described above do not help, the battery or system board may be
+defective.
+
+
 .. _faq-asus-threshold-not-set-on-boot:
 
 ASUS laptops: stop charge threshold isn't set at boot
