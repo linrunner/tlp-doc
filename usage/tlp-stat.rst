@@ -85,7 +85,7 @@ Add `-v` to see battery voltages (if available).
     tlp-stat --rfkill
 
 
-.. rubric:: View system information
+.. rubric:: View system information and TLP status
 
 ::
 
