@@ -23,12 +23,12 @@ is also disabled at high CPU temperatures.
 
 Which of these tools will save you more power depends on your workload:
 
-* If the laptop is often running under medium or high load, such as video
-  playback or compiling, using the `power-saver` profile
-  in power-profiles-daemon may achieve similar savings to TLP.
-* However, if the laptop is mostly idle or running with low load,
-  such as text editing or browsing, TLP offers advantages over
-  power-profiles-daemon.
+* If the laptop frequently runs under medium or high load, such as during
+  video playback or compiling, using the `power-saver` profile with
+  power-profiles-daemon can provide similar energy savings as TLP.
+* However, TLP offers advantages over power-profiles daemon when the laptop
+  is idle, such as during periods of no user input or low load operations
+  like text editing or browsing.
 
 Note that TLP's default settings do not enable `PLATFORM_PROFILE_ON_AC/BAT`
 and `CPU_BOOST_ON_AC/BAT`. To achieve truly comparable results, these settings
