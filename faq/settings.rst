@@ -10,7 +10,7 @@ It depends, TLP:
 * Does not touch display or keyboard backlight brightness → no conflict.
 * Does not change suspend / hibernate settings → no conflict.
 * Applies WiFi power saving by default → conflict with KDE energy saving
-  settings is possible.
+  settings is possible (relevant only for Plasma versions < 6).
 * Applies charge thresholds → conflict with KDE charge limit setting is
   possible.
 * Switches radio devices on and off when configured by the user →
