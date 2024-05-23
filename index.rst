@@ -18,7 +18,7 @@ TLP - Optimize Linux Laptop Battery Life
     implement Powertop’s recommendations out of the box. So you may just
     **install and forget** it.
 
-    Nevertheless TLP is **highly customizable** to fulfil your
+    Nevertheless TLP is **highly customizable** to meet your
     specific requirements.
 
 Latest News

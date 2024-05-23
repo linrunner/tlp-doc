@@ -180,7 +180,7 @@ Lenovo ThinkPads
        | 100 - hardware default, threshold off
    * - **See also**
      - | - :ref:`faq-which-kernel-module`
-       | - :ref:`faq-thinkad-misc-battery-malfunc`
+       | - :ref:`faq-thinkpad-battery-malfunc`
        | - :ref:`Erratic Battery Behaviour <faq-erratic-battery-behavior>`
 
 
