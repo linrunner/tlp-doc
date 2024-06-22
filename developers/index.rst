@@ -7,14 +7,14 @@ code contributions and packaging of TLP for Linux distributions.
    :maxdepth: 1
    :caption: Contents
 
-   source
+   changes
+   architecture
+   debug
+   dependencies
    files
    makefile
-   dependencies
-   architecture
    scripts
-   debug
-   changes
+   source
 
 .. note::
 

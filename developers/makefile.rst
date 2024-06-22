@@ -62,7 +62,7 @@ Parameters
      - Prefix for all install directories
    * - TLP_BATD
      - /usr/share/tlp/bat.d
-     - [from 1.4] Install directory for battery plugins
+     - Install directory for battery plugins
    * - TLP_BIN
      - /usr/bin
      - Install directory
@@ -74,13 +74,16 @@ Parameters
      - Directory for drop-in customizations
    * - TLP_CONFREN
      - /usr/share/tlp/rename.conf
-     - [from 1.4] Translation table for parameters
+     - Translation table for parameters
    * - TLP_CONFUSR
      - /etc/tlp.conf
      - User configuration
    * - TLP_ELOD
      - /lib/elogind/system-sleep
      - Install directory elogind suspend/resume script
+   * - TLP_FISHCPL
+     - /usr/share/fish/vendor_completions.d
+     - Install directory for Fish completion rules
    * - TLP_FLIB
      - /usr/share/tlp/func.d
      - Install directory for function libs
@@ -96,16 +99,19 @@ Parameters
      - Install directory for NetworkManager hooks
    * - TLP_NO_BASHCOMP
      - 0
-     - 1=do not install bash completion rules
+     - 1=do not install Bash completion rules
+   * - TLP_NO_FISHCOMP
+     - 0
+     - 1=do not install Fish completion rules
    * - TLP_NO_INIT
      - 0
      - 1=do not install tlp.init
    * - TLP_NO_TPACPI
-     - 0
+     - [until 1.6.1] 0
      - 1=do not install tpacpi-bat
    * - TLP_NO_ZSHCOMP
      - 0
-     - 1=do not install zsh completion rules
+     - 1=do not install ZSH completion rules
    * - TLP_RUN
      - /run/tlp
      - Directory for runtime data (volatile)
@@ -117,7 +123,7 @@ Parameters
      - Install directory for systemd suspend/resume hooks
    * - TLP_SHCPL
      - /usr/share/bash-completion/completions
-     - Install directory for bash completion rules
+     - Install directory for Bash completion rules
    * - TLP_SYSD
      - /lib/systemd/system
      - Install directory for systemd units
@@ -141,4 +147,4 @@ Parameters
      - 1=install systemd unit files
    * - TLP_ZSHCPL
      - /usr/share/zsh/site-functions
-     - Install directory for zsh completion rules
+     - Install directory for ZSH completion rules

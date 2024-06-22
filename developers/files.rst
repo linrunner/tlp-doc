@@ -27,25 +27,29 @@ packages:
    * - bat.d/*
      - tlp
      - /usr/share/tlp/bat.d/
-     - [from 1.4] TLP battery plugins
-   * - | [from 1.6] completions/bash/tlp.bash_completion
-       | [before 1.6] tlp.bash_completion
+     - TLP battery plugins
+   * - completions/bash/tlp.bash_completion
      - tlp
      - | /usr/share/bash-completion/completions/
        |  tlp,
        |  tlp-stat,
        |  bluetooth,
-       |  nfc [from 1.5],
+       |  nfc,
        |  wifi,
        |  wwan
      - Bash completion rules
-   * - | [from 1.6] completions/zsh/_tlp
+   * - | completions/fish/tlp.fish
+       |   tlp-stat.fish
+     - tlp
+     - /usr/share/fish/vendor_completions.d/
+     - Fish completion rules
+   * - | completions/zsh/_tlp
        |  _tlp-radio-device
        |  _tlp-run-on
        |  _tlp-stat
      - tlp
      - /usr/share/zsh/site-functions/
-     - Zsh completion rules
+     - ZSH completion rules
    * - de.linrunner.tlp.metainfo.xml
      - tlp
      - /usr/share/metainfo
@@ -57,7 +61,7 @@ packages:
    * - deprecated.conf
      - tlp
      - /usr/share/tlp/
-     - [from 1.6] Deprecated configuration parameters and related messages
+     - Deprecated configuration parameters and related messages
        for :command:`tlp-stat -c`
    * - func.d/*
      - tlp
@@ -76,7 +80,7 @@ packages:
    * - rename.conf
      - tlp
      - /usr/share/tlp/
-     - [from 1.4] translation table for parameters
+     - translation table for parameters
    * - tlp.conf
      - tlp
      - /etc/
@@ -108,7 +112,7 @@ packages:
      - tlp
      - | /usr/bin/
        |   bluetooth,
-       |   nfc [from 1.5],
+       |   nfc,
        |   wifi,
        |   wwan
      - Script to turn radio devices on and off (symlinks to the same file)
@@ -155,11 +159,6 @@ packages:
      - tlp
      - n/a
      - Upstart script (currently not used)
-   * - tpacpi-bat
-     - tlp
-     - /usr/sbin/
-     - Script providing battery recalibration for ThinkPads since model year
-       2011 - e.g. T420/X220 and newer. Written by Elliot Wolk.
    * - man-rdw/*
      - tlp-rdw
      - /usr/share/man/man8/
@@ -168,19 +167,18 @@ packages:
      - tlp-rdw
      - /usr/bin
      - RDW command line tool
-   * - | [from 1.6] completions/bash/tlp-rdw.bash_completion
-       | [before 1.6] tlp-rdw.bash_completion
-     - tlp
-     - /usr/share/bash-completion/completions/tlp-rdw
-     - Bash completion rules
-   * - [from 1.6] completions/zsh/_tlp-rdw
-     - tlp
-     - /usr/share/zsh/site-functions/_tlp-rdw
-     - Zsh completion rules
-   * - tlp-rdw.bash_completion
+   * - completions/bash/tlp-rdw.bash_completion
      - tlp-rdw
      - /usr/share/bash-completion/completions/tlp-rdw
      - Bash completion rules
+   * - completions/fish/tlp-rdw.fish
+     - tlp-rdw
+     - /usr/share/fish/vendor_completions.d/tlp-rdw.fish
+     - Fish completion rules
+   * - completions/zsh/_tlp-rdw
+     - tlp-rdw
+     - /usr/share/zsh/site-functions/_tlp-rdw
+     - ZSH completion rules
    * - tlp-rdw.rules
      - tlp-rdw
      - /lib/udev/rules.d/85-tlp-rdw.rules
@@ -191,13 +189,12 @@ packages:
      - Handle dock/undock events
    * - tlp-rdw-nm
      - tlp-rdw
-     - | [from 1.6] /usr/lib/NetworkManager/dispatcher.d
-       | [until 1.5] /etc/NetworkManager/dispatcher.d
+     - /usr/lib/NetworkManager/dispatcher.d
      - NetworkManager hook for ifup/ifdown events
    * - unit-tests/*
      - n/a
      - n/a
-     - [from 1.4] functional tests of TLP (incomplete coverage);
+     - functional tests of TLP (incomplete coverage);
        needs specific hardware, not suited for package autotest;
        see unit-tests.rst for requirements
    * - VERSION

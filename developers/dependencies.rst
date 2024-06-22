@@ -5,14 +5,11 @@ implemented as package dependencies.
 
 Package tlp
 -----------
-acpi-call - *obsolete*
-     External kernel module to support
-     :ref:`battery recalibration of ThinkPads <bc-vendor-thinkpad>`
-     since model year 2011 - e.g. T420/X220 and newer.
-     Obsolete since kernel 5.17 which provides the sysfs node `charge_behaviour`
-     for this purpose.
+acpi-call - *obsolete* [starting with 1.7]
+   External kernel module that became obsolete with kernel 5.17.
 
-.. include:: /include/no-package-dep.rst
+auto-cpufreq - *conflicts*
+    A power management tool that essentially works on the same tunables as TLP.
 
 awk, grep, sed - *mandatory*
     TLP is tested with the GNU version of these essential utilities.
@@ -32,10 +29,7 @@ iw - *mandatory*
     (see wireless-tools below).
 
 laptop-mode-tools - *conflicts*
-    Only one power management tool may be installed at a time.
-
-lsb-release - *optional* [before 1.4]
-    Used to show distribution/release in :command:`tlp-stat -s`.
+    A power management tool that essentially works on the same tunables as TLP.
 
 pciutils - *mandatory*
     Provides `lspci` used to show PCI(e) devices in :command:`tlp-stat -e`.
@@ -43,10 +37,10 @@ pciutils - *mandatory*
 
 .. _dev-depend-ppd:
 
-power-profiles-daemon - *conflicts* [from 1.5]
-    `power-profiles-daemon` (version 0.10.1) manages the following settings,
-    which TLP also manages:
+power-profiles-daemon - *conflicts*
+    `power-profiles-daemon` manages the following subset of TLP's tunables:
 
+     * AMDGPU_ABM_LEVEL_ON_AC/BAT (activated in default.conf)
      * CPU_ENERGY_PERF_POLICY_ON_AC/BAT (activated in default.conf)
      * CPU_BOOST_ON_AC/BAT
      * PLATFORM_PROFILE_ON_AC/BAT
@@ -84,6 +78,9 @@ smartmontools - *optional*
     Provides `smartctl` used to show hard disk drive SMART data in
     :command:`tlp-stat -d`.
 
+tuned - *conflicts*
+    A power management tool that essentially works on the same tunables as TLP.
+
 tp-smapi - *optional*
     External kernel modules providing battery charge thresholds and recalibration
     for ThinkPads before model year 2011 as well as specific :command:`tlp-stat -b`
@@ -102,19 +99,9 @@ util-linux - *mandatory*
 
 .. include:: /include/busybox-not-supported.rst
 
-wireless-tools - *deprecated* [before 1.5]
-    Provides `iwconfig` for Wi-Fi power saving; only if `iw` and `rfkill`
-    (see above) are not available.
-
-x86_energy_perf_policy - *optional*
-    Linux kernel version specific tool contained in the kernel tree
-    (**tools/power/x86**). Needed to set the energy-performance bias (EPB)
-    for Intel CPU's (kernel < 5.2 only).
-
-.. note::
-
-    Ubuntu provides it via the metapackage `linux-tools`, Debian via
-    `linux-cpupower`. Your mileage with other distributions may vary.
+x86_energy_perf_policy - *obsolete* [starting with 1.7]
+    Tool for setting the energy performance bias (EPB). Became obsolete
+    with kernel 5.2.
 
 
 Package tlp-rdw

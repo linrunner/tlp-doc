@@ -4,6 +4,34 @@ This section lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
+Version 1.7 (unreleased)
+    Makefile:
+
+    - New parameters: `TLP_FISHCPL`, `TLP_NO_FISHCOMP`
+    - Removed parameters: `TLP_NO_TPACPI`
+
+    Files:
+
+    - New:
+
+      - **completion/fish/**
+      - **bat.d/25-msi, 60-macbook**
+
+    - Removed: **tpacpi-bat**
+
+    Dependencies:
+
+    - Add:
+
+        - **auto-cpufreq** - conflicts
+        - **tuned** - conflicts
+
+    - Remove:
+
+        - **acpi-call** - superfluous after tpacpi-bat was removed!
+        - **x86_energy_perf_policy** - unnecessary, as backward compatibility
+          for EPB with kernels < 5.2 was removed
+
 Version 1.6, 1.6.1
     Makefile:
 
