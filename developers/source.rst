@@ -15,7 +15,7 @@ The repository holds the following branches:
 
 Obtain the current development version with ::
 
-    git clone git://github.com/linrunner/TLP.git tlp.git
+    git clone https://github.com/linrunner/TLP.git tlp.git
     cd tlp.git
 
 Checkout the `main` branch ::
@@ -41,25 +41,19 @@ Building Packages
 Debian / Ubuntu
 ^^^^^^^^^^^^^^^
 
-1. Install the package
+1. Install the required package
 
 * **packaging-dev** – Metapackage providing common packaging tools
 
-2. Checkout `debian/current` branch ::
+2. Add a Git worktree for the `debian/current` branch ::
 
-    git checkout -b debian/current origin/debian/current
+    git worktree add worktree/debian-current debian/current
 
-3. Checkout `main` branch ::
+3. Symlink worktree to **debian/**
 
-    git checkout main
+    ln -s worktree/debianc-urrent/debian debian
 
-4. Populate **debian/** with ::
-
-    rm -rf debian/*
-    git checkout debian/current -- debian
-    git rm -r --cached debian
-
-5. Edit **debian/changelog** to your needs (optional).
+4. Edit **debian/changelog** to your needs (optional).
 
 6. Build binary packages with ::
 
