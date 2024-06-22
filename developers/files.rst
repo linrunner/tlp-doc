@@ -118,7 +118,7 @@ packages:
      - Script to turn radio devices on and off (symlinks to the same file)
    * - tlp.rules
      - tlp
-     - /lib/udev/rules.d/85-tlp.rules
+     - /usr/lib/udev/rules.d/85-tlp.rules
      - Call :command:`tlp-usb-udev` for every plugged USB device
    * - tlp-run-on
      - tlp
@@ -129,18 +129,18 @@ packages:
        (symlinks to the same file)
    * - tlp.service
      - tlp
-     - /lib/systemd/system/
+     - /usr/lib/systemd/system/
      - Service to be invoked upon system start/shutdown by systemd:
        calls :command:`tlp init start/stop` to apply power saving settings,
        switch radio devices and set the battery thresholds.
    * - tlp-sleep
      - tlp
-     - /lib/systemd/system-sleep/tlp
+     - /usr/lib/systemd/system-sleep/tlp
      - Script to be invoked by systemd upon suspend and resume:
        calls :command:`tlp resume/suspend` to apply settings
    * - tlp-sleep.elogind
      - tlp
-     - /lib/elogind/system-sleep/49-tlp-sleep
+     - /usr/lib/elogind/system-sleep/49-tlp-sleep
      - Script to be invoked by elogind upon suspend and resume:
        calls :command:`tlp resume/suspend` to apply settings
    * - tlp-stat
@@ -149,7 +149,7 @@ packages:
      - Status report with all effective settings
    * - tlp-usb-udev
      - tlp
-     - /lib/udev/
+     - /usr/lib/udev/
      - Enable autosuspend for plugged USB devices
    * - tlp-usblist
      - tlp
@@ -181,11 +181,11 @@ packages:
      - ZSH completion rules
    * - tlp-rdw.rules
      - tlp-rdw
-     - /lib/udev/rules.d/85-tlp-rdw.rules
+     - /usr/lib/udev/rules.d/85-tlp-rdw.rules
      - Call :command:`tlp-rdw-udev` for dock/undock events
    * - tlp-rdw-udev
      - tlp-rdw
-     - /lib/udev/
+     - /usr/lib/udev/
      - Handle dock/undock events
    * - tlp-rdw-nm
      - tlp-rdw

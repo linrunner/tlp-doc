@@ -7,6 +7,8 @@ For feature changes see the
 Version 1.7 (unreleased)
     Makefile:
 
+    - Changed parameter defaults: `TLP_ELOD`, `TLP_SDSL`, `TLP_SYSD`, `TLP_ULIB` -
+      install to **/usr/lib** instead of **/lib** (finish UsrMerge)
     - New parameters: `TLP_FISHCPL`, `TLP_NO_FISHCOMP`
     - Removed parameters: `TLP_NO_TPACPI`
 

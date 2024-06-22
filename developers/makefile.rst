@@ -79,7 +79,8 @@ Parameters
      - /etc/tlp.conf
      - User configuration
    * - TLP_ELOD
-     - /lib/elogind/system-sleep
+     - | [from 1.7] /usr/lib/elogind/system-sleep
+       | [until 1.6.1] /lib/elogind/system-sleep
      - Install directory elogind suspend/resume script
    * - TLP_FISHCPL
      - /usr/share/fish/vendor_completions.d
@@ -119,13 +120,15 @@ Parameters
      - /usr/sbin
      - Install directory
    * - TLP_SDSL
-     - /lib/systemd/system-sleep
+     - | [from 1.7] /usr/lib/systemd/system-sleep
+       | [until 1.6.1] /lib/systemd/system-sleep
      - Install directory for systemd suspend/resume hooks
    * - TLP_SHCPL
      - /usr/share/bash-completion/completions
      - Install directory for Bash completion rules
    * - TLP_SYSD
-     - /lib/systemd/system
+     - | [from 1.7] /usr/lib/systemd
+       | [until 1.6.1] /lib/systemd
      - Install directory for systemd units
    * - TLP_SYSV
      - /etc/init.d
@@ -134,7 +137,8 @@ Parameters
      - /usr/share/tlp
      - Install directory for function libs
    * - TLP_ULIB
-     - /lib/udev
+     - | [from 1.7] /usr/lib/udev
+       | [until 1.6.1] /lib/udev
      - Install directory for udev scripts
    * - TLP_VAR
      - /var/lib/tlp
