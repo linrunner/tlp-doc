@@ -42,25 +42,33 @@ For `Debian backports`_ use: ::
 
 Replace `DIST` with the codename of your installed Debian version.
 
-ThinkPads only: External Kernel Modules
----------------------------------------
-.. include:: ../include/thinkpad-kernel-modules.rst
+Legacy ThinkPads only: External Kernel Module for Battery Care
+--------------------------------------------------------------
+.. important::
 
-Depending on your model and kernel version external kernel module(s) are required
-to provide battery charge thresholds and recalibration.
+    As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
+    offers full battery care support (i.e. charge thresholds and recalibration)
+    for ThinkPads from model year 2011 onwards. Debian Bookworm meets this
+    requirement with its kernel 6.1, the even newer Debian Sid kernel as well.
 
-The output of :command:`tlp-stat -b` will guide you which package to install:
+    **An external kernel module (also referred to as "out-of-tree" module)
+    is not required in these cases, and the following steps are not necessary.
+    However, if your model is from 2011 or older, read on.**
+
+Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
+shows the line
+
+.. code-block:: none
+
+    Install tp-smapi kernel modules for ThinkPad battery thresholds and recalibration
+
+then install the required package
 
 * **tp-smapi-dkms** *(main)* – optional – External kernel module providing
   battery charge thresholds and recalibration for ThinkPads before model year 2011
   as well as specific :command:`tlp-stat -b` output until model year 2011
-* **acpi-call-dkms** *(main)* – optional **(kernel 5.16 and older only)** –
-  External kernel module providing battery recalibration for ThinkPads
-  since model year 2011 - e.g. T420/X220 and newer
 
-
-Install the appropriate package either with your favorite package manager
-or the command ::
+either with your favorite package manager or the command ::
 
     apt install tp-smapi-dkms
 
@@ -78,7 +86,6 @@ or the command ::
 
 .. note::
 
-    * :ref:`faq-which-kernel-module` explains details
     * Refer to `Debian backports`_ for setup instructions
     * You must disable Secure Boot to use the ThinkPad specific packages
 

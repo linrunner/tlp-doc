@@ -38,23 +38,27 @@ operation of TLP's :doc:`/settings/radio` options: ::
     * FAQ: :ref:`faq-ppd-conflict`
     * Refer to the `Arch Wiki <https://wiki.archlinux.org/index.php/TLP>`_ as well
 
-ThinkPads only: External Kernel Modules
----------------------------------------
+Legacy ThinkPads only: External Kernel Module for Battery Care
+--------------------------------------------------------------
 .. important::
 
-    Arch Linux (at the time of writing) offers kernel 6.4 (linux) or 6.1 (linux-lts).
+    Arch Linux (at the time of writing) provides kernel 6.10 (linux) or 6.6 (linux-lts).
     In combination with TLP 1.5 or newer this enables full battery care support
     (i.e. charge thresholds and recalibration) for ThinkPads from model year 2011 onwards.
 
-    **Therefore no external kernel modules are required and you do not need to proceed
-    any further here.**
+    **An external kernel module (also referred to as "out-of-tree" module)
+    is not required in this case, and the following steps are not necessary.
+    However, if your model is from 2011 or older, read on.**
 
-    However, continue reading if your ThinkPad model is from 2011 or older.
 
-Depending on your model and kernel version external kernel module(s) are required
-to provide battery charge thresholds and recalibration.
+Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
+shows the line
 
-The output of :command:`tlp-stat -b` will guide you which package to install:
+.. code-block:: none
+
+    Install tp-smapi kernel modules for ThinkPad battery thresholds and recalibration
+
+then install the approriate package
 
 * **tp_smapi** *(Community)* – optional – External kernel module providing
   battery charge thresholds and recalibration for ThinkPads before model year 2011
@@ -62,13 +66,11 @@ The output of :command:`tlp-stat -b` will guide you which package to install:
 * **tp_smapi-lts** *(Community)* – optional – Use instead of `tp_smapi` when the
   LTS kernel is installed
 
-Install the appropriate package  either with your favorite package manager
-or the command ::
+either with your favorite package manager or the command ::
 
     pacman -S tp_smapi
 
 .. note::
 
-    * Refer to :ref:`faq-which-kernel-module` for details
     * You must disable Secure Boot to use the ThinkPad specific packages
 

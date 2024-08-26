@@ -41,36 +41,32 @@ operation of TLP's :doc:`/settings/radio` options: ::
     * FAQ: :ref:`Service units <faq-service-units>`
     * FAQ: :ref:`faq-ppd-conflict`
 
-ThinkPads only: External Kernel Modules
----------------------------------------
+Legacy ThinkPads only: External Kernel Module for Battery Care
+--------------------------------------------------------------
 .. important::
 
-    OpenSUSE Tumbleweed (at the time of writing) provides Linux kernel 6.4.
+    OpenSUSE Tumbleweed (at the time of writing) provides Linux kernel 6.10.
     In combination with TLP 1.5 or newer it offers full battery care support
     (i.e. charge thresholds and recalibration) for ThinkPads from model
     year 2011 onwards.
 
-    **Therefore OpenSUSE Tumbleweed requires no external kernel modules and you
-    do not need to proceed any further here.**
+    **An external kernel module (also referred to as "out-of-tree" module)
+    is not required in this case, and the following steps are not necessary.
+    However, if your model is from 2011 or older, read on.**
 
-    Linux kernel 5.15 distributed with OpenSUSE Leap 15.4 and 15.5 provides
-    only charge threshold functionality but no recalibration. If this is
-    sufficient for you, stop reading here. However, if you need the recalibration
-    feature or your model and/or kernel is older, read on. You may find out your
-    current kernel version with the command uname -a or when TLP is already
-    installed with tlp-stat -s.
+Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
+shows the line
 
-For openSUSE Leap (with kernel < 5.17) and/or ThinkPads of model year 2011 and older
-your mileage may vary as you have to browse `openSUSE Software <https://software.opensuse.org/>`_
-for community packages or build the required module from source. The output of
-:command:`tlp-stat -b` will guide you which external kernel module is required:
+.. code-block:: none
 
-* **acpi_call** – optional – External kernel module providing battery recalibration
-  for ThinkPads as of model year 2011 - e.g. T420/X220 and newer
-* **tp_smapi** – optional – External kernel module providing battery charge
-  thresholds and recalibration for ThinkPads before model year 2011
-  as well as specific :command:`tlp-stat -b` output until model year 2011
+    Install tp-smapi kernel modules for ThinkPad battery thresholds and recalibration
 
-.. seealso::
+then install the required package as follows.
 
-    * Refer to :ref:`faq-which-kernel-module` for details
+**openSUSE Tumbleweed:** install from the official repository with your favorite
+package manager or the command ::
+
+    zypper install tp_smapi
+
+**openSUSE Leap:** browse for `community packages of tp_smapi <https://software.opensuse.org/package/tp_smapi-kmp-default>`_
+or build the required module from source. Your mileage may vary.

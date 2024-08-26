@@ -64,29 +64,26 @@ operation of TLP's :doc:`/settings/radio` options: ::
 
     FAQ: :ref:`Service units <faq-service-units>`
 
-ThinkPads only: External Kernel Modules
----------------------------------------
+Legacy ThinkPads only: External Kernel Module for Battery Care
+--------------------------------------------------------------
 .. important::
 
-    Fedora 36 was released with Linux kernel 5.17. In combination with TLP 1.5
+    Fedora 40 was released with Linux kernel 6.8. In combination with TLP 1.5
     or newer it offers full battery care support (i.e. charge thresholds and
     recalibration) for ThinkPads from model year 2011 onwards.
 
-    **Therefore no external kernel modules are required and you do not need to proceed
-    any further here.**
+    **An external kernel module (also referred to as "out-of-tree" module)
+    is not required in this case, and the following steps are not necessary.
+    However, if your model is from 2011 or older, read on.**
 
-    However, continue reading if your ThinkPad model is from 2011 or older.
+Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
+shows the line
 
-ThinkPad models before 2011 (i.e. T410/X201 and older) require the
-external kernel module `tp_smapi` to provide battery charge thresholds
-and recalibration.
-For T420/X220 (model year 2011) only `tp_smapi` is not a hard requirement
-but they benefit by having :command:`tlp-stat -b` display the battery cycle
-count and other additional information.
-The output of :command:`tlp-stat -b` will recommend to install `tp_smapi`
-accordingly.
+.. code-block:: none
 
-The necessary packages are not available from the official Fedora repositories.
+    Install tp-smapi kernel modules for ThinkPad battery thresholds and recalibration
+
+then install the required packages. They are not available from the official Fedora repositories.
 Instead you need to add the `RPM Fusion` and `ThinkPad Extras` repositories: ::
 
    dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -125,7 +122,6 @@ New packages are available first in the testing repository: ::
 .. note::
 
     * The RPM Fusion repo delivers build dependencies for the `akmod-*` packages
-    * Refer to :ref:`faq-which-kernel-module` for details
     * You must disable Secure Boot to use the ThinkPad specific packages
 
 How to validate the Repository Keys

@@ -69,20 +69,6 @@ See :ref:`above <faq-battery-care>`.
 
 How to choose good battery charge thresholds?
 ---------------------------------------------
-.. note::
-
-    Newer ThinkPad models may not need charge thresholds due to dualmode battery
-    firmware – a Lenovo staff member states at
-    `Lenovo Forums [1] <https://forums.lenovo.com/t5/Windows-10/Power-Manager-for-Windows-10/m-p/2129075#M794>`_:
-    *"The battery firmware itself will recognize the scenario where the battery
-    is ALWAYS fully charged 100% (over a period of many weeks) and adjust the
-    full charge capacity downwards in a way to maintain maximum battery health.
-    This is something that happens automatically in the battery firmware.
-    There is nothing that a user needs to do manually, to maximize battery health
-    on these batteries. For this reason, we don't provide any utility to manually
-    manage battery charge thresholds [...]"*
-
-
 Factory settings for ThinkPad battery thresholds are as follows: when plugged in
 the battery starts charging at 96%, and stops at 100%. These settings are optimized
 for maximum runtime, but having a battery hold a lot of power will decrease its
@@ -101,23 +87,25 @@ On the contrary, if you use it unplugged most of the time, starting charge at
 85% and stopping at 90% would allow for a much longer runtime and still give a
 lifespan benefit over the factory settings.
 
-Sources:
-
-* `Lenovo Support: Use maximum runtime (hours) or maximum lifespan (years) in battery settings?
-  <https://support.lenovo.com/bd/en/solutions/ht078208-how-can-i-increase-battery-life-thinkpad-and-lenovo-vbke-series-notebooks>`_
-* `Lenovo Forums [2] <https://forums.lenovo.com/t5/Welcome-FAQs-Knowledge-Base/How-can-I-increase-battery-life-ThinkPad/ta-p/244800>`_
-
 Default TLP settings (only if you uncomment the relevant lines) are slightly more
 protective regarding lifespan, with 75/80% charge thresholds.
 
 .. note::
 
-    Please always consider that the start threshold is the critical constraint
-    for runtime, because it defines the lowest charge level that can occur while
-    plugged. Remember that TLP provides a command (:command:`tlp fullcharge`)
-    to fully charge the battery, when you need to temporarily maximize runtime
-    (for example in case of a trip).
+   * Please always consider that the start threshold is the critical constraint
+     for runtime, because it defines the lowest charge level that can occur while
+     plugged. Remember that TLP provides a command (:command:`tlp fullcharge`)
+     to fully charge the battery, when you need to temporarily maximize runtime
+     (for example in case of a trip).
+   * This section can be applied similarly to supported non-ThinkPad hardware as
+     long as arbitrary threshold values (0..100) are supported.
+     See the corresponding section in :doc:`/settings/bc-vendors`.
 
+Sources:
+
+* `Lenovo Support: Use maximum runtime (hours) or maximum lifespan (years) in battery settings?
+  <https://support.lenovo.com/bd/en/solutions/ht078208-how-can-i-increase-battery-life-thinkpad-and-lenovo-vbke-series-notebooks>`_
+* `Lenovo Forums [2] <https://forums.lenovo.com/t5/Welcome-FAQs-Knowledge-Base/How-can-I-increase-battery-life-ThinkPad/ta-p/244800>`_
 
 .. _faq-how-to-set-thresholds:
 
@@ -176,93 +164,30 @@ and subsequently check the sections further down for possible explanations.
 
 Which external kernel module do I need for my ThinkPad?
 -------------------------------------------------------
-.. include:: ../include/thinkpad-kernel-modules.rst
+.. important::
 
-.. note::
+    As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
+    offers full battery care support (i.e. charge thresholds and recalibration)
+    for ThinkPads from model year 2011 onwards. The majority of current
+    Linux distributions meet the kernel requirement.
 
-    `thinkpad_acpi` is not an external kernel module and you do not normally have
-    to worry about it. It is contained in the Linux kernel and all distributions
-    provide it as part of their kernel packages. ThinkPads load it automatically
-    at boot time.
+    **An external kernel module (also referred to as an "out-of-tree" module)
+    is not required in this case, and the following steps are not necessary.
+    However, if your model is from 2011 or older, read on.**
 
 Prerequisite: make sure to install the most recent version of TLP for
 accurate recommendations.
 
-Check the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
-for the following lines
+Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
+shows the line
 
 .. code-block:: none
 
     Install tp-smapi kernel modules for ThinkPad battery thresholds and recalibration
-    Install acpi_call kernel module for ThinkPad battery recalibration
 
-and install the required external kernel module package as explained in
+then install the required package as explained in
 :doc:`/installation/index` for your distribution.
 
-Most ThinkPads only need one of the two external kernel modules, if any.
-Check the output of :command:`tlp-stat -b` for lines like:
-
-.. code-block:: none
-
-    tp-smapi = inactive (ThinkPad not supported)
-    tpacpi-bat (acpi_call)  = inactive (superseded by natacpi)
-
-and remove the unnecessary module package(s).
-
-
-.. rubric:: natacpi – Ultimate solution
-
-Starting with kernel 5.17 `tpacpi-bat` is completely superseded by the new,
-native kernel API called `natacpi` (contained in the ubiquitious kernel module
-`thinkpad_acpi`). :command:`tlp-stat -b` indicates this as follows:
-
-*Version 1.5 and later*
-
-.. code-block:: none
-    :emphasize-lines: 5
-
-    +++ Battery Care
-    Plugin: thinkpad
-    Supported features: charge thresholds, recalibration
-    Driver usage:
-    * natacpi (thinkpad_acpi) = active (charge thresholds, recalibration)
-    ...
-    /sys/class/power_supply/BAT0/charge_control_start_threshold =     96 [%]
-    /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
-    /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
-
-Kernels 4.19 through 5.16 support only charge thresholds and still require
-the help of the external kernel module `acpi_call` for recalibration:
-
-*Version 1.4*
-
-.. code-block:: none
-    :emphasize-lines: 6
-
-    +++ Battery Care
-    Plugin: thinkpad
-    Supported features: charge thresholds, recalibration
-    Driver usage:
-    * natacpi (thinkpad_acpi) = active (charge thresholds)
-    * tpacpi-bat (acpi_call)  = active (recalibration)
-    ...
-    /sys/class/power_supply/BAT0/charge_control_start_threshold =     96 [%]
-    /sys/class/power_supply/BAT0/charge_control_end_threshold   =    100 [%]
-    tpacpi-bat.BAT0.forceDischarge                              =      0
-
-*Version 1.3*
-
-.. code-block:: none
-    :emphasize-lines: 3
-
-    +++ Battery Features
-    natacpi = active (data, thresholds)
-    tpacpi-bat = active (recalibrate)
-    tp-smapi = inactive (ThinkPad not supported)
-    ...
-    /sys/class/power_supply/BAT0/charge_start_threshold         =     96 [%]
-    /sys/class/power_supply/BAT0/charge_stop_threshold          =    100 [%]
-    tpacpi-bat.BAT0.forceDischarge                              =      0
 
 .. seealso::
 
@@ -270,11 +195,6 @@ the help of the external kernel module `acpi_call` for recalibration:
     * `tp-smapi <https://www.thinkwiki.org/wiki/Tp_smapi>`_
       – Documentation for the external kernel modules required for ThinkPads
       until model year 2011
-    * `tpacpi-bat <https://github.com/teleshoes/tpacpi-bat>`_
-      – Source code for the tool that is included in TLP to provide battery recalibration
-      for ThinkPads since model year 2011 - e.g. T420/X220 and newer
-    * `acpi_call <https://github.com/nix-community/acpi_call>`_
-      – Source code of the external kernel module required by `tpacpi-bat`
 
 
 .. _faq-bc-coreboot-thinkpad:
@@ -376,19 +296,17 @@ or module config files (**/etc/modprobe.d/*.conf**).
 
 External kernel module is not installed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-*ThinkPads only*
+*Legacy ThinkPads only*
 
-Symptom: :command:`tlp-stat -b` shows one of the following messages:
-
-.. code-block:: none
-
-    tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
+Symptom: :command:`tlp-stat -b` shows the line:
 
 .. code-block:: none
 
     tp-smapi = inactive (kernel module 'tp_smapi' not installed)
 
-Solution: read :ref:`faq-which-kernel-module` and install the necessary packages.
+Solution: follow :doc:`/installation/index` for your distribution and install
+the required package(s).
+
 If :command:`tlp-stat -b` still claims "not installed" after installing
 the appropriate package, reinstall the package via shell command and check
 the output for errors. See below for possible causes.
@@ -396,72 +314,38 @@ the output for errors. See below for possible causes.
 
 .. _faq-dkms-package:
 
-Installation of package `tp-smapi-dkms` or `acpi-call-dkms` failed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-*ThinkPads only*
+Installation of kernel module package failed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*Legacy ThinkPads only*
 
 .. important::
 
-    `tp-smapi`, `acpi_call` and derived packages are not provided by the TLP project.
+    `tp-smapi` derived packages are not provided by the TLP project.
     Please don't file bug reports for them in the TLP issue tracker.
 
-Symptom 1 (Ubuntu): :command:`tlp-stat -b` shows one of the following messages
+Symptom 1 (Ubuntu 23.10, 24.04 and later): see :ref:`Ubuntu <ubuntu-dkms-fail>`.
 
-.. code-block:: none
-
-    tp-smapi = inactive (kernel module 'tp_smapi' not installed)
-
-.. code-block:: none
-
-    tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
-
-while the package installation reports
-
-.. code-block:: none
-
-    Setting up tp-smapi-dkms ...
-    Error! Your kernel headers for kernel X.Y.0-NN-generic cannot be found.
-    Please install the linux-headers-X.Y.0-NN-generic package
-
-Solution: install package **linux-generic-headers**.
-
-Symptom 2 (Debian, Ubuntu): :command:`tlp-stat -b` displays
+Symptom 2: :command:`tlp-stat -b` displays
 
 .. code-block:: none
 
     tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
 
-while package installation reports
-
-.. code-block:: none
-
-    Setting up acpi-call-dkms ...
-    Error! Bad return status for module build on kernel: ...
-
-Solutions:
+Solution:
 
 Upgrade the kernel to 5.17 or later together with TLP version 1.5
-for full natacpi support, rendering acpi_call obsolete.
-Alternatively upgrade the `acpi-call-dkms` package:
+for full natacpi support, rendering `acpi_call` obsolete.
 
-* Kernel ≥ 5.13 needs at least acpi-call-dkms 1.2.2-1
-  (Debian Sid/Bookworm or Ubuntu 22.04 or TLP PPA)
-* Kernel ≥ 5.6 needs at least acpi-call-dkms 1.1.0-5ubuntu0.1 (Ubuntu 20.04)
-  or 1.1.0-6 (Debian Bullseye/Buster Backports)
+Kernel module `tp-smapi` is not loaded
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*Legacy ThinkPads only*
 
-Kernel module `tp-smapi` or `acpi_call` is not loaded
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-*ThinkPads only*
-
-Symptom: :command:`tlp-stat -b` displays one of the following messages
+Symptom: :command:`tlp-stat -b` displays the message
 
 .. code-block:: none
 
     tp-smapi = inactive (kernel module 'tp_smapi' load error)
 
-.. code-block:: none
-
-    tpacpi-bat = inactive (kernel module 'acpi_call' load error)
 
 Solution: try to load manually with
 
@@ -471,18 +355,19 @@ Solution: try to load manually with
 
 Go through `tp-smapi Troubleshooting <http://www.thinkwiki.org/wiki/Tp_smapi#Troubleshooting>`_
 for a solution that matches the error message displayed. If this is not successful,
-ask in relevant forums. The latter also applies to issues with `acpi-call`.
+ask in relevant forums.
 
 .. note::
 
-    * You may need to disable Secure Boot if `tp-smapi` or `acpi_call` refuses to load,
+    * You may need to disable Secure Boot if `tp-smapi` refuses to load,
       check your distribution's :doc:`/installation/index` instructions
     * `Coreboot` and `Libreboot` do not support `tp-smapi`
     * `tp-smapi` does not support newer models, check :ref:`faq-which-kernel-module`
 
+
 Fedora release upgrade
 ^^^^^^^^^^^^^^^^^^^^^^
-*ThinkPads only*
+*Legacy ThinkPads only*
 
 It may be necessary to rebuild the kernel modules (as root): ::
 
@@ -587,6 +472,29 @@ Cause: kernel module `asus_wmi` is loaded too late in the boot sequence.
 
 Solution: add the module to the Initramfs. The procedure depends on your distribution,
 for Arch Linux/Manjaro see `Issue #602 <https://github.com/linrunner/TLP/issues/602>`_.
+
+Mis-identification as ASUS laptop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Affected hardware: non-ASUS laptops
+
+Symptom: :command:`tlp-stat -b` shows
+
+.. code-block:: none
+    :emphasize-lines: 2, 5
+
+    +++ Battery Care
+    Plugin: asus
+    Supported features: none available
+    Driver usage:
+    * natacpi (asus_wmi) = inactive (laptop not supported)
+
+Workaround: unload and blacklist the `asus_wmi` kernel module.
+
+Reference: `Issue #739 <https://github.com/linrunner/TLP/issues/739>`_
+
+.. note:
+
+    Identification sequence will be fixed with version 1.7 (yet unreleased).
 
 Battery has been removed
 ^^^^^^^^^^^^^^^^^^^^^^^^
