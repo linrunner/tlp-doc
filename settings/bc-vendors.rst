@@ -1,5 +1,10 @@
 Battery Care Vendor Specifics
 -----------------------------
+.. important::
+
+    Battery care is not supported for any hardware that is not specifically
+    listed on this page.
+
 The level of battery care support depends on laptop vendor or brand, Linux
 kernel version and TLP version. The following explains:
 
@@ -7,6 +12,13 @@ kernel version and TLP version. The following explains:
     * Which kernel drivers are necessary for them
     * What charge control options are offered
     * Which values for the charge thresholds are supported by the hardware (and by TLP)
+
+.. note::
+
+   Not all hardware listed here supports arbitrary charge thresholds (0..100),
+   and not all hardware has both a start and stop threshold. Please read the
+   relevant section before configuring thresholds.
+
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -26,12 +38,7 @@ As for obtaining kernel drivers, there are two options:
        packages. This case applies to ThinkPads only and is described in
        :doc:`/installation/index`.
 
-.. note::
 
-    If the hardware does not have the capability or no suitable driver exists,
-    then TLP battery care cannot control it. Please do not submit issues for hardware
-    lacking kernel driver support for charge control options. Providing kernel
-    drivers is not part of the TLP project.
 
 
 Supported Hardware
@@ -57,7 +64,7 @@ ASUS
      - | Batteries `BAT0`, `BATC` and `BATT` share the `STOP_CHARGE_THRESH_BAT0` parameter
        | Battery `BAT1` uses the `STOP_CHARGE_THRESH_BAT1` parameter
    * - **Stop threshold values**
-     - | Range: 0 .. 100
+     - | Range: 1 .. 100
        | Special:
        | 0 - threshold off
        | 100 - hardware default
@@ -275,7 +282,7 @@ Lenovo non-ThinkPad series
    :align: left
 
    * - **Hardware**
-     - Lenovo laptops (all non-ThinkPad series)
+     - Lenovo laptops (all non-ThinkPad series including ThinkBooks)
    * - **Kernel driver**
      - `ideapad_laptop` - required, included in distribution kernels (4.14 or newer)
    * - **TLP version**
@@ -598,6 +605,11 @@ Stop charging battery `BAT1` at 100%: ::
 
 Unsupported Hardware
 ^^^^^^^^^^^^^^^^^^^^
+If the hardware does not have the capability or no suitable driver exists,
+then TLP battery care cannot control it. Please do not submit issues for hardware
+lacking kernel driver support for charge control options. Providing kernel
+drivers is not part of the TLP project.
+
 You may encounter the case that although one of the plugins listed above
 is active because the kernel driver matching the vendor/brand/model has been
 detected, and yet no charge control options are available:
