@@ -4,7 +4,7 @@ This section lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
-Version 1.7 (unreleased)
+Version 1.7
     Makefile:
 
     - Changed parameter defaults: `TLP_ELOD`, `TLP_SDSL`, `TLP_SYSD`, `TLP_ULIB` -
