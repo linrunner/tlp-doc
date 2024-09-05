@@ -5,6 +5,28 @@ News
 
 .. _news-top-1:
 
+04.09.2024 - TLP 1.7 Beta 1 released / Call for Testers
+=======================================================
+I am proud to present the first beta of TLP 1.7. It took longer than expected,
+but it was worth the wait.
+
+This new version brings significant improvements, including charge threshold
+support for Apple Silicon Macbooks and MSI laptops, as well as laptop screen
+power saving with AMD's Adaptive Backlight Modulation.
+For all the latest info on new features and fixes, check out the
+`release notes <https://github.com/linrunner/TLP/releases>`_
+and the `full changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+
+As with every beta release, I'm looking for some awesome folks to help
+me complete the test coverage. I'm reaching out to the community of Linux
+users to test new and existing functionality on their hardware.
+Just visit the `beta page <https://download.linrunner.de/packages/>`_
+for instructions and packages matching your distribution - then
+`join the test force <https://github.com/linrunner/TLP/issues/760>`_!
+
+
+.. _news-top-2:
+
 03.09.2023 - Optimizing Guide
 =============================
 TLP’s default settings should save as much energy on battery power as possible,
@@ -15,8 +37,6 @@ on AC respectively.
 
 Enjoy and save!
 
-
-.. _news-top-2:
 
 24.08.2023 - TLP 1.6 released
 =============================
