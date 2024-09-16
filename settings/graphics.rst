@@ -80,6 +80,36 @@ Default when unconfigured: default
     power source.
 
 
+.. _set-amdgpu-abm:
+
+AMDGPU_ABM_LEVEL_ON_AC/BAT
+--------------------------
+*Version 1.7 (unreleased)*
+
+.. rubric::  AMD GPU
+
+::
+
+    AMDGPU_ABM_LEVEL_ON_AC=0
+    AMDGPU_ABM_LEVEL_ON_BAT=3
+
+Enable display panel Adaptive Backlight Modulation (ABM) level.
+Possible values:
+
+* 0 – off
+* 1..4 – maximum brightness reduction allowed by the ABM
+  algorithm, 1 represents the least and 4 the most power saving
+
+Notes:
+
+* Requires AMD Vega or newer GPU with `amdgpu` driver as of kernel 6.9
+* Savings are made at the expense of color balance
+
+Default when unconfigured: 0 (AC), 1 (BAT)
+
 .. seealso::
 
-    * `Radeon driver documentation <https://wiki.x.org/wiki/RadeonFeature>`_ – see "KMS Power Management Options"
+    * `AMDgpu kernel driver <https://docs.kernel.org/gpu/amdgpu/thermal.html#power-dpm-force-performance-level>`_ – Sysfs node documentation, see **power_dpm_force_performance_level**
+    * `AMDgpu DRM driver <https://dri.freedesktop.org/docs/drm/gpu/amdgpu.html>`_ – see **abmlevel**
+    * `Radeon KMS driver <https://wiki.x.org/wiki/RadeonFeature>`_ – see "KMS Power Management Options"
+
