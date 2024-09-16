@@ -257,10 +257,11 @@ When the recognition works, the capabilities are limited:
     /sys/class/power_supply/BAT1/charge_control_end_threshold   =     60 [%]
     /sys/class/power_supply/BAT1/charge_behaviour               = [auto]
 
-.. note::
 
-    * Version 1.6 correctly recognizes ThinkPads with coreboot
-    * Version 1.7 (unreleased) will display complete battery readings
+Solutions:
+
+* Version 1.6(.1) properly recognizes ThinkPads with coreboot
+* Version 1.7 (unreleased) displays complete battery readings
 
 .. _faq-thresholds-ignored:
 

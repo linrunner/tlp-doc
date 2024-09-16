@@ -39,10 +39,57 @@ As for obtaining kernel drivers, there are two options:
        :doc:`/installation/index`.
 
 
-
-
 Supported Hardware
 ^^^^^^^^^^^^^^^^^^
+
+Apple Macbooks
+""""""""""""""
+.. list-table::
+   :widths: 250 1000
+   :align: left
+
+   * - **Hardware**
+     - Apple Silicon Macbooks - M* models with macOS firmware 13.0 or newer
+   * - **Kernel drivers**
+     -  `macsmc_power` - required, provided by the Asahi Linux kernel 6.3 or newer
+   * - **TLP version**
+     - 1.7 (unreleased)
+   * - **TLP plugin**
+     - macbook
+   * - **Charge control options**
+     - Start and stop charge threshold
+   * - **Threshold configuration**
+     - One battery only - `macsmc-battery` uses the `STOP_CHARGE_THRESH_BAT0` parameter
+   * - **Start threshold values**
+     - | The hardware definitively selects the start threshold depending on the stop threshold:
+       | - stop=80 results in start=75
+       | - stop=100 results in start=100
+   * - **Stop threshold values**
+     - | 80 - battery charges to 80%
+       | 100 - battery charges to 100%, hardware default
+
+.. rubric:: Sample configuration
+
+Start charging battery `macsmc-battery` when below 75% and stop at 80%: ::
+
+    START_CHARGE_THRESH_BAT0=75 # don't care
+    STOP_CHARGE_THRESH_BAT0=80
+
+.. rubric:: Sample output of tlp-stat -b
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: macbook
+    Supported features: charge thresholds
+    Driver usage:
+    * natacpi (macsmc_power) = active (charge thresholds)
+    Parameter value ranges:
+    * START_CHARGE_THRESH_BAT0:  don't care (hardware enforces 75, 100)
+    [...]
+    /sys/class/power_supply/macsmc-battery/charge_control_start_threshold =    100 [%]
+    /sys/class/power_supply/macsmc-battery/charge_control_end_threshold   =    100 [%]
+
 
 ASUS
 """"
@@ -395,6 +442,60 @@ Stop charging battery `BAT0`, `BAT1`, `CMB0` and `CMB1` at 100%: ::
     * STOP_CHARGE_THRESH_BAT0: 80(on), 100(off) -- battery care limit
 
     /sys/devices/platform/lg-laptop/battery_care_limit          = 80 [%]
+
+
+MSI laptops
+"""""""""""
+.. list-table::
+   :widths: 250 1000
+   :align: left
+
+   * - **Hardware**
+     - MSI laptops
+   * - **Kernel driver**
+     - `msi_ec` - required, included in distribution kernels (6.3 or newer)
+   * - **TLP version**
+     - 1.7 (unreleased)
+   * - **TLP plugin**
+     - msi
+   * - **Charge control options**
+     - Start and stop charge threshold
+   * - **Threshold configuration**
+     - | Battery `BAT0` uses the `STOP_CHARGE_THRESH_BAT0` parameter
+       | Battery `BAT1` uses the `STOP_CHARGE_THRESH_BAT1` parameter
+   * - **Start threshold values**
+     - | The hardware definitively selects the start threshold depending on the stop threshold:
+       | start = stop - 10
+   * - **Stop threshold values**
+     - | Range: 10 .. 100
+       | Special:
+       | 100 - hardware default
+   * - **Specifics**
+     - | The kernel driver **only accepts individual models and BIOS versions**, for the unsupported ones :command:`tlp-stat -b` will display `"Plugin: generic / Supported features: none available"`
+
+
+.. rubric:: Sample configuration
+
+Start charging battery `BAT1` when below 70% and stop at 80%: ::
+
+    START_CHARGE_THRESH_BAT1=0  # don't care
+    STOP_CHARGE_THRESH_BAT1=80
+
+.. rubric:: Sample output of tlp-stat -b
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: msi
+    Supported features: charge thresholds
+    Driver usage:
+    * natacpi (msi_ec) = active (charge thresholds)
+    Parameter value ranges:
+    * START_CHARGE_THRESH_BAT0/1:  don't care (hardware enforces stop - 10)
+    * STOP_CHARGE_THRESH_BAT0/1:   10..100(default)
+    [...]
+    /sys/class/power_supply/BAT1/charge_control_start_threshold =     70 [%]
+    /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
 
 Samsung
