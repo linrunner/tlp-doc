@@ -93,8 +93,8 @@ AMDGPU_ABM_LEVEL_ON_AC/BAT
     AMDGPU_ABM_LEVEL_ON_AC=0
     AMDGPU_ABM_LEVEL_ON_BAT=3
 
-Enable display panel Adaptive Backlight Modulation (ABM) level.
-Possible values:
+Enable display panel Adaptive Backlight Modulation (ABM).
+Possible levels are:
 
 * 0 – off
 * 1..4 – maximum brightness reduction allowed by the ABM
