@@ -64,6 +64,14 @@ Add `-v` to see battery voltages (if available).
     sudo tlp-stat -g
     sudo tlp-stat --graphics
 
+.. rubric:: View current power mode
+
+*Version 1.7 (unreleased)*
+
+::
+
+    tlp-stat -m
+    tlp-stat --mode
 
 .. rubric:: View processor information
 
@@ -76,6 +84,19 @@ Add `-v` to see battery voltages (if available).
   add  `-v` to see all.
 * *Version 1.6 and newer*: `-v` will also show `acpi_cppc` performance and
   frequency attributes.
+
+
+.. rubric:: View less
+
+*Version 1.7 (unreleased)*
+
+Omit version header and show less information in the processor category.
+
+::
+
+    tlp-stat -q
+    tlp-stat --quiet
+
 
 .. rubric:: View radio device states
 
@@ -111,13 +132,22 @@ Add `-v` to see battery voltages (if available).
 *Version 1.4 and newer*: add `-v` to see device runtime status.
 
 
-.. rubric:: Show more information in battery, PCIe, processor and USB categories
+.. rubric:: View more
+
+Show more information in battery, PCIe, processor and USB categories.
 
 ::
 
     tlp-stat -v
     tlp-stat --verbose
 
+.. rubric:: View version
+
+*Version 1.7 (unreleased)*
+
+::
+
+    tlp-stat --version
 
 .. rubric:: Diagnostics and debugging
 

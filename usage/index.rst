@@ -32,13 +32,22 @@ Check the output for
 
 Version
 =======
-The command ::
+The following commands show TLP's version:
+
+*Version 1.7 (unreleased)*
+::
+
+   tlp --version
+
+
+*Version 1.6.1 and older*
+::
 
    tlp-stat -s
 
-states the program version installed in the first output line: ::
+See the first output line: ::
 
-   --- TLP 1.5.0 --------------------------------------------
+   --- TLP 1.6.1 --------------------------------------------
 
 Commands
 ========

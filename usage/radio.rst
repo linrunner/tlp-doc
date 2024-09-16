@@ -8,6 +8,13 @@ Enable, disable, toggle or check the state of builtin bluetooth, NFC, Wi-Fi and 
         wifi [ on | off | toggle ]
         wwan [ on | off | toggle ]
 
+Show version: ::
+
+    bluetooth --version
+    nfc --version
+    wifi --version
+    wwan --version
+
 Using the command without arguments displays the actual state.
 
 Hint: for Intel 2200bg and 2915abg cards call the command with :command:`sudo`

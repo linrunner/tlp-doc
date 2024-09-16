@@ -183,4 +183,13 @@ Disk IDs
 
     tlp diskid
 
-Shows disk ids for configured drives
+Shows disk ids for configured drives.
+
+Version
+^^^^^^^
+*Version 1.7 (unreleased)*
+::
+
+    tlp --version
+
+Shows the installed version.
