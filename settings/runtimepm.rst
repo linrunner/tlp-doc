@@ -54,7 +54,7 @@ RUNTIME_PM_DRIVER_BLACKLIST. 1.4 and newer also recognize the old name.*
 
 ::
 
-    RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon"
+    RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon xhci_hcd"
 
 Exclude PCIe devices assigned to listed drivers from runtime power management.
 Use :command:`tlp-stat -e` to lookup the drivers (in parentheses at the end of
@@ -64,8 +64,8 @@ Separate multiple drivers with spaces.
 
 Default when unconfigured:
 
+    | "mei_me nouveau radeon xhci_hcd" - *Version 1.7 and newer*
     | "mei_me nouveau radeon" - *Version 1.4 and newer*
-    | "amdgpu mei_me nouveau nvidia pcieport radeon" - *Version 1.3*
 
 .. note::
 
