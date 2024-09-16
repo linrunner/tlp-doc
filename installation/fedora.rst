@@ -1,24 +1,10 @@
 Fedora
 ======
 
-.. warning::
+.. important::
 
-    TLP currently has very limited functionality on Fedora (F38 and later):
-
-    * **Power saving profiles are not applied when switching from AC to battery (or vice versa)**
-    * The :doc:`Radio Device Wizard </settings/rdw>` does not work
-    * Trace mode does not work
-
-    The problem lies in SELinux denials that prevent the configuration files
-    from being read. You can work around the problem for the time being by
-    `setting SELinux to permissive <https://docs.fedoraproject.org/en-US/quick-docs/selinux-changing-states-and-modes/#_changing_to_permissive_mode>`_,
-    but you should be aware of the impact on system security.
-
-    To help get this resolved, please file a
-    `Fedora bug <https://docs.fedoraproject.org/en-US/quick-docs/bugzilla-file-a-bug/>`_ (package `selinux-policy`)
-    or a `GitHub issue <https://github.com/fedora-selinux/selinux-policy/issues>`_
-    for your SELinux denials (refer to
-    `Troubleshooting problems related to SELinux <https://docs.fedoraproject.org/en-US/quick-docs/selinux-troubleshooting/>`_).
+   Good news! The issues with SELinux have been fixed in Fedora 40,
+   so you can enjoy full TLP functionality again.
 
 .. rubric:: Scope:
 
