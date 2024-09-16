@@ -164,8 +164,7 @@ Requirements:
 * **HWP.EPP** (hardware-managed P-states): Intel Core i 6th gen. ("Skylake")
   or newer CPU with kernel 4.10 and `intel_pstate` driver in active mode
 * **EPB**: Intel Core i 2nd gen. (“Sandy Bridge”) or newer CPU with kernel 5.2
-  and `intel_pstate` driver (or module msr and x86_energy_perf_policy
-  from linux-tools)
+  and `intel_pstate` driver
 * Note that HWP.EPP and EPB are mutually exclusive. When EPP is available,
   Intel CPUs will not honor EPB. Only the matching feature will be applied
   by TLP and shown by :command:`tlp-stat -p`.
