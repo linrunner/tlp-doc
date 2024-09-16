@@ -27,6 +27,28 @@ Controls how warnings about invalid settings are issued:
 
 Default when unconfigured: 3
 
+TLP_MSG_COLORS
+--------------
+*Version 1.7 (unreleased)*
+::
+
+    TLP_MSG_COLORS="91 93 1 92"
+
+Colorize error, warning, notice and success messages. Colors are specified
+with ANSI codes:
+
+    1=bold black, 90=grey, 91=red, 92=green, 93=yellow, 94=blue, 95=magenta, 96=cyan, 97=white.
+
+Notes:
+
+    * Other colors are possible, refer to: `ANSI escape code <https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit>`_
+    * Colors must be specified in the order "<error> <warning> <notice> <success>"
+    * By default, errors are shown in red, warnings in yellow, notices in bold and success in green
+    * Disable the feature completely by using :code:`TLP_MSG_COLORS=""`
+
+Default when unconfigured: "91 93 1 92"
+
+
 TLP_DEFAULT_MODE
 ----------------
 ::
