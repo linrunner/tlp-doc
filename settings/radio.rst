@@ -55,7 +55,7 @@ Possible values are as above.
 
 DEVICES_TO_DISABLE_ON_SHUTDOWN
 ------------------------------
-*DEPRECATED - do not use, feature will be removed with version 1.7*
+*This parameter is removed in version 1.7*
 
 ::
 
@@ -67,7 +67,7 @@ Possible values are as above.
 
 DEVICES_TO_ENABLE_ON_SHUTDOWN
 -----------------------------
-*DEPRECATED - do not use, feature will be removed with version 1.7*
+*This parameter is removed in version 1.7*
 
 ::
 

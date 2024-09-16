@@ -168,6 +168,8 @@ IDs. Multiple IDs are separated with blanks.
 
 USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN
 -----------------------------------
+*This parameter is removed in version 1.7*
+
 ::
 
     USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN=1
