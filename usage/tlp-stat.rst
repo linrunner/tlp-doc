@@ -2,7 +2,7 @@ tlp-stat
 --------
 .. topic:: Purpose
 
-    View TLP's configuration, system information, kernel power saving settings
+    View TLP's configuration, system information, kernel power saving tunables
     and battery data.
 
 .. rubric:: Invocation without options shows all information categories

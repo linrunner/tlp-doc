@@ -19,7 +19,7 @@ It depends, TLP:
   desktop environments that have power-profiles-daemon installed →
   severe conflict - see :doc:`/faq/ppd`.
 * Pop!_OS's system76-power works on the same set of
-  :ref:`kernel settings <intro-how-it-works>`
+  :ref:`kernel tunables <intro-how-it-works>`
   → severe conflict - do not use together with TLP.
 * Slimbook Battery uses TLP as backend and overwrites TLP's configuration
   files → conflict - if you wish to configure TLP individually, you must

@@ -45,7 +45,7 @@ pattern.
 Does power-profiles-daemon conflict with TLP?
 ---------------------------------------------
 Yes, it does. Using both tools simultaneously can result in unpredictable
-outcomes as they partially change the same kernel settings (see above)
+outcomes as they partially change the same kernel tunables (see above)
 and overwrite each other's settings.
 
 To prevent conflicts, most Linux distributions do not permit the

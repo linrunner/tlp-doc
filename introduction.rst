@@ -20,17 +20,17 @@ specific requirements.
 
 How it works
 ============
-What TLP basically does is tweaking `kernel settings` that affect power
+What TLP basically does is tweaking `kernel tunables` that affect power
 consumption.
 
-So what are `kernel settings`?
+So what are `kernel tunables`?
 ------------------------------
-First of all `kernel settings` are of a volatile nature. Their state is held in
+First of all `kernel tunables` are of a volatile nature. Their state is held in
 RAM during runtime and the kernel provides no persistence for them.
 Upon boot the kernel creates a default state and changes have to be re-applied
 on every boot by a `user space tool`. TLP is such a `user space tool`.
 
-Most `kernel settings` TLP works on are exported to user space as
+Most `kernel tunables` TLP works on are exported to user space as
 `sysfs nodes <https://en.wikipedia.org/wiki/Sysfs>`_
 i.e. files below **/sys/**. The output of :command:`tlp-stat` will show the
 paths.

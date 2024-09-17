@@ -27,7 +27,7 @@ However, it continuously overwrites your TLP configuration.
 If you wish to configure TLP individually, you must first uninstall
 Slimbook Battery.
 
-**system76-power:** works on the same set of :ref:`kernel settings
+**system76-power:** works on the same set of :ref:`kernel tunables
 <intro-how-it-works>` as TLP. Do not use together with TLP.
 
 **thermald:** limits power dissipation to prevent the laptop from overheating.
