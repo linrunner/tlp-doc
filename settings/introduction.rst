@@ -45,7 +45,7 @@ Hints:
    * Filenames must end in **.conf**, otherwise the file will be ignored
    * **00-template.conf** is provided as an example
 
-* If in doubt, put your configuration changes in **/etc/tlp.conf**
+* If in doubt, put your configuration changes in **/etc/tlp.d/01-mytlp.conf**
 * :ref:`Transfer settings when upgrading <faq-set-mig-from-13>` describes how to
   migrate your configuration from versions before 1.3
 
@@ -123,7 +123,7 @@ A nifty feature to add something to an intrinsic default (Example 1):
 
     Intrinsic default `DISK_DEVICES="nvme0n1 sda"`
 
-    plus **/etc/tlp.d/01-my.conf**: ::
+    plus **/etc/tlp.d/01-mytlp.conf**: ::
 
         DISK_DEVICES+="sdb"
 
@@ -131,11 +131,11 @@ A nifty feature to add something to an intrinsic default (Example 1):
 
 Or add values in a subsequent config file (Example 2):
 
-    **/etc/tlp.d/01-general.conf**: ::
+    **/etc/tlp.d/01-mytlp.conf**: ::
 
         USB_DENYLIST="1111:2222 3333:4444"
 
-    plus **/etc/tlp.d/02-special.conf**: ::
+    plus **/etc/tlp.d/02-hw-specific.conf**: ::
 
         USB_DENYLIST+="5555:6666"
 
@@ -150,6 +150,7 @@ A config file can be changed with any text editor (root privilege is needed).
 For example: ::
 
    sudo nano /etc/tlp.conf
+   sudo nano /etc/tlp.d/01-mytlp.conf
 
 All changes must be activated by removing the leading `#` and, after saving the
 file, will take effect only
