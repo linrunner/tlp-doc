@@ -97,3 +97,8 @@ Power supply class(es) to ignore when determining operation mode:
 
     Use as a workaround for laptops where operation mode AC or BAT is
     incorrectly detected.
+
+.. seealso::
+
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/operation`

@@ -179,6 +179,9 @@ workaround if suspended USB devices disturb the shutdown process.
 
 Default when unconfigured: 0
 
+
 .. seealso::
 
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/usb`
     * `USB autosuspend <https://www.kernel.org/doc/Documentation/usb/power-management.txt>`_ – Kernel documentation

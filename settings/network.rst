@@ -46,3 +46,9 @@ Default when unconfigured: Y
     * Your laptop's BIOS may have an option for Wake-on-LAN too. Some vendors
       even allow to configure Wake-on-LAN on `AC only`. If you choose the BIOS
       option, leave `WOL_DISABLE=N`.
+
+
+.. seealso::
+
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/radio`

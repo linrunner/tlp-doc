@@ -754,8 +754,10 @@ Final Notes
       then use `START_CHARGE_THRESH_BATx=0` or `STOP_CHARGE_THRESH_BATx=100`
       to skip the other one
 
-.. seealso ::
 
+.. seealso::
+
+    * Settings: :doc:`/settings/introduction`
     * Settings: :doc:`/settings/battery`
     * Commands: :ref:`cmd-tlp-battery-features`
     * FAQ: :doc:`/faq/battery`

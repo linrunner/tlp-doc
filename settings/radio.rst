@@ -120,5 +120,7 @@ Possible values are as above.
 
 .. seealso::
 
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/radio`
     * `rfkill <https://www.kernel.org/doc/Documentation/rfkill.txt>`__
       – Kernel framework for switching radio devices

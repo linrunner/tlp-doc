@@ -130,7 +130,10 @@ Default when unconfigured: default
     `default` does not cause this.
     See `Issue #344 <https://github.com/linrunner/TLP/issues/344>`_.
 
+
 .. seealso::
 
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/operation`
     * `Runtime power management <https://www.kernel.org/doc/Documentation/power/runtime_pm.txt>`_ – Kernel documentation
     * `Making sense of PCIe ASPM <http://smackerelofopinion.blogspot.de/2011/03/making-sense-of-pcie-aspm.html>`_ – PCI Express Active State Power Management

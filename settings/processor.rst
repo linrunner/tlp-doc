@@ -231,6 +231,7 @@ scaling driver in `active` mode
 
 .. seealso::
 
+    * Settings: :doc:`/settings/introduction`
     * FAQ: :doc:`../faq/processor`
     * `CPU Performance Scaling <https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html>`_
       – kernel documentation covering scaling governors et al.

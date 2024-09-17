@@ -60,3 +60,8 @@ DEVICES_TO_ENABLE/DISABLE_ON_UNDOCK
     DEVICES_TO_DISABLE_ON_UNDOCK=""
 
 After undocking the stated radio devices are enabled/disabled.
+
+.. seealso::
+
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/radio`

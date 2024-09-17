@@ -38,3 +38,9 @@ SOUND_POWER_SAVE_CONTROLLER
 * N – controller remains active
 
 Default when unconfigured: Y
+
+
+.. seealso::
+
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/audio`

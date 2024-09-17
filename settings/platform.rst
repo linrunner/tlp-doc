@@ -53,3 +53,8 @@ Select the system suspend mode:
     data loss. As for the availability of different modes on your system,
     check the output of tlp-stat -s. If unsure, stick with the system default
     by not enabling this.
+
+.. seealso::
+
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/operation`

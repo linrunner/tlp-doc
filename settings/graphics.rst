@@ -109,7 +109,9 @@ Default when unconfigured: 0 (AC), 1 (BAT)
 
 .. seealso::
 
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/graphics`
+    * FAQ: :doc:`/faq/powercon`
     * `AMDgpu kernel driver <https://docs.kernel.org/gpu/amdgpu/thermal.html#power-dpm-force-performance-level>`_ – Sysfs node documentation, see **power_dpm_force_performance_level**
     * `AMDgpu DRM driver <https://dri.freedesktop.org/docs/drm/gpu/amdgpu.html>`_ – see **abmlevel**
     * `Radeon KMS driver <https://wiki.x.org/wiki/RadeonFeature>`_ – see "KMS Power Management Options"
-

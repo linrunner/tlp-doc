@@ -36,3 +36,9 @@ Default when unconfigured: sr0
       models push the media eject button
     * Devices other than optical drives – in particular hard disk drives – are
       not affected by this setting
+
+
+.. seealso::
+
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/disks`

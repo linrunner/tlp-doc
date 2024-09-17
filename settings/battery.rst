@@ -70,3 +70,10 @@ Scope:
 
     * `NATACPI`: all supported laptops
     * `TPACPI_ENABLE`, `TPSMAPI_ENABLE`: ThinkPad specific
+
+
+.. seealso::
+
+    * Settings: :doc:`/settings/introduction`
+    * Settings: :doc:`/settings/bc-vendors`
+    * FAQ: :doc:`/faq/battery`

@@ -239,5 +239,7 @@ Default when unconfigured: 15
 
 .. seealso::
 
+    * Settings: :doc:`/settings/introduction`
+    * FAQ: :doc:`/faq/disks`
     * `Linux I/O schedulers <https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers>`_ – Ubuntu Wiki article
     * `med_power_with_dipm <https://hansdegoede.livejournal.com/18412.html>`_ – Explanation from kernel developer Hans de Goede
