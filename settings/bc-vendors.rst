@@ -471,7 +471,7 @@ MSI laptops
        | Special:
        | 100 - hardware default
    * - **Specifics**
-     - | The kernel driver **only accepts individual models and BIOS versions**, for the unsupported ones :command:`tlp-stat -b` will display `"Plugin: generic / Supported features: none available"`
+     - | The kernel driver **only accepts very specific models and BIOS versions**, for the unsupported ones :command:`tlp-stat -b` will display `"Plugin: generic / Supported features: none available"`. Please do *not* open a TLP issue for this, instead create an `issue with the msi-ec driver <https://github.com/BeardOverflow/msi-ec/issues?q=is%3Aopen+is%3Aissue>`_.
 
 
 .. rubric:: Sample configuration
@@ -707,9 +707,9 @@ Stop charging battery `BAT1` at 100%: ::
 Unsupported Hardware
 ^^^^^^^^^^^^^^^^^^^^
 If the hardware does not have the capability or no suitable driver exists,
-then TLP battery care cannot control it. Please do not submit issues for hardware
-lacking kernel driver support for charge control options. Providing kernel
-drivers is not part of the TLP project.
+then TLP battery care cannot control it. Please do not submit TLP issues for
+hardware lacking kernel driver support for charge control options. Providing
+kernel drivers is not part of the TLP project.
 
 You may encounter the case that although one of the plugins listed above
 is active because the kernel driver matching the vendor/brand/model has been

@@ -497,6 +497,22 @@ Reference: `Issue #739 <https://github.com/linrunner/TLP/issues/739>`_
 
     Identification sequence will be fixed with version 1.7 (yet unreleased).
 
+MSI laptop not supported
+^^^^^^^^^^^^^^^^^^^^^^^^
+Symptom:
+
+.. code-block:: none
+    :emphasize-lines: 2, 3
+
+    +++ Battery Care
+    Plugin: generic
+    Supported features: none available
+
+Cause: the `msi_ec` kernel driver only accepts very specific models and BIOS versions.
+
+Solution: create an `issue with the msi-ec driver <https://github.com/BeardOverflow/msi-ec/issues?q=is%3Aopen+is%3Aissue>`_.
+
+
 Battery has been removed
 ^^^^^^^^^^^^^^^^^^^^^^^^
 By removing (and re-inserting) the battery the charge thresholds may be reset to
