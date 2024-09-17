@@ -9,19 +9,18 @@ It depends, TLP:
 
 * Does not touch display or keyboard backlight brightness → no conflict.
 * Does not change suspend / hibernate settings → no conflict.
-* Applies WiFi power saving by default → conflict with KDE energy saving
-  settings is possible (relevant only for Plasma versions < 6).
-* Applies charge thresholds → conflict with KDE charge limit setting is
+* TLP's power savings will not be applied during boot when using **GNOME**
+  or **KDE** desktop environments that have **power-profiles-daemon**
+  installed → severe conflict - see :doc:`/faq/ppd`.
+* Applies charge thresholds → conflict with **KDE** charge limit setting is
   possible.
 * Switches radio devices on and off when configured by the user →
-  conflict with GNOME power settings or KDE energy saving settings possible.
-* TLP's power savings will not be applied during boot when using GNOME or KDE
-  desktop environments that have power-profiles-daemon installed →
-  severe conflict - see :doc:`/faq/ppd`.
-* Pop!_OS's system76-power works on the same set of
+  conflict with **GNOME** power settings or **KDE** energy saving settings
+  possible.
+* Pop!_OS's **system76-power** works on the same set of
   :ref:`kernel tunables <intro-how-it-works>`
   → severe conflict - do not use together with TLP.
-* Slimbook Battery uses TLP as backend and overwrites TLP's configuration
+* **Slimbook Battery** uses TLP as backend and overwrites TLP's configuration
   files → conflict - if you wish to configure TLP individually, you must
   first uninstall Slimbook Battery.
 
@@ -35,6 +34,18 @@ How can I change TLP's settings?
 --------------------------------
 
 See :doc:`/settings/index`.
+
+
+.. _faq-set-uninstall-persist:
+
+I uninstalled TLP — could it be that its configuration still works?
+-------------------------------------------------------------------
+No. After uninstalling and rebooting, it's as if it never happened.
+TLP only applies tuning while it is running. It does not make permanent
+changes to your system or hardware.
+
+However, there may be one exception, refer to :ref:`faq-how-to-disable-thresholds`
+
 
 .. _faq-set-upgrade:
 

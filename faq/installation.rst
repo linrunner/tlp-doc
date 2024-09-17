@@ -3,18 +3,21 @@ Installation
 
 Does TLP conflict with other power management tools?
 ----------------------------------------------------
-In principle, yes.
+.. important::
 
-Simultaneous use of another tool means that TLP's settings will be
-overwritten by the other tool's settings (and vice versa), making actual
-power savings unpredictable. The individual tools are discussed below.
+    **Generally yes. It is not recommended to use two (or more) power
+    management tools at the same time.**
 
-**auto-cpufreq:** only impacts CPU settings that are not active
-in TLP's default configuration. There will be no conflict as long as
-these remain deactivated. Please note that auto-cpufreq is intended
-to improve power consumption only when the CPU is under load.
-However, TLP also takes into account low load and idle states,
-such as when there is no user input.
+This is because all power management tools essentially control a similar
+set of :ref:`kernel tunables <intro-how-it-works>`.
+Therefore, TLP's tuning will be overriden by the other tool (and vice versa),
+making the actual power savings unpredictable.
+The individual tools involved are discussed below.
+
+**auto-cpufreq:** controls a subset of TLP's kernel tunables, do *not* use
+together with TLP — *Note: auto-cpufreq is not a pure power saving tool.
+On the contrary, when the CPU is under heavy load in battery mode, performance
+is improved at the cost of higher power consumption.*
 
 **GNOME and KDE Desktop:** usually include `power-profiles-daemon`, see below.
 
@@ -28,7 +31,7 @@ If you wish to configure TLP individually, you must first uninstall
 Slimbook Battery.
 
 **system76-power:** works on the same set of :ref:`kernel tunables
-<intro-how-it-works>` as TLP. Do not use together with TLP.
+<intro-how-it-works>` as TLP. Do *not* use together with TLP.
 
 **thermald:** limits power dissipation to prevent the laptop from overheating.
 It does not provide power saving functionality for other situations and
@@ -62,7 +65,6 @@ as well as switching radio devices on system boot and shutdown.
     package :doc:`/installation/index`, others such as Arch Linux don't.
     If unsure check the output of :command:`tlp-stat -s` for corresponding
     notes.
-
 
 Does TLP run on my laptop (not a ThinkPad)?
 -------------------------------------------

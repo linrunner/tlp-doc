@@ -594,7 +594,7 @@ A general explanation of charge thresholds is given :ref:`above <faq-battery-car
 
 .. _faq-how-to-disable-thresholds:
 
-How to disable the charge thresholds?
+How to remove the charge thresholds?
 -------------------------------------
 As explained :ref:`above <faq-battery-care>`, in many cases the charge
 thresholds are persistently stored in the hardware.
@@ -618,7 +618,7 @@ enough either). In fact, two steps are required to disable the thresholds:
 
 .. _faq-disabling-thresholds-does-not-work:
 
-Disabling the charge thresholds does not work
+Removing the charge thresholds does not work
 ---------------------------------------------
 Affected hardware: ThinkPad E580, T480s, X1 Carbon 6th Gen (and possibly others)
 

@@ -40,15 +40,16 @@ support `PLATFORM_PROFILE_ON_AC/BAT`.
 comparative measurements on your target hardware using your specific usage
 pattern.
 
+
 .. _faq-ppd-conflict:
 
 Does power-profiles-daemon conflict with TLP?
 ---------------------------------------------
-Yes, it does. Using both tools simultaneously can result in unpredictable
-outcomes as they partially change the same kernel tunables (see above)
-and overwrite each other's settings.
+Yes, it does. Using both tools at the same time can lead to unpredictable
+results as they partly change the same kernel tunables (see above)
+and overwrite each other's tuning.
 
-To prevent conflicts, most Linux distributions do not permit the
+To prevent conflicts, many Linux distributions do not permit the
 installation of both TLP and power-profiles-daemon packages simultaneously.
 It is advisable to uninstall power-profiles-daemon in all other scenarios.
 
