@@ -30,18 +30,18 @@ Related issues: `#436 <https://github.com/linrunner/TLP/issues/436>`_,
 Workarounds (please try one by one):
 
 * Disable runtime power management for USB3 controllers by
-  adding `xhci_hcd` to the denylist ::
+  adding `xhci_hcd` to the denylist *and reboot* ::
 
       RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon xhci_hcd"
 
   *Version 1.3: use RUNTIME_PM_DRIVER_BLACKLIST instead*
 
-* Disable runtime power management for AHCI devices ::
+* Disable runtime power management for AHCI devices an execute :command:`tlp start` ::
 
       AHCI_RUNTIME_PM_ON_BAT=on
 
 * Disable runtime power management for AHCI the disk controllers by
-  adding `ahci` to the denylist::
+  adding `ahci` to the denylist *and reboot* ::
 
       RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon ahci"
 
