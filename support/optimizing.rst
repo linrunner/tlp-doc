@@ -15,7 +15,7 @@ but in reality there are limits to what can be done:
 
 Therefore TLP's defaults can not achieve the maximum savings for any
 hardware and use case. It may be necessary to make adjustments yourself
-to get the optimum out of it.
+to get the best out of it.
 
 .. note::
 

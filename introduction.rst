@@ -3,9 +3,10 @@ Introduction
 TLP is a feature-rich command line utility for Linux, saving laptop battery power
 without the need to delve deeper into technical details.
 
-TLP's default settings are already optimized for battery life, so you may just
-install and forget it. Nevertheless TLP is highly customizable to fulfil your
-specific requirements.
+TLP's default settings are already optimized for battery life, so you may
+install it and just sit back and relax.
+Nevertheless, TLP is completely customizable to get even more power savings
+or meet your exact requirements.
 
 .. important::
 
@@ -20,15 +21,15 @@ specific requirements.
 
 How it works
 ============
-What TLP basically does is tweaking `kernel tunables` that affect power
-consumption.
+What TLP basically does is tweak `kernel tunables` that have an impact on
+power consumption.
 
 So what are `kernel tunables`?
 ------------------------------
-First of all `kernel tunables` are of a volatile nature. Their state is held in
-RAM during runtime and the kernel provides no persistence for them.
-Upon boot the kernel creates a default state and changes have to be re-applied
-on every boot by a `user space tool`. TLP is such a `user space tool`.
+First, `kernel tunables` are volatile in nature. Their state is held in RAM
+during runtime, and the kernel provides no persistence for them. At boot time,
+the kernel creates a default state, and changes must be reapplied by a userspace
+tool at each boot. TLP is one such `userspace tool`.
 
 Most `kernel tunables` TLP works on are exported to user space as
 `sysfs nodes <https://en.wikipedia.org/wiki/Sysfs>`_
@@ -44,15 +45,15 @@ paths.
 Profiles
 --------
 TLP provides two independent sets of :doc:`/settings/index` called profiles,
-one for battery (BAT) and one for AC operation.
-This means that TLP must apply the appropriate profile not only at boot, but
-also each time the power source changes.
+one for battery operation (BAT) and one for AC operation.
+This means that TLP must apply the appropriate profile not only at boot time,
+but also each time the power source is changed.
 
 Event-driven architecture
 -------------------------
 
-To achieve all of the above, TLP's actions are event-driven. The following events
-will cause settings to be applied:
+To accomplish all of the above, TLP's actions are event-driven. The following events
+cause settings to be applied:
 
 Charger plugged in (AC powered)
     Applies the AC settings profile.
