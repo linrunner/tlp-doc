@@ -40,7 +40,10 @@ to outline the individual modes (without guarantee):
     * For kernels older than 6.5 `amd-pstate` must be activated via a kernel
       boot option; see the driver documentation linked at the bottom.
     * It should be kept in mind that not all laptop BIOSes allow the activation
-      despite a suitable CPU. Please refrain from opening TLP issues for this.
+      despite a suitable CPU. Please done *not* open TLP issues for this.
+    * Some users have observed limited frequency or P-state ranges after
+      switching modes. These are hardware issues or kernel issues, so please
+      do *not* open a TLP issue for them.
 
 .. rubric:: intel_pstate
 

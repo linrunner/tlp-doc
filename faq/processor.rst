@@ -77,6 +77,11 @@ available and enabled by default on Intel Sandy Bridge (or newer) hardware.
 `intel_pstate` supports the governors `powersave` (recommended default) and
 `performance` only, `ondemand` is not available.
 
+AMD CPU with `amd-pstate-epp` driver doesn't switch EPP
+-------------------------------------------------------
+Solution: AMD EPP requires at least TLP version 1.6.
+
+
 .. _faq-cpu-gov-locks-epp:
 
 Governor `performance` also locks EPP to `performance`
