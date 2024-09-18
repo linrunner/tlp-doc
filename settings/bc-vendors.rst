@@ -406,6 +406,7 @@ LG
        | - When resuming from suspend TLP restores the threshold
        | - Plugin lg/kernel 5.18 (and newer): standard sysfs attribute `charge_control_end_threshold` is used
        | - Plugin lg-legacy/older kernels: `battery_care_limit` is used
+       | **Note**: kernel 6.9 and Ubuntu's 6.8 do not work, upgrade to 6.10.7 or later!
 
 .. rubric:: Sample configuration
 

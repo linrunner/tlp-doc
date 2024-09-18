@@ -497,6 +497,25 @@ Reference: `Issue #739 <https://github.com/linrunner/TLP/issues/739>`_
 
     Identification sequence will be fixed with version 1.7 (yet unreleased).
 
+LG laptop not supported
+^^^^^^^^^^^^^^^^^^^^^^^
+Symptom:
+
+.. code-block:: none
+    :emphasize-lines: 3, 5
+
+    ++ Battery Care
+    Plugin: lg
+    Supported features: none available
+    Driver usage:
+    * vendor (lg_laptop) = inactive (laptop not supported)
+
+Cause: bug in kernel 6.9 and Ubuntu's 6.8.
+
+Solution: upgrade to kernel 6.10.7 or later.
+
+Reference: `Issue #747 <https://github.com/linrunner/TLP/issues/747>`_
+
 MSI laptop not supported
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Symptom:
