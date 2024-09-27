@@ -53,7 +53,7 @@ Apple Macbooks
    * - **Kernel drivers**
      -  `macsmc_power` - required, provided by the Asahi Linux kernel 6.3 or newer
    * - **TLP version**
-     - 1.7 (unreleased)
+     - 1.7
    * - **TLP plugin**
      - macbook
    * - **Charge control options**
@@ -456,7 +456,7 @@ MSI laptops
    * - **Kernel driver**
      - `msi_ec` - required, included in distribution kernels (6.3 or newer)
    * - **TLP version**
-     - 1.7 (unreleased)
+     - 1.7
    * - **TLP plugin**
      - msi
    * - **Charge control options**

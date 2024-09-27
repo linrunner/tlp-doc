@@ -84,7 +84,7 @@ Default when unconfigured: default
 
 AMDGPU_ABM_LEVEL_ON_AC/BAT
 --------------------------
-*Version 1.7 (unreleased)*
+*Version 1.7*
 
 .. rubric::  AMD GPU
 

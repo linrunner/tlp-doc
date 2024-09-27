@@ -187,7 +187,7 @@ Shows disk ids for configured drives.
 
 Version
 ^^^^^^^
-*Version 1.7 (unreleased)*
+*Version 1.7*
 ::
 
     tlp --version

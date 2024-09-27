@@ -66,7 +66,7 @@ Add `-v` to see battery voltages (if available).
 
 .. rubric:: View current power mode
 
-*Version 1.7 (unreleased)*
+*Version 1.7*
 
 ::
 
@@ -88,7 +88,7 @@ Add `-v` to see battery voltages (if available).
 
 .. rubric:: View less
 
-*Version 1.7 (unreleased)*
+*Version 1.7*
 
 Omit version header and show less information in the processor category.
 
@@ -143,7 +143,7 @@ Show more information in battery, PCIe, processor and USB categories.
 
 .. rubric:: View version
 
-*Version 1.7 (unreleased)*
+*Version 1.7*
 
 ::
 

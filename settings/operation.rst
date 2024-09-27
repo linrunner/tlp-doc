@@ -29,7 +29,7 @@ Default when unconfigured: 3
 
 TLP_MSG_COLORS
 --------------
-*Version 1.7 (unreleased)*
+*Version 1.7*
 ::
 
     TLP_MSG_COLORS="91 93 1 92"

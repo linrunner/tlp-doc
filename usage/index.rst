@@ -34,7 +34,7 @@ Version
 =======
 The following commands show TLP's version:
 
-*Version 1.7 (unreleased)*
+*Version 1.7*
 ::
 
    tlp --version

@@ -261,7 +261,7 @@ When the recognition works, the capabilities are limited:
 Solutions:
 
 * Version 1.6(.1) properly recognizes ThinkPads with coreboot
-* Version 1.7 (unreleased) displays complete battery readings
+* Version 1.7 displays complete battery readings
 
 .. _faq-thresholds-ignored:
 
@@ -495,7 +495,7 @@ Reference: `Issue #739 <https://github.com/linrunner/TLP/issues/739>`_
 
 .. note:
 
-    Identification sequence will be fixed with version 1.7 (yet unreleased).
+    Identification sequence will be fixed with version 1.7
 
 LG laptop not supported
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -817,7 +817,7 @@ remedy the situation, a system board defect could be the reason.
     * If the discharge process regularly stops at 1%, for example, you may prefer
       to ignore the problem because it is minor (could be a rounding error).
       With higher values, however, it could be a battery or hardware defect.
-    * Values ≤ 1% will not trigger an error message in version 1.7 (yet unreleased).
+    * Values ≤ 1% will not trigger an error message in version 1.7.
 
 .. _faq-panel-applet-soc:
 
