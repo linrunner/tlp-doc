@@ -32,8 +32,8 @@ Latest News
 
 :doc:`More news ...</news>`
 
-Welcome to TLP's Documentation Site
-===================================
+Welcome to TLP's official Site
+==============================
 The restructured site improves readability and facilitates access
 through a navigation sidebar. Can't find something right away?
 Try the search field in the navbar.
