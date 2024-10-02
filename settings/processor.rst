@@ -205,12 +205,13 @@ CPU_BOOST_ON_AC/BAT
     CPU_BOOST_ON_AC=1
     CPU_BOOST_ON_BAT=0
 
-Configure CPU "turbo boost" (Intel) or "turbo core" (AMD) feature (0 = disable /
-1 = allow).
+Configure CPU "turbo boost" (Intel) or "core performance boost" aka "turbo core" (AMD):
+0 = disable / 1 = allow.
 
 .. note::
 
-    A value of 1 does not activate boosting, it just allows it.
+    * A value of 1 does not activate boosting, it just allows it
+    * For use with the `amd-pstate` driver, at least kernel 6.11 is required
 
 
 CPU_HWP_DYN_BOOST_ON_AC/BAT
