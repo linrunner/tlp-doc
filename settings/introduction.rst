@@ -3,6 +3,37 @@ Introduction
 This section explains how TLP's settings are `organized <#profiles>`_,
 the `Config Files`_, the `Parameter Syntax`_ and `Making Changes`_.
 
+Quick Instructions
+------------------
+
+If you just want to make a quick change to the configuration, read this
+section and then read the rest later.
+
+Open TLP’s main config file with a text editor: ::
+
+    sudo nano /etc/tlp.conf
+
+Change the desired line(s). Before: ::
+
+    #CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
+    #CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+
+After – remember to remove the leading #:
+
+.. code-block::
+    :emphasize-lines: 2
+
+    CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
+    CPU_ENERGY_PERF_POLICY_ON_BAT=power
+
+Note: In contrast to below, the two preceding code blocks are not shell commands but excerpts from the configuration file.
+
+Save and quit the editor. Then activate your changes using the shell command
+
+sudo tlp start
+
+
+
 Profiles
 --------
 TLP uses two settings profiles that are automatically applied depending on the
