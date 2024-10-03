@@ -26,12 +26,15 @@ After – remember to remove the leading #:
     CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
     CPU_ENERGY_PERF_POLICY_ON_BAT=power
 
-Note: In contrast to below, the two preceding code blocks are not shell commands but excerpts from the configuration file.
+.. note::
 
-Save and quit the editor. Then activate your changes using the shell command
+    In contrast to below, the two preceding code blocks are not shell
+    commands but excerpts from the configuration file.
 
-sudo tlp start
+Save and quit the editor. Then activate your changes using the shell
+command ::
 
+    sudo tlp start
 
 
 Profiles
@@ -188,7 +191,7 @@ file, will take effect only
 
 * after a reboot,
 * plugging or unplugging AC
-* or by the command ::
+* or by the shell command ::
 
    sudo tlp start
 

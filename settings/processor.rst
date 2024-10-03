@@ -206,7 +206,9 @@ CPU_BOOST_ON_AC/BAT
     CPU_BOOST_ON_BAT=0
 
 Configure CPU "turbo boost" (Intel) or "core performance boost" aka "turbo core" (AMD):
-0 = disable / 1 = allow.
+
+* 0 - disable
+* 1 - allow
 
 .. note::
 
