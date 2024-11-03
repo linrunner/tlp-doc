@@ -27,9 +27,15 @@ Install the packages either with your favorite package manager or the command: :
 
    dnf install tlp tlp-rdw
 
-Uninstall the conflicting `power-profiles-daemon` package: ::
+Uninstall the conflicting packages: 
+
+* Fedora version 40 and below ::
 
    dnf remove power-profiles-daemon
+
+* Fedora version 41 and newer ::
+
+   dnf remove tuned tuned-ppd
 
 .. seealso::
 
