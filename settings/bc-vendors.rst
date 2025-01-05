@@ -86,9 +86,10 @@ Start charging battery `macsmc-battery` when below 75% and stop at 80%: ::
     * natacpi (macsmc_power) = active (charge thresholds)
     Parameter value ranges:
     * START_CHARGE_THRESH_BAT0:  don't care (hardware enforces 75, 100)
+    * STOP_CHARGE_THRESH_BAT0:   80, 100(default)
     [...]
-    /sys/class/power_supply/macsmc-battery/charge_control_start_threshold =    100 [%]
-    /sys/class/power_supply/macsmc-battery/charge_control_end_threshold   =    100 [%]
+    /sys/class/power_supply/macsmc-battery/charge_control_start_threshold =     75 [%]
+    /sys/class/power_supply/macsmc-battery/charge_control_end_threshold   =     80 [%]
 
 
 ASUS
