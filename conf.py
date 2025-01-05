@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'TLP'
-copyright = '2024, linrunner. Licensed under the CC BY-NC-SA'
+copyright = '2025, linrunner. Licensed under the CC BY-NC-SA'
 author = 'Thomas Koch'
 
 # The short X.Y version
