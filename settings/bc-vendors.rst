@@ -61,7 +61,7 @@ Apple Macbooks
    * - **Threshold configuration**
      - One battery only - `macsmc-battery` uses the `STOP_CHARGE_THRESH_BAT0` parameter
    * - **Start threshold values**
-     - | The hardware definitively selects the start threshold depending on the stop threshold:
+     - | The hardware enforces the start threshold depending on the stop threshold:
        | - stop=80 results in start=75
        | - stop=100 results in start=100
    * - **Stop threshold values**
@@ -147,6 +147,188 @@ Stop charging battery `BAT0`, `BATC` and `BATT` at 80%: ::
     * STOP_CHARGE_THRESH_BAT0/1: 0(off)..100(default)
     [...]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
+
+
+.. _bc-vendor-cros-ec:
+
+Chromebooks (and Framework)
+"""""""""""""""""""""""""""
+.. list-table::
+   :widths: 250 1000
+   :align: left
+
+   * - **Hardware**
+     - | Chromebooks - modded with chrultrabook/coreboot custom UEFI firmware
+       | Framework laptops
+   * - **Kernel drivers**
+     -  `cros_charge-control` - required, included in distribution kernels (6.12 or newer)
+   * - **TLP version**
+     - 1.8 (yet unreleased)
+   * - **TLP plugin**
+     - cros-ec
+   * - **Charge control options**
+     - (Start and) stop charge threshold, recalibration
+   * - **Threshold configuration**
+     - | `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
+       | `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
+   * - **Start threshold values**
+     - | Range: 0 .. 99
+       | Special:
+       | 0 - hardware default, treshold off
+   * - **Stop threshold values**
+     - | Range: 1 .. 100
+       | Special:
+       | 100 - hardware default, threshold off
+   * - **Specifics**
+     - | EC firmware v2 supports stop threshold only (applies to Framework).
+       | EC firmware v3 supports start and stop threshold.
+       | Special note for Framework laptops: if `cros_charge-control` and `framework_laptop` (:ref:`see below <bc-vendor-framework>`) are to be used simultaneously and `cros_charge-control` is to be used to control the charge threshold, the module option `probe_with_fwk_charge_control=1` must be set for `cros_charge-control`.
+
+.. rubric:: Sample configuration
+
+Start charging battery `BAT0` when below 75% and stop at 80%: ::
+
+    START_CHARGE_THRESH_BAT0=75 # Applies to EC firmware v3 only
+    STOP_CHARGE_THRESH_BAT0=80
+
+.. rubric:: Sample output of tlp-stat -b (EC firmware v2)
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: cros-ec
+    Supported features: charge threshold, recalibration
+    Driver usage:
+    * natacpi (cros_charge-control) = active (charge threshold, recalibration) - EC cmd v2
+    Parameter value ranges:
+    * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
+    [...]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
+    /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
+
+.. rubric:: Sample output of tlp-stat -b (EC firmware v3)
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: cros-ec
+    Supported features: charge thresholds, recalibration
+    Driver usage:
+    * natacpi (cros_charge-control) = active (charge threshold, recalibration) - EC cmd v3
+    Parameter value ranges:
+    * START_CHARGE_THRESH_BAT0/1:  0..99(default)
+    * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
+    [...]
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
+    /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
+
+
+.. _bc-vendor-dell:
+
+Dell
+""""
+.. list-table::
+   :widths: 250 1000
+   :align: left
+
+   * - **Hardware**
+     - Dell laptops
+   * - **Kernel drivers**
+     -  `dell_laptop` - required, included in distribution kernels (6.12 or newer)
+   * - **TLP version**
+     - 1.8 (yet unreleased)
+   * - **TLP plugin**
+     - dell
+   * - **Charge control options**
+     - Start and stop charge threshold
+   * - **Threshold configuration**
+     - | `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
+       | `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
+   * - **Start threshold values**
+     - | Range: 50 .. 95
+       | Special:
+       | 95 - hardware default
+       | The hardware enforces start = stop - 5
+   * - **Stop threshold values**
+     - | Range: 55..100
+       | Special:
+       | 100 - hardware default, threshold off
+   * - **Specifics**
+     - |
+
+.. rubric:: Sample configuration
+
+Start charging battery `BAT0` when below 75% and stop at 80%: ::
+
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=80
+
+.. rubric:: Sample output of tlp-stat -b
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: dell
+    Supported features: charge thresholds
+    Driver usage:
+    * natacpi (dell_laptop) = active (charge thresholds)
+    Parameter value ranges:
+    * START_CHARGE_THRESH_BAT0/1: 50..95(default)
+    * STOP_CHARGE_THRESH_BAT0/1: 55..100(default)
+    [...]
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =      75 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =      80 [%]
+
+
+.. _bc-vendor-framework:
+
+Framework
+"""""""""
+.. list-table::
+   :widths: 250 1000
+   :align: left
+
+   * - **Hardware**
+     - Framework laptops
+   * - **Kernel drivers**
+     - `framework_laptop` - required, currently out-of-tree and not included in distribution kernels; install from source
+   * - **TLP version**
+     - 1.8 (yet unreleased)
+   * - **TLP plugin**
+     - framework
+   * - **Charge control options**
+     - Stop charge threshold
+   * - **Threshold configuration**
+     - | `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
+       | `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
+   * - **Stop threshold values**
+     - | Range: 1 .. 100
+       | Special:
+       | 100 - hardware default, threshold off
+   * - **Specifics**
+     - Use of the `cros-ec` plugin is recommended in order to benefit from the recalibration feature (:ref:`see above <bc-vendor-cros-ec>`).
+
+.. rubric:: Sample configuration
+
+Stop charging battery `BAT1` at 80%: ::
+
+    START_CHARGE_THRESH_BAT1=0 # don't care
+    STOP_CHARGE_THRESH_BAT1=80
+
+.. rubric:: Sample output of tlp-stat -b
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: framework
+    Supported features: charge threshold
+    Driver usage:
+    * natacpi (cros_charge-control) = active (charge threshold)
+    Parameter value ranges:
+    * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
+    [...]
+    /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
 
 Huawei
@@ -466,7 +648,7 @@ MSI laptops
      - | Battery `BAT0` uses the `STOP_CHARGE_THRESH_BAT0` parameter
        | Battery `BAT1` uses the `STOP_CHARGE_THRESH_BAT1` parameter
    * - **Start threshold values**
-     - | The hardware definitively selects the start threshold depending on the stop threshold:
+     - | The hardware enforces the start threshold depending on the stop threshold:
        | start = stop - 10
    * - **Stop threshold values**
      - | Range: 10 .. 100
