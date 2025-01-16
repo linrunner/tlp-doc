@@ -255,7 +255,9 @@ Dell
        | Special:
        | 100 - hardware default, threshold off
    * - **Specifics**
-     - |
+     - | TLP implicitly changes the `battery charge type
+         <https://www.dell.com/support/manuals/en-us/dcpm2.1/userguide_dell-v1/battery-settings?guid=guid-0fbbbeff-4928-4def-89af-3d28d0a231ce&lang=en-us>`_
+         to `Custom` to allow you to set arbitrary thresholds. Other Dell charge types are not supported by TLP.
 
 .. rubric:: Sample configuration
 
