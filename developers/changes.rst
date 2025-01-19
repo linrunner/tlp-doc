@@ -4,6 +4,12 @@ This section lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
+Version 1.8
+    Files:
+
+    - New: **bat.d/55-cros-ec, 56-framework, 65-dell**
+
+
 Version 1.7
     Makefile:
 
