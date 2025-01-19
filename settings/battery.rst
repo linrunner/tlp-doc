@@ -51,7 +51,7 @@ Hint: after the commands :command:`tlp fullcharge/recalibrate` the charge thresh
 will stay at the vendor specific defaults until the next reboot. Use this
 feature to restore them prematurely.
 
-NATACPI/TPACPI/TPSMAPI_ENABLE
+NATACPI/TPSMAPI_ENABLE
 -----------------------------
 ::
 
