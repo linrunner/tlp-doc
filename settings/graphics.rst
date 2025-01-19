@@ -56,6 +56,9 @@ Controls the power management method of the GPU. Possible values:
 
 RADEON_POWER_PROFILE_ON_AC/BAT
 ------------------------------
+*This parameter was deprecated in version 1.8, do not use anymore*
+
+
 .. rubric::  AMD GPU (ATI legacy hardware)
 
 ::
