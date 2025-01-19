@@ -99,7 +99,7 @@ Charges battery `BAT1` to full capacity.
 
 Charge battery to the stop charge threshold once
 """"""""""""""""""""""""""""""""""""""""""""""""
-*ThinkPads only*
+*Available on selected hardware only, refer to* :doc:`/settings/bc-vendors`.
 
 ::
 
@@ -112,24 +112,34 @@ The configured start charge threshold will be restored at the next boot or by us
 Hint: after setting he thresholds the command terminates; it does not wait for
 the charge to complete.
 
-Force a complete discharge of the battery while on AC power
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-*ThinkPads only*
+Force a complete/partial discharge of the battery while on AC power
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+*Available on selected hardware only, refer to* :doc:`/settings/bc-vendors`.
+
+*Version 1.8 and newer*
+
+::
+
+    sudo tlp discharge [BAT0|BAT1] [<LEVEL>]
+
+*Version 1.7 and older*
 
 ::
 
     sudo tlp discharge [BAT0|BAT1]
 
 `BAT0` selects the main/internal battery, `BAT1` the auxiliary/Ultrabay battery for discharge.
-The command continously shows remaining capacity and estimated discharge time.
-Discharging may be stopped at any time with :kbd:`Control-C`.
+Discharge stops at the specified charge level (in %). If none is specified
+the battery is fully discharged. The command continously shows remaining
+capacity and estimated discharge time. Discharging may be stopped at any time
+with :kbd:`Control-C`.
 
 Hints:
 
 * The command needs the charger plugged in
 * As soon as the battery is empty, charging begins and the command terminates;
   it does not wait for the charge to complete
-* Normal use of the ThinkPad is possible during the discharge process;
+* Normal use of the laptop is possible during the discharge process;
   it does *not* suddenly switch off when the battery is empty
 * ThinkPads with two batteries: the battery controller can only handle one
   battery at a time; while discharging one battery with this command the other
@@ -138,7 +148,7 @@ Hints:
 
 Perform a battery recalibration while on AC power
 """""""""""""""""""""""""""""""""""""""""""""""""
-*ThinkPads only*
+*Available on selected hardware only, refer to* :doc:`/settings/bc-vendors`.
 
 ::
 
@@ -151,7 +161,7 @@ This command works as follows:
 * Discharges the selected battery completely;
 * As soon as the battery is empty, charging begins and the command terminates;
   it does not wait for the charge to complete
-* Normal use of the ThinkPad is possible during the discharge process;
+* Normal use of the laptop is possible during the discharge process;
   it does *not* suddenly switch off when the battery is empty
 * Important: to complete the recalibration process, let the battery charge to
   100 % subsequently; you may power off but not remove the charger

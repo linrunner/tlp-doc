@@ -25,9 +25,9 @@ are disabled by default and must be enabled explicitly by removing the leading `
 .. important::
 
     You must always specify both charge thresholds - *start and stop* - for a battery,
-    otherwise TLP will ignore the setting completely (*and until version 1.3
-    silently*). If you want to apply only one threshold (or your hardware
-    does support only one), then use the dummy value `0` to skip the other one.
+    otherwise TLP will reject both thresholds. If you want to apply only one threshold
+    (or your hardware does support only one), then use the dummy value
+    `0` to skip the other one.
 
 .. seealso::
 
@@ -56,7 +56,6 @@ NATACPI/TPACPI/TPSMAPI_ENABLE
 ::
 
     NATACPI_ENABLE=1
-    TPACPI_ENABLE=1
     TPSMAPI_ENABLE=1
 
 Control battery care drivers:
@@ -69,7 +68,7 @@ Default when unconfigured: 1 (all)
 Scope:
 
     * `NATACPI`: all supported laptops
-    * `TPACPI_ENABLE`, `TPSMAPI_ENABLE`: ThinkPad specific
+    * `TPSMAPI_ENABLE`: ThinkPad specific
 
 
 .. seealso::

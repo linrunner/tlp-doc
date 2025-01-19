@@ -1,5 +1,3 @@
-*In Version 1.3 and below it is called "Battery Features".*
-
 Battery care aims to extend the lifespan of the battery by reducing wear
 and capacity loss resulting from ongoing operation. This can be achieved by:
 

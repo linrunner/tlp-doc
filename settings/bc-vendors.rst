@@ -33,10 +33,9 @@ As for obtaining kernel drivers, there are two options:
     a. Drivers that are maintained in the Linux kernel and shipped with each
        distribution. They are loaded automatically on supported laptops and do
        not require any user action.
-    b. So-called "external kernel drivers", which are not part of the Linux
-       kernel and require the user to install additional, distribution specific
-       packages. This case applies to ThinkPads only and is described in
-       :doc:`/installation/index`.
+    b. So-called "external" or "out-of-tree" kernel drivers, which are not part
+       of the Linux mainline kernel and require the user to install additional,
+       distribution specific packages.
 
 
 Supported Hardware
@@ -52,7 +51,7 @@ Apple Macbooks
      - Apple Silicon Macbooks - M* models with macOS firmware 13.0 or newer
    * - **Kernel drivers**
      -  `macsmc_power` - required, provided by the Asahi Linux kernel 6.3 or newer
-   * - **TLP version**
+   * - **TLP version (min)**
      - 1.7
    * - **TLP plugin**
      - macbook
@@ -102,7 +101,7 @@ ASUS
      - ASUS laptops
    * - **Kernel driver**
      - `asus_wmi` - required, included in distribution kernels (5.4 or newer)
-   * - **TLP version**
+   * - **TLP version (min)**
      - 1.4 and newer
    * - **TLP plugin**
      - asus
@@ -162,12 +161,12 @@ Chromebooks (and Framework)
        | Framework laptops
    * - **Kernel drivers**
      -  `cros_charge-control` - required, included in distribution kernels (6.12 or newer)
-   * - **TLP version**
-     - 1.8 (yet unreleased)
+   * - **TLP version (min)**
+     - 1.8
    * - **TLP plugin**
      - cros-ec
    * - **Charge control options**
-     - (Start and) stop charge threshold, recalibration
+     - (Start and) stop charge threshold, recalibrate, discharge, chargeonce
    * - **Threshold configuration**
      - | `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
        | `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
@@ -236,8 +235,8 @@ Dell
      - Dell laptops
    * - **Kernel drivers**
      -  `dell_laptop` - required, included in distribution kernels (6.12 or newer)
-   * - **TLP version**
-     - 1.8 (yet unreleased)
+   * - **TLP version (min)**
+     - 1.8
    * - **TLP plugin**
      - dell
    * - **Charge control options**
@@ -294,9 +293,10 @@ Framework
    * - **Hardware**
      - Framework laptops
    * - **Kernel drivers**
-     - `framework_laptop` - required, currently out-of-tree and not included in distribution kernels; install from source
-   * - **TLP version**
-     - 1.8 (yet unreleased)
+     - `framework_laptop` - required, out-of-tree/not included in distribution kernels
+       → install from source
+   * - **TLP version (min)**
+     - 1.8
    * - **TLP plugin**
      - framework
    * - **Charge control options**
@@ -343,8 +343,8 @@ Huawei
      - Huawei MateBooks
    * - **Kernel driver**
      - `huawei_wmi` - required, included in distribution kernels (5.4 or newer)
-   * - **TLP version**
-     - 1.4 and newer
+   * - **TLP version (min)**
+     - 1.4
    * - **TLP plugin**
      - huawei
    * - **Charge control options**
@@ -396,15 +396,13 @@ Lenovo ThinkPads
    * - **Hardware**
      - Lenovo ThinkPad series since model year 2011 - e.g. T420(s)/T520/W520/X220
    * - **Kernel drivers**
-     -  | `thinkpad_acpi` - required, included in distribution kernels
-        | `acpi_call` - optional, enables recalibration for kernels before 5.17;
-          distribution specific package needed
-   * - **TLP version**
+     -  `thinkpad_acpi` - required, included in distribution kernels
+   * - **TLP version (min)**
      - all
    * - **TLP plugin**
      - thinkpad
    * - **Charge control options**
-     - Start and stop charge threshold, recalibration
+     - Start and stop charge threshold, recalibrate, discharge, chargeonce
    * - **Threshold configuration**
      - | Main/internal battery `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
        | Auxiliary/UltraBay battery `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
@@ -459,14 +457,13 @@ Lenovo/IBM legacy ThinkPads
      - Lenovo or IBM ThinkPad series before model year 2011
    * - **Kernel drivers**
      - | `thinkpad_acpi` - required, included in distribution kernels
-       | `tp_smapi` - required, enables charge thresholds and recalibration;
-         distribution specific package needed
-   * - **TLP version**
+       | `tp_smapi` - required, out-of-tree → distribution specific package needed
+   * - **TLP version (min)**
      - all
    * - **TLP plugin**
      - thinkpad-legacy
    * - **Charge control options**
-     - start and stop charge threshold, recalibration
+     - start and stop charge threshold, recalibrate, discharge, chargeonce
    * - **Threshold configuration**
      - | Main/internal battery `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
        | Auxiliary/UltraBay battery `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
@@ -516,9 +513,9 @@ Lenovo non-ThinkPad series
    * - **Hardware**
      - Lenovo laptops (all non-ThinkPad series including ThinkBooks)
    * - **Kernel driver**
-     - `ideapad_laptop` - required, included in distribution kernels (4.14 or newer)
-   * - **TLP version**
-     - 1.4 and newer
+     - `ideapad_laptop` - required, included in distribution kernels
+   * - **TLP version (min)**
+     - 1.4
    * - **TLP plugin**
      - lenovo
    * - **Charge control options**
@@ -575,8 +572,8 @@ LG
      - LG Gram laptops
    * - **Kernel driver**
      - `lg_laptop` - required, included in distribution kernels
-   * - **TLP version**
-     - 1.4 and newer
+   * - **TLP version (min)**
+     - 1.4
    * - **TLP plugins**
      - lg, lg-legacy
    * - **Charge control options**
@@ -591,7 +588,8 @@ LG
        | - When resuming from suspend TLP restores the threshold
        | - Plugin lg/kernel 5.18 (and newer): standard sysfs attribute `charge_control_end_threshold` is used
        | - Plugin lg-legacy/older kernels: `battery_care_limit` is used
-       | **Note**: kernel 6.9 and Ubuntu's 6.8 do not work, upgrade to 6.10.7 or later!
+       | **Note**: a regression in kernel 6.9 breaks `lg_laptop` → upgrade to 6.10.7 or later;
+         mainline 6.6 LTS and Ubuntu's 6.8 were patched too
 
 .. rubric:: Sample configuration
 
@@ -640,7 +638,7 @@ MSI laptops
      - MSI laptops
    * - **Kernel driver**
      - `msi_ec` - required, included in distribution kernels (6.3 or newer)
-   * - **TLP version**
+   * - **TLP version (min)**
      - 1.7
    * - **TLP plugin**
      - msi
@@ -694,8 +692,8 @@ Samsung
      - Samsung laptops
    * - **Kernel driver**
      - `samsung_laptop` - required, included in distribution kernels
-   * - **TLP version**
-     - 1.4 and newer
+   * - **TLP version (min)**
+     - 1.4
    * - **TLP plugin**
      - samsung
    * - **Charge control options**
@@ -743,8 +741,8 @@ Sony
      - Sony VAIO laptops
    * - **Kernel driver**
      - `sony_laptop` - required, included in distribution kernels
-   * - **TLP version**
-     - 1.5 and newer
+   * - **TLP version (min)**
+     - 1.5
    * - **TLP plugin**
      - sony
    * - **Charge control options**
@@ -793,8 +791,8 @@ System76
      - System76 laptops - models with with **open source EC firmware** only
    * - **Kernel drivers**
      -  `system76_acpi` - required, included in distribution kernels (5.16 or newer)
-   * - **TLP version**
-     - 1.6 and newer
+   * - **TLP version (min)**
+     - 1.6
    * - **TLP plugin**
      - system76
    * - **Charge control options**
@@ -848,8 +846,8 @@ Toshiba
      - Toshiba and Dynabook laptops
    * - **Kernel driver**
      - `toshiba_laptop` - required, included in distribution kernels (6.0 and newer)
-   * - **TLP version**
-     - 1.6 and newer
+   * - **TLP version (min)**
+     - 1.6
    * - **TLP plugins**
      - toshiba
    * - **Charge control options**
@@ -929,7 +927,6 @@ the output of
 
 Final Notes
 ^^^^^^^^^^^
-*Applies to version 1.4 and newer only*
 
     * Consult the output of :command:`tlp-stat -b` for supported charge control
       options and allowed parameter values of your hardware
