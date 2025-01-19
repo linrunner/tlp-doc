@@ -398,8 +398,7 @@ Workaround:
 
 ThinkPad T430(s)/T530/W530/X230 (and all later models)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Solution: install version 1.5 or later and a kernel ≥ 5.17 for
-full `natacpi` support.
+Solution: install kernel ≥ 5.17 for full `natacpi` support.
 
 ThinkPad T420(s)/T520/W520/X220
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -424,8 +423,7 @@ generation ThinkPads. Symptoms are:
 
     Error: battery discharge/recalibrate not available.
 
-Solution: install version 1.5 or later and a kernel ≥ 5.17 for
-full `natacpi` support.
+Solution: install kernel ≥ 5.17 for full `natacpi` support.
 
 
 .. _faq-unsupported-thinkpads:
@@ -825,16 +823,10 @@ Why does the panel applet show the battery state "charging" despite charge thres
 ----------------------------------------------------------------------------------------------------
 *ThinkPads only*
 
-Existing panel applets query `upowerd` or the standard kernel interface which do
+Existing panel applets query `upowerd` or the standard kernel interface which may
 not reflect the charging condition correctly as soon as charge thresholds intervene.
 
-In this situation :command:`tlp-stat -b` shows
-
-* "Idle" - *Version 1.4 and later*
-* "Unknown (threshold effective)" - *Version 1.3*
-
-for **/sys/class/power_supply/BATx/status**.
-
+In this situation :command:`tlp-stat -b` shows "Idle" for **/sys/class/power_supply/BATx/status**.
 For ThinkPad models supporting `tp-smapi`, the correct state "Idle" is shown
 for **/sys/devices/platform/smapi/BATx/state**.
 

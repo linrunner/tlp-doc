@@ -34,8 +34,6 @@ Workarounds (please try one by one):
 
       RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon xhci_hcd"
 
-  *Version 1.3: use RUNTIME_PM_DRIVER_BLACKLIST instead*
-
 * Disable runtime power management for AHCI devices an execute :command:`tlp start` ::
 
       AHCI_RUNTIME_PM_ON_BAT=on
@@ -44,8 +42,6 @@ Workarounds (please try one by one):
   adding `ahci` to the denylist *and reboot* ::
 
       RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon ahci"
-
-  *Version 1.3: use RUNTIME_PM_DRIVER_BLACKLIST instead*
 
 .. seealso::
 
@@ -74,8 +70,6 @@ Smartphone does not charge when connected
 Solution: exclude the smartphone from autosuspend by configuring ::
 
     USB_EXLUDE_PHONE=1
-
-*Version 1.3: use USB_BLACKLIST_PHONE instead*
 
 Then reconnect the device.
 

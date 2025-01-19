@@ -5,8 +5,6 @@ Platform
 
 PLATFORM_PROFILE_ON_AC/BAT
 --------------------------
-*Version 1.4 and newer*
-
 ::
 
     PLATFORM_PROFILE_ON_AC=performance

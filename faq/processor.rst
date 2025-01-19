@@ -48,9 +48,8 @@ frequency of the CPU: ::
 
 Probable cause: `intel_pstate` driver or UEFI firmware bug.
 
-Workaround: either do not disable turbo boost or configure additionally
-:ref:`set-platform-profile` (*Version 1.4 and newer only*, see
-`Issue #570 <https://github.com/linrunner/TLP/issues/570>`_ for details).
+Workaround: either do not disable turbo boost or configure :ref:`set-platform-profile`
+(see `Issue #570 <https://github.com/linrunner/TLP/issues/570>`_ for details).
 
 Frequency scaling settings do not get applied
 ---------------------------------------------

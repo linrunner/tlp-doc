@@ -99,7 +99,7 @@ depends on the active driver:
       governors in the :command:`tlp-stat -p` output after boot.
       In this case, configure the desired governor anyway and, after
       :command:`tlp start`, check the output of :command:`tlp-stat -p` again
-      (won't work in versions 1.4 and 1.5).
+      (requires version 1.6).
 
 .. important::
 
@@ -218,8 +218,6 @@ Configure CPU "turbo boost" (Intel) or "core performance boost" aka "turbo core"
 
 CPU_HWP_DYN_BOOST_ON_AC/BAT
 ---------------------------
-*Version 1.4 and newer*
-
 ::
 
     CPU_HWP_DYN_BOOST_ON_AC=1

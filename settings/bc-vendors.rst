@@ -102,7 +102,7 @@ ASUS
    * - **Kernel driver**
      - `asus_wmi` - required, included in distribution kernels (5.4 or newer)
    * - **TLP version (min)**
-     - 1.4 and newer
+     - 1.4
    * - **TLP plugin**
      - asus
    * - **Charge control options**

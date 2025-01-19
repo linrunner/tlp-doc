@@ -47,8 +47,6 @@ Remove all GPU drivers from the denylist, leaving only ::
 
     RUNTIME_PM_DRIVER_DENYLIST="mei_me"
 
-*Version 1.3: use RUNTIME_PM_DRIVER_BLACKLIST*
-
 Apply the changed settings with ::
 
     sudo tlp start

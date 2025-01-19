@@ -27,9 +27,6 @@ Default when unconfigured: 1
 
 USB_DENYLIST
 -------------
-*This parameter was renamed with version 1.4. Until 1.3 it was called
-USB_BLACKLIST. 1.4 and newer also recognize the old name.*
-
 .. include:: /include/usb-excluded-devices.rst
 
 ::
@@ -43,8 +40,6 @@ Multiple IDs are separated with blanks.
 
 USB_EXCLUDE_AUDIO
 -----------------
-*Version 1.4 and newer*
-
 ::
 
     USB_EXCLUDE_AUDIO=1
@@ -62,9 +57,6 @@ Default when unconfigured: 1
 
 USB_EXCLUDE_BTUSB
 -----------------
-*This parameter was renamed with version 1.4. Until 1.3 it was called
-USB_BLACKLIST_BTUSB. 1.4 and newer also recognize the old name.*
-
 ::
 
     USB_EXCLUDE_BTUSB=1
@@ -90,9 +82,6 @@ Default when unconfigured: 0
 
 USB_EXCLUDE_PHONE
 -----------------
-*This parameter was renamed with version 1.4. Until 1.3 it was called
-USB_BLACKLIST_PHONE. 1.4 and newer also recognize the old name.*
-
 ::
 
     USB_EXCLUDE_PHONE=1
@@ -109,9 +98,6 @@ Default when unconfigured: 0
 
 USB_EXCLUDE_PRINTER
 -------------------
-*This parameter was renamed with version 1.4. Until 1.3 it was called
-USB_BLACKLIST_PRINTER. 1.4 and newer also recognize the old name.*
-
 ::
 
     USB_EXCLUDE_PRINTER=1
@@ -128,9 +114,6 @@ Default when unconfigured: 1
 
 USB_EXCLUDE_WWAN
 ----------------
-*This parameter was renamed with version 1.4. Until 1.3 it was called
-USB_BLACKLIST_WWAN. 1.4 and newer also recognize the old name.*
-
 ::
 
     USB_EXCLUDE_WWAN=0
@@ -154,9 +137,6 @@ Default when unconfigured: 0
 
 USB_ALLOWLIST
 -------------
-*This parameter was renamed with version 1.4. Until 1.3 it was called
-USB_WHITELIST. 1.4 and newer also recognize the old name.*
-
 ::
 
     USB_ALLOWLIST="5555:6666 7777:8888"
@@ -168,7 +148,7 @@ IDs. Multiple IDs are separated with blanks.
 
 USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN
 -----------------------------------
-*This parameter is removed in version 1.7*
+*This parameter was removed in version 1.7*
 
 ::
 

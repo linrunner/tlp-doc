@@ -151,8 +151,6 @@ Parameters with intrinsic default may be disabled by entering an empty string: :
 
 .. rubric:: Concatenation with +=
 
-*Version 1.4 and newer*
-
 A nifty feature to add something to an intrinsic default (Example 1):
 
     Intrinsic default `DISK_DEVICES="nvme0n1 sda"`

@@ -56,7 +56,7 @@ It is advisable to uninstall power-profiles-daemon in all other scenarios.
 If your distribution allows for parallel installation, the behaviour
 depends on the version of TLP:
 
-*Version 1.6* and later will automatically *not* apply the settings listed
+*Version 1.6 and later* will automatically *not* apply the settings listed
 above if a running power-profiles-daemon is detected. In addition the
 :command:`tlp start` issues a warning about the conflict:
 
@@ -64,7 +64,7 @@ above if a running power-profiles-daemon is detected. In addition the
 
     Warning: PLATFORM_PROFILE_ON_AC/BAT is not set because power-profiles-daemon is running.
 
-*Version 1.5 and 1.4* merely detect the situation and the commands
+*Version 1.5* merely detects the situation and the commands
 :command:`tlp start` and :command:`tlp-stat -s` issue a message about the conflict:
 
 .. code-block:: none

@@ -48,16 +48,9 @@ Default when unconfigured: "254 254" (AC), "128 128" (BAT)
 
 Values for multiple disks are separated with blanks.
 
-.. note::
-
-    *Until version 1.3 this setting will not be applied to USB and
-    IEEE 1394 (FireWire) disks.*
-
 
 DISK_APM_CLASS_DENYLIST
 -----------------------
-*Version 1.4 and newer*
-
 ::
 
     DISK_APM_CLASS_DENYLIST="usb ieee1394"
@@ -176,9 +169,6 @@ Multiple values separated with spaces are tried sequentially until success.
 
 SATA_LINKPWR_DENYLIST
 ----------------------
-*This parameter was renamed with version 1.4. Until 1.3 it was called
-SATA_LINKPWR_BLACKLIST. 1.4 and newer also recognize the old name.*
-
 ::
 
     SATA_LINKPWR_DENYLIST="host1"
@@ -194,14 +184,6 @@ to determine the host; the format is `hostX`. Separate multiple hosts with space
 
 AHCI_RUNTIME_PM_ON_AC/BAT
 -------------------------
-*Version 1.4 and newer*
-
-.. warning::
-
-    This has been an experimental feature in previous versions. Only with version 1.4
-    the risk of system freezes (and data loss) with the multiqueue scheduler and
-    kernel < 4.19 is eliminated.
-
 ::
 
     AHCI_RUNTIME_PM_ON_AC=on
@@ -225,8 +207,6 @@ Default when unconfigured: on (AC), auto (BAT)
 
 AHCI_RUNTIME_PM_TIMEOUT
 -----------------------
-*Version 1.4 and newer*
-
 ::
 
     AHCI_RUNTIME_PM_TIMEOUT=15

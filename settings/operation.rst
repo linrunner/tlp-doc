@@ -13,7 +13,6 @@ Default when unconfigured: 1
 
 TLP_WARN_LEVEL
 --------------
-*Version 1.4 and newer*
 ::
 
    TLP_WARN_LEVEL=3
@@ -89,9 +88,9 @@ Power supply class(es) to ignore when determining operation mode:
 
 * AC
 * BAT
-* USB - *Version 1.4 and newer only*
+* USB
 
-*Version 1.4 and newer only: enter multiple classes separated with spaces.*
+Enter multiple classes separated with spaces.
 
 .. note::
 
