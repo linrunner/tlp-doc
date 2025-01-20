@@ -5,6 +5,25 @@ News
 
 .. _news-top-1:
 
+19.01.2025 - TLP 1.8 Beta 1 released / Call for Testers
+=======================================================
+I am pleased to announce the first beta version of TLP 1.8.
+
+Battery care is at the forefront of this new release, with charge thresholds
+and recalibrate/discharge for Chromebooks and Framework laptops,
+and charge thresholds for Dell laptops.
+See the `release notes <https://github.com/linrunner/TLP/releases>`_
+and the `full changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_
+for details.
+
+I'm looking for you great people to help me test new and existing features
+on your hardware, as I do with every beta release.
+Just visit the `beta page <https://download.linrunner.de/packages/>`_
+for instructions and packages matching your distribution - then
+`enter testing <https://github.com/linrunner/TLP/issues/781>`_!
+
+.. _news-top-2:
+
 27.09.2024 - TLP 1.7 released
 =============================
 The beta test was a success, and I'm proud to announce the final release of
@@ -23,8 +42,6 @@ reporters!
 
 Have fun! :-)
 
-
-.. _news-top-2:
 
 04.09.2024 - TLP 1.7 Beta 1 released / Call for Testers
 =======================================================
