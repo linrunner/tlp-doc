@@ -27,7 +27,7 @@ Install the packages either with your favorite package manager or the command: :
 
    dnf install tlp tlp-rdw
 
-Uninstall the conflicting packages: 
+Uninstall the conflicting packages:
 
 * Fedora version 40 and below ::
 
@@ -160,23 +160,3 @@ RPM-GPG-KEY-tlp-fedora-40-primary: ::
 RPM-GPG-KEY-tlp-fedora-39-primary: ::
 
     61A3 F536 A295 C543 C90B 6583 F211 4CD7 DD65 A6C4
-
-RPM-GPG-KEY-tlp-fedora-38-primary: ::
-
-    18E9 1496 E81A 2040 F94E C306 B3BE 4F28 7F13 C3C8
-
-RPM-GPG-KEY-tlp-fedora-37-primary: ::
-
-    666F 0F62 9C09 5486 7FA9 7C55 4E41 F248 779F E8EE
-
-RPM-GPG-KEY-tlp-fedora-36-primary: ::
-
-    B1F7 4D6D 9F56 93BB 1A9C 9D64 85F1 A909 051D B38A
-
-RPM-GPG-KEY-tlp-fedora-35-primary: ::
-
-    65C4 7531 819C 6D74 33BE 25D5 5052 26CB 40D9 3801
-
-RPM-GPG-KEY-tlp-fedora-34-primary: ::
-
-    1E4F 2F53 A348 6025 FC4E FD86 7704 0BAF FA30 D1C8
