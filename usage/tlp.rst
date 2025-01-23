@@ -99,8 +99,6 @@ Charges battery `BAT1` to full capacity.
 
 Charge battery to the stop charge threshold once
 """"""""""""""""""""""""""""""""""""""""""""""""
-*Available on selected hardware only, refer to* :doc:`/settings/bc-vendors`.
-
 ::
 
      sudo tlp chargeonce [BAT0|BAT1]
@@ -114,8 +112,6 @@ the charge to complete.
 
 Force a complete/partial discharge of the battery while on AC power
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-*Available on selected hardware only, refer to* :doc:`/settings/bc-vendors`.
-
 *Version 1.8 and newer*
 
 ::
@@ -148,8 +144,6 @@ Hints:
 
 Perform a battery recalibration while on AC power
 """""""""""""""""""""""""""""""""""""""""""""""""
-*Available on selected hardware only, refer to* :doc:`/settings/bc-vendors`.
-
 ::
 
     sudo tlp recalibrate [BAT0|BAT1]

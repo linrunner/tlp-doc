@@ -1,6 +1,7 @@
-.. seealso::
+.. important::
 
-    * The level of battery care support as well as battery names and allowed
-      charge threshold values depend on laptop vendor or brand, Linux
-      kernel version and TLP version - consult :doc:`/settings/bc-vendors` for details
-    * For further advice please visit the FAQ: :doc:`/faq/battery`
+    * The availability of battery care, all of its individual features and the
+      valid charge threshold values always depend on laptop vendor or brand,
+      Linux kernel version and TLP version - consult :doc:`/settings/bc-vendors`
+      for details.
+    * For further advice please visit the FAQ: :doc:`/faq/battery`.
