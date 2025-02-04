@@ -14,10 +14,13 @@ START/STOP_CHARGE_THRESH_BATx
     START_CHARGE_THRESH_BAT1=75
     STOP_CHARGE_THRESH_BAT1=80
 
-Set battery charge thresholds for main/internal battery `BAT0` and auxiliary/Ultrabay
-battery `BAT1`:
+Set battery charge thresholds for main and secondary battery:
 
 .. include:: ../include/charge-threshold-effect.rst
+
+Keep in mind that the names of the batteries shown by :command:`tlp-stat -b`
+don't have to match the `_BAT0` or `_BAT1` parameter qualifiers.
+Please refer to :doc:`bc-vendors` to see which qualifier applies to which battery.
 
 Thresholds always go with a lower usable battery capacity, therefore the settings
 are disabled by default and must be enabled explicitly by removing the leading `#`.

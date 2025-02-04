@@ -54,12 +54,18 @@ Battery Care
 ^^^^^^^^^^^^
 .. include:: ../include/battery-care-scope.rst
 
+.. note::
+
+    For laptops with two batteries, the secondary battery must be specified as a command
+    parameter in order to select it. In many cases  the  main  battery will be `BAT0`,
+    the secondary battery `BAT1`. When in doubt, check the output of :command:`tlp-stat -b`,
+    which lists all batteries.
 
 Change battery charge thresholds temporarily
 """"""""""""""""""""""""""""""""""""""""""""
 ::
 
-    sudo tlp setcharge [<START_CHARGE_THRESH> <STOP_CHARGE_THRESH>] [BAT0|BAT1|BAT<x>|CMB0|CMB1]
+    sudo tlp setcharge [<start threshold> <stop threshold>] [<battery>]
 
 Changes the charge thresholds for the battery to the given values.
 
@@ -82,7 +88,7 @@ Charge battery to full capacity
 """""""""""""""""""""""""""""""
 ::
 
-    sudo tlp fullcharge [BAT0|BAT1|BAT<x>|CMB0|CMB1]
+    sudo tlp fullcharge [<battery>]
 
 This is done by applying vendor presets to the charge thresholds temporarily.
 Configured thresholds will be restored at the next boot or by using
@@ -101,7 +107,7 @@ Charge battery to the stop charge threshold once
 """"""""""""""""""""""""""""""""""""""""""""""""
 ::
 
-     sudo tlp chargeonce [BAT0|BAT1]
+     sudo tlp chargeonce [<battery>]
 
 This is done by temporarily lifting the start charge threshold.
 The configured start charge threshold will be restored at the next boot or by using
@@ -116,15 +122,14 @@ Force a complete/partial discharge of the battery while on AC power
 
 ::
 
-    sudo tlp discharge [BAT0|BAT1] [<LEVEL>]
+    sudo tlp discharge [<battery>] [<level>]
 
 *Version 1.7 and older*
 
 ::
 
-    sudo tlp discharge [BAT0|BAT1]
+    sudo tlp discharge [<battery>]
 
-`BAT0` selects the main/internal battery, `BAT1` the auxiliary/Ultrabay battery for discharge.
 Discharge stops at the specified charge level (in %). If none is specified
 the battery is fully discharged. The command continously shows remaining
 capacity and estimated discharge time. Discharging may be stopped at any time
@@ -146,7 +151,7 @@ Perform a battery recalibration while on AC power
 """""""""""""""""""""""""""""""""""""""""""""""""
 ::
 
-    sudo tlp recalibrate [BAT0|BAT1]
+    sudo tlp recalibrate [<battery>]
 
 This command works as follows:
 
@@ -168,7 +173,7 @@ Example: ::
 
     sudo tlp recalibrate BAT0
 
-Recalibrates the main battery (BAT0).
+Recalibrates battery `BAT0`.
 
 Hints:
 
