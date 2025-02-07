@@ -150,8 +150,8 @@ Stop charging battery `BAT0`, `BATC` and `BATT` at 80%: ::
 
 .. _bc-vendor-cros-ec:
 
-Chromebooks (and Framework)
-"""""""""""""""""""""""""""
+Chromebooks and Framework
+"""""""""""""""""""""""""
 .. list-table::
    :widths: 250 1000
    :align: left
@@ -181,7 +181,7 @@ Chromebooks (and Framework)
    * - **Specifics**
      - | EC firmware v2 supports stop threshold only (applies to Framework).
        | EC firmware v3 supports start and stop threshold.
-       | Special note for Framework laptops: if `cros_charge-control` and `framework_laptop` (:ref:`see below <bc-vendor-framework>`) are to be used simultaneously and `cros_charge-control` is to be used to control the charge threshold, the module option `probe_with_fwk_charge_control=1` must be set for `cros_charge-control`.
+       | Special note for **Framework laptops**: if `cros_charge-control` and `framework_laptop` (:ref:`see below <bc-vendor-framework>`) are to be used simultaneously and `cros_charge-control` is to be used to control the charge threshold, the module option `probe_with_fwk_charge_control=1` must be set for `cros_charge-control`.
 
 .. rubric:: Sample configuration
 
@@ -254,9 +254,14 @@ Dell
        | Special:
        | 100 - hardware default, threshold off
    * - **Specifics**
-     - | TLP implicitly changes the `battery charge type
+     - | TLP changes the `battery charge type
          <https://www.dell.com/support/manuals/en-us/dcpm2.1/userguide_dell-v1/battery-settings?guid=guid-0fbbbeff-4928-4def-89af-3d28d0a231ce&lang=en-us>`_
-         to `Custom` to allow you to set arbitrary thresholds. Other Dell charge types are not supported by TLP.
+         to `Custom` so that the thresholds are effective. Other Dell
+         charge types are not supported by TLP.
+       | To be able to set the thresholds, it is necessary to remove
+         the BIOS Admin password that may have been set. It is sufficient
+         to do this temporarily in order to write the configured thresholds
+         once with :command:`tlp setcharge`.
 
 .. rubric:: Sample configuration
 
@@ -293,7 +298,7 @@ Framework
    * - **Hardware**
      - Framework laptops
    * - **Kernel drivers**
-     - `framework_laptop` - required, out-of-tree/not included in distribution kernels
+     - `framework_laptop` - required, out-of-tree i.e. not included in distribution kernels
        → install from source
    * - **TLP version (min)**
      - 1.8
@@ -308,8 +313,13 @@ Framework
      - | Range: 1 .. 100
        | Special:
        | 100 - hardware default, threshold off
-   * - **Specifics**
-     - Use of the `cros-ec` plugin is recommended in order to benefit from the recalibration feature (:ref:`see above <bc-vendor-cros-ec>`).
+   * - **See also**
+     - | The **recommended option** for Framework laptops is to use the
+         :ref:`cros-ec plugin shown above <bc-vendor-cros-ec>`.
+       | Advantages are:
+       | - No need to install an out-of-tree kernel module, as everything is available in the distribution kernel
+       | - Extra recalibration feature
+
 
 .. rubric:: Sample configuration
 
