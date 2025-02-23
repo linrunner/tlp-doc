@@ -27,7 +27,24 @@ Install the packages either with your favorite package manager or the command: :
 
    dnf install tlp tlp-rdw
 
-Uninstall the conflicting packages:
+TLP Repository
+^^^^^^^^^^^^^^
+If the latest TLP version is not yet available in the official Fedora
+repositories, you can get it from the `TLP` repository, which
+can be set up with the following command: ::
+
+   dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
+
+Hint: the above step is only needed after a clean Fedora installation,
+not after release upgrades.
+
+After the repository is set up, install TLP with the command: ::
+
+   dnf install tlp tlp-rdw
+
+Remove conflicting packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+After installing TLP, conflicting packages must be uninstalled:
 
 * Fedora version 40 and below ::
 
@@ -62,7 +79,8 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 
     Fedora 40 was released with Linux kernel 6.8. In combination with TLP 1.5
     or newer it offers full battery care support (i.e. charge thresholds and
-    recalibration) for ThinkPads from model year 2011 onwards.
+    recalibration) for ThinkPads from model year 2011 onwards. The same applies
+    to later Fedora versions.
 
     **An external kernel module (also referred to as "out-of-tree" module)
     is not required in this case, and the following steps are not necessary.
@@ -75,22 +93,19 @@ shows the line
 
     Install tp-smapi kernel modules for ThinkPad battery thresholds and recalibration
 
-then install the required packages. They are not available from the official Fedora repositories.
-Instead you need to add the `RPM Fusion` and `ThinkPad Extras` repositories: ::
+then install the required kernel modules. They are not available from the official Fedora repositories.
+Instead you need to add the `TLP` (see above) and `RPM Fusion` repositories: ::
 
    dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-   dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
 
-.. note::
-
-    Above steps are only needed on a new installation of Fedora *but not* after release
-    upgrades.
+Hint: the above step is only needed after a clean Fedora installation,
+not after release upgrades.
 
 Required packages:
 
 * **kernel-devel** *(Fedora repo)* – Needed to build the kernel module from
   the `akmod` package
-* **akmod-tp_smapi** *(ThinkPad Extras repo)* – optional – External kernel
+* **akmod-tp_smapi** *(TLP repo)* – optional – External kernel
   module source providing battery charge thresholds and recalibration
 
 Install either with your favorite package manager
@@ -98,7 +113,7 @@ or the command ::
 
    dnf install kernel-devel akmod-tp_smapi
 
-New packages are available first in the testing repository: ::
+New packages are available in the `tlp-updates-testing` repository first: ::
 
    dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-tp_smapi
 
@@ -113,7 +128,7 @@ New packages are available first in the testing repository: ::
 
 .. note::
 
-    * The RPM Fusion repo delivers build dependencies for the `akmod-*` packages
+    * The RPM Fusion repository delivers build dependencies for the `akmod-*` packages
     * You must disable Secure Boot to use the ThinkPad specific packages
 
 How to validate the Repository Keys
