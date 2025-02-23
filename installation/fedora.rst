@@ -10,10 +10,6 @@ Fedora
 
 * Officially supported Fedora releases
 
-.. note::
-
-    Execute the commands below in a root shell or with with a preceding :command:`sudo`.
-
 Package Installation
 --------------------
 TLP packages are available from the official Fedora repositories:
@@ -25,7 +21,7 @@ Hint: packages for RHEL/CentOS are available from the EPEL repositories.
 
 Install the packages either with your favorite package manager or the command: ::
 
-   dnf install tlp tlp-rdw
+   sudo dnf install tlp tlp-rdw
 
 TLP Repository
 ^^^^^^^^^^^^^^
@@ -33,14 +29,14 @@ If the latest TLP version is not yet available in the official Fedora
 repositories, you can get it from the `TLP` repository, which
 can be set up with the following command: ::
 
-   dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
+   sudo dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
 
 Hint: the above step is only needed after a clean Fedora installation,
 not after release upgrades.
 
 After the repository is set up, install TLP with the command: ::
 
-   dnf install tlp tlp-rdw
+   sudo dnf install tlp tlp-rdw
 
 Remove conflicting packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,11 +44,11 @@ After installing TLP, conflicting packages must be uninstalled:
 
 * Fedora version 40 and below ::
 
-   dnf remove power-profiles-daemon
+   sudo dnf remove power-profiles-daemon
 
 * Fedora version 41 and newer ::
 
-   dnf remove tuned tuned-ppd
+   sudo dnf remove tuned tuned-ppd
 
 .. seealso::
 
@@ -62,12 +58,12 @@ Service Units
 -------------
 To complete the installation you must enable TLP's service: ::
 
-   systemctl enable tlp.service
+   sudo systemctl enable tlp.service
 
 You should also mask the following services to avoid conflicts and assure proper
 operation of TLP's :doc:`/settings/radio` options: ::
 
-   systemctl mask systemd-rfkill.service systemd-rfkill.socket
+   sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 .. seealso::
 
@@ -96,7 +92,7 @@ shows the line
 then install the required kernel modules. They are not available from the official Fedora repositories.
 Instead you need to add the `TLP` (see above) and `RPM Fusion` repositories: ::
 
-   dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+   sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
 Hint: the above step is only needed after a clean Fedora installation,
 not after release upgrades.
@@ -111,11 +107,11 @@ Required packages:
 Install either with your favorite package manager
 or the command ::
 
-   dnf install kernel-devel akmod-tp_smapi
+   sudo dnf install kernel-devel akmod-tp_smapi
 
 New packages are available in the `tlp-updates-testing` repository first: ::
 
-   dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-tp_smapi
+   sudo dnf --enablerepo=tlp-updates-testing install kernel-devel akmod-tp_smapi
 
 .. important::
 
@@ -141,13 +137,13 @@ following procedure.
 
 .. code-block:: none
 
-    wget https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-40-primary
+    wget https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-41-primary
 
 2. Get the fingerprint:
 
 .. code-block:: none
 
-    gpg -n -q --import --import-options import-show RPM-GPG-KEY-tlp-fedora-40-primary
+    gpg -n -q --import --import-options import-show RPM-GPG-KEY-tlp-fedora-41-primary
 
 3. Check that the resulting fingerprint matches the fingerprint from the list below.
 
@@ -155,7 +151,7 @@ following procedure.
 
 .. code-block:: none
 
-    rpm --import RPM-GPG-KEY-tlp-fedora-40-primary
+    sudo rpm --import RPM-GPG-KEY-tlp-fedora-41-primary
 
 Fingerprints
 ------------
