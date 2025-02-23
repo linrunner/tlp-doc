@@ -38,9 +38,9 @@ After the repository is set up, install TLP with the command: ::
 
    sudo dnf install tlp tlp-rdw
 
-Remove conflicting packages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-After installing TLP, conflicting packages must be uninstalled:
+Remove conflicting power management tools
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When installing TLP, conflicting power management tools must be uninstalled:
 
 * Fedora version 40 and below ::
 
