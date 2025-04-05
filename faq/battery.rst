@@ -382,8 +382,8 @@ Symptom: thresholds have been written to the Embedded Controller (EC),
 
 .. code-block:: none
 
-    /sys/class/power_supply/BAT0/charge_start_threshold = 45 [%]
-    /sys/class/power_supply/BAT0/charge_stop_threshold = 60 [%]
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     45 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     60 [%]
 
 Yet they do not work.
 
@@ -582,8 +582,8 @@ correspond to the written values. For example the settings ::
 
 may show up as ::
 
-    /sys/class/power_supply/BAT0/charge_start_threshold         =     75 [%]
-    /sys/class/power_supply/BAT0/charge_stop_threshold          =     74 [%]
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     74 [%]
 
 or similar. Common feature is that one of the two threshold values is always
 displayed incorrectly.

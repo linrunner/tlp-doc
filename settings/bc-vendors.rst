@@ -941,7 +941,7 @@ the :command:`tlp-stat -b` output would look like this:
     Supported features: none available
     ...
     /sys/class/power_supply/BAT0/charge_control_start_threshold = (not available)
-    /sys/class/power_supply/BAT0/charge_control_end_threshold = (not available)
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   = (not available)
     
 Please do not submit TLP issues for this case.
 
