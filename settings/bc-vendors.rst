@@ -86,7 +86,7 @@ Start charging battery `macsmc-battery` when below 75% and stop at 80%: ::
     Parameter value ranges:
     * START_CHARGE_THRESH_BAT0:  don't care (hardware enforces 75, 100)
     * STOP_CHARGE_THRESH_BAT0:   80, 100(default)
-    [...]
+    ...
     /sys/class/power_supply/macsmc-battery/charge_control_start_threshold =     75 [%]
     /sys/class/power_supply/macsmc-battery/charge_control_end_threshold   =     80 [%]
 
@@ -144,7 +144,7 @@ Stop charging battery `BAT0`, `BATC` and `BATT` at 80%: ::
     * natacpi (asus_wmi) = active (charge threshold)
     Parameter value range:
     * STOP_CHARGE_THRESH_BAT0/1: 0(off)..100(default)
-    [...]
+    ...
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
 
 
@@ -201,7 +201,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     * natacpi (cros_charge-control) = active (charge threshold, recalibration) - EC cmd v2
     Parameter value ranges:
     * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
-    [...]
+    ...
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
     /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
 
@@ -217,7 +217,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     Parameter value ranges:
     * START_CHARGE_THRESH_BAT0/1:  0..99(default)
     * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
-    [...]
+    ...
     /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
     /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
@@ -282,7 +282,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     Parameter value ranges:
     * START_CHARGE_THRESH_BAT0/1: 50..95(default)
     * STOP_CHARGE_THRESH_BAT0/1: 55..100(default)
-    [...]
+    ...
     /sys/class/power_supply/BAT0/charge_control_start_threshold =      75 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =      80 [%]
 
@@ -339,7 +339,7 @@ Stop charging battery `BAT1` at 80%: ::
     * natacpi (cros_charge-control) = active (charge threshold)
     Parameter value ranges:
     * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
-    [...]
+    ...
     /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
 
@@ -450,7 +450,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     Parameter value ranges:
     * START_CHARGE_THRESH_BAT0/1:  0(off)..96(default)..99
     * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
-    [...]
+    ...
     /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
     /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
@@ -508,7 +508,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     Parameter value ranges:
     * START_CHARGE_THRESH_BAT0/1:  2..96(default)
     * STOP_CHARGE_THRESH_BAT0/1:   6..100(default)
-    [...]
+    ...
     /sys/devices/platform/smapi/BAT0/start_charge_thresh        =     75 [%]
     /sys/devices/platform/smapi/BAT0/stop_charge_thresh         =     80 [%]
     /sys/devices/platform/smapi/BAT0/force_discharge            =      0
@@ -624,7 +624,7 @@ Stop charging battery `BAT0`, `BAT1`, `CMB0` and `CMB1` at 100%: ::
     * natacpi (lg_laptop) = active (charge threshold)
     Parameter value range:
     * STOP_CHARGE_THRESH_BAT0: 80(on), 100(off)
-    [...]
+    ...
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =      80 [%]
 
     +++ Battery Care
@@ -687,7 +687,7 @@ Start charging battery `BAT1` when below 70% and stop at 80%: ::
     Parameter value ranges:
     * START_CHARGE_THRESH_BAT0/1:  don't care (hardware enforces stop - 10)
     * STOP_CHARGE_THRESH_BAT0/1:   10..100(default)
-    [...]
+    ...
     /sys/class/power_supply/BAT1/charge_control_start_threshold =     70 [%]
     /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
@@ -842,7 +842,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     Parameter value ranges:
     * START_CHARGE_THRESH_BAT0:  0(off)..99
     * STOP_CHARGE_THRESH_BAT0:   1..100(default)
-    [...]
+    ...
     /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
 
@@ -894,17 +894,23 @@ Stop charging battery `BAT1` at 100%: ::
     * natacpi (toshiba_acpi) = active (charge threshold)
     Parameter value range:
     * STOP_CHARGE_THRESH_BAT0/1: 80(on), 100(off)
-    [...]
+    ...
     /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
 
 Unsupported Hardware
 ^^^^^^^^^^^^^^^^^^^^
-If the hardware does not have the capability or no suitable driver exists,
-then TLP battery care cannot control it. Please do not submit TLP issues for
-hardware lacking kernel driver support for charge control options. Providing
-kernel drivers is not part of the TLP project.
+If the hardware does not have the capability or does not have a suitable kernel driver,
+TLP battery care will not be able to control it. 
 
+.. note::
+
+    Please do not submit TLP issues for
+    hardware that does not have kernel driver support for charge control options. Providing
+    kernel drivers is not part of the TLP project.
+
+Incompatible Model
+"""""""""""""""""
 You may encounter the case that although one of the plugins listed above
 is active because the kernel driver matching the vendor/brand/model has been
 detected, and yet no charge control options are available:
@@ -919,21 +925,42 @@ Here the obstacle can be on any level - hardware capabilities or firmware
 of the vendor's model in question as well as the corresponding kernel driver
 - without TLP being able to determine exactly where.
 
+No Kernel Driver
+""""""""""""""""
 For any laptop vendor/brand/model without
 
 * hardware capabilities or
-* corresponding kernel driver or
-* suitable battery care plugin
+* corresponding kernel driver
 
-the output of
-:command:`tlp-stat -b` looks like this:
+the :command:`tlp-stat -b` output would look like this:
+
+.. code-block:: none
+    
+    +++ Battery Care
+    Plugin: generic
+    Supported features: none available
+    ...
+    /sys/class/power_supply/BAT0/charge_control_start_threshold = (not available)
+    /sys/class/power_supply/BAT0/charge_control_end_threshold = (not available)
+    
+Please do not submit TLP issues for this case.
+
+No TLP Plugin (yet)
+"""""""""""""""""""
+For a laptop that has the hardware capability and the necessary kernel driver, 
+but lacks a proper TLP battery care plugin, the :command:`tlp-stat -b` output would look
+similar to this:
 
 .. code-block:: none
 
     +++ Battery Care
     Plugin: generic
     Supported features: none available
+    ...
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
 
+In this case, you might submit an issue to request development of a suitable plugin.
 
 Final Notes
 ^^^^^^^^^^^
