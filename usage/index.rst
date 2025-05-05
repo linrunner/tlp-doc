@@ -22,8 +22,9 @@ Check the output for
 .. code-block:: none
 
    +++ TLP Status
-   State = enabled
-   Last Run = <Time of system start or last change of power source>
+   State     = enabled
+   RDW state = <...>
+   Last run  = <Time of system start or last change of power source>
 
 .. important::
 
