@@ -21,7 +21,7 @@ Check the output for
 
 .. code-block:: none
 
-   +++ System Status
+   +++ TLP Status
    State = enabled
    Last Run = <Time of system start or last change of power source>
 
