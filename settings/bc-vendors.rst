@@ -285,7 +285,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     ...
     /sys/class/power_supply/BAT0/charge_control_start_threshold =      75 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =      80 [%]
-
+    /sys/class/power_supply/BAT0/charge_types                   = Trickle Fast Standard Adaptive [Custom]
 
 .. _bc-vendor-framework:
 
@@ -901,7 +901,7 @@ Stop charging battery `BAT1` at 100%: ::
 Unsupported Hardware
 ^^^^^^^^^^^^^^^^^^^^
 If the hardware does not have the capability or does not have a suitable kernel driver,
-TLP battery care will not be able to control it. 
+TLP battery care will not be able to control it.
 
 .. note::
 
@@ -910,7 +910,7 @@ TLP battery care will not be able to control it.
     kernel drivers is not part of the TLP project.
 
 Incompatible Model
-"""""""""""""""""
+""""""""""""""""""
 You may encounter the case that although one of the plugins listed above
 is active because the kernel driver matching the vendor/brand/model has been
 detected, and yet no charge control options are available:
@@ -935,19 +935,19 @@ For any laptop vendor/brand/model without
 the :command:`tlp-stat -b` output would look like this:
 
 .. code-block:: none
-    
+
     +++ Battery Care
     Plugin: generic
     Supported features: none available
     ...
     /sys/class/power_supply/BAT0/charge_control_start_threshold = (not available)
     /sys/class/power_supply/BAT0/charge_control_end_threshold   = (not available)
-    
+
 Please do not submit TLP issues for this case.
 
 No TLP Plugin (yet)
 """""""""""""""""""
-For a laptop that has the hardware capability and the necessary kernel driver, 
+For a laptop that has the hardware capability and the necessary kernel driver,
 but lacks a proper TLP battery care plugin, the :command:`tlp-stat -b` output would look
 similar to this:
 
