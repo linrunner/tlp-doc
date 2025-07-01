@@ -1,10 +1,12 @@
 Radio Device Wizard
 ===================
 The `Radio Device Wizard` provides the capability to enable or disable builtin
-bluetooth, Wi-Fi and WWAN devices triggered by certain events. It is implemented
-in the optional package `tlp-rdw`.
+bluetooth, Wi-Fi and WWAN devices triggered by certain events.
 
-.. note:: The `Radio Device Wizard` needs `Network Manager` as a prerequisite.
+.. important:: The `Radio Device Wizard` settings shown below require the
+    installation of the optional **tlp-rdw** package, which in turn requires
+    `NetworkManager`.
+
 
 DEVICES_TO_DISABLE_ON_*_CONNECT
 -------------------------------------------
@@ -60,6 +62,10 @@ DEVICES_TO_ENABLE/DISABLE_ON_UNDOCK
     DEVICES_TO_DISABLE_ON_UNDOCK=""
 
 After undocking the stated radio devices are enabled/disabled.
+
+.. note:: Not all docks can be recognized, especially USB-C docks. If a
+    LAN cable is connected to the dock, use `DEVICES_TO_DISABLE_ON_LAN_CONNECT`
+    and `DEVICES_TO_ENABLE_ON_LAN_DISCONNECT` instead.
 
 .. seealso::
 

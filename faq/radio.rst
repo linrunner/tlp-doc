@@ -95,3 +95,9 @@ this may lead to a conflict that produces unpredictable results.
 Solution: use either `RESTORE_DEVICE_STATE_ON_STARTUP=1` and mask systemd-rfkill.service
 and systemd-rfkill.socket or use systemd's approach but not both.
 
+----
+
+Cause 4: the :doc:`/settings/rdw` is not installed.
+
+Solution: install the package **tlp-rdw**, see :doc:`/installation/index`.
+
