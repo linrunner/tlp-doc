@@ -181,7 +181,12 @@ Chromebooks and Framework
    * - **Specifics**
      - | EC firmware v2 supports stop threshold only (applies to Framework).
        | EC firmware v3 supports start and stop threshold.
-       | Special note for **Framework laptops**: if `cros_charge-control` and `framework_laptop` (:ref:`see below <bc-vendor-framework>`) are to be used simultaneously and `cros_charge-control` is to be used to control the charge threshold, the module option `probe_with_fwk_charge_control=1` must be set for `cros_charge-control`.
+       | **Prerequisite for Framework laptops**:
+       | The module option `cros_charge-control.probe_with_fwk_charge_control=1` **must** be set.
+       | It is a promise by the user not to use the custom Framework API,
+         either through the out-of-tree module `framework_laptop` (see below), `ectool` or the firmware setup.
+         All of them are incompatible with what `cros_charge-control` does
+         (`Source <https://github.com/linrunner/TLP/issues/814#issuecomment-3035573617>`_).
 
 .. rubric:: Sample configuration
 
