@@ -64,6 +64,23 @@ Cause: the `btusb` kernel driver itself enforces autosuspend (Kconfig
 Solution: add the boot option `btusb.enable_autosuspend=0` to your GRUB
 configuration.
 
+How can I see whether autosuspend is enabled or disabled for a device?
+----------------------------------------------------------------------
+Take a look at the device's line in the :command:`tlp-stat -u` output.
+Examples: ::
+
+    Bus 001 Device 005 ID 05e3:0608 control = auto, autosuspend_delay_ms =    0 -- Genesys Logic, Inc. Hub (hub)
+    Bus 001 Device 006 ID 046d:c52b control = on,   autosuspend_delay_ms = 2000 -- Logitech, Inc. Unifying Receiver (usbhid)
+    Bus 003 Device 003 ID 8087:0032 control = on,   autosuspend_delay_ms = 2000 -- Intel Corp. AX210 Bluetooth (btusb)
+
+The first line of the example shows a hub for which the kernel always activates autosuspend.
+The second line belongs to an input device (recognizable by the `usbhid` driver) that TLP disables by default. 
+In the third line is a bluetooth adapter that is disabled due to :ref:`USB_EXCLUDE_BTUSB=1 <set-usb-exclude-btusb>`.
+
+Autosuspend state is expressed as follows:
+
+* `control = auto` – autosuspend is enabled
+* `control = on` – autosuspend is disabled
 
 Smartphone does not charge when connected
 -----------------------------------------
