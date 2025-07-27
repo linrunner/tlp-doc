@@ -487,13 +487,13 @@ Symptom: :command:`tlp-stat -b` shows
     Driver usage:
     * natacpi (asus_wmi) = inactive (laptop not supported)
 
-Workaround: unload and blacklist the `asus_wmi` kernel module.
+Cause: for reasons unknown, the kernel module `asus_wmi` occasionally loads on foreign hardware.
+
+Solution: upgrade to version 1.7.0.
+
+Workaround for versions before 1.7.0: unload and blacklist the `asus_wmi` kernel module.
 
 Reference: `Issue #739 <https://github.com/linrunner/TLP/issues/739>`_
-
-.. note:
-
-    Identification sequence will be fixed with version 1.7
 
 LG laptop not supported
 ^^^^^^^^^^^^^^^^^^^^^^^
