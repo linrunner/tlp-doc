@@ -703,8 +703,11 @@ Users have reported the following:
   Reference: `Issue #690 <https://github.com/linrunner/TLP/issues/690>`_.
 * Battery is not charging even though the charger is connected and no
   charge threshold is active.
-* :command:`tlp recalibrate` fails with "Error: discharge BATx malfunction --
+* :command:`tlp recalibrate` fails with "Error: discharge BAT0 malfunction --
   check your hardware (battery, charger)".
+* :command:`tlp recalibrate` fails with "Error: target level (0%) is too high
+  compared to the actual charge level (...%) of battery BAT0."
+  Reference: `Issue #812 <https://github.com/linrunner/TLP/issues/812>`_.
 
 However, in the mentioned cases, there was no battery or hardware defect,
 but rather a malfunction of the EC firmware, which controls all battery
