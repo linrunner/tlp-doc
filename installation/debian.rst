@@ -72,18 +72,6 @@ either with your favorite package manager or the command ::
 
     apt install tp-smapi-dkms
 
-
-.. warning::
-
-    **Bullseye**: the `acpi-call-dkms` package in the official repositories is
-    incompatible with **backports kernels ≥ 5.13** and may cause TLP battery care
-    malfunction, system freezes and reboots.
-
-    Solution: install `acpi-call-dkms` version 1.2.2 from `Debian backports`_: ::
-
-        apt -t bullseye-backports install acpi-call-dkms
-
-
 .. note::
 
     * Refer to `Debian backports`_ for setup instructions
