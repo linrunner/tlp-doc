@@ -160,7 +160,8 @@ Chromebooks and Framework
      - | Chromebooks - modded with chrultrabook/coreboot custom UEFI firmware
        | Framework laptops
    * - **Kernel drivers**
-     -  `cros_charge-control` - required, included in distribution kernels (6.12 or newer)
+     - `cros_charge-control` - required, included in distribution kernels
+       (6.12 or newer, possibly 6.17 for Framework as explained below)
    * - **TLP version (min)**
      - 1.8
    * - **TLP plugin**
@@ -183,10 +184,15 @@ Chromebooks and Framework
        | EC firmware v3 supports start and stop threshold.
        | **Prerequisite for Framework laptops**:
        | The module option `cros_charge-control.probe_with_fwk_charge_control=1` **must** be set.
-       | It is a promise by the user not to use the custom Framework API,
+         It is a promise by the user not to use the custom Framework API,
          either through the out-of-tree module `framework_laptop` (see below), `ectool` or the firmware setup.
          All of them are incompatible with what `cros_charge-control` does
          (`Source <https://github.com/linrunner/TLP/issues/814#issuecomment-3035573617>`_).
+       | **Important note for Framework laptops**:
+       | Changes in the latest versions of the Framework EC firmware break the `cros_charge-control` driver
+         (all models are affected; see `Issue #814 <https://github.com/linrunner/TLP/issues/814#issuecomment-3035509404>`_).
+         A `driver fix <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e40fc1160d491c3bcaf8e940ae0dde0a7c5e8e14>`_
+         is expected for Linux 6.17.
 
 .. rubric:: Sample configuration
 
