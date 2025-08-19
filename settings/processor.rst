@@ -24,23 +24,30 @@ AMD Zen 2 or newer CPUs provide:
 Since AMD's kernel documentation is hard to penetrate, here is an attempt
 to outline the individual modes (without guarantee):
 
-* In **active** mode, the processor selects the operating frequencies
-  autonomously within the limits imposed by the hardware, including turbo boost.
-  The `powersave` governor can also lead to max frequency.
-  Configuring the min and max frequency (as shown below) is *not* supported.
-* With **guided** mode, you may configure the min and max frequency (see below),
-  and the processor will choose the operating frequency itself in the specified
-  range. Guided is basically active mode with frequency range enforced.
-* In **passive** mode, in contrast to guided, the governor dictates the
-  frequencies as configured.
+* In **active** (autonomous) mode, the processor selects the operating
+  frequencies within the hardware's min/max limits, based on the energy
+  performance preference (see below).
+* In **guided** (guided autonomous) mode, the processor chooses the operating
+  frequencies within the hardware's limits, based on the current workload.
+* In **passive** (non-autonomous) mode, the governor dictates the operating
+  frequencies within the hardware's limits.
 
+All modes support turbo boost and can be configured with min and max frequency
+limits (see below).
 
 .. note::
 
+    * From kernel 6.13 onwards, `amd-pstate` sets the initial `scaling_min_freq` to
+      `amd_pstate_lowest_nonlinear_freq` instead of `cpuinfo_min_freq`
+      (see the :command:`tlp-stat -p -v` output) to achieve the `"most energy-efficient performance"
+      <https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/drivers/cpufreq/amd-pstate.c?id=5d9a354cf839a652f8f6ca2b920696c6a9041801>`_.
+      However, you may still configure a lower min frequency (see below).
     * For kernels older than 6.5 `amd-pstate` must be activated via a kernel
       boot option; see the driver documentation linked at the bottom.
     * It should be kept in mind that not all laptop BIOSes allow the activation
-      despite a suitable CPU. Please do *not* open TLP issues for this.
+      of `amd-pstate` despite a suitable CPU, identifiable by the kernel message
+      "_CPC object is not present in SBIOS or ACPI disabled".
+      Please do *not* open TLP issues for this.
     * Some users have observed limited frequency or P-state ranges after
       switching modes. These are hardware issues or kernel issues, so please
       do *not* open a TLP issue for them.
