@@ -45,8 +45,8 @@ limits (see below).
     * For kernels older than 6.5 `amd-pstate` must be activated via a kernel
       boot option; see the driver documentation linked at the bottom.
     * It should be kept in mind that not all laptop BIOSes allow the activation
-      of `amd-pstate` despite a suitable CPU, identifiable by the kernel message
-      "_CPC object is not present in SBIOS or ACPI disabled".
+      of `amd-pstate` despite a suitable CPU. This situation is identifiable by
+      the kernel message "_CPC object is not present in SBIOS or ACPI disabled".
       Please do *not* open TLP issues for this.
     * Some users have observed limited frequency or P-state ranges after
       switching modes. These are hardware issues or kernel issues, so please
