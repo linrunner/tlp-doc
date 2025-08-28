@@ -7,21 +7,21 @@ Does TLP conflict with my desktop environment's power savings?
 --------------------------------------------------------------
 It depends, TLP:
 
-* Does not touch display or keyboard backlight brightness → no conflict.
-* Does not change suspend / hibernate settings → no conflict.
-* TLP's power savings will not be applied during boot when using **GNOME**
-  or **KDE** desktop environments that have **power-profiles-daemon**
-  installed → severe conflict - see :doc:`/faq/ppd`.
-* Applies charge thresholds → conflict with **KDE** charge limit setting is
-  possible.
-* Switches radio devices on and off when configured by the user →
-  conflict with **GNOME** power settings or **KDE** energy saving settings
-  possible.
+* Does not touch display or keyboard backlight brightness ⇒ no conflict.
+* Does not change suspend / hibernate settings ⇒ no conflict.
+* Changes all kinds of :ref:`kernel tunables <intro-how-it-works>` ⇒
+  **GNOME**, **KDE Plasma** and **Cinnamon** desktops usually include a
+  power manager that competes with TLP, check :doc:`/faq/ppd`.
+* Applies charge thresholds if configured:
+
+  * **GNOME** `Settings → Battery Charging`  ⇒ keep at `Maximize Charge`.
+  * **KDE** `System Settings → Power Management → Advanced Power Management`  ⇒ do not enter Charge Limits.
+
 * Pop!_OS's **system76-power** works on the same set of
   :ref:`kernel tunables <intro-how-it-works>`
-  → severe conflict - do not use together with TLP.
-* **Slimbook Battery** uses TLP as backend and overwrites TLP's configuration
-  files → conflict - if you wish to configure TLP individually, you must
+  ⇒ do not use together with TLP.
+* **Slimbook Battery** uses TLP as backend and overwrites TLP's configuration files
+  ⇒ if you wish to configure TLP individually, you must
   first uninstall Slimbook Battery.
 
 .. note::
@@ -29,6 +29,11 @@ It depends, TLP:
     "Conflict" refers to the situation where settings configured in
     TLP are overwritten by the desktop environment's settings (and vice
     versa), resulting in unpredictable power savings.
+
+.. seealso::
+
+    :ref:`faq-install-conflict`
+
 
 How can I change TLP's settings?
 --------------------------------

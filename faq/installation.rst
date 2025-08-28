@@ -1,6 +1,8 @@
 Installation
 ============
 
+.. _faq-install-conflict:
+
 Does TLP conflict with other power management tools?
 ----------------------------------------------------
 .. important::
@@ -19,7 +21,11 @@ together with TLP — *Note: auto-cpufreq is not a pure power saving tool.
 On the contrary, when the CPU is under heavy load in battery mode, performance
 is improved at the cost of higher power consumption.*
 
-**GNOME and KDE Desktop:** usually include `power-profiles-daemon`, see below.
+**GNOME, KDE Plasma and Cinnamon desktops:** usually include `power-profiles-daemon`, see below.
+
+**Intel Low Power Mode Daemon:** `intel-lpmd <https://github.com/intel/intel-lpmd>`_
+is designed to optimize active idle power by activating the power-efficient corest and
+disabling the rest. Conflicts with TLP are not known.
 
 **power-profiles-daemon:** check :doc:`/faq/ppd`.
 
