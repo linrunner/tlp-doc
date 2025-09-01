@@ -8,6 +8,7 @@ workarounds for common problems. Topics covered are:
 
    installation
    settings
+   conflicts
    audio
    battery
    disks

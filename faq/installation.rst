@@ -1,55 +1,8 @@
 Installation
 ============
-
-.. _faq-install-conflict:
-
-Does TLP conflict with other power management tools?
-----------------------------------------------------
-.. important::
-
-    **Generally yes. It is not recommended to use two (or more) power
-    management tools at the same time.**
-
-This is because all power management tools essentially control a similar
-set of :ref:`kernel tunables <intro-how-it-works>`.
-Therefore, TLP's tuning will be overriden by the other tool (and vice versa),
-making the actual power savings unpredictable.
-The individual tools involved are discussed below.
-
-**auto-cpufreq:** controls a subset of TLP's kernel tunables, do *not* use
-together with TLP — *Note: auto-cpufreq is not a pure power saving tool.
-On the contrary, when the CPU is under heavy load in battery mode, performance
-is improved at the cost of higher power consumption.*
-
-**GNOME, KDE Plasma and Cinnamon desktops:** usually include `power-profiles-daemon`, see below.
-
-**Intel Low Power Mode Daemon:** `intel-lpmd <https://github.com/intel/intel-lpmd>`_
-is designed to optimize active idle power by activating the power-efficient corest and
-disabling the rest. Conflicts with TLP are not known.
-
-**power-profiles-daemon:** check :doc:`/faq/ppd`.
-
-**Powertop:** please refer to :doc:`powertop`.
-
-**Slimbook Battery:** uses TLP as a backend to apply power saving measures.
-However, it continuously overwrites your TLP configuration.
-If you wish to configure TLP individually, you must first uninstall
-Slimbook Battery.
-
-**system76-power:** works on the same set of :ref:`kernel tunables
-<intro-how-it-works>` as TLP. Do *not* use together with TLP.
-
-**thermald:** limits power dissipation to prevent the laptop from overheating.
-It does not provide power saving functionality for other situations and
-therefore does not conflict with TLP.
-
-**throttled:** only throttled's dynamic `HWP_Mode` setting interferes with TLP's
-actions. If you want to use it, disable the feature in TLP by configuring
-`CPU_ENERGY_PERF_POLICY_ON_AC=""`.
-
 .. seealso::
 
-    :ref:`faq-set-desktop-conflict`
+    :doc:`Conflicts (with other power management tools and desktop environments) </faq/conflicts>`
 
 
 .. _faq-service-units:

@@ -1,8 +1,9 @@
 power-profiles-daemon
 =====================
-Most distributions install power-profiles-daemon by default with their
-GNOME and KDE desktop environments. This article compares TLP and
-power-profiles-daemon and explains how to replace the latter with TLP.
+By default, many distributions install power-profiles-daemon as an
+optional component of their GNOME, KDE Plasma or Cinnamon desktop environments.
+This article compares TLP and power-profiles-daemon and explains how to replace
+the latter with TLP.
 
 Does power-profiles-daemon save power over TLP?
 -----------------------------------------------
@@ -46,12 +47,15 @@ pattern.
 Does power-profiles-daemon conflict with TLP?
 ---------------------------------------------
 Yes, it does. Using both tools at the same time can lead to unpredictable
-results as they partly change the same kernel tunables (see above)
-and overwrite each other's tuning.
+results as they partly change the same :ref:`kernel tunables <intro-how-it-works>`
+(see above) and overwrite each other's tuning.
 
-To prevent conflicts, many Linux distributions do not permit the
-installation of both TLP and power-profiles-daemon packages simultaneously.
-It is advisable to uninstall power-profiles-daemon in all other scenarios.
+To prevent conflicts, many Linux distributions do not allow TLP and
+power-profiles-daemon packages to be installed at the same time.
+This results in the uninstallation of power-profiles-daemon when
+TLP is installed (and vice versa).
+If your distribution's package manager does not enforce this, it is
+advisable to uninstall power-profiles-daemon when using TLP.
 
 If your distribution allows for parallel installation, the behaviour
 depends on the version of TLP:
@@ -136,6 +140,7 @@ Last but not least you may select TLP's profile manually with a
 
 .. seealso::
 
+    * FAQ: :doc:`/faq/conflicts`
     * Settings: :doc:`/settings/platform`
     * Settings: :doc:`/settings/processor`
     * :doc:`/support/optimizing`
