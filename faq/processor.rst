@@ -95,13 +95,3 @@ in active mode. :command:`tlp-stat -p` gives ::
 
 Works as designed: full throttle and brake at the same time isn't permitted
 by the kernel driver. Makes sense, doesn't it?
-
-`tlp-stat -p` shows "x86_energy_perf_policy: program for your kernel not installed."
-------------------------------------------------------------------------------------
-Depending on the distribution your mileage may vary:
-
-* **Ubuntu**: install the metapackage `linux-tools-generic` or `linux-tools-generic-lts-*`
-  for HWE stack kernels, no package is available for mainline kernels.
-* **Debian**: install the package `linux-cpupower`.
-* **Arch**: install the package `x86_energy_perf_policy`.
-* **Fedora**: install the package `kernel-tools`.
