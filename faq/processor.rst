@@ -5,6 +5,23 @@ Processor
 
     :ref:`faq-powercon-high-cpu-load`
 
+Governor `performance` also locks EPP to `performance`
+------------------------------------------------------
+Symptom: `energy_performance_preference` is set to `performance` regardless of
+`CPU_ENERGY_PERF_POLICY_ON_AC/BAT`. Happens with `amd_pstate` and `intel_pstate`
+in active mode. :command:`tlp-stat -p` gives ::
+
+    /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver    = amd-pstate-epp | intel_pstate
+    /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor  = performance
+    /sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference = performance [EPP]
+
+Works as designed: full throttle and brake at the same time isn't permitted
+by the kernel driver. Makes sense, doesn't it?
+
+AMD CPU with `amd-pstate-epp` driver doesn't switch EPP
+-------------------------------------------------------
+Solution: AMD EPP requires at least TLP version 1.6.
+
 Sluggish performance with kernel 5.7 (and newer)
 -------------------------------------------------
 Symptoms: you have configured the `powersave` scaling governor for `intel_pstate`: ::
@@ -34,7 +51,7 @@ For details refer to :ref:`set-cpu-scaling-governor`.
 
 CPU_BOOST_ON_BAT/AC=0 decreases scaling_max_freq
 ------------------------------------------------
-Affected hardware: ThinkPad X1 Carbon Gen9
+Affected hardware: Intel Core i5 11th Gen CPU
 
 Symptom: :command:`tlp-stat -p` shows `scaling_max_freq` way below the nominal
 frequency of the CPU: ::
@@ -50,6 +67,23 @@ Probable cause: `intel_pstate` driver or UEFI firmware bug.
 
 Workaround: either do not disable turbo boost or configure :ref:`set-platform-profile`
 (see `Issue #570 <https://github.com/linrunner/TLP/issues/570>`_ for details).
+
+
+.. _faq-cpu-gov-locks-epp:
+
+IdeaPad: booting on Battery Power disables Turbo Boost permanently
+-------------------------------------------------------------------
+Symptom: when booting on battery power, the BIOS prevents turbo boost activation.
+Connecting the charger afterwards cannot remove the block.
+
+Affected hardware: Lenovo IdeaPad 3 15IML05 (81WB)
+
+Workaround: disable runtime power management completely: ::
+
+    RUNTIME_PM_ON_AC=""
+    RUNTIME_PM_ON_BAT=""
+
+Related issue: `#824 <https://github.com/linrunner/TLP/issues/824>`_.
 
 Frequency scaling settings do not get applied
 ---------------------------------------------
@@ -75,37 +109,3 @@ Works as designed: since kernel 3.9 the new scaling driver `intel_pstate` is
 available and enabled by default on Intel Sandy Bridge (or newer) hardware.
 `intel_pstate` supports the governors `powersave` (recommended default) and
 `performance` only, `ondemand` is not available.
-
-AMD CPU with `amd-pstate-epp` driver doesn't switch EPP
--------------------------------------------------------
-Solution: AMD EPP requires at least TLP version 1.6.
-
-
-.. _faq-cpu-gov-locks-epp:
-
-Governor `performance` also locks EPP to `performance`
-------------------------------------------------------
-Symptom: `energy_performance_preference` is set to `performance` regardless of
-`CPU_ENERGY_PERF_POLICY_ON_AC/BAT`. Happens with `amd_pstate` and `intel_pstate`
-in active mode. :command:`tlp-stat -p` gives ::
-
-    /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver    = amd-pstate-epp | intel_pstate
-    /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor  = performance
-    /sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference = performance [EPP]
-
-Works as designed: full throttle and brake at the same time isn't permitted
-by the kernel driver. Makes sense, doesn't it?
-
-IdeaPad: booting on Battery Power disables Turbo Boost permanently
--------------------------------------------------------------------
-Symptom: when booting on battery power, the BIOS prevents turbo boost activation.
-Connecting the charger afterwards cannot remove the block.
-
-Affected hardware: Lenovo IdeaPad 3 15IML05 (81WB)
-
-Workaround: disable runtime power management completely: ::
-
-    RUNTIME_PM_ON_AC=""
-    RUNTIME_PM_ON_BAT=""
-
-Related issue: `#824 <https://github.com/linrunner/TLP/issues/824>`_.
