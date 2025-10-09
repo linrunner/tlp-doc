@@ -22,7 +22,7 @@ Symptoms:
 * Bluetooth, Webcam, and other USB bus devices stop working after
   switching to battery power
 
-Affected hardware: ThinkPad E595 AMD, T495 AMD, T495s AMD.
+Affected hardware: cannot be narrowed down to specific vendors or models.
 
 Related issues: `#436 <https://github.com/linrunner/TLP/issues/436>`_,
 `#587 <https://github.com/linrunner/TLP/issues/587>`_.
@@ -74,7 +74,7 @@ Examples: ::
     Bus 003 Device 003 ID 8087:0032 control = on,   autosuspend_delay_ms = 2000 -- Intel Corp. AX210 Bluetooth (btusb)
 
 The first line of the example shows a hub for which the kernel always activates autosuspend.
-The second line belongs to an input device (recognizable by the `usbhid` driver) that TLP disables by default. 
+The second line belongs to an input device (recognizable by the `usbhid` driver) that TLP disables by default.
 In the third line is a bluetooth adapter that is disabled due to :ref:`USB_EXCLUDE_BTUSB=1 <set-usb-exclude-btusb>`.
 
 Autosuspend state is expressed as follows:
