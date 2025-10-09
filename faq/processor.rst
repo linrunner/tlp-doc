@@ -78,8 +78,8 @@ Affected hardware: Lenovo IdeaPad 3 15IML05 (81WB)
 
 Workaround: disable runtime power management completely: ::
 
-    RUNTIME_PM_ON_AC=""
-    RUNTIME_PM_ON_BAT=""
+    RUNTIME_PM_ON_AC=
+    RUNTIME_PM_ON_BAT=
 
 Related issue: `#824 <https://github.com/linrunner/TLP/issues/824>`_.
 
