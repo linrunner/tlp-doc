@@ -95,3 +95,17 @@ in active mode. :command:`tlp-stat -p` gives ::
 
 Works as designed: full throttle and brake at the same time isn't permitted
 by the kernel driver. Makes sense, doesn't it?
+
+IdeaPad: booting on Battery Power disables Turbo Boost permanently
+-------------------------------------------------------------------
+Symptom: when booting on battery power, the BIOS prevents turbo boost activation.
+Connecting the charger afterwards cannot remove the block.
+
+Affected hardware: Lenovo IdeaPad 3 15IML05 (81WB)
+
+Workaround: disable runtime power management completely: ::
+
+    RUNTIME_PM_ON_AC=""
+    RUNTIME_PM_ON_BAT=""
+
+Related issue: `#824 <https://github.com/linrunner/TLP/issues/824>`_.
