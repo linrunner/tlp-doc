@@ -1,9 +1,10 @@
 Processor
 =========
-
 .. seealso::
 
     :ref:`faq-powercon-high-cpu-load`
+
+.. _faq-cpu-gov-locks-epp:
 
 Governor `performance` also locks EPP to `performance`
 ------------------------------------------------------
@@ -67,9 +68,6 @@ Probable cause: `intel_pstate` driver or UEFI firmware bug.
 
 Workaround: either do not disable turbo boost or configure :ref:`set-platform-profile`
 (see `Issue #570 <https://github.com/linrunner/TLP/issues/570>`_ for details).
-
-
-.. _faq-cpu-gov-locks-epp:
 
 IdeaPad: booting on Battery Power disables Turbo Boost permanently
 -------------------------------------------------------------------
