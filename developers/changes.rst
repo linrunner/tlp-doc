@@ -4,6 +4,38 @@ This section lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
+Version 1.9 (unreleased)
+    Files:
+
+    - New: **bat.d/70-tuxedo**
+
+    New subpackage: tlp-pd
+        Files:
+
+        - **tlp-pd** - install to **/usr/sbin/**
+        - **tlp-pd.service**
+        - **tlp-pd.dbus.conf** - Makefile performs pattern substitution and
+          installs two copies to **/usr/share/dbus-1/system.d/**
+        - **tlp-pd.dbus.service** - Makefile performs pattern substitution and
+          installs two copies to **/usr/share/dbus-1/system-services/**
+        - **tlp-pd.policy** - install to **/usr/share/polkit-1/actions/**
+
+        Makefile:
+
+        - New parameters: *TLP_DBCONF*, *TLP_DBSVC*, *TLP_POLKIT*
+        - New targets: *install-pd*, *install-man-pd*, *uninstall-pd*, *uninstall-man-pd*
+
+        Dependencies:
+
+        - **dbus-python**
+        - **PyGObjects**
+
+        Conflicts:
+
+        - **power-profiles-daemon**
+        - **tuned-ppd**
+
+
 Version 1.8
     Files:
 
