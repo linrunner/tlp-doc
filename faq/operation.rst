@@ -164,6 +164,15 @@ Affected hardware: HP laptops (based on user feedback)
 
 Solution: deactivate Wake-on-LAN in the BIOS.
 
+Affected hardware: ThinkPad T14 Gen 6 Intel (and possibly other vendors and models)
+
+Solution: deactivate Runtime PM: ::
+
+    RUNTIME_PM_ON_AC=
+    RUNTIME_PM_ON_BAT=
+
+Related issue: `#830 <https://github.com/linrunner/TLP/issues/830>`_.
+
 Spontaneous shutdown (on battery)
 ---------------------------------
 Symptoms: laptop shuts down spontaneously when:
