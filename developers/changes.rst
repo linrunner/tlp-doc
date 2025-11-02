@@ -10,8 +10,9 @@ Version 1.9 (unreleased)
     - New: **bat.d/70-tuxedo**
 
     New subpackage: tlp-pd
-        Files:
+        New files:
 
+        - **tlpctl** - install to **/usr/bin/**
         - **tlp-pd** - install to **/usr/sbin/**
         - **tlp-pd.service**
         - **tlp-pd.dbus.conf** - Makefile performs pattern substitution and
@@ -19,6 +20,7 @@ Version 1.9 (unreleased)
         - **tlp-pd.dbus.service** - Makefile performs pattern substitution and
           installs two copies to **/usr/share/dbus-1/system-services/**
         - **tlp-pd.policy** - install to **/usr/share/polkit-1/actions/**
+        - New manpages: **tlpctl.1**, **tlp-pd.8**, **tlp-pd.service.8**
 
         Makefile:
 
@@ -27,6 +29,7 @@ Version 1.9 (unreleased)
 
         Dependencies:
 
+        - **python3**
         - **dbus-python**
         - **PyGObjects**
 

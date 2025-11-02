@@ -113,3 +113,24 @@ tlp - *mandatory*
 network-manager - *mandatory*
     Used to hook ifup/ifdown events and to determine the corresponding
     interface type LAN/Wi-Fi/WWAN.
+
+Package tlp-pd
+--------------
+
+tlp - *mandatory*
+    tlp-pd invokes tlp to apply power profiles.
+
+dbus-python - *mandatory*
+    Required by tlp-pd to implement the D-Bus daemon.
+
+power-profiles-daemon - *conflicts*
+    tlp-pd offers similiar functionality and replaces power-profiles-daemon.
+
+PyGObjects - *mandatory*
+    Required by tlp-pd and tlpctl for D-Bus functionality.
+
+python3 - *mandatory*
+    tlp-pd and tlpctl are written in Python.
+
+tuned-ppd - *conflicts*
+    tlp-pd offers similiar functionality and replaces tuned-ppd.

@@ -8,6 +8,7 @@ NetworkManager, it is recommended to provide two packages:
 
 * **tlp** – Essential functionality
 * **tlp-rdw** – :doc:`/settings/rdw` only (depends on NetworkManager)
+* **tlp-pd** – TLP Profiles Daemon, desktop power profile switch
 
 The following table explains the provided files and assigns them to the
 packages:
@@ -129,7 +130,7 @@ packages:
        (symlinks to the same file)
    * - tlp.service
      - tlp
-     - /usr/lib/systemd/system/
+     - /usr/lib/systemd/system
      - Service to be invoked upon system start/shutdown by systemd:
        calls :command:`tlp init start/stop` to apply power saving settings,
        switch radio devices and set the battery thresholds.
@@ -191,6 +192,50 @@ packages:
      - tlp-rdw
      - /usr/lib/NetworkManager/dispatcher.d
      - NetworkManager hook for ifup/ifdown events
+   * - man-pd/*
+     - tlp-pd
+     - | /usr/share/man/
+       |  man1/,
+       |  man8/
+     - Manpages
+   * - tlpctl
+     - tlp-pd
+     - /usr/bin
+     - tlp-pd command line tool
+   * - tlp-pd
+     - tlp-pd
+     - /usr/sbin
+     - TLP profiles daemon
+   * - tlp-pd.service
+     - tlp-pd
+     - /usr/lib/systemd/system
+     - Service to run tlp-pd on system startup
+   * - tlp-pd.dbus.conf**
+     - tlp-pd
+     - /usr/share/dbus-1/system.d
+     - D-Bus configuration;
+       :doc:`makefile` performs pattern substitution and installs two copies to the target directory
+   * - tlp-pd.dbus.service
+     - tlp-pd
+     - /usr/share/dbus-1/system-services
+     - D-Bus service declaration;
+       :doc:`makefile` performs pattern substitution and installs two copies to teh target directory
+   * - tlp-pd.policy
+     - tlp-pd
+     - /usr/share/polkit-1/actions
+     - PolKit policy configuration
+   * - completions/bash/tlpctl.bash_completion
+     - tlp-pd
+     - /usr/share/bash-completion/completions/tlpctl
+     - Bash completion rules
+   * - completions/fish/tlp-rdw.fish
+     - tlp-pd
+     - /usr/share/fish/vendor_completions.d/tlpctl.fish
+     - Fish completion rules
+   * - completions/zsh/_tlpctl
+     - tlp-pd
+     - /usr/share/zsh/site-functions/_tlpctl
+     - ZSH completion rules
    * - unit-tests/*
      - n/a
      - n/a
