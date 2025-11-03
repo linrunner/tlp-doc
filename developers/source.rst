@@ -11,7 +11,6 @@ The repository holds the following branches:
 * **main** – current development – releases are tagged with VERSION
 * **debian/current** – Debian/Ubuntu packaging for current releases
   (not identical with the official distribution packages)
-* debian/legacy – Debian/Ubuntu packaging for old releases (deprecated, unmaintained)
 
 Obtain the current development version with ::
 
@@ -65,6 +64,7 @@ Packages tracking the `main` branch are available in the AUR:
 
 * `tlp-git <https://aur.archlinux.org/packages/tlp-git/>`_
 * `tlp-rdw-git <https://aur.archlinux.org/packages/tlp-rdw-git/>`_
+* `tlp-pd-git <https://aur.archlinux.org/packages/tlp-pd-git/>`_
 
 .. dev-install-source:
 
@@ -77,5 +77,6 @@ Installing from Source
     make install
     make install-man
     systemctl enable tlp.service
+    systemctl enable tlp-pd.service
 
 .. include:: ../include/warn-source-install.rst
