@@ -11,28 +11,36 @@ Targets
      - Purpose
    * - install-tlp
      - Install files for package `tlp`
+   * - install-pd
+     - Install files for package `tlp-pd`
    * - install-rdw
      - Install files for package `tlp-rdw`
    * - install
-     - Install files for `tlp` and `tlp-rdw`
-   * - install-man
-     - Install manpages for `tlp` and `tlp-rdw`
+     - Install files for `tlp`, `tlp-pd` and `tlp-rdw`
    * - install-man-tlp
      - Install manpages for package `tlp`
+   * - install-man-pd
+     - Install manpages for package `tlp-pd`
    * - install-man-rdw
      - Install manpages for package `tlp-rdw`
+   * - install-man
+     - Install manpages for `tlp`, `tlp-pd` and `tlp-rdw`
    * - uninstall-tlp
      - Uninstall files for package `tlp`
+   * - uninstall-pd
+     - Uninstall files for package `tlp-pd`
    * - uninstall-rdw
      - Uninstall files for package `tlp-rdw`
    * - uninstall
-     - Uninstall files for `tlp` and `tlp-rdw`
-   * - uninstall-man
-     - Uninstall manpages for `tlp` and `tlp-rdw`
+     - Uninstall files for `tlp`, `tlp-pd`  and `tlp-rdw`
    * - uninstall-man-tlp
      - Uninstall manpages for package `tlp`
+   * - uninstall-man-pd
+     - Uninstall manpages for package `tlp-pd`
    * - uninstall-man-rdw
      - Uninstall manpages for package `tlp-rdw`
+   * - uninstall-man
+     - Uninstall manpages for `tlp`, `tlp-pd` and `tlp-rdw`
    * - checkall
      - Execute all check targets below
    * - checkbashisms
@@ -78,6 +86,12 @@ Parameters
    * - TLP_CONFUSR
      - /etc/tlp.conf
      - User configuration
+   * - TLP_DBCONF
+     - [from 1.9] /usr/share/dbus-1/system.d
+     - Directory for D-Bus configurations
+   * - TLP_DBSVC
+     - [from 1.9] /usr/share/dbus-1/system-services
+     - Directory for D-Bus service declarations
    * - TLP_ELOD
      - | [from 1.7] /usr/lib/elogind/system-sleep
        | [until 1.6.1] /lib/elogind/system-sleep
@@ -113,6 +127,9 @@ Parameters
    * - TLP_NO_ZSHCOMP
      - 0
      - 1=do not install ZSH completion rules
+   * - TLP_POLKIT
+     - [from 1.9] /usr/share/polkit-1/actions
+     - Directory PolKit policy configurations
    * - TLP_RUN
      - /run/tlp
      - Directory for runtime data (volatile)
