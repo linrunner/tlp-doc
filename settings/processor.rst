@@ -48,6 +48,7 @@ limits (see below).
       of `amd-pstate` despite a suitable CPU. This situation is identifiable by
       the kernel message "_CPC object is not present in SBIOS or ACPI disabled".
       Please do *not* open TLP issues for this.
+    * `passive` and `guided` mode do *not* support EPP (:ref:`set-cpu-energy-perf-policy`).
     * Some users have observed limited frequency or P-state ranges after
       switching modes. These are hardware issues or kernel issues, so please
       do *not* open a TLP issue for them.
