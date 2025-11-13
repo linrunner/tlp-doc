@@ -9,7 +9,7 @@ Version 1.9 (beta)
 
     - New: **bat.d/70-tuxedo**
 
-    New subpackage: tlp-pd
+    New subpackage tlp-pd:
         New files:
 
         - **tlpctl** - install to **/usr/bin/**
@@ -27,16 +27,20 @@ Version 1.9 (beta)
         - New parameters: *TLP_DBCONF*, *TLP_DBSVC*, *TLP_POLKIT*
         - New targets: *install-pd*, *install-man-pd*, *uninstall-pd*, *uninstall-man-pd*
 
-        Dependencies:
+        Depends: **tlp**, **polkit**, **python3**, **dbus-python**, **PyGObjects**
 
-        - **python3**
-        - **dbus-python**
-        - **PyGObjects**
+        Provides: **power-profiles-daemon**
 
-        Conflicts:
+        Conflicts: **tuned-ppd**, (**power-profiles-daemon**)
 
-        - **power-profiles-daemon**
-        - **tuned-ppd**
+    **Subpackage tlp** - updated dependencies:
+
+        Depends: **hdparm**, **iw**, **pciutils**, **rfkill**, **usbutils**
+
+        Recommends: **tlp-pd**, **tlp-rdw**, **ethtool**
+
+        Conflicts: **laptop-mode-tools**, **tuned**
+
 
 
 Version 1.8
@@ -110,8 +114,8 @@ Version 1.5
     Dependencies:
 
     - **Conflicts power-profiles-daemon** instead of masking the
-      service via package post-install routine; for reasons and further explanation
-      see :ref:`Dependencies <dev-depend-ppd>`
+      service via package post-install routine. For reasons and further explanation
+      see :ref:`Dependencies <dev-depend-ppd>`.
 
     - Removed: `wireless-tools`
 
