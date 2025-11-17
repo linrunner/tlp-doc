@@ -5,121 +5,75 @@ tlp-stat
     View TLP's configuration, system information, kernel power saving tunables
     and battery data.
 
-.. rubric:: Invocation without options shows all information categories
-
-::
+Invocation without options shows all information categories: ::
 
     sudo tlp-stat
 
-
-.. rubric:: View battery data
-
-::
-
-    sudo tlp-stat -b
-    sudo tlp-stat --battery
-
-Add `-v` to see battery voltages (if available).
+The following options select individual categories of devices and/or information.
+They can also be combined.
 
 
-.. rubric:: View active configuration
+System Operation
+^^^^^^^^^^^^^^^^
+View system information and TLP status: ::
 
-::
+    tlp-stat -s
+    tlp-stat --system
+
+Print currently active power profile *(Version 1.7 and newer)*: ::
+
+    tlp-stat -m
+    tlp-stat --mode
+
+
+Configuration
+^^^^^^^^^^^^^
+View active configuration: ::
 
     tlp-stat -c
     tlp-stat --config
 
-
-.. rubric:: View the difference between defaults and user configuration
-
-::
+View the difference between TLP's defaults and user configuration: ::
 
     tlp-stat --cdiff
 
-
-.. rubric:: View disk device information
-
-::
+Power Saving Tunables
+^^^^^^^^^^^^^^^^^^^^
+View disk device tunables: ::
 
     sudo tlp-stat -d
     sudo tlp-stat --disk
 
-
-.. rubric:: View PCIe device information
-
-::
+View PCIe device tunables: ::
 
     sudo tlp-stat -e
     sudo tlp-stat --pcie
 
 Add `-v` to see device runtime status.
 
-
-.. rubric:: View graphics card information
-
-::
+View graphics card tunables: ::
 
     sudo tlp-stat -g
     sudo tlp-stat --graphics
 
-.. rubric:: View current power mode
+*Version 1.9 and newer*: add `-v` to see power state and clocks of AMD GPUs.
 
-*Version 1.7*
-
-::
-
-    tlp-stat -m
-    tlp-stat --mode
-
-.. rubric:: View processor information
-
-::
+View processor tunables: ::
 
     sudo tlp-stat -p
     sudo tlp-stat --processor
 
-For clarity the standard output shows only `cpu0`, add  `-v` to see all.
+For clarity the standard output shows only `cpu0`, add  `-v` to see all CPUs.
+Add `-q` to see CPU driver state only.
 
-
-.. rubric:: View less
-
-*Version 1.7*
-
-Omit version header and show less information in the processor category.
-
-::
-
-    tlp-stat -q
-    tlp-stat --quiet
-
-
-.. rubric:: View radio device states
-
-::
+View radio device states and tunables: ::
 
     tlp-stat -r
     tlp-stat --rfkill
 
+*Version 1.9 and newer*: add `-v` to see NetworkManager and rfkill details.
 
-.. rubric:: View system information and TLP status
-
-::
-
-    tlp-stat -s
-    tlp-stat --system
-
-
-.. rubric:: View temperatures and fan speed
-
-::
-
-    tlp-stat -t
-    tlp-stat --temp
-
-
-.. rubric:: View USB device information
-
-::
+View USB device tunables: ::
 
     tlp-stat -u
     tlp-stat --usb
@@ -127,24 +81,49 @@ Omit version header and show less information in the processor category.
 Add `-v` to see device runtime status.
 
 
-.. rubric:: View more
+Battery Care
+^^^^^^^^^^^^
+View battery data: ::
 
-Show more information in battery, PCIe, processor and USB categories.
+    sudo tlp-stat -b
+    sudo tlp-stat --battery
 
-::
+Add `-v` to see battery voltages (if available).
 
-    tlp-stat -v
-    tlp-stat --verbose
 
-.. rubric:: View version
+Information
+^^^^^^^^^^^
+View temperatures and fan speed: ::
 
-*Version 1.7*
+    tlp-stat -t
+    tlp-stat --temp
 
-::
+*Version 1.9 and newer*: add `-v` to see all individual sensors.
+
+Print TLP version *(Version 1.7 and newer)*: ::
 
     tlp-stat --version
 
-.. rubric:: Diagnostics and debugging
+
+Scope Options
+^^^^^^^^^^^^^
+Omit version header and show less information in the processor category *(Version 1.7 and newer)*: ::
+
+    -q
+    --quiet
+
+Show more information in the battery, graphics, PCIe, processor, temperature, wireless and
+USB categories: ::
+
+    -v
+    --verbose
+
+
+Diagnostics and Debugging
+^^^^^^^^^^^^^^^^^^^^^^^^^
+View tlp-pd diagnostics *(Version 1.9 and newer)*:  ::
+
+    tlp-stat --pd-diag
 
 Monitor power supply udev events: ::
 
@@ -160,9 +139,11 @@ View trace output: ::
     sudo tlp-stat -T
     sudo tlp-stat --trace
 
-Check if udev rules for power source changes and connecting USB devices are active:
+View trace output correlated with NetworkManager journal *(Version 1.9 and newer)*: ::
 
-::
+    sudo tlp-stat --trace-nm
+
+Check if udev rules for power source changes and connecting USB devices are active: ::
 
     tlp-stat --udev
 
