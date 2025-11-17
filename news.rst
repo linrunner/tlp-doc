@@ -5,6 +5,24 @@ News
 
 .. _news-top-1:
 
+05.11.2025 - TLP 1.9 Beta 1 released / Call for Testers
+=======================================================
+The first beta version of TLP 1.9 is here.
+
+Key innovation is the new *TLP profiles daemon*:
+**tlp-pd** enables you to switch between performance (AC),
+balanced (BAT) and power-saving (SAV) settings profiles
+at the click of the mouse. It replaces power-profiles-daemon.
+
+The `release notes <https://github.com/linrunner/TLP/releases/tag/1.9.0-beta.1>`_
+provide a quick overview of the new features. All details, including bug fixes,
+can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+
+**Please take part in the** `beta test <https://github.com/linrunner/TLP/issues/832>`_!
+**I look forward to seeing your results.**
+
+.. _news-top-2:
+
 13.02.2025 - TLP 1.8 released
 =============================
 After the successful beta test, TLP 1.8 is finished.
@@ -22,8 +40,6 @@ distribution, see :doc:`/installation/index`.
 Thanks to everyone who contributed, tested and reported bugs!
 
 Enjoy! :-)
-
-.. _news-top-2:
 
 19.01.2025 - TLP 1.8 Beta 1 released / Call for Testers
 =======================================================
