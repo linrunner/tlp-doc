@@ -8,6 +8,10 @@ PLATFORM_PROFILE_ON_AC/BAT
 ::
 
     PLATFORM_PROFILE_ON_AC=performance
+    PLATFORM_PROFILE_ON_BAT=balanced
+
+*Version 1.9 and newer* ::
+
     PLATFORM_PROFILE_ON_BAT=low-power
 
 Select the platform profile to control system operating characteristics around
@@ -18,10 +22,13 @@ increasing power saving are:
 * balanced
 * low-power
 
+Default when unconfigured *(Version 1.9 and newer only)*:
+performance (AC), balanced (BAT), low-power (SAV)
+
 .. note::
 
     Check the output of :command:`tlp-stat -p` to determine availability on your
-    hardware and additional profiles such as `balanced-performance`, `quiet`, `cool`.
+    hardware and additional profiles such as `quiet` and `cool`.
 
 .. seealso::
 
