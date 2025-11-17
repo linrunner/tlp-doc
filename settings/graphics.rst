@@ -45,7 +45,7 @@ RADEON_DPM_STATE_ON_AC/BAT
 ::
 
     RADEON_DPM_STATE_ON_AC=performance
-    RADEON_DPM_STATE_ON_BAT=battery
+    RADEON_DPM_STATE_ON_BAT=balanced
 
 Controls the power management method of the GPU. Possible values:
 
@@ -54,47 +54,22 @@ Controls the power management method of the GPU. Possible values:
 * performance
 
 
-RADEON_POWER_PROFILE_ON_AC/BAT
-------------------------------
-*This parameter was deprecated in version 1.8, do not use anymore*
-
-
-.. rubric::  AMD GPU (ATI legacy hardware)
-
-::
-
-    RADEON_POWER_PROFILE_ON_AC=default
-    RADEON_POWER_PROFILE_ON_BAT=default
-
-Controls the clock of the GPU. Supported by the `radeon` driver on legacy
-ATI hardware only (where DPM is not available). Possible values:
-
-* low
-* mid
-* high
-* auto – high on AC, mid on battery
-* default – use hardware defaults
-
-Default when unconfigured: default
-
-.. note::
-
-    This setting may cause the display to flicker briefly when changing the
-    power source.
-
-
 .. _set-amdgpu-abm:
 
 AMDGPU_ABM_LEVEL_ON_AC/BAT
 --------------------------
-*Version 1.7*
+*Version 1.7 and newer*
 
 .. rubric::  AMD GPU
 
 ::
 
     AMDGPU_ABM_LEVEL_ON_AC=0
-    AMDGPU_ABM_LEVEL_ON_BAT=3
+    AMDGPU_ABM_LEVEL_ON_BAT=1
+
+*Version 1.9 and newer* ::
+
+    AMDGPU_ABM_LEVEL_ON_SAV=3
 
 Enable display panel Adaptive Backlight Modulation (ABM).
 Possible levels are:
@@ -108,7 +83,7 @@ Notes:
 * Requires AMD Vega or newer GPU with `amdgpu` driver as of kernel 6.9
 * Savings are made at the expense of color balance
 
-Default when unconfigured: 0 (AC), 1 (BAT)
+Default when unconfigured: 0 (AC), 1 (BAT), 3 (SAV)
 
 .. seealso::
 
