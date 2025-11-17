@@ -3,12 +3,14 @@ Processor
 
 CPU_DRIVER_OPMODE_ON_AC/BAT
 ---------------------------
-*Version 1.6 and newer*
-
-::
+*Version 1.6 and newer* ::
 
     CPU_DRIVER_OPMODE_ON_AC=active
     CPU_DRIVER_OPMODE_ON_BAT=active
+
+*Version 1.9 and newer* ::
+
+    CPU_DRIVER_OPMODE_ON_SAV=active
 
 Selects a CPU scaling driver operation mode. Configuration depends on the
 active driver:
@@ -79,6 +81,10 @@ CPU_SCALING_GOVERNOR_ON_AC/BAT
     CPU_SCALING_GOVERNOR_ON_AC=powersave
     CPU_SCALING_GOVERNOR_ON_BAT=powersave
 
+*Version 1.9 and newer* ::
+
+    CPU_SCALING_GOVERNOR_ON_SAV=powersave
+
 Selects the CPU scaling governor for automatic frequency scaling. Configuration
 depends on the active driver:
 
@@ -122,9 +128,14 @@ CPU_SCALING_MIN/MAX_FREQ_ON_AC/BAT
 ::
 
     CPU_SCALING_MIN_FREQ_ON_AC=0
-    CPU_SCALING_MAX_FREQ_ON_AC=9999999
+    CPU_SCALING_MAX_FREQ_ON_AC=0
     CPU_SCALING_MIN_FREQ_ON_BAT=0
-    CPU_SCALING_MAX_FREQ_ON_BAT=9999999
+    CPU_SCALING_MAX_FREQ_ON_BAT=0
+
+*Version 1.9 and newer* ::
+
+    CPU_SCALING_MIN_FREQ_ON_SAV=0
+    CPU_SCALING_MAX_FREQ_ON_SAV=0
 
 Set the min/max frequency available for the scaling governor. Possible values
 depend on your CPU. For available frequencies consult the output of
@@ -145,11 +156,14 @@ Hints:
 
 CPU_ENERGY_PERF_POLICY_ON_AC/BAT
 --------------------------------
-
 ::
 
     CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
     CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+
+*Version 1.9 and newer* ::
+
+    CPU_ENERGY_PERF_POLICY_ON_SAV=power
 
 Set CPU energy/performance policies (in order of
 increasing power saving):
@@ -160,7 +174,7 @@ increasing power saving):
 * balance_power
 * power
 
-Default when unconfigured: balance_performance (AC), balance_power (BAT)
+Default when unconfigured: balance_performance (AC), balance_power (BAT), power(SAV)
 
 Requirements:
 
@@ -190,7 +204,12 @@ CPU_MIN/MAX_PERF_ON_AC/BAT
     CPU_MIN_PERF_ON_AC=0
     CPU_MAX_PERF_ON_AC=100
     CPU_MIN_PERF_ON_BAT=0
-    CPU_MAX_PERF_ON_BAT=30
+    CPU_MAX_PERF_ON_BAT=80
+
+*Version 1.9 and newer* ::
+
+    CPU_MIN_PERF_ON_SAV=0
+    CPU_MAX_PERF_ON_SAv=60
 
 Define the min/max P-state for Intel CPUs. Values are stated as a
 percentage (0..100%) of the total available processor performance.
@@ -211,7 +230,11 @@ CPU_BOOST_ON_AC/BAT
 ::
 
     CPU_BOOST_ON_AC=1
-    CPU_BOOST_ON_BAT=0
+    CPU_BOOST_ON_BAT=1
+
+*Version 1.9 and newer* ::
+
+    CPU_BOOST_ON_SAV=0
 
 Configure CPU "turbo boost" (Intel) or "core performance boost" aka "turbo core" (AMD):
 
@@ -229,8 +252,11 @@ CPU_HWP_DYN_BOOST_ON_AC/BAT
 ::
 
     CPU_HWP_DYN_BOOST_ON_AC=1
-    CPU_HWP_DYN_BOOST_ON_BAT=0
+    CPU_HWP_DYN_BOOST_ON_BAT=1
 
+*Version 1.9 and newer* ::
+
+    CPU_HWP_DYN_BOOST_ON_SAV=0
 
 Configure the Intel CPU HWP dynamic boost feature:
 
