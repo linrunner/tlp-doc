@@ -23,6 +23,13 @@ drive vendors interpret the APM levels quite spaciously to save power.
 
 Solution: try values > 128. See :ref:`set-disks-apm`.
 
+How can I prevent my HDD from starting every N minutes and immediately stopping again?
+--------------------------------------------------------------------------------------
+Disks react autonomously and individually to the APM level depending on the brand or model.
+This reaction can even include stopping the spindle motor.
+
+Solution: try higher APM values or disable APM with 255.
+
 Why does my HDD not spin down?
 -----------------------------------------
 Stopping the system disk for extended periods of time is unlikely to work,
