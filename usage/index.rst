@@ -22,14 +22,12 @@ Check the output for
 .. code-block:: none
 
    +++ TLP Status
-   State     = enabled
-   RDW state = <...>
-   Last run  = <Time of system start or last change of power source>
+   tlp            = enabled, last run: <Time of system start or last change of power profile>
+   tlp-rdw        = enabled
+   tlp-pd         = enabled, running
+   Power profile  = balanced/BAT
+   Power source   = battery
 
-.. important::
-
-    TLP does not include a daemon and there is no `tlp` process
-    showing up in the output of :command:`ps`.
 
 Version
 =======
@@ -59,6 +57,7 @@ The following sections describe TLP's set of shell commands:
    :maxdepth: 1
 
    tlp
+   tlpctl
    tlp-rdw
    tlp-stat
    bluetooth, wifi, wwan <radio>
@@ -69,4 +68,3 @@ The following sections describe TLP's set of shell commands:
     * All commands shown with a preceding :command:`sudo` may as well be executed
       without :command:`sudo` in a root shell
     * For even more details refer to the command's manpage: :command:`man <command>`
-
