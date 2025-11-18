@@ -11,6 +11,22 @@ Set to 0 to disable TLP (reboot needed).
 
 Default when unconfigured: 1
 
+TLP_DISABLE_DEFAULTS
+--------------------
+*Version 1.9 and newer*
+::
+
+    TLP_DISABLE_DEFAULTS=0
+
+Set to 1 to deactivate all intrinsic defaults of TLP. This means that
+TLP only applies settings that have been explicitly activated i.e.
+parameters without a leading '#'.
+
+Notes:
+
+* Helpful if one wants to use only selected features of TLP
+* After activation, use :command:`tlp-stat -c` to display your effective configuration
+
 TLP_WARN_LEVEL
 --------------
 ::
@@ -28,7 +44,7 @@ Default when unconfigured: 3
 
 TLP_MSG_COLORS
 --------------
-*Version 1.7*
+*Version 1.7 and newer*
 ::
 
     TLP_MSG_COLORS="91 93 1 92"
@@ -47,15 +63,56 @@ Notes:
 
 Default when unconfigured: "91 93 1 92"
 
+TLP_AUTO_SWITCH
+---------------
+*Version 1.9 and newer*
+::
+
+    TLP_AUTO_SWITCH=2
+
+Control automatic switching of the power profile when connecting or removing
+the charger, when booting the system or when executing :commmand:`tlp start`:
+
+* 0 - disabled: never switch, use `TLP_DEFAULT_MODE` if configured
+* 1 - auto: always switch, select `performance` on AC and `balanced` on battery power.
+* 2 - smart: do not switch if the following profiles were active previously:
+
+  * `power-saver` or `balanced` on AC
+  * `power-saver` or `performance` on battery power
+
+Note: the same applies if the charger was connected/removed during suspend.
+
+Default when unconfigured: 2
 
 TLP_DEFAULT_MODE
 ----------------
 ::
 
-   TLP_DEFAULT_MODE=AC
+   TLP_DEFAULT_MODE=PRF
 
-Defines TLP's default operation mode (`AC` or `BAT`) in case a power source cannot
-be detected. Concerns some desktop and embedded hardware only.
+*Version 1.8 and older*
+
+Defines TLP's default operation mode (`AC` or `BAT`) when a power source cannot
+be detected.
+
+*Version 1.9 and newer*
+
+Defines power profile to use when automatic switching is disabled (`TLP_AUTO_SWITCH=0`),
+profile is locked (TLP_PERSISTENT_DEFAULT=1) or no power source is detected:
+
+* `PRF` - performance
+* `BAL` - balanced
+* `SAV` - power-saver
+
+Note: Legacy values `AC` and `BAT` continue to work. They are mapped to `PRF` and `BAL`,
+respectively.
+
+.. note::
+    Disable automatic switching and default to `balanced` profile with: ::
+
+        TLP_AUTO_SWITCH=0
+        TLP_DEFAULT_MODE=BAL
+
 
 .. _set-persistent-default:
 
@@ -65,18 +122,19 @@ TLP_PERSISTENT_DEFAULT
 
    TLP_PERSISTENT_DEFAULT=0
 
-Selects how the operation mode is determined:
+Lock power profile:
 
-* 0 – apply settings profile acccording to actual power source (default)
-* 1 – always use settings for `TLP_DEFAULT_MODE`
+* 0 - disabled: profile depends on automatic switching (see `TLP_AUTO_SWITCH` above)
+* 1 - enabled: profile is locked to `TLP_DEFAULT_MODE` (`TLP_AUTO_SWITCH` is ignored)
 
 Default when unconfigured: 0
 
 .. note::
-    To force BAT settings while AC powered, use: ::
+    To always use BAT settings / balanceed profile, configure: ::
 
         TLP_DEFAULT_MODE=BAT
         TLP_PERSISTENT_DEFAULT=1
+
 
 TLP_PS_IGNORE
 -------------
