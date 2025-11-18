@@ -83,7 +83,7 @@ as an optional component of the GNOME desktop environment.
 power-profiles-daemon competes and conflicts with TLP,
 please refer to the dedicated page: :doc:`/faq/ppd`.
 
-In addition, GNOME desktop can apply battery charge thresholds if configured.
+In addition, the GNOME desktop can apply battery charge thresholds if configured.
 To disable the setting, go to `Settings → Battery Charging` and check
 `Maximize Charge`, then use the :command:`tlp start` command
 to re-apply the thresholds already configured in TLP.
@@ -95,7 +95,7 @@ as an optional component of the KDE desktop environment.
 power-profiles-daemon competes and conflicts with TLP,
 please refer to the dedicated page: :doc:`/faq/ppd`.
 
-In addition, GNOME desktop can apply charge thresholds if configured.
+In addition, the KDE desktop can apply charge thresholds if configured.
 To disable the setting, go to
 `System Settings → Power Management → Advanced Power Management`
 and make sure that no `Charge Limits` are entered there,
