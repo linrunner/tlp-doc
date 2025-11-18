@@ -63,9 +63,13 @@ DEVICES_TO_ENABLE/DISABLE_ON_UNDOCK
 
 After undocking the stated radio devices are enabled/disabled.
 
-.. note:: Not all docks can be recognized, especially USB-C docks. If a
-    LAN cable is connected to the dock, use `DEVICES_TO_DISABLE_ON_LAN_CONNECT`
-    and `DEVICES_TO_ENABLE_ON_LAN_DISCONNECT` instead.
+.. note::
+
+    * Not all docks can be recognized, especially USB-C docks.
+      However, a generic detection exists for Thunderbolt docks.
+    * If your dock is not recognized and a LAN cable is connected,
+      use `DEVICES_TO_DISABLE_ON_LAN_CONNECT`
+      and `DEVICES_TO_ENABLE_ON_LAN_DISCONNECT` instead.
 
 .. seealso::
 
