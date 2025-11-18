@@ -12,7 +12,7 @@ CPU_DRIVER_OPMODE_ON_AC/BAT
 
     CPU_DRIVER_OPMODE_ON_SAV=active
 
-Selects a CPU scaling driver operation mode. Configuration depends on the
+Selects a CPU scaling driver operating mode. Configuration depends on the
 active driver:
 
 .. rubric:: amd-pstate
@@ -68,8 +68,8 @@ aka `intel_cpufreq` for CPUs that do not support hardware-managed P-states
 
 .. rubric:: acpi-cpufreq
 
-Older AMD/Intel CPUs and other vendors do not support change of
-driver mode.
+This driver for older AMD/Intel CPUs and other vendors does not support changing
+the operating mode.
 
 
 .. _set-cpu-scaling-governor:
@@ -169,8 +169,9 @@ Set CPU energy/performance policies (in order of
 increasing power saving):
 
 * performance
-* balance_performance
-* default
+* balance_performance – kernel default
+* default – Note: the kernel translates default into balance_performance,
+  which is then returned when viewed with :command:`tlp-stat -p`
 * balance_power
 * power
 
@@ -271,15 +272,15 @@ scaling driver in `active` mode
 
     * Settings: :doc:`/settings/introduction`
     * FAQ: :doc:`../faq/processor`
-    * `CPU Performance Scaling <https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html>`_
+    * `CPU Performance Scaling <https://docs.kernel.org/admin-guide/pm/cpufreq.html>`_
       – kernel documentation covering scaling governors et al.
     * `amd-pstate CPU Performance Scaling Driver <https://docs.kernel.org/admin-guide/pm/amd-pstate.html>`_
       – driver documentation
-    * `intel_pstate CPU Performance Scaling Driver <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_pstate.html>`_
+    * `intel_pstate CPU Performance Scaling Driver <https://docs.kernel.org/admin-guide/pm/intel_pstate.html>`_
       – driver documentation
     * `Intel Hardware P-State (HWP) / Intel Speed Shift <https://smackerelofopinion.blogspot.com/2021/07/intel-hardware-p-state-hwp-intel-speed.html>`_
       – a consideration of `HWP.EPP`
-    * `Intel Performance and Energy Bias Hint <https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_epb.html>`_
+    * `Intel Performance and Energy Bias Hint <https://docs.kernel.org/admin-guide/pm/intel_epb.html>`_
       – `EPB` documentation
     * `Improvements in CPU frequency management <https://lwn.net/Articles/682391/>`_
       – LWN article covering the schedutil governor
