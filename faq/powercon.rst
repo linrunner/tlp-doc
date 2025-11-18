@@ -62,7 +62,8 @@ idle state.
     * `nvidia`: to enable power saving and power down on AC with the proprietary
       Nvidia GPU driver, enable runtime power management generally with
       `RUNTIME_PM_ON_AC=auto` or selectively for GPU id and sound controller id
-      only with `RUNTIME_PM_ENABLE`.
+      only with `RUNTIME_PM_ENABLE`. Also refer to
+      `Nvidia's RTD3 guide <https://download.nvidia.com/XFree86/Linux-x86_64/450.57/README/dynamicpowermanagement.html>`_.
     * `radeon`: there is not enough evidence available for the open source driver
       for older AMD GPUs; watch what happens when you remove it from the denylist
     * Remember to uncomment the config line by removing the leading `#`
