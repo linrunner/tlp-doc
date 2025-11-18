@@ -909,6 +909,82 @@ Stop charging battery `BAT1` at 100%: ::
     /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
 
+Tuxedo Laptops
+""""""""""""""
+    .. list-table::
+       :widths: 250 1000
+       :align: left
+
+       * - **Hardware**
+         - Tuxedo laptops with a Clevo ODM chassis (as far as supported by the driver)
+       * - **Kernel drivers**
+         -  `clevo_acpi` - required, out-of-tree → provided by distribution specific
+            **tuxedo-drivers** packages
+       * - **TLP version (min)**
+         - 1.9 and newer
+       * - **TLP plugin**
+         - tuxedo
+       * - **Charge control options**
+         - Start and stop charge threshold
+       * - **Threshold configuration**
+         - | Battery `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
+       * - **Start threshold values**
+         - | 40, 50, 60, 70, 80, 95
+           | Special: 95 - hardware default
+       * - **Stop threshold values**
+         - | 60, 70, 80, 90, 100
+           | Special: 100 - hardware default, threshold off
+       * - **Specifics**
+         - | Charge thresholds are only possible on certain models with Clevo ODM chassis
+             and the distribution specific **tuxedo-drivers** package. All other models are
+             not supported due to missing kernel drivers (see example output below).
+           | If you are dissatisfied with this, please do *not* file a TLP issue.
+             Instead, ask Tuxedo to extend their kernel driver support.
+             For the mainline kernel as well.
+
+.. rubric:: Sample configuration
+
+Start charging battery `BAT0` when below 70% and stop at 80%: ::
+
+    START_CHARGE_THRESH_BAT0=70
+    STOP_CHARGE_THRESH_BAT0=80
+
+.. rubric:: Sample output of tlp-stat -b
+
+Supported model:
+
+.. code-block:: none
+
+    ++ Battery Care
+    Plugin: tuxedo
+    Supported features: charge thresholds
+    Driver usage:
+    * natacpi (clevo_acpi) = active (charge thresholds)
+    Parameter value ranges:
+    * START_CHARGE_THRESH_BAT0/1:  40/50/60/70/80/95(default)
+    * STOP_CHARGE_THRESH_BAT0/1:   60/70/80/90/100(default)
+    ...
+    /sys/class/power_supply/BAT0/charge_control_start_threshold =     70 [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
+    /sys/class/power_supply/BAT0/charge_type                    = Custom
+
+Unsupported model:
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: tuxedo
+    Supported features: none available
+    Driver usage:
+    * natacpi (clevo_acpi) = inactive (Tuxedo's non-Clevo models are unsupported)
+    ...
+    /sys/class/power_supply/BAT0/charge_control_start_threshold = (not available) [%]
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   = (not available) [%]
+    /sys/class/power_supply/BAT0/charge_type                    = (not available)
+
+
+Please do *not* open a TLP issue for this (read specifics above).
+
 Unsupported Hardware
 ^^^^^^^^^^^^^^^^^^^^
 If the hardware does not have the capability or does not have a suitable kernel driver,
