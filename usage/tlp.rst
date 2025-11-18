@@ -12,23 +12,37 @@ Start TLP and apply power saving profile for the actual power source: ::
 
 .. note:: Also use this command to apply changes after editing the configuration.
 
-Battery Mode
+Power Profiles
+^^^^^^^^^^^^^^
+*Version 1.9 and newer*
+
+Apply performance (AC) profile: ::
+
+    sudo tlp performance
+
+Apply balanced (BAT) profile: ::
+
+        sudo tlp balanced
+
+Apply power-saver (SAV) profile: ::
+
+    sudo tlp power-saver
+
+
+Manual Mode
 ^^^^^^^^^^^^
-Apply battery profile and enter manual mode: ::
+Manual mode means that changes to the power source will be ignored until
+the next reboot. Instead, :command:`tlp start` can also be used to return
+to automatic mode.
 
-    sudo tlp bat
-
-Hint: manual mode means that changes to the power source will be ignored until
-the next reboot or :command:`tlp start` is issued to resume automatic mode.
-
-AC Mode
-^^^^^^^
-Apply AC profile and enter manual mode: ::
+Apply performance (AC) profile and enter manual mode: ::
 
     sudo tlp ac
 
-Hint: manual mode means that changes to the power source will be ignored until
-the next reboot or :command:`tlp start` is issued to resume automatic mode.
+Apply balanced (BAT) profile and enter manual mode: ::
+
+    sudo tlp bat
+
 
 USB Autosuspend
 ^^^^^^^^^^^^^^^
@@ -116,6 +130,12 @@ The configured start charge threshold will be restored at the next boot or by us
 Hint: after setting he thresholds the command terminates; it does not wait for
 the charge to complete.
 
+Example: ::
+
+    sudo tlp chargeonce BAT0
+
+Charges battery `BAT0` up to the stop threshold.
+
 Force a complete/partial discharge of the battery while on AC power
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *Version 1.8 and newer*
@@ -146,6 +166,12 @@ Hints:
   battery at a time; while discharging one battery with this command the other
   battery can neither be charged nor discharged
 * When encountering problems, see the FAQ: :doc:`/faq/battery`
+
+Example: ::
+
+    sudo tlp discharge BAT0 50
+
+Discharges battery `BAT0` down to 50%.
 
 Perform a battery recalibration while on AC power
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -196,7 +222,7 @@ Shows disk ids for configured drives.
 
 Version
 ^^^^^^^
-*Version 1.7*
+*Version 1.7 and newer*
 ::
 
     tlp --version
