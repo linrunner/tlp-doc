@@ -17,14 +17,16 @@ Change the desired line(s). Before: ::
 
     #CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
     #CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+    #CPU_ENERGY_PERF_POLICY_ON_SAV=power
 
 After – remember to remove the leading #:
 
 .. code-block::
-    :emphasize-lines: 2
+    :emphasize-lines: 2, 3
 
     CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
-    CPU_ENERGY_PERF_POLICY_ON_BAT=power
+    CPU_ENERGY_PERF_POLICY_ON_BAT=balance_performance
+    CPU_ENERGY_PERF_POLICY_ON_SAV=balance_power
 
 .. note::
 
@@ -37,23 +39,29 @@ command ::
     sudo tlp start
 
 
-Profiles
---------
-TLP uses two settings profiles that are automatically applied depending on the
-power source:
+Power Profiles
+--------------
+TLP settings are grouped into profiles:
 
-* Parameters ending in `_AC` are effective when AC is connected
-* Parameters ending in `_BAT` are effective when running on battery
+*Version 1.9 and newer* has three profiles:
 
-Parameters ending neither in `_AC` nor in `_BAT` apply to both profiles.
+* Parameters ending in `_AC` are used when the `performance` profile is active, i.e. when running on AC power.
+* Parameters ending in `_BAT` are used when the `balanced` profile is active, i.e. when running on battery power.
+* Parameters ending in `_SAV` are used when the `power-saver` profile is active.
+  If there is no `_SAV` parameter available for a feature, the `_BAT` parameter will be used instead.
+
+*Version 1.8 and older* has two:
+
+* Parameters ending in `_AC` are used when running on AC power
+* Parameters ending in `_BAT` are used when running on battery power
+
+Parameters ending neither in `_AC,` nor in `_BAT` or `_SAV` apply to all profiles.
 
 .. important::
 
-    Parameters without intrinsic default (see :ref:`below <set-param-defaults>`)
-    must *always* be specified for *both _AC and _BAT*. Omitting one of the two
-    makes the set value effective for both power sources, since a change only
-    occurs when different values are defined.
-
+    Parameters without intrinsic defaults (see :ref:`below <set-param-defaults>`)
+    must *always* be specified for all profiles. Otherwise, parameters from the
+    configured profiles may unintentionally spill over to the unconfigured ones.
 
 .. _set-config-files:
 

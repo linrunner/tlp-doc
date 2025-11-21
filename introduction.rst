@@ -1,21 +1,25 @@
 Introduction
 ************
-TLP is a feature-rich command line utility for Linux, saving laptop battery power
+TLP is a feature-rich utility for Linux, saving laptop battery power
 without the need to delve deeper into technical details.
 
-TLP's default settings are already optimized for battery life, so you may
-install it and just sit back and relax.
-Nevertheless, TLP is completely customizable to get even more power savings
-or meet your exact requirements.
+*Version 1.9* introduces **tlp-pd**, which enables easy profile switching
+with a mouse click. tlp-pd replaces `power-profiles-daemon` by implementing
+the same D-Bus API that major Linux desktop environments like GNOME, KDE and
+Cinnamon already use.
+
+TLP's default settings are already optimized for battery life. Nevertheless,
+TLP is completely customizable to get even more power savings or meet your
+exact requirements.
+
+Last but not least, TLP provides a unified approach to battery charge thresholds
+on supported laptops.
 
 .. important::
 
     TLP will take care of the majority of settings that :command:`powertop --autotune`
     would, and with less trial and error, see :doc:`/faq/powertop`.
 
-.. note::
-
-    TLP is a pure command line utility. It does not contain a GUI.
 
 .. _intro-how-it-works:
 
@@ -42,12 +46,24 @@ paths.
     by TLP when applying settings, some are displayed for information or
     diagnostic purposes only.
 
-Profiles
---------
-TLP provides two independent sets of :doc:`/settings/index` called profiles,
-one for battery operation (BAT) and one for AC operation.
-This means that TLP must apply the appropriate profile not only at boot time,
-but also each time the power source is changed.
+Power Profiles
+--------------
+TLP has separately configurable settings profiles.
+
+*Version 1.9 and newer* supports three:
+
+* **performance**: is used on AC power or when the user clicks on it, or executes
+  the corresponding command.
+* **balanced**: used on battery power or when the user clicks on it, or executes
+  the corresponding command.
+* **power-saver**: used when the user clicks on it or executes the corresponding command.
+
+*Version 1.8 and older* supports two:
+
+* **AC**: is used on AC power or when the user executes the corresponding command.
+* **BAT**: used on battery power or when the user executes the corresponding command.
+
+Each profile has a corresponding set of :doc:`/settings/index`.
 
 Event-driven architecture
 -------------------------
@@ -56,17 +72,18 @@ To accomplish all of the above, TLP's actions are event-driven. The following ev
 cause settings to be applied:
 
 Charger plugged in (AC powered)
-    Applies the AC settings profile.
+    Applies the settings profile `performance (AC)`.
 
 Charger unplugged (battery powered)
-    Applies the BAT settings profile.
+    Applies the settings profile `balanced (BAT)`.
 
 USB device plugged in
     Activates USB autosuspend mode for the device (if not excluded or denylisted).
 
 System startup (boot)
-    Applies the settings profile corresponding to the current power source
-    AC/BAT. Applies charge thresholds and switches bluetooth, Wi-Fi and WWAN
+    Applies the settings profile corresponding to the current switching mode,
+    power source and/or configured default.
+    Applies charge thresholds and switches bluetooth, Wi-Fi and WWAN
     devices depending on your individual settings (disabled in the default
     configuration).
 
@@ -84,7 +101,8 @@ System suspend to ACPI Sleep States S0ix (Idle standby), S3 (Suspend to RAM) or 
     configuration).
 
 System resume from ACPI Sleep States S0ix (Idle standby), S3 (Suspend to RAM) or S4 (Suspend to disk)
-    Applies the settings profile corresponding to the current power source AC/BAT.
+    Applies the settings profile corresponding to the current switching mode,
+    power source and/or configured default.
     Restores charge thresholds and bluetooth, Wi-Fi and WWAN device states
     depending on your individual settings (disabled in the default configuration).
 
@@ -96,24 +114,24 @@ LAN, Wi-Fi, WWAN connected/disconnected or laptop docked/undocked (:doc:`/settin
 
     * TLP will not make dynamic or adaptive changes to the settings beyond the
       events described above
-    * In particular, TLP will never adjust the settings due to CPU load, battery
-      charge level or else
+    * In particular, TLP will not adjust the settings due to CPU load, battery
+      charge level or else on its own initiative
 
-.. important::
+.. seealso ::
 
-    TLP does not monitor the above events itself but relies on a range of
-    system daemons, namely `systemd`, `udevd` and `NetworkManager`.
-    Therefore TLP does not include a daemon and there is no permanent `tlp`
-    background process showing up in the output of :command:`ps`. Refer to
-    :doc:`/developers/architecture` for technical details.
+    Refer to :doc:`/developers/architecture` for technical details.
 
 
 .. _intro-features:
 
 Features
 ========
-:doc:`Power saving settings </settings/index>` are organized into two profiles, enabling you to adjust
-between savings and performance independently for battery (BAT) and AC operation:
+:doc:`Power saving settings </settings/index>` are organized into profiles,
+enabling you to adjust between savings and performance independently
+for battery and AC operation.
+*Version 1.9* introduces a third profile called `power-saver`.
+
+Settings per profile are:
 
 * Kernel laptop mode and dirty buffer timeouts
 * AMD/Intel CPU scaling driver operation mode (active/guided/passive)
