@@ -38,7 +38,7 @@ View the difference between TLP's defaults and user configuration: ::
     tlp-stat --cdiff
 
 Power Saving Tunables
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 View disk device tunables: ::
 
     sudo tlp-stat -d

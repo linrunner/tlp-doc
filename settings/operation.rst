@@ -71,7 +71,7 @@ TLP_AUTO_SWITCH
     TLP_AUTO_SWITCH=2
 
 Control automatic switching of the power profile when connecting or removing
-the charger, when booting the system or when executing :commmand:`tlp start`:
+the charger, when booting the system or when executing :command:`tlp start`:
 
 * 0 - disabled: never switch, use `TLP_DEFAULT_MODE` if configured
 * 1 - auto: always switch, select `performance` on AC and `balanced` on battery power.
