@@ -68,7 +68,7 @@ If you want to use it, disable the feature in TLP by configuring
 
 
 Does TLP conflict with my desktop environment's power savings?
---------------------------------------------------
+--------------------------------------------------------------
 It depends on which desktop. The following applies to all:
 
 * TLP does not touch display or keyboard backlight brightness ⇒ no conflict.
