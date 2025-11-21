@@ -1,9 +1,5 @@
 .. note::
 
-    Check :doc:`/developers/makefile` options to customize :command:`make install`
-    to your distribution's requirements.
-
-.. warning::
-
-    Depending on your distribution's specifics :command:`make install` may
-    not produce a working TLP installation, thus your mileage may vary.
+    Depending on your distribution, :command:`make install` might not produce a
+    working TLP installation. Check :doc:`/developers/makefile` options to adapt
+    to specific requirements. However, this is not necessary in many cases.

@@ -14,8 +14,8 @@ The repository holds the following branches:
 
 Obtain the current development version with ::
 
-    git clone https://github.com/linrunner/TLP.git tlp.git
-    cd tlp.git
+    git clone https://github.com/linrunner/TLP.git
+    cd TLP
 
 Checkout the `main` branch ::
 
@@ -48,9 +48,9 @@ Debian / Ubuntu
 
     git worktree add worktree/debian-current debian/current
 
-3. Symlink worktree to **debian/**
+3. Symlink the worktree to **debian/**
 
-    ln -s worktree/debianc-urrent/debian debian
+    ln -s worktree/debian-current/debian debian
 
 4. Edit **debian/changelog** to your needs (optional).
 
@@ -70,13 +70,34 @@ Packages tracking the `main` branch are available in the AUR:
 
 Installing from Source
 ----------------------
-1. Checkout the `main` branch (see :ref:`dev-source-code`).
+1. If applicable, uninstall any existing TLP packages using your package manager.
 
-2. In the **tlp.git/** directory ::
+2. Install all dependencies as listed in :doc:`dependencies`.
 
-    make install
-    make install-man
-    systemctl enable tlp.service
-    systemctl enable tlp-pd.service
+3. Stop and remove conflicting tools such as `power-profiles-daemon`
+   (refer to :doc:`dependencies`).
+
+4. Checkout the `main` branch and change to the **TLP/** directory as described in the
+   :ref:`dev-source-code` section above.
+
+5. Install: ::
+
+    # Please copy and save the complete output for further reference
+    sudo make install install-man
+
+6. Enable the services: ::
+
+    sudo systemctl enable --now tlp-pd.service
+    sudo systemctl enable --now tlp.service
 
 .. include:: ../include/warn-source-install.rst
+
+Removing a Source Install
+-------------------------
+ In the **TLP/** directory: ::
+
+    sudo make uninstall uninstall-man
+
+.. warning::
+
+    Please do not use to remove a package-based installation!
