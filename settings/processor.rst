@@ -1,8 +1,8 @@
 Processor
 =========
 
-CPU_DRIVER_OPMODE_ON_AC/BAT
----------------------------
+CPU_DRIVER_OPMODE_ON_AC/BAT/SAV
+-------------------------------
 *Version 1.6 and newer* ::
 
     CPU_DRIVER_OPMODE_ON_AC=active
@@ -74,8 +74,8 @@ the operating mode.
 
 .. _set-cpu-scaling-governor:
 
-CPU_SCALING_GOVERNOR_ON_AC/BAT
-------------------------------
+CPU_SCALING_GOVERNOR_ON_AC/BAT/SAV
+----------------------------------
 ::
 
     CPU_SCALING_GOVERNOR_ON_AC=powersave
@@ -123,8 +123,8 @@ depends on the active driver:
     advantages and disadvantages of the others (refer to the links at the bottom
     of this page).
 
-CPU_SCALING_MIN/MAX_FREQ_ON_AC/BAT
-----------------------------------
+CPU_SCALING_MIN/MAX_FREQ_ON_AC/BAT/SAV
+--------------------------------------
 ::
 
     CPU_SCALING_MIN_FREQ_ON_AC=0
@@ -154,8 +154,8 @@ Hints:
 
 .. _set-cpu-energy-perf-policy:
 
-CPU_ENERGY_PERF_POLICY_ON_AC/BAT
---------------------------------
+CPU_ENERGY_PERF_POLICY_ON_AC/BAT/SAV
+------------------------------------
 ::
 
     CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
@@ -198,8 +198,8 @@ Requirements:
 
 .. _set-cpu-min-max-perf:
 
-CPU_MIN/MAX_PERF_ON_AC/BAT
---------------------------
+CPU_MIN/MAX_PERF_ON_AC/BAT/SAV
+------------------------------
 ::
 
     CPU_MIN_PERF_ON_AC=0
@@ -226,8 +226,8 @@ Hints:
 
 .. _set-cpu-boost:
 
-CPU_BOOST_ON_AC/BAT
--------------------
+CPU_BOOST_ON_AC/BAT/SAV
+-----------------------
 ::
 
     CPU_BOOST_ON_AC=1
@@ -248,8 +248,8 @@ Configure CPU "turbo boost" (Intel) or "core performance boost" aka "turbo core"
     * For use with the `amd-pstate` driver, at least kernel 6.11 is required
 
 
-CPU_HWP_DYN_BOOST_ON_AC/BAT
----------------------------
+CPU_HWP_DYN_BOOST_ON_AC/BAT/SAV
+-------------------------------
 ::
 
     CPU_HWP_DYN_BOOST_ON_AC=1

@@ -3,8 +3,8 @@ Platform
 
 .. _set-platform-profile:
 
-PLATFORM_PROFILE_ON_AC/BAT
---------------------------
+PLATFORM_PROFILE_ON_AC/BAT/SAV
+------------------------------
 ::
 
     PLATFORM_PROFILE_ON_AC=performance

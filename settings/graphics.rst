@@ -56,8 +56,8 @@ Controls the power management method of the GPU. Possible values:
 
 .. _set-amdgpu-abm:
 
-AMDGPU_ABM_LEVEL_ON_AC/BAT
---------------------------
+AMDGPU_ABM_LEVEL_ON_AC/BAT/SAV
+------------------------------
 *Version 1.7 and newer*
 
 .. rubric::  AMD GPU
