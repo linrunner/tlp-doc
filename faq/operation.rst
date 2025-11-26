@@ -60,9 +60,39 @@ Make sure, as a prerequisite, that:
   bluetooth/WWAN and drive bay, which might be undesirable.
   `tlp start` applies only power saving.
 
+How can I disable automatic profile switching?
+----------------------------------------------
+*Version 1.9 and newer*
+
+Normally, TLP selects the `performance` profile on AC power and
+the `balanced` profile on battery power. To disable this behaviour,
+configure: ::
+
+    TLP_AUTO_SWITCH=0
+
+This has the effect that the profile is only selected automatically once
+when the system starts up, and thereafter only manually by the user.
+
+To select a specific profile at system startup, additionally configure: ::
+
+    TLP_DEFAULT_MODE=BAL
+
+.. seealso::
+
+    * :ref:`intro-profiles`
+    * :ref:`set-auto-switch`
+    * :ref:`set-default-mode`
+    * :ref:`set-persistent-default` to permanently set a profile
+
 
 How to temporarily use battery settings on AC (and vice versa)?
 ---------------------------------------------------------------
+*Version 1.9 and newer*
+
+Check out :ref:`intro-profiles` to learn about manual switching.
+
+*Version 1.8 and older*
+
 Invoke `manual mode` with the following commands: ::
 
     tlp bat
@@ -76,7 +106,7 @@ command ::
 .. seealso::
 
     * :ref:`set-persistent-default` for a permanent change
-    * :doc:`/usage/tlp` command
+    * :ref:`tlp command <usage-tlp-manual>`
 
 
 AC or BAT is not detected

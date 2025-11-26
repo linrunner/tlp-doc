@@ -45,6 +45,9 @@ paths.
     by TLP when applying settings, some are displayed for information or
     diagnostic purposes only.
 
+
+.. _intro-profiles:
+
 Power Profiles
 --------------
 TLP has a number of profiles, whose :doc:`settings </settings/index>`
@@ -59,8 +62,8 @@ can be configured separately.
 You can manually change the active profile with:
 
 * A mouse click on the GNOME, KDE, or Cinnamon desktop (list not exhaustive)
-* The command :ref:`tlpctl <usage-tlpctl-profiles>`
-* The command :ref:`tlp <usage-tlp-profiles>` (as root)
+* The :ref:`command tlpctl <usage-tlpctl-profiles>`
+* The :ref:`command tlp <usage-tlp-profiles>` (as root)
 
 *Version 1.8 and older* supports two profiles:
 

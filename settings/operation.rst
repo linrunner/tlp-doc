@@ -63,6 +63,9 @@ Notes:
 
 Default when unconfigured: "91 93 1 92"
 
+
+.. _set-auto-switch:
+
 TLP_AUTO_SWITCH
 ---------------
 *Version 1.9 and newer*
@@ -83,6 +86,9 @@ the charger, when booting the system or when executing :command:`tlp start`:
 Note: the same applies if the charger was connected/removed during suspend.
 
 Default when unconfigured: 2
+
+
+.. _set-default-mode:
 
 TLP_DEFAULT_MODE
 ----------------
