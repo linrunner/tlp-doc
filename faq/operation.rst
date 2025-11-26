@@ -60,6 +60,9 @@ Make sure, as a prerequisite, that:
   bluetooth/WWAN and drive bay, which might be undesirable.
   `tlp start` applies only power saving.
 
+
+.. _faq-disable-auto-switch:
+
 How can I disable automatic profile switching?
 ----------------------------------------------
 *Version 1.9 and newer*

@@ -54,7 +54,8 @@ mouse, which remains set even when the power source changes.
 
 As with almost everything in TLP, however, automatic switching can be
 disabled via configuration, allowing you to always start your laptop
-with the *balanced* profile, for example.
+with the *balanced* profile, for example – see :ref:`faq-disable-auto-switch`.
+In this way, TLP behaves identically to power-profiles-daemon.
 
 .. seealso::
 
