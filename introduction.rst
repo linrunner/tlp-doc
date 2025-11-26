@@ -2,7 +2,6 @@ Introduction
 ************
 TLP is a feature-rich utility for Linux, saving laptop battery power
 without the need to delve deeper into technical details.
-
 *Version 1.9* introduces **tlp-pd**, which enables easy profile switching
 with a mouse click. tlp-pd replaces `power-profiles-daemon` by implementing
 the same D-Bus API that major Linux desktop environments like GNOME, KDE and
