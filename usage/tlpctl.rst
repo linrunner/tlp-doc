@@ -7,6 +7,8 @@ tlpctl
     Control TLP power profiles using the TLP Profiles Daemon *tlp-pd*.
 
 
+.. _usage-tlpctl-profiles:
+
 Profile Shortcuts
 ^^^^^^^^^^^^^^^^^
 In addition to clicking on the Linux desktop panel, the power profile can also be

@@ -12,6 +12,9 @@ Start TLP and apply power saving profile for the actual power source: ::
 
 .. note:: Also use this command to apply changes after editing the configuration.
 
+
+.. _usage-tlp-profiles:
+
 Power Profiles
 ^^^^^^^^^^^^^^
 *Version 1.9 and newer*
@@ -28,6 +31,8 @@ Apply power-saver (SAV) profile: ::
 
     sudo tlp power-saver
 
+
+.. _usage-tlp-manual:
 
 Manual Mode
 ^^^^^^^^^^^^

@@ -47,22 +47,28 @@ paths.
 
 Power Profiles
 --------------
-TLP has separately configurable settings profiles.
+TLP has a number of profiles, whose :doc:`settings </settings/index>`
+can be configured separately.
 
-*Version 1.9 and newer* supports three:
+*Version 1.9 and newer* supports three profiles:
 
-* **performance**: is used on AC power or when the user clicks on it, or executes
-  the corresponding command.
-* **balanced**: used on battery power or when the user clicks on it, or executes
-  the corresponding command.
-* **power-saver**: used when the user clicks on it or executes the corresponding command.
+* **performance**: is automatically selected on AC power, or manually by the user.
+* **balanced**: is automatically selected on battery power, or manually by the user.
+* **power-saver**: is manually selected by the user.
 
-*Version 1.8 and older* supports two:
+You can manually change the active profile with:
 
-* **AC**: is used on AC power or when the user executes the corresponding command.
-* **BAT**: used on battery power or when the user executes the corresponding command.
+* A mouse click on the GNOME, KDE, or Cinnamon desktop (list not exhaustive)
+* The command :ref:`tlpctl <usage-tlpctl-profiles>`
+* The command :ref:`tlp <usage-tlp-profiles>` (as root)
 
-Each profile has a corresponding set of :doc:`/settings/index`.
+*Version 1.8 and older* supports two profiles:
+
+* **AC**: is automatically selected on AC power, or manually by the user.
+* **BAT**: is automatically selected on battery power, or manually by the user.
+
+You can manualy change the active profile with the command :ref:`tlp <usage-tlp-manual>`
+(as root).
 
 Event-driven architecture
 -------------------------
