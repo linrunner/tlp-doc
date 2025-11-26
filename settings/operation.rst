@@ -74,16 +74,17 @@ TLP_AUTO_SWITCH
     TLP_AUTO_SWITCH=2
 
 Control automatic switching of the power profile when connecting or removing
-the charger, when booting the system or when executing :command:`tlp start`:
+the charger [#]_, when booting the system or when executing :command:`tlp start`:
 
 * 0 - disabled: never switch, use `TLP_DEFAULT_MODE` if configured
-* 1 - auto: always switch, select `performance` on AC and `balanced` on battery power.
+* | 1 - auto: always switch, select `performance` on AC and `balanced` on battery power [#]_
 * 2 - smart: do not switch if the following profiles were active previously:
 
   * `power-saver` or `balanced` on AC
   * `power-saver` or `performance` on battery power
 
-Note: the same applies if the charger was connected/removed during suspend.
+.. [#] The same logic applies if the charger was connected/removed during suspend
+.. [#] Behavior identical to *version 1.8 or older*
 
 Default when unconfigured: 2
 
@@ -114,7 +115,7 @@ Note: Legacy values `AC` and `BAT` continue to work. They are mapped to `PRF` an
 respectively.
 
 .. note::
-    Disable automatic switching and default to `balanced` profile with: ::
+    To disable automatic switching and default to the `balanced` profile, configure: ::
 
         TLP_AUTO_SWITCH=0
         TLP_DEFAULT_MODE=BAL
@@ -136,7 +137,7 @@ Lock power profile:
 Default when unconfigured: 0
 
 .. note::
-    To always use BAT settings / balanceed profile, configure: ::
+    To always use BAT settings / balanced profile, configure: ::
 
         TLP_DEFAULT_MODE=BAT
         TLP_PERSISTENT_DEFAULT=1
