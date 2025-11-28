@@ -23,19 +23,26 @@ Package Installation
 --------------------
 Install the packages
 
-* **tlp** *(PPA or universe)* – Power saving
-* **tlp-rdw** *(PPA or universe)* – optional – :doc:`/settings/rdw`
+* **tlp** *(PPA or main)* – Power saving
+* **tlp-pd** *(PPA or main)* – optional, select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-rdw** *(PPA or main)* – optional – :doc:`/settings/rdw`
 
-either with your favorite package manager or the command: ::
+either with your favorite package manager or the command:
+
+*Version 1.9 and newer* ::
+
+    sudo apt install tlp tlp-pd tlp-rdw
+
+*Version 1.8 and older* ::
 
     sudo apt install tlp tlp-rdw
 
-*Version 1.5 only*: due to a bug in the Ubuntu packages (official and PPA)
+*Ubuntu 22.04 (version 1.5) only*: due to a bug in the Ubuntu packages (official and PPA)
 it is necessary to enable the service manually after installation: ::
 
     sudo systemctl enable tlp.service
 
-The problem is resolved for version 1.6.
+The problem is resolved for Ubuntu 24.04 and newer.
 
 
 .. _ubuntu-dkms-fail:
@@ -46,7 +53,7 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 
     As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
     offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from model year 2011 onwards. Ubuntu 23.10 and 24.04 meet this
+    for ThinkPads from model year 2011 onwards. Ubuntu 24.04 meets this
     requirement, 22.04 can be upgraded to the 6.8 kernel (HWE)
     from the official repositories.
 

@@ -14,14 +14,22 @@ Package Installation
 --------------------
 TLP packages are available from the official Fedora repositories:
 
-* **tlp** *(Updates)* – Power saving
-* **tlp-rdw** *(Updates)* – optional – :doc:`/settings/rdw`
+* **tlp** – Power saving
+* **tlp-pd** – optional, select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-rdw** – optional, :doc:`/settings/rdw`
 
 Hint: packages for RHEL/CentOS are available from the EPEL repositories.
 
-Install the packages either with your favorite package manager or the command: ::
+Install the packages either with your favorite package manager or the command:
 
-   sudo dnf install tlp tlp-rdw
+*Version 1.9 and newer* ::
+
+    sudo dnf install tlp tlp-pd tlp-rdw
+
+*Version 1.8 and older* ::
+
+    sudo dnf install tlp tlp-rdw
+
 
 TLP Repository
 ^^^^^^^^^^^^^^
@@ -34,7 +42,13 @@ can be set up with the following command: ::
 Hint: the above step is only needed after a clean Fedora installation,
 not after release upgrades.
 
-After the repository is set up, install TLP with the command: ::
+After the repository is set up, install TLP with the command:
+
+*Version 1.9 and newer* ::
+
+    sudo dnf install tlp tlp-pd tlp-rdw
+
+*Version 1.8 and older* ::
 
    sudo dnf install tlp tlp-rdw
 
@@ -42,11 +56,11 @@ Remove conflicting power management tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 When installing TLP, conflicting power management tools must be uninstalled:
 
-* Fedora version 40 and below ::
+* Fedora 40 and older ::
 
    sudo dnf remove power-profiles-daemon
 
-* Fedora version 41 and newer ::
+* Fedora 41 and newer ::
 
    sudo dnf remove tuned tuned-ppd
 
@@ -59,6 +73,10 @@ Service Units
 To complete the installation you must enable TLP's service: ::
 
    sudo systemctl enable tlp.service
+
+*For version 1.9 and newer* with tlp-pd, additionally: ::
+
+    sudo systemctl enable --now tlp-pd.service
 
 You should also mask the following services to avoid conflicts and assure proper
 operation of TLP's :doc:`/settings/radio` options: ::

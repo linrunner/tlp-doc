@@ -14,14 +14,17 @@ You may install the source tarball from `Downloads`_:
 
 2. Install (as root) ::
 
-        make install
-        make install-man
+        make install install-man
 
 .. include:: ../include/warn-source-install.rst
 
 3. Enable the services (as root) ::
 
         systemctl enable tlp.service
+
+4. *For version 1.9 and newer* with tlp-pd, additionally: ::
+
+        systemctl enable --now tlp-pd.service
 
 .. seealso::
 

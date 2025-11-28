@@ -4,37 +4,44 @@ openSUSE
 
 * Officially supported openSUSE Leap releases and Tumbleweed
 
-.. note::
-
-    Execute the commands below in a root shell or with with a preceding :command:`sudo`.
-
 Package Installation
 --------------------
 Packages are available from the official repositories:
 
 * **tlp** – Power saving
-* **tlp-rdw** – optional - :doc:`/settings/rdw`
+* **tlp-pd** – optional, select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-rdw** – optional, :doc:`/settings/rdw`
 
-Install them either with your favorite package manager or the command: ::
+Install them either with your favorite package manager or the command:
 
-    zypper install tlp tlp-rdw
+*Version 1.9 and newer* ::
+
+    sudo zypper install tlp tlp-pd tlp-rdw
+
+*Version 1.8 and older* ::
+
+    sudo zypper install tlp tlp-rdw
 
 *openSUSE Leap 15.4 and newer as well as Tumbleweed*
 
 Uninstall the conflicting `power-profiles-daemon` package: ::
 
-   zypper remove power-profiles-daemon
+   sudo zypper remove power-profiles-daemon
 
 Service Units
 -------------
 To complete the installation you must enable TLP's service: ::
 
-   systemctl enable tlp.service
+   sudo systemctl enable tlp.service
+
+*For version 1.9 and newer* with tlp-pd, additionally: ::
+
+    sudo systemctl enable --now tlp-pd.service
 
 You should also mask the following services to avoid conflicts and assure proper
 operation of TLP's :doc:`/settings/radio` options: ::
 
-   systemctl mask systemd-rfkill.service systemd-rfkill.socket
+   sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 .. seealso::
 
@@ -66,7 +73,7 @@ then install the required package as follows.
 **openSUSE Tumbleweed:** install from the official repository with your favorite
 package manager or the command ::
 
-    zypper install tp_smapi
+    sudo zypper install tp_smapi
 
 **openSUSE Leap:** browse for `community packages of tp_smapi <https://software.opensuse.org/package/tp_smapi-kmp-default>`_
 or build the required module from source. Your mileage may vary.

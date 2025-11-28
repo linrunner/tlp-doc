@@ -5,10 +5,6 @@ Debian
 * Debian oldstable, stable, testing and unstable
 * Linux Mint Debian Edition (LMDE)
 
-.. note::
-
-    Execute the commands below in a root shell or with a preceding :command:`sudo`.
-
 Package Repository
 ------------------
 TLP and ThinkPad-related packages below are available via the official Debian
@@ -23,22 +19,29 @@ Replace `DIST` with the codename of your installed Debian version.
 
 Update package data: ::
 
-    apt update
+    sudo apt update
 
 Package Installation
 --------------------
 Install the following packages
 
 * **tlp** *(main)* – Power saving
-* **tlp-rdw** *(main)* – optional – :doc:`/settings/rdw`
+* **tlp-pd** *(main)* – optional, select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-rdw** *(main)* – optional, :doc:`/settings/rdw`
 
-either with your favorite package manager or the command: ::
+either with your favorite package manager or the command:
 
-    apt install tlp tlp-rdw
+*Version 1.9 and newer* ::
+
+    sudo apt install tlp tlp-pd tlp-rdw
+
+*Version 1.8 and older* ::
+
+    sudo apt install tlp tlp-rdw
 
 For `Debian backports`_ use: ::
 
-    apt -t DIST-backports install tlp tlp-rdw
+   sudo apt -t DIST-backports install tlp tlp-pd tlp-rdw
 
 Replace `DIST` with the codename of your installed Debian version.
 
@@ -79,4 +82,3 @@ either with your favorite package manager or the command ::
 
 
 .. _`Debian backports`: https://backports.debian.org/Instructions/
-

@@ -1,8 +1,5 @@
 Arch Linux
 ==========
-.. note::
-
-    Execute the commands below in a root shell or with a preceding :command:`sudo`.
 
 Package Installation
 --------------------
@@ -10,27 +7,38 @@ Package Installation
 Packages are available in the offical repositories:
 
 * **tlp** *(Community)* – Power saving
+* **tlp-pd** *(Community)* – optional, select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
 * **tlp-rdw** *(Community)* – optional, :doc:`/settings/rdw`
 
-Install them either with your favorite package manager or the command: ::
+Install them either with your favorite package manager or the command:
 
-   pacman -S tlp tlp-rdw
+*Version 1.9 and newer* ::
+
+    sudo pacman -S tlp tlp-pd tlp-rdw
+
+*Version 1.8 and older* ::
+
+    sudo pacman -S tlp tlp-rdw
 
 
 Service Units
 -------------
-To complete the installation you must enable TLP's service: ::
+To complete the installation you must enable TLP's service(s): ::
 
-   systemctl enable tlp.service
+    sudo systemctl enable tlp.service
+
+*For version 1.9 and newer* with tlp-pd, additionally: ::
+
+    sudo systemctl enable --now tlp-pd.service
 
 Using the :doc:`/settings/rdw` (tlp-rdw) requires one more service: ::
 
-   systemctl enable NetworkManager-dispatcher.service
+    sudo systemctl enable NetworkManager-dispatcher.service
 
 You should also mask the following services to avoid conflicts and assure proper
 operation of TLP's :doc:`/settings/radio` options: ::
 
-   systemctl mask systemd-rfkill.service systemd-rfkill.socket
+    sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 .. seealso::
 
@@ -73,4 +81,3 @@ either with your favorite package manager or the command ::
 .. note::
 
     * You must disable Secure Boot to use the ThinkPad specific packages
-
