@@ -107,6 +107,38 @@ stop and disable the service with ::
     sudo systemctl mask power-profiles-daemon.service
 
 
+.. _faq-ppd-framework-amd:
+
+Why does Framework recommend power-profiles-daemon over TLP for its AMD models?
+-------------------------------------------------------------------------------
+Framework's knowledge base [#]_ makes this vague statement: *"Do NOT use TLP. Without getting too detailed,
+there are things happening behind the scenes that require PPD for the best experience for our Linux customers."*
+
+In a forum response [#]_, Mario Limonciello (AMD developer) explains the facts:
+only the platform profile should be effective, as it has *"a path from the kernel to the BIOS
+to Framework’s EC which allows changing APU coefficients".* If EPP is used at the same time,
+*"something is going to stomp on the other and you’ll get unexpected results".*
+
+In addition, TLP's *"aggressive"* Runtime PM defaults are said to *"cause problems for the system;
+particularly at suspend. All of the important drivers for the AMD Framework systems have correct default
+kernel policies in the upstream kernel".*
+
+Solution: with TLP, you can configure the desired behavior as follows: ::
+
+    CPU_ENERGY_PERF_POLICY_ON_AC=""
+    CPU_ENERGY_PERF_POLICY_ON_BAT=""
+    CPU_ENERGY_PERF_POLICY_ON_SAV=""
+
+    PLATFORM_PROFILE_ON_AC=performance
+    PLATFORM_PROFILE_ON_BAT=balanced
+    PLATFORM_PROFILE_ON_SAV=low-power
+
+    RUNTIME_PM_ON_AC=""
+    RUNTIME_PM_ON_BAT=""
+
+.. [#] `Optimizing Ubuntu Battery Life <https://knowledgebase.frame.work/en_us/optimizing-ubuntu-battery-life-Sye_48Lg3>`_ – Framework knowledge base
+.. [#] `Forum response <https://community.frame.work/t/tracking-ppd-v-tlp-for-amd-ryzen-7040/39423/9>`_
+
 .. seealso::
 
     * FAQ: :doc:`/faq/conflicts`
