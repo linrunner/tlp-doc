@@ -93,12 +93,13 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 
     Fedora 40 was released with Linux kernel 6.8. In combination with TLP 1.5
     or newer it offers full battery care support (i.e. charge thresholds and
-    recalibration) for ThinkPads from model year 2011 onwards. The same applies
-    to later Fedora versions.
+    recalibration) for ThinkPads from the `Sandy Bridge` generation (2011) onwards.
+    The same applies to later Fedora versions.
 
     **An external kernel module (also referred to as "out-of-tree" module)
     is not required in this case, and the following steps are not necessary.
-    However, if your model is from 2011 or older, read on.**
+    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    read on.**
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
 shows the line
@@ -121,6 +122,8 @@ Required packages:
   the `akmod` package
 * **akmod-tp_smapi** *(TLP repo)* – optional – External kernel
   module source providing battery charge thresholds and recalibration
+  for ThinkPads prior to the `Sandy Bridge` generation (2011) and
+  specific :command:`tlp-stat -b` output up to that generation
 
 Install either with your favorite package manager
 or the command ::

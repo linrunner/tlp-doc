@@ -51,12 +51,14 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 
     As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
     offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from model year 2011 onwards. Debian Bookworm meets this
-    requirement with its kernel 6.1, the even newer Debian Sid kernel as well.
+    for ThinkPads from the `Sandy Bridge` generation (2011) onwards.
+    Debian Bookworm meets this requirement with its kernel 6.1, the even newer Debian
+    Trixie kernel 6.12 anyway.
 
     **An external kernel module (also referred to as "out-of-tree" module)
     is not required in these cases, and the following steps are not necessary.
-    However, if your model is from 2011 or older, read on.**
+    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    read on.**
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
 shows the line
@@ -68,8 +70,8 @@ shows the line
 then install the required package
 
 * **tp-smapi-dkms** *(main)* – optional – External kernel module providing
-  battery charge thresholds and recalibration for ThinkPads before model year 2011
-  as well as specific :command:`tlp-stat -b` output until model year 2011
+  battery charge thresholds and recalibration for ThinkPads prior to the `Sandy Bridge`
+  generation (2011) and specific :command:`tlp-stat -b` output up to that generation
 
 either with your favorite package manager or the command ::
 

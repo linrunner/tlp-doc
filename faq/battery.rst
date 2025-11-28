@@ -168,12 +168,13 @@ Which external kernel module do I need for my ThinkPad?
 
     As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
     offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from model year 2011 onwards. The majority of current
-    Linux distributions meet the kernel requirement.
+    for ThinkPads from the `Sandy Bridge` generation (2011) onwards. The majority
+    of current Linux distributions meet the kernel requirement.
 
     **An external kernel module (also referred to as an "out-of-tree" module)
     is not required in this case, and the following steps are not necessary.
-    However, if your model is from 2011 or older, read on.**
+    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    read on.**
 
 Prerequisite: make sure to install the most recent version of TLP for
 accurate recommendations.
@@ -194,7 +195,7 @@ then install the required package as explained in
     * :doc:`/settings/bc-vendors` - Details on hardware support
     * `tp-smapi <https://www.thinkwiki.org/wiki/Tp_smapi>`_
       – Documentation for the external kernel modules required for ThinkPads
-      until model year 2011
+      up to the the `Sandy Bridge` generation (2011)
 
 
 .. _faq-bc-coreboot-thinkpad:

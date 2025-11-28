@@ -415,7 +415,7 @@ Lenovo ThinkPads
    :align: left
 
    * - **Hardware**
-     - Lenovo ThinkPad series since model year 2011 - e.g. T420(s)/T520/W520/X220
+     - Lenovo ThinkPad series from the `Sandy Bridge` generation (2011) onwards
    * - **Kernel drivers**
      -  `thinkpad_acpi` - required, included in distribution kernels
    * - **TLP version (min)**
@@ -475,7 +475,7 @@ Lenovo/IBM legacy ThinkPads
    :align: left
 
    * - **Hardware**
-     - Lenovo or IBM ThinkPad series before model year 2011
+     - Lenovo or IBM ThinkPad series before the `Sandy Bridge` generation (2011)
    * - **Kernel drivers**
      - | `thinkpad_acpi` - required, included in distribution kernels
        | `tp_smapi` - required, out-of-tree → distribution specific package needed

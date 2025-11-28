@@ -50,13 +50,15 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 --------------------------------------------------------------
 .. important::
 
-    Arch Linux (at the time of writing) provides kernel 6.10 (linux) or 6.6 (linux-lts).
+    Arch Linux (at the time of writing) provides kernel 6.17 (linux) or 6.12 (linux-lts).
     In combination with TLP 1.5 or newer this enables full battery care support
-    (i.e. charge thresholds and recalibration) for ThinkPads from model year 2011 onwards.
+    (i.e. charge thresholds and recalibration) for ThinkPads from the `Sandy Bridge`
+    generation (2011) onwards.
 
     **An external kernel module (also referred to as "out-of-tree" module)
     is not required in this case, and the following steps are not necessary.
-    However, if your model is from 2011 or older, read on.**
+    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    read on.**
 
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
@@ -69,8 +71,8 @@ shows the line
 then install the approriate package
 
 * **tp_smapi** *(Community)* – optional – External kernel module providing
-  battery charge thresholds and recalibration for ThinkPads before model year 2011
-  as well as specific :command:`tlp-stat -b` output until model year 2011
+  battery charge thresholds and recalibration for ThinkPads prior to the `Sandy Bridge`
+  generation (2011) and specific :command:`tlp-stat -b` output up to that generation
 * **tp_smapi-lts** *(Community)* – optional – Use instead of `tp_smapi` when the
   LTS kernel is installed
 

@@ -54,12 +54,13 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 
     OpenSUSE Tumbleweed (at the time of writing) provides Linux kernel 6.10.
     In combination with TLP 1.5 or newer it offers full battery care support
-    (i.e. charge thresholds and recalibration) for ThinkPads from model
-    year 2011 onwards.
+    (i.e. charge thresholds and recalibration) for ThinkPads from the `Sandy Bridge`
+    generation onwards.
 
     **An external kernel module (also referred to as "out-of-tree" module)
     is not required in this case, and the following steps are not necessary.
-    However, if your model is from 2011 or older, read on.**
+    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    read on.**
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
 shows the line

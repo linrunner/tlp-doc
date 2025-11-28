@@ -47,8 +47,8 @@ tuned - *conflicts*
 
 tp-smapi - *depends optional*
     External kernel modules providing battery charge thresholds and recalibration
-    for ThinkPads before model year 2011 as well as specific :command:`tlp-stat -b`
-    output until model year 2011. See :ref:`bc-vendor-thinkpad-legacy`.
+    for ThinkPads prior to the `Sandy Bridge` generation (2011) and specific
+    :command:`tlp-stat -b` output up to that generation. See :ref:`bc-vendor-thinkpad-legacy`.
 
 .. include:: /include/no-package-dep.rst
 

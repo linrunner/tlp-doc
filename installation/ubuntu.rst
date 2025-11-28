@@ -53,13 +53,14 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 
     As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
     offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from model year 2011 onwards. Ubuntu 24.04 meets this
-    requirement, 22.04 can be upgraded to the 6.8 kernel (HWE)
+    for ThinkPads from the `Sandy Bridge` generation (2011) onwards. Ubuntu 24.04 meets
+    this requirement, 22.04 can be upgraded to the 6.8 kernel (HWE)
     from the official repositories.
 
     **An external kernel module (also referred to as an "out-of-tree" module)
     is not required in these cases, and the following steps are not necessary.
-    However, if your model is from 2011 or older, read on.**
+    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    read on.**
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
 shows the line
@@ -71,8 +72,8 @@ shows the line
 then install the required package
 
 * **tp-smapi-dkms** *(main)* – optional – External kernel module providing
-  battery charge thresholds and recalibration for ThinkPads before model year 2011
-  as well as specific :command:`tlp-stat -b` output until model year 2011
+  battery charge thresholds and recalibration for ThinkPads prior to the `Sandy Bridge`
+  generation (2011) and specific :command:`tlp-stat -b` output up to that generation
 
 either with your favorite package manager or the command ::
 
