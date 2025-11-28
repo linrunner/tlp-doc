@@ -26,8 +26,8 @@ Package Installation
 Install the following packages
 
 * **tlp** *(main)* – Power saving
-* **tlp-pd** *(main)* – optional, select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
-* **tlp-rdw** *(main)* – optional, :doc:`/settings/rdw`
+* **tlp-pd** *(main)* – optional – Select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-rdw** *(main)* – optional – :doc:`/settings/rdw`
 
 either with your favorite package manager or the command:
 

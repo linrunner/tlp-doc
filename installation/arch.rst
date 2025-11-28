@@ -7,8 +7,8 @@ Package Installation
 Packages are available in the offical repositories:
 
 * **tlp** *(Community)* – Power saving
-* **tlp-pd** *(Community)* – optional, select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
-* **tlp-rdw** *(Community)* – optional, :doc:`/settings/rdw`
+* **tlp-pd** *(Community)* – optional – Select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-rdw** *(Community)* – optional – :doc:`/settings/rdw`
 
 Install them either with your favorite package manager or the command:
 
