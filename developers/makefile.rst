@@ -49,6 +49,8 @@ Targets
      - Verify that bat.d plugins implement the must-have batdrv_() functions
    * - checkdupconst
      - Check shell scripts for duplicate constant definitions
+   * - checkman
+     - Show manpage headers (for visual inspection)
    * - checkwip
      - Check shell scripts for comments indicating work in progress
    * - perlcritic
