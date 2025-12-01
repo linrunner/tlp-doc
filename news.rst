@@ -5,6 +5,27 @@ News
 
 .. _news-top-1:
 
+01.12.2025 - TLP 1.9 released
+=============================
+The beta test has been successfully completed, TLP 1.9.0 was just released.
+
+The brand new **tlp-pd** enables easy profile switching with a mouse click.
+tlp-pd replaces power-profiles-daemon by implementing the same D-Bus API
+that major Linux desktop environments like GNOME, KDE and Cinnamon already use.
+
+The `release notes <https://github.com/linrunner/TLP/releases/tag/1.9.0-beta.1>`__
+provide a quick overview of the new features. All details, including bug fixes,
+can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+
+**Release packages** will soon be made available via the repositories of your
+distribution, see :doc:`/installation/index`.
+
+Thanks to everyone who contributed, tested and reported bugs!
+
+Have fun! :-)
+
+.. _news-top-2:
+
 05.11.2025 - TLP 1.9 Beta 1 released / Call for Testers
 =======================================================
 The first beta version of TLP 1.9 is here.
@@ -21,7 +42,6 @@ can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/chang
 **Please take part in the** `beta test <https://github.com/linrunner/TLP/issues/832>`_ **!**
 **I look forward to seeing your results.**
 
-.. _news-top-2:
 
 13.02.2025 - TLP 1.8 released
 =============================
