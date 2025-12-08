@@ -39,6 +39,7 @@ release = "1.9.0"
 # ones.
 extensions = [
     "sphinx_sitemap",
+    "sphinx_reredirects",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -112,6 +113,12 @@ html_last_updated_fmt = "%b %d, %Y"
 # -- Options for sitemap
 html_baseurl = "https://linrunner.de/tlp"
 sitemap_url_scheme = "subdir/{link}"
+
+# -- Options for reredirects
+redirects = {
+    "developers/changes": "./packaging.html"  # relative
+}
+
 
 # -- Options for HTMLHelp output ---------------------------------------------
 

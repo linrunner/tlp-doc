@@ -1,6 +1,6 @@
-Dev's Changelog
-===============
-This section lists changes that are relevant for packaging TLP.
+Packaging
+=========
+This document lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 

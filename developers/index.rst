@@ -7,7 +7,7 @@ code contributions and packaging of TLP for Linux distributions.
    :maxdepth: 1
    :caption: Contents
 
-   changes
+   packaging
    architecture
    debug
    dependencies
