@@ -4,7 +4,7 @@ This document lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
-Version 1.9 (beta)
+Version 1.9
     Files:
 
     - New: **bat.d/70-tuxedo**
