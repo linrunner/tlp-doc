@@ -31,9 +31,9 @@ RADEON_DPM_PERF_LEVEL_ON_AC/BAT
 Controls the Dynamic power management (DPM) performance level. Supported by
 `amdgpu` and `radeon` drivers. Possible values:
 
-* auto – recommended
-* low
-* high
+* auto – dynamically select the optimal power profile for current conditions (recommended)
+* low – lock the clocks to the lowest state
+* high – lock the clocks to the highest state (beware of overheating on hardware with limited cooling)
 
 Default when unconfigured: auto
 
