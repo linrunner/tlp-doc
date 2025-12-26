@@ -66,6 +66,19 @@ Packages tracking the `main` branch are available in the AUR:
 * `tlp-rdw-git <https://aur.archlinux.org/packages/tlp-rdw-git/>`_
 * `tlp-pd-git <https://aur.archlinux.org/packages/tlp-pd-git/>`_
 
+To build a package from the branch of your choice, modify the AUR package: ::
+
+    git clone https://aur.archlinux.org/tlp-git.git
+    cd tlp-git
+
+Edit the **PKGBUILD** and reference the desired branch in the source line: ::
+
+    source=('git+https://github.com/linrunner/TLP.git#branch=target-branch')
+
+Build the package: ::
+
+    makepkg
+
 .. dev-install-source:
 
 Installing from Source
