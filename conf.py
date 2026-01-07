@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = "TLP"
-copyright = "2025, linrunner. Licensed under the CC BY-NC-SA"
+copyright = "2026, linrunner. Licensed under the CC BY-NC-SA"
 author = "Thomas Koch"
 
 # The short X.Y version
 version = "1.9"
 # The full version, including alpha/beta/rc tags
-release = "1.9.0"
+release = "1.9.1"
 
 # -- General configuration ---------------------------------------------------
 

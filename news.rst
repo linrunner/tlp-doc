@@ -5,6 +5,16 @@ News
 
 .. _news-top-1:
 
+07.01.2026 - TLP 1.9.1 released
+===============================
+Version 1.9.1 primarily resolves a security issue. See the
+`changelog <https://github.com/linrunner/TLP/blob/main/changelog#L12>`_
+for details.
+
+Happy new year! :-)
+
+.. _news-top-2:
+
 01.12.2025 - TLP 1.9 released
 =============================
 The beta test has been successfully completed, TLP 1.9.0 was just released.
@@ -23,8 +33,6 @@ distribution, see :doc:`/installation/index`.
 Thanks to everyone who contributed, tested and reported bugs!
 
 Have fun! :-)
-
-.. _news-top-2:
 
 05.11.2025 - TLP 1.9 Beta 1 released / Call for Testers
 =======================================================
