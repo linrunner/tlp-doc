@@ -31,10 +31,10 @@ Install the packages either with your favorite package manager or the command:
     sudo dnf install tlp tlp-rdw
 
 
-TLP Repository
-^^^^^^^^^^^^^^
-If the latest TLP version is not yet available in the official Fedora
-repositories, you can get it from the `TLP` repository, which
+TLP Repository (tlp-updates)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Should the latest version not yet be available in the official Fedora
+repositories, you can get it from the `tlp-updates` repository, which
 can be set up with the following command: ::
 
    sudo dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
@@ -54,15 +54,13 @@ After the repository is set up, install TLP with the command:
 
 Remove conflicting power management tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-When installing TLP, conflicting power management tools must be uninstalled:
+When installing TLP, conflicting power management tools must be uninstalled: ::
 
-* Fedora 40 and older ::
+    sudo dnf remove tuned tuned-ppd
 
-   sudo dnf remove power-profiles-daemon
+Or on older installations: ::
 
-* Fedora 41 and newer ::
-
-   sudo dnf remove tuned tuned-ppd
+    sudo dnf remove power-profiles-daemon
 
 .. seealso::
 
@@ -98,7 +96,7 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 
     **An external kernel module (also referred to as "out-of-tree" module)
     is not required in this case, and the following steps are not necessary.
-    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    However, if your model is from the Sandy Bridge generation (2011) or older,
     read on.**
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
@@ -109,7 +107,7 @@ shows the line
     Install tp-smapi kernel modules for ThinkPad battery thresholds and recalibration
 
 then install the required kernel modules. They are not available from the official Fedora repositories.
-Instead you need to add the `TLP` (see above) and `RPM Fusion` repositories: ::
+Instead you need to add the `tlp-updates` (see above) and `RPM Fusion` repositories: ::
 
    sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
