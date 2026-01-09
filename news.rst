@@ -8,7 +8,7 @@ News
 07.01.2026 - TLP 1.9.1 released
 ===============================
 Version 1.9.1 primarily resolves a security issue. See the
-`changelog <https://github.com/linrunner/TLP/blob/main/changelog#L12>`_
+`changelog <https://github.com/linrunner/TLP/blob/main/changelog#L12>`__
 for details.
 
 Happy new year! :-)
@@ -25,7 +25,7 @@ that major Linux desktop environments like GNOME, KDE and Cinnamon already use.
 
 The `release notes <https://github.com/linrunner/TLP/releases/tag/1.9.0-beta.1>`__
 provide a quick overview of the new features. All details, including bug fixes,
-can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`__.
 
 **Release packages** will soon be made available via the repositories of your
 distribution, see :doc:`/installation/index`.
