@@ -1,4 +1,4 @@
-* Start charge threshold (`START_CHARGE_THRESH_BATx`): battery charge level
-  below which charging will begin when connecting the charger.
-* Stop charge threshold (`STOP_CHARGE_TRESH_BATx`): battery charge level
-  above which charging will stop while the charger is connected.
+* Charging starts once the charger is connected and the battery level is *below*
+  the *start charge threshold*.
+* Charging stops when the battery level *reaches or exceeds* the *stop charge
+  threshold*.
