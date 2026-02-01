@@ -21,7 +21,7 @@ and disable it.
 
 Step 1: Update your system
 --------------------------
-Invoke your system's package manager and update all packages including the
+Use your system's package manager to update all packages including the
 Linux kernel. Reboot.
 
 .. note::

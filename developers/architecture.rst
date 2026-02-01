@@ -59,7 +59,7 @@ Non-systemd
       which calls :command:`tlp suspend` or :command:`tlp resume`.
       Use the `TLP_WITH_ELOGIND` :doc:`makefile` switch to install it to
       **/lib/elogind/system-sleep/49-tlp-sleep**.
-    * Else: you must provide a means to invoke :command:`tlp suspend`
+    * Else: you must provide a way to run :command:`tlp suspend`
       or :command:`tlp resume` (your mileage may vary).
 
 LAN, Wi-Fi, WWAN connected/disconnected - NetworkManager

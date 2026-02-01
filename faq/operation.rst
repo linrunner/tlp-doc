@@ -96,7 +96,7 @@ Check out :ref:`intro-profiles` to learn about manual switching.
 
 *Version 1.8 and older*
 
-Invoke `manual mode` with the following commands: ::
+Turn on `manual mode` with the following commands: ::
 
     tlp bat
     tlp ac

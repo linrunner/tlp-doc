@@ -21,10 +21,10 @@ regardless of whether or not Powertop is installed.
 
 .. note::
 
-    * Attempting to run :command:`powertop --auto-tune` on boot may overwrite
-      TLP's settings (depending on whether Powertop or TLP is invoked first
-      in the boot order)
-    * Furthermore TLP will overwrite Powertop's initial settings every time the
+    * Running :command:`powertop --auto-tune` on boot overwrites tunables
+      changed by TLP. It depends on whether Powertop or TLP runs first
+      in the boot order.
+    * TLP overwrites Powertop's initial settings every time the
       power source changes
     * Refer to :ref:`intro-how-it-works` for details
 

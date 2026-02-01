@@ -97,7 +97,7 @@ packages:
    * - tlp.init
      - tlp
      - /etc/init.d/tlp
-     - SysV init script to be invoked upon system start/shutdown:
+     - SysV init script that must run at system startup/shutdown:
        calls :command:`tlp init start/stop` to apply power saving settings,
        switch radio devices and set the battery thresholds
    * - tlp-pcilist
@@ -131,18 +131,18 @@ packages:
    * - tlp.service
      - tlp
      - /usr/lib/systemd/system
-     - Service to be invoked upon system start/shutdown by systemd:
+     - Service that systemd must run at system startup/shutdown:
        calls :command:`tlp init start/stop` to apply power saving settings,
        switch radio devices and set the battery thresholds.
    * - tlp-sleep
      - tlp
      - /usr/lib/systemd/system-sleep/tlp
-     - Script to be invoked by systemd upon suspend and resume:
+     - Script that systemd must run at suspend and resume:
        calls :command:`tlp resume/suspend` to apply settings
    * - tlp-sleep.elogind
      - tlp
      - /usr/lib/elogind/system-sleep/49-tlp-sleep
-     - Script to be invoked by elogind upon suspend and resume:
+     - Script that elogind must run at suspend and resume:
        calls :command:`tlp resume/suspend` to apply settings
    * - tlp-stat
      - tlp
