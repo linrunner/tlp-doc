@@ -74,8 +74,9 @@ Package tlp-pd
 tlp - *depends*
     tlp-pd invokes tlp to apply power profiles.
 
-dbus-python - *depends*
+dbus-python - *depends* [1.9 only]
     Required by tlp-pd to implement the D-Bus daemon.
+    Note: for 1.10 tlp-pd was rewritten to use only Gio/GLib.
 
 polkit - *depends*
     Required by tlp-pd to implement D-Bus API authorization for tlpctl's actions.

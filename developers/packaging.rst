@@ -4,6 +4,16 @@ This document lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
+Version 1.10 (under development)
+
+    Makefile:
+
+    - Removed parameter: *TLP_CONF*
+
+    Subpackage tlp-pd:
+
+    - Removed dependency: **dbus-python** – tlp-pd was rewritten to use only Gio/GLib
+
 Version 1.9
     Files:
 
