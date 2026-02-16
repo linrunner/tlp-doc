@@ -81,15 +81,19 @@ either with your favorite package manager or the command ::
 
 .. warning::
 
-    In *Ubuntu 23.10* and *24.04* the `tp-smapi-dkms` package from the official
-    repositories is currently broken and does neither build nor install the kernel module.
+    In *Ubuntu 24.04* and newer the `tp-smapi-dkms` package from the official
+    repositories is broken and does neither build nor install the kernel module.
 
     Workaround: download the working package from
-    `Debian Sid <https://packages.debian.org/sid/all/tp-smapi-dkms/download>`_
+    `Debian Sid <https://packages.debian.org/sid/amd64/tp-smapi-dkms/download>`_
     and install manually ::
 
-        wget -P /tmp http://ftp.de.debian.org/debian/pool/main/t/tp-smapi/tp-smapi-dkms_0.44-1_all.deb
-        sudo apt install /tmp/tp-smapi-dkms_0.44-1_all.deb
+        wget -P /tmp https://ftp.debian.org/debian/pool/main/t/tp-smapi/tp-smapi-dkms_0.45-1_amd64.deb
+        sudo apt install /tmp/tp-smapi-dkms_0.45-1_amd64.deb
+
+    and prevent Ubuntu from updating to its broken package ::
+
+        sudo apt-mark hold tp-smapi-dkms
 
 
 .. seealso::
