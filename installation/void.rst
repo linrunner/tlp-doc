@@ -10,23 +10,24 @@ Packages are available in the offical repositories:
 * **tlp-pd** – optional – Select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
 * **tlp-rdw** – optional – :doc:`/settings/rdw`
 
-Install them with the command:
-
-*Version 1.9 and newer* ::
+Install them with the command: ::
 
     sudo xbps-install tlp tlp-pd tlp-rdw
 
-If you have installed tpl-rwd, you also need to install NetWorkManager ::
+If you want to use the functionality of tlp-rdw, you need NetworkManager.
+Please read the `Void instructions <https://docs.voidlinux.org/config/network/networkmanager.html>`_ before installing it.
+
+You can install it with: ::
 
     sudo xbps-install NetworkManager
 
 Enabling the Services
--------------
+---------------------
 To complete the installation you must enable TLP's service(s): ::
 
     sudo ln -s /etc/sv/tlp /var/service
 
-*For version 1.9 and newer* with tlp-pd, additionally: ::
+If you have installed tlp-pd, additionally: ::
 
     sudo ln -s /etc/sv/tlp-pd /var/service
 
@@ -64,7 +65,7 @@ shows the line
 
 then install the approriate package with the command ::
 
-    sudo xbps-install tp_smapi-dkmsk
+    sudo xbps-install tp_smapi-dkms
 
 .. note::
 
