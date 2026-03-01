@@ -14,10 +14,12 @@ Install them with the command: ::
 
     sudo xbps-install tlp tlp-pd tlp-rdw
 
-If you want to use the functionality of tlp-rdw, you need NetworkManager.
-Please read the `Void instructions <https://docs.voidlinux.org/config/network/networkmanager.html>`_ before installing it.
-
-You can install it with: ::
+Using the :doc:`/settings/rdw` (tlp-rdw) requires the NetworkManager package and
+its service running.
+Please read the `Void Linux instructions
+<https://docs.voidlinux.org/config/network/networkmanager.html>`_ first,
+as there are a few steps required to get NetworkManager working properly.
+Then install it with: ::
 
     sudo xbps-install NetworkManager
 
@@ -31,11 +33,10 @@ If you have installed tlp-pd, additionally: ::
 
     sudo ln -s /etc/sv/tlp-pd /var/service
 
-Using the :doc:`/settings/rdw` (tlp-rdw) requires NetworkManager package and its service running.
-
-Before enabling the NetworkManager service using the command below,
-please read the `Void Linux installation documentation - NetworkManager <https://docs.voidlinux.org/config/network/networkmanager.html>`_.
-There are a few steps required to get NetworkManager working properly. ::
+If you installed NetworkManager, make sure you have also read the
+`Void Linux instructions
+<https://docs.voidlinux.org/config/network/networkmanager.html>`_.
+Then enable the service with: ::
 
     sudo ln -s /etc/sv/NetworkManager /var/service
 
