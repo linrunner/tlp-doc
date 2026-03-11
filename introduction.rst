@@ -17,7 +17,7 @@ on supported laptops.
 .. important::
 
     TLP will take care of the majority of settings that :command:`powertop --autotune`
-    would, and with less trial and error, see :doc:`/faq/powertop`.
+    would, but with less trial and error. See :doc:`/faq/powertop`.
 
 
 .. _intro-how-it-works:
