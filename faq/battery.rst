@@ -791,6 +791,50 @@ would lead to absurdly high wear (i.e. charging cycles) without any benefit.
 
 A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
 
+.. _faq-discharge-shutdown:
+
+ThinkPad shuts down before `tlp recalibrate/discharge` is complete
+------------------------------------------------------------------
+*ThinkPads only*
+
+Symptom: as soon as the controlled discharge process on AC power reaches 2% charge,
+the Thinkpad shuts down.
+
+Cause: UPower's `CriticalPowerAction` shuts down the system at 2% (the UPower default
+configuration) to prevent data corruption. Unfortunately, UPower versions 1.90.9, 1.90.10, 1.91.0
+(and probably older versions too) do this not only when it makes sense – that is, when running on
+battery power – but also when a charger is connected.
+
+Workaround: change **/etc/UPower/UPower.conf** to contain the lines:
+
+.. code-block::
+
+    AllowRiskyCriticalPowerAction=true
+    CriticalPowerAction=Ignore
+
+.. caution::
+
+    * Please use the above lines *during* recalibration only  and comment them out again afterwards.
+    * `CriticalPowerAction=Ignore` prevents the system from shutting down in time when the charge
+      reaches a critical level during normal battery operation. Instead, the ThinkPad powers off
+      abruptly when the battery is empty, which carries the risk of data loss.
+
+Solution: UPower version 1.91.1 provides a permanent fix, though added configuration
+in **/etc/UPower/UPower.conf** is still required:
+
+.. code-block::
+    :emphasize-lines: 2
+
+    AllowRiskyCriticalPowerAction=true
+    ExpectBatteryRecalibration=true
+
+This may be used on a permanent basis and is safe when running on battery power.
+
+References:
+
+* `UPower ticket #312 <https://gitlab.freedesktop.org/upower/upower/-/issues/312>`_
+* `TLP issue #854 <https://github.com/linrunner/TLP/issues/854>`_
+
 `tlp recalibrate` terminates with an error message
 --------------------------------------------------
 *ThinkPads only*
