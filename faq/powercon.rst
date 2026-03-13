@@ -41,17 +41,15 @@ results.
 
 Solution: try the following steps.
 
-.. rubric:: Step 1: Enable Runtime Power Management for GPU drivers
+.. rubric:: Step 1: Use the dGPU drivers' defaults for Runtime Power Management
 
-Remove all GPU drivers from the denylist, leaving only ::
+Add all dGPU drivers to the denylist (older versions have fewer defaults): ::
 
-    RUNTIME_PM_DRIVER_DENYLIST="mei_me"
+    RUNTIME_PM_DRIVER_DENYLIST="amdgpu mei_me nouveau nvidia xhci_hcd"
 
-Apply the changed settings with ::
+Reboot to apply the changed settings.
 
-    sudo tlp start
-
-Anticipated result: the GPU will be suspended (power down) automatically when in
+Anticipated result: the GPU will be suspended (`D3cold`) automatically when in
 idle state.
 
 .. note::
@@ -61,11 +59,12 @@ idle state.
       to enable power saving and power down on AC too
     * `nvidia`: to enable power saving and power down on AC with the proprietary
       Nvidia GPU driver, enable runtime power management generally with
-      `RUNTIME_PM_ON_AC=auto` or selectively for GPU id and sound controller id
-      only with `RUNTIME_PM_ENABLE`. Also refer to
-      `Nvidia's RTD3 guide <https://download.nvidia.com/XFree86/Linux-x86_64/450.57/README/dynamicpowermanagement.html>`_.
-    * `radeon`: there is not enough evidence available for the open source driver
-      for older AMD GPUs; watch what happens when you remove it from the denylist
+      `RUNTIME_PM_ON_AC=auto` and enable audio power saving too (see below);
+      also refer to:
+
+      * `Nvidia's RTD3 guide <https://download.nvidia.com/XFree86/Linux-x86_64/450.57/README/dynamicpowermanagement.html>`_
+      * `Issue #859 <https://github.com/linrunner/TLP/issues/859>`_
+
     * Remember to uncomment the config line by removing the leading `#`
 
 .. rubric:: Step 2a: Switch to the iGPU
