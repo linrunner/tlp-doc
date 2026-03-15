@@ -9,7 +9,7 @@ Package Installation
 Packages are available from the official repositories:
 
 * **tlp** – Power saving
-* **tlp-pd** – optional – Select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-pd** – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
 * **tlp-rdw** – optional – :doc:`/settings/rdw`
 
 Install them either with your favorite package manager or the command:

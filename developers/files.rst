@@ -8,7 +8,7 @@ NetworkManager, it is recommended to provide two packages:
 
 * **tlp** – Essential functionality
 * **tlp-rdw** – :doc:`/settings/rdw` only (depends on NetworkManager)
-* **tlp-pd** – TLP Profiles Daemon, desktop power profile switch
+* **tlp-pd** – TLP Profiles Daemon, select profile with a mouse click
 
 The following table explains the provided files and assigns them to the
 packages:

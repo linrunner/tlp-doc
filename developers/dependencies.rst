@@ -72,7 +72,7 @@ Package tlp-pd
 --------------
 
 tlp - *depends*
-    tlp-pd invokes tlp to apply power profiles.
+    tlp-pd invokes tlp to apply TLP profiles.
 
 dbus-python - *depends* [1.9 only]
     Required by tlp-pd to implement the D-Bus daemon.

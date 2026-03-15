@@ -15,7 +15,7 @@ Package Installation
 TLP packages are available from the official Fedora repositories:
 
 * **tlp** – Power saving
-* **tlp-pd** – optional – Select :ref:`profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-pd** – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
 * **tlp-rdw** – optional – :doc:`/settings/rdw`
 
 Hint: packages for RHEL/CentOS are available from the EPEL repositories.

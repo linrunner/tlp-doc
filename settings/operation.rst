@@ -73,7 +73,7 @@ TLP_AUTO_SWITCH
 
     TLP_AUTO_SWITCH=2
 
-Control automatic switching of the power profile when connecting or removing
+Control automatic switching of the TLP profile when connecting or removing
 the charger [#]_, when booting the system or when executing :command:`tlp start`:
 
 * 0 - disabled: never switch, use `TLP_DEFAULT_MODE` if configured
@@ -104,7 +104,7 @@ be detected.
 
 *Version 1.9 and newer*
 
-Defines power profile to use when automatic switching is disabled (`TLP_AUTO_SWITCH=0`),
+Defines the TLP profile to use when automatic switching is disabled (`TLP_AUTO_SWITCH=0`),
 profile is locked (TLP_PERSISTENT_DEFAULT=1) or no power source is detected:
 
 * `PRF` - performance
@@ -115,7 +115,7 @@ Note: Legacy values `AC` and `BAT` continue to work. They are mapped to `PRF` an
 respectively.
 
 .. note::
-    To disable automatic switching and default to the `balanced` profile, configure: ::
+    To disable automatic switching and default to the *balanced* profile, configure: ::
 
         TLP_AUTO_SWITCH=0
         TLP_DEFAULT_MODE=BAL
@@ -129,7 +129,7 @@ TLP_PERSISTENT_DEFAULT
 
    TLP_PERSISTENT_DEFAULT=0
 
-Lock power profile:
+Lock TLP profile:
 
 * 0 - disabled: profile depends on automatic switching (see `TLP_AUTO_SWITCH` above)
 * 1 - enabled: profile is locked to `TLP_DEFAULT_MODE` (`TLP_AUTO_SWITCH` is ignored)
@@ -137,9 +137,9 @@ Lock power profile:
 Default when unconfigured: 0
 
 .. note::
-    To always use BAT settings / balanced profile, configure: ::
+    To always use the *balanced* profile, configure: ::
 
-        TLP_DEFAULT_MODE=BAT
+        TLP_DEFAULT_MODE=BAL
         TLP_PERSISTENT_DEFAULT=1
 
 

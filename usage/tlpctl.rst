@@ -4,43 +4,43 @@ tlpctl
 
 .. topic:: Purpose
 
-    Control TLP power profiles using the TLP Profiles Daemon *tlp-pd*.
+    Control TLP profiles using the TLP Profiles Daemon *tlp-pd*.
 
 
 .. _usage-tlpctl-profiles:
 
 Profile Shortcuts
 ^^^^^^^^^^^^^^^^^
-In addition to clicking on the Linux desktop panel, the power profile can also be
+In addition to clicking on the Linux desktop panel, the TLP profile can also be
 selected via the command line. Unlike the traditional command :doc:`tlp <tlp>`,
 root privileges are not required.
 
-Switch to the `performance` profile (`_AC` parameters): ::
+Switch to the *performance* profile (`_AC` parameters): ::
 
     tlpctl performance
 
-Switch to the `balanced` profile (`_BAT` parameters): ::
+Switch to the *balanced* profile (`_BAT` parameters): ::
 
     tlpctl balanced
 
-Switch to the `power-saver` profile (`_SAV` parameters): ::
+Switch to the *power-saver* profile (`_SAV` parameters): ::
 
     tlpctl power-saver
 
 
 Profile Management
 ^^^^^^^^^^^^^^^^^^
-List available power profiles: ::
+List available TLP profiles: ::
 
      tlpctl list
 
 The active profile is marked with an asterisk (*).
 
-Print the currently active power profile: ::
+Print the currently active TLP profile: ::
 
     tlpctl get
 
-Set the active power profile: ::
+Set the active TLP profile: ::
 
      tlpctl set <profile>
 
@@ -48,8 +48,8 @@ Valid profiles are: `performance`, `balanced` and `power-saver`.
 This will release all active profile holds.
 
 Profile Holds
-^^^^^^^^^^^^^^
-Run a command and request a specific power profile for it (*"profile hold"*): ::
+^^^^^^^^^^^^^
+Run a command and request a specific TLP profile for it (*"profile hold"*): ::
 
     tlpctl launch <command> [options]
 
@@ -75,7 +75,7 @@ Holds are automatically released, returning to the user's selected profile, when
 
 Multiple holds can be active simultaneously.
 
-List current power profile holds (from the `launch` command), showing the profile name,
+List current TLP profile holds (from the `launch` command), showing the profile name,
 application ID, and reason for each hold:
 
 .. code-block:: bash
@@ -85,13 +85,13 @@ application ID, and reason for each hold:
 
 .. rubric:: Launch Examples
 
-Launch a game with performance profile:
+Launch a game with the *performance* profile:
 
 .. code-block:: bash
 
     tlpctl launch --profile performance --reason "Gaming" steam
 
-Launch a command with default performance hold:
+Launch a command with *performance* (default) hold:
 
 .. code-block:: bash
 

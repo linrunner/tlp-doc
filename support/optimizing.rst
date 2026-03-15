@@ -7,7 +7,7 @@ Rationale: TLP's default settings should save as much energy on
 battery power as possible (and of course not cost any performance on AC),
 but in reality there are limits to what can be done:
 
-* For simplicity, TLP's settings are limited to three sets/profiles
+* For simplicity, TLP's settings are limited to three "TLP profiles"
   (*Version 1.9 and newer*) or one set each for AC and battery operation
   (*Version 1.8 and older*). The same applies to the defaults.
 * User requirements can vary greatly, there is no way to cover them all
@@ -20,7 +20,7 @@ to get the best out of it.
 
 .. note::
 
-    * TLP's parameters must always be specified for all profiles, i.e. `_AC`,
+    * TLP's parameters must always be specified for all TLP profiles, i.e. `_AC`,
       `_BAT` and `_SAV` where applicable, otherwise, parameters from the
       configured profiles may unintentionally spill over to the unconfigured
       ones. Therefore all parameters are listed below, the one
@@ -33,17 +33,17 @@ to get the best out of it.
       it may be worthwhile to experiment with a more recent kernel or
       BIOS version.
     * The inconsistent use of terms such as `performance`, `balance(d)` and
-      `(low-)power` in settings and for profiles is confusing,
+      `(low-)power` in tunables and for profiles is confusing,
       but this is specified by the kernel and the power profiles API and
       therefore cannot be avoided. The following examples will hopefully help.
 
 Extend battery runtime
 ----------------------
-To extend battery life, you can manually switch to the `power-saver` profile.
+To extend battery life, you can manually switch to the *power-saver* profile.
 
-If you don't want to do this every time, you can adjust the `balanced` profile,
+If you don't want to do this every time, you can adjust the *balanced* profile,
 which is automatically selected when changing to battery power.
-The following describes the adjustment of the `balanced` profile.
+The following describes the adjustment of the *balanced* profile.
 
 1. Change :ref:`CPU energy/performance policy <set-cpu-energy-perf-policy>`
    to `power` (default is `balance_power`):
@@ -78,7 +78,7 @@ The following describes the adjustment of the `balanced` profile.
     CPU_HWP_DYN_BOOST_ON_BAT=0
     CPU_HWP_DYN_BOOST_ON_SAV=0
 
-Note: the `power-saver` profile does not disable turbo boost by default.
+Note: the *power-saver* profile does not disable turbo boost by default.
 However, you can configure this additionally as shown.
 
 4. Increase :ref:`ABM level <set-amdgpu-abm>` to `3` (default is `1`):

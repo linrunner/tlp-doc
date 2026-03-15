@@ -6,7 +6,7 @@ tlp
 
 Start or restart TLP
 ^^^^^^^^^^^^^^^^^^^^
-Start TLP and apply power saving profile for the actual power source: ::
+Start TLP and apply profile for the current power source: ::
 
     sudo tlp start
 
@@ -15,19 +15,19 @@ Start TLP and apply power saving profile for the actual power source: ::
 
 .. _usage-tlp-profiles:
 
-Power Profiles
-^^^^^^^^^^^^^^
+TLP Profiles
+^^^^^^^^^^^^
 *Version 1.9 and newer*
 
-Apply performance (AC) profile: ::
+Apply the *performance* profile (`_AC` parameters): ::
 
     sudo tlp performance
 
-Apply balanced (BAT) profile: ::
+Apply the *balanced* profile (`_BAT` parameters): ::
 
         sudo tlp balanced
 
-Apply power-saver (SAV) profile: ::
+Apply the *power-saver* profile (`_SAV` parameters): ::
 
     sudo tlp power-saver
 
@@ -40,11 +40,11 @@ Manual mode means that changes to the power source will be ignored until
 the next reboot. Instead, :command:`tlp start` can also be used to return
 to automatic mode.
 
-Apply performance (AC) profile and enter manual mode: ::
+Apply the TLP profile for AC power and enter manual mode: ::
 
     sudo tlp ac
 
-Apply balanced (BAT) profile and enter manual mode: ::
+Apply the TLP profile for battery power and enter manual mode: ::
 
     sudo tlp bat
 

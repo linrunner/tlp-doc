@@ -26,7 +26,7 @@ is also disabled at high CPU temperatures.
 Which of these tools will save you more power depends on your workload:
 
 * If the laptop frequently runs under medium or high load, such as during
-  video playback or compiling, using the `power-saver` profile with
+  video playback or compiling, using the *power-saver* profile with
   power-profiles-daemon can provide similar energy savings as TLP.
 * However, TLP offers advantages over power-profiles daemon when the laptop
   is idle, such as during periods of no user input or low load operations
@@ -49,7 +49,7 @@ individually, whereas with power-profiles-daemon they are "hard-wired".
 The second advantage of TLP is automatic switching: when AC power
 is connected, the *performance* profile is activated; when changing to
 battery operation, the *balanced* profile is activated. In addition,
-you can switch to the power-saver profile at any time with a click of the
+you can switch to the *power-saver* profile at any time with a click of the
 mouse, which remains set even when the power source changes.
 
 As with almost everything in TLP, however, automatic switching can be

@@ -2,7 +2,7 @@ Introduction
 ************
 TLP is a feature-rich utility for Linux, saving laptop battery power
 without the need to delve deeper into technical details.
-*Version 1.9* introduces **tlp-pd**, which enables easy profile switching
+*Version 1.9* introduces **tlp-pd**, which enables easy TLP profile switching
 with a mouse click. tlp-pd replaces `power-profiles-daemon` by implementing
 the same D-Bus API that major Linux desktop environments like GNOME, KDE and
 Cinnamon already use.
@@ -48,8 +48,8 @@ paths.
 
 .. _intro-profiles:
 
-Power Profiles
---------------
+TLP Profiles
+------------
 TLP has a number of profiles, whose :doc:`settings </settings/index>`
 can be configured separately.
 
@@ -80,16 +80,16 @@ To accomplish all of the above, TLP's actions are event-driven. The following ev
 cause settings to be applied:
 
 Charger plugged in (AC powered)
-    Applies the settings profile `performance (AC)`.
+    Applies the TLP profile *performance (AC)*.
 
 Charger unplugged (battery powered)
-    Applies the settings profile `balanced (BAT)`.
+    Applies the TLP profile *balanced (BAT)*.
 
 USB device plugged in
     Activates USB autosuspend mode for the device (if not excluded or denylisted).
 
 System startup (boot)
-    Applies the settings profile corresponding to the current switching mode,
+    Applies the TLP profile corresponding to the current switching mode,
     power source and/or configured default.
     Applies charge thresholds and switches bluetooth, Wi-Fi and WWAN
     devices depending on your individual settings (disabled in the default
@@ -109,7 +109,7 @@ System suspend to ACPI Sleep States S0ix (Idle standby), S3 (Suspend to RAM) or 
     configuration).
 
 System resume from ACPI Sleep States S0ix (Idle standby), S3 (Suspend to RAM) or S4 (Suspend to disk)
-    Applies the settings profile corresponding to the current switching mode,
+    Applies the TLP profile corresponding to the current switching mode,
     power source and/or configured default.
     Restores charge thresholds and bluetooth, Wi-Fi and WWAN device states
     depending on your individual settings (disabled in the default configuration).
@@ -120,9 +120,9 @@ LAN, Wi-Fi, WWAN connected/disconnected or laptop docked/undocked (:doc:`/settin
 
 .. note::
 
-    * TLP will not make dynamic or adaptive changes to the settings beyond the
+    * TLP will not make dynamic or adaptive changes to the tunables beyond the
       events described above
-    * In particular, TLP will not adjust the settings due to CPU load, battery
+    * In particular, TLP will not make changes due to CPU load, battery
       charge level or else on its own initiative
 
 .. seealso ::
@@ -137,7 +137,7 @@ Features
 :doc:`Power saving settings </settings/index>` are organized into profiles,
 enabling you to adjust between savings and performance independently
 for battery and AC operation.
-*Version 1.9* introduces a third profile called `power-saver`.
+*Version 1.9* introduced a third TLP profile called *power-saver*.
 
 Settings per profile are:
 

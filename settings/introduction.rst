@@ -39,15 +39,15 @@ command ::
     sudo tlp start
 
 
-Power Profiles
---------------
+TLP Profiles
+------------
 TLP settings are grouped into profiles:
 
 *Version 1.9 and newer* has three profiles:
 
-* Parameters ending in `_AC` are used when the `performance` profile is active, i.e. when running on AC power.
-* Parameters ending in `_BAT` are used when the `balanced` profile is active, i.e. when running on battery power.
-* Parameters ending in `_SAV` are used when the `power-saver` profile is active.
+* Parameters ending in `_AC` are used when the *performance* profile is active, i.e. when running on AC power.
+* Parameters ending in `_BAT` are used when the *balanced* profile is active, i.e. when running on battery power.
+* Parameters ending in `_SAV` are used when the *power-saver* profile is active.
   If there is no `_SAV` parameter available for a feature, the `_BAT` parameter will be used instead.
 
 *Version 1.8 and older* has two:
@@ -60,7 +60,7 @@ Parameters ending neither in `_AC,` nor in `_BAT` or `_SAV` apply to all profile
 .. important::
 
     Parameters without intrinsic defaults (see :ref:`below <set-param-defaults>`)
-    must *always* be specified for all profiles. Otherwise, parameters from the
+    must *always* be specified for all TLP profiles. Otherwise, parameters from the
     configured profiles may unintentionally spill over to the unconfigured ones.
 
 .. _set-config-files:

@@ -19,7 +19,7 @@ Happy new year! :-)
 =============================
 The beta test has been successfully completed, TLP 1.9.0 was just released.
 
-The brand new **tlp-pd** enables easy profile switching with a mouse click.
+The brand new **tlp-pd** enables easy TLP profile switching with a mouse click.
 tlp-pd replaces power-profiles-daemon by implementing the same D-Bus API
 that major Linux desktop environments like GNOME, KDE and Cinnamon already use.
 
@@ -40,7 +40,7 @@ The first beta version of TLP 1.9 is here.
 
 Key innovation is the new *TLP profiles daemon*:
 **tlp-pd** enables you to switch between performance (AC),
-balanced (BAT) and power-saving (SAV) settings profiles
+balanced (BAT) and power-saving (SAV) TLP profiles
 at the click of the mouse. It replaces power-profiles-daemon.
 
 The `release notes <https://github.com/linrunner/TLP/releases/tag/1.9.0-beta.1>`__

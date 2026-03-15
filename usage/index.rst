@@ -25,7 +25,7 @@ Check the output for
    tlp            = enabled, last run: <Time of system start or last change of power profile>
    tlp-rdw        = enabled
    tlp-pd         = enabled, running
-   Power profile  = balanced/BAT
+   TLP profile    = balanced/BAT
    Power source   = battery
 
 

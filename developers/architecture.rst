@@ -12,8 +12,7 @@ The following events will cause settings to be applied:
 
 Charger plugged/unplugged - udevd
 ---------------------------------
-A rule in **tlp.rules** calls :command:`tlp auto` which applies the
-settings profile coresponding to the actual power source or manually forced mode.
+A rule in **tlp.rules** calls :command:`tlp auto` which applies the appropriate TLP profile.
 
 USB device plugged in - udevd
 -----------------------------

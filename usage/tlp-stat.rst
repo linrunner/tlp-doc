@@ -20,7 +20,7 @@ View system information and TLP status: ::
     tlp-stat -s
     tlp-stat --system
 
-Print currently active power profile *(Version 1.7 and newer)*: ::
+Print currently active TLP profile *(Version 1.7 and newer)*: ::
 
     tlp-stat -m
     tlp-stat --mode

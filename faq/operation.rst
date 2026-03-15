@@ -67,8 +67,8 @@ How can I disable automatic profile switching?
 ----------------------------------------------
 *Version 1.9 and newer*
 
-Normally, TLP selects the `performance` profile on AC power and
-the `balanced` profile on battery power. To disable this behaviour,
+By default, TLP alternates between the *performance* profile on AC power and
+the *balanced* profile on battery power. To disable this behaviour,
 configure: ::
 
     TLP_AUTO_SWITCH=0

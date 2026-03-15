@@ -20,9 +20,8 @@ Solution: remove the file **/etc/NetworkManager/conf.d/default-wifi-powersave-on
 Dell laptops: Wi-Fi deactivates without configuration
 -----------------------------------------------------
 Symptoms: as soon as the laptop is connected to a Thunderbolt docking station
-and the AC profile is thereby applied, Wi-Fi is disabled even though no LAN cable
-is connected to the docking station. The :doc:`/settings/rdw` isn't set up either.
-System journal contains the following: ::
+Wi-Fi is disabled even though no LAN cable is connected to the docking station.
+The :doc:`/settings/rdw` isn't set up either. System journal contains the following: ::
 
     wpa_supplicant[...]: rfkill: WLAN hard blocked
 
@@ -114,4 +113,3 @@ and systemd-rfkill.socket or use systemd's approach but not both.
 Cause 4: the :doc:`/settings/rdw` is not installed.
 
 Solution: install the package **tlp-rdw**, see :doc:`/installation/index`.
-
