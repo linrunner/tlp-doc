@@ -791,6 +791,7 @@ would lead to absurdly high wear (i.e. charging cycles) without any benefit.
 
 A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
 
+
 .. _faq-discharge-shutdown:
 
 ThinkPad shuts down before `tlp recalibrate/discharge` is complete
@@ -835,8 +836,8 @@ References:
 * `UPower ticket #312 <https://gitlab.freedesktop.org/upower/upower/-/issues/312>`_
 * `TLP issue #854 <https://github.com/linrunner/TLP/issues/854>`_
 
-`tlp recalibrate` terminates with an error message
---------------------------------------------------
+`tlp recalibrate` or `discharge` fails with an error message
+------------------------------------------------------------
 *ThinkPads only*
 
 Impact: Recalibration will not work without a full discharge. This is to tell
@@ -844,26 +845,36 @@ the battery controller (the one *in* the battery) where the actual 0% is.
 
 Symptom 1: ::
 
-    Warning: battery BAT0 was not discharged completely -- AC/charger removed.
+    Warning: battery BAT0 discharge has stopped early -- AC/charger removed.
 
 Solution: first make sure AC power is connected during the whole process then
 try a different charger.
 
 Symptom 2: ::
 
-    Error: battery BAT0 was not discharged completely i.e. terminated by the firmware -- check your hardware (battery, charger).
+    Error: battery BAT0 discharge was aborted early -- check your hardware (battery, charger).
 
 Cause: this is a hardware issue either with your battery (likely), charger or laptop.
 
-Solution: first try another battery pack then a different charger. If this does not
+Solution: first try another battery then a different charger. If this does not
 remedy the situation, a system board defect could be the reason.
 
 .. note::
 
-    * If the discharge process regularly stops at 1%, for example, you may prefer
-      to ignore the problem because it is minor (could be a rounding error).
-      With higher values, however, it could be a battery or hardware defect.
-    * Values ≤ 1% will not trigger an error message in version 1.7.
+    If the discharge process regularly stops at 2%, for example, you may prefer
+    to ignore the problem because it is a minor issue.
+    With higher values, however, it could be a battery or hardware defect.
+    Abortions at less than 2% do not generate an error in *version 1.7* or newer.
+
+Symptom 3: ::
+
+    Error: discharge BAT0 failed -- check your hardware (battery, charger).
+    Error: discharge BAT0 timeout after N second(s) -- check your hardware (battery, charger).
+
+Cause: this may be an issue with your laptop's EC firmware.
+
+Workaround: retry the operation. If that doesn't help, the timeout in TLP may need to be extended.
+File an issue for this.
 
 .. _faq-panel-applet-soc:
 
