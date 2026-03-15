@@ -155,22 +155,20 @@ Force a complete/partial discharge of the battery while on AC power
 
     sudo tlp discharge [<battery>]
 
-Discharge stops at the specified charge level (in %). If none is specified
+The selected battery is discharged to target level (in %). If none is specified
 the battery is fully discharged. The command continously shows remaining
 capacity and estimated discharge time. Discharging may be stopped at any time
 with :kbd:`Control-C`.
 
-Hints:
-
-* The command needs the charger plugged in
-* As soon as the battery is empty, charging begins and the command terminates;
-  it does not wait for the charge to complete
-* Normal use of the laptop is possible during the discharge process;
-  it does *not* suddenly switch off when the battery is empty
+* The command needs the charger plugged in.
+* If the target level is below the start threshold, the battery will begin
+  recharging once the command ends.
 * ThinkPads with two batteries: the battery controller can only handle one
   battery at a time; while discharging one battery with this command the other
-  battery can neither be charged nor discharged
-* When encountering problems, see the FAQ: :doc:`/faq/battery`
+  battery can neither be charged nor discharged.
+* When encountering problems, see the :ref:`FAQ <faq-discharge-shutdown>`.
+
+.. include:: ../include/discharge-shutdown.rst
 
 Example: ::
 
@@ -184,21 +182,24 @@ Perform a battery recalibration while on AC power
 
     sudo tlp recalibrate [<battery>]
 
-This command works as follows:
+First, vendor presets are applied to the charge thresholds. Then, the
+selected battery is discharged completely. The command continously
+shows remaining capacity and estimated discharge time.
+Discharging may be stopped at any time with :kbd:`Control-C`.
 
-* The command needs the charger plugged in
-* Applies vendor presets to the charge thresholds
-* Discharges the selected battery completely;
-* As soon as the battery is empty, charging begins and the command terminates;
-  it does not wait for the charge to complete
-* Normal use of the laptop is possible during the discharge process;
-  it does *not* suddenly switch off when the battery is empty
+* The command needs the charger plugged in.
+* As soon as the battery is empty, he command ends and recharging begins;
+  it does not wait for the recharge to complete.
+* Configured thresholds will be restored at the next boot or by using
+  :command:`tlp setcharge` without the threshold arguments.
 * Important: to complete the recalibration process, let the battery charge to
-  100 % subsequently; you may power off but not remove the charger
+  100 % subsequently; you may power off but not remove the charger.
 * ThinkPads with two batteries: the battery controller can only handle one
   battery at a time; while discharging one battery with this command the other
-  battery can neither be charged nor discharged
-* When encountering problems, see the FAQ: :doc:`/faq/battery`
+  battery can neither be charged nor discharged.
+  * When encountering problems, see the :ref:`FAQ <faq-discharge-shutdown>`.
+
+  .. include:: ../include/discharge-shutdown.rst
 
 Example: ::
 
@@ -208,11 +209,6 @@ Recalibrates battery `BAT0`.
 
 Hints:
 
-* Configured thresholds will be restored at the next boot or by using
-  :command:`tlp setcharge` without the threshold arguments
-* ThinkPads with two batteries: the battery controller can only handle one
-  battery at a time; while discharging one battery with this command the other
-  battery can neither be charged nor discharged
 * Recalibration forces the battery pack to update the `energy_full` or
   `charge_full` information shown by :command:`tlp-stat -b`
 * Recalibration does not repair defective or worn out batteries
