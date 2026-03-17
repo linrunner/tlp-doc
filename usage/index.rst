@@ -11,9 +11,27 @@ command: ::
 
 .. note:: Also use this command to apply changes after editing the configuration.
 
+Profile Switch
+==============
+As of version 1.9 TLP supports three profiles: *performance*, *balanced* and *power-saver*.
+They can be automatically switched when changing from AC to battery power and vice versa,
+or with a mouse click on your favorite desktop:
+
+.. image:: gnome-profiles.png
+    :width: 250px
+    :alt: GNOME panel profile switcher: performance, balanced, power-saver
+.. image:: kde-profiles.png
+    :width: 300px
+    :alt: KDE Plasma panel profile switcher: performance, balanced, power-saver
+.. image:: cinnamon-profiles.png
+    :width: 300px
+    :alt: Cinnamon panel profile switcher: performance, balanced, power-saver
+
+Alternatively, you can also switch using a shell command (see below).
+
 Status
 ======
-Use the following command to check that TLP is enabled and active: ::
+To verify that TLP is enabled and active use the shell command: ::
 
    tlp-stat -s
 
@@ -22,7 +40,7 @@ Check the output for
 .. code-block:: none
 
    +++ TLP Status
-   tlp            = enabled, last run: <Time of system start or last change of power profile>
+   tlp            = enabled, last run: <Time of system start or last change of profile>
    tlp-rdw        = enabled
    tlp-pd         = enabled, running
    TLP profile    = balanced/BAT
@@ -31,9 +49,9 @@ Check the output for
 
 Version
 =======
-The following commands show TLP's version:
+These shell commands show TLP's version:
 
-*Version 1.7*
+*Version 1.7 and newer*
 ::
 
    tlp --version
