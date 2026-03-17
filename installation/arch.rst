@@ -20,6 +20,10 @@ Install them either with your favorite package manager or the command:
 
     sudo pacman -S tlp tlp-rdw
 
+.. note::
+
+    Installing TLP removes the default power management package **power-profiles-daemon**.
+    When uninstalling TLP, you should reinstall it manually.
 
 Service Units
 -------------

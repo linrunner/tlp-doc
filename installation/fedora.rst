@@ -89,15 +89,12 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 --------------------------------------------------------------
 .. important::
 
-    Fedora 40 was released with Linux kernel 6.8. In combination with TLP 1.5
-    or newer it offers full battery care support (i.e. charge thresholds and
-    recalibration) for ThinkPads from the `Sandy Bridge` generation (2011) onwards.
-    The same applies to later Fedora versions.
-
-    **An external kernel module (also referred to as "out-of-tree" module)
-    is not required in this case, and the following steps are not necessary.
-    However, if your model is from the Sandy Bridge generation (2011) or older,
-    read on.**
+    Currently supported Fedora kernel versions offer full battery care support
+    – i.e. charge thresholds and recalibration – for ThinkPads from the `Sandy Bridge`
+    generation (2011) onwards. An external kernel module (also referred to as "out-of-tree" module)
+    is *not required*, and the following steps are not necessary.
+    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    read on.
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
 shows the line
@@ -190,11 +187,3 @@ RPM-GPG-KEY-tlp-fedora-42-primary: ::
 RPM-GPG-KEY-tlp-fedora-41-primary: ::
 
     BFC3 0267 A648 4B13 0A8B D63A 5A95 D830 9811 B297
-
-RPM-GPG-KEY-tlp-fedora-40-primary: ::
-
-    C279 E61F 6B48 9D22 A672 F8B1 B478 BF61 B8E3 FA4C
-
-RPM-GPG-KEY-tlp-fedora-39-primary: ::
-
-    61A3 F536 A295 C543 C90B 6583 F211 4CD7 DD65 A6C4

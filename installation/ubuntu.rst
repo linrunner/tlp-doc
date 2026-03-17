@@ -37,12 +37,10 @@ either with your favorite package manager or the command:
 
     sudo apt install tlp tlp-rdw
 
-*Ubuntu 22.04 (version 1.5) only*: due to a bug in the Ubuntu packages (official and PPA)
-it is necessary to enable the service manually after installation: ::
+.. note::
 
-    sudo systemctl enable tlp.service
-
-The problem is resolved for Ubuntu 24.04 and newer.
+    Installing TLP from the PPA removes the default power management package **power-profiles-daemon**.
+    When uninstalling TLP, you should reinstall it manually.
 
 
 .. _ubuntu-dkms-fail:
@@ -51,16 +49,14 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
 --------------------------------------------------------------
 .. important::
 
-    As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
-    offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from the `Sandy Bridge` generation (2011) onwards. Ubuntu 24.04 meets
-    this requirement, 22.04 can be upgraded to the 6.8 kernel (HWE)
-    from the official repositories.
-
-    **An external kernel module (also referred to as an "out-of-tree" module)
-    is not required in these cases, and the following steps are not necessary.
+    Currently supported Ubuntu kernel versions (22.04 upgraded to the 6.8 HWE kernel)
+    offer full battery care support – i.e. charge thresholds and recalibration – for
+    ThinkPads from the `Sandy Bridge` generation (2011) onwards.
+    An external kernel module (also referred to as "out-of-tree" module)
+    is *not required*, and the following steps are not necessary.
     However, if your model is from the `Sandy Bridge` generation (2011) or older,
-    read on.**
+    read on.
+
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
 shows the line
@@ -101,7 +97,6 @@ either with your favorite package manager or the command ::
     * `TLP PPA`_ - Contains latest TLP packages for Ubuntu
     * `Debian Bug #1034233 <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1034233>`_ -
       Cause of the not enabled service with the 1.5 packages
-    * `Issue #615 <https://github.com/linrunner/TLP/issues/615>`_ - System freezes and reboots on Ubuntu
     * For systems with Secure Boot enabled, please refer to
       `DKMS Secure Boot <https://wiki.ubuntu.com/UEFI/SecureBoot/DKMS>`_
     * :ref:`faq-ppd-conflict` - FAQ

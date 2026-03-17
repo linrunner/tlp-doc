@@ -10,14 +10,19 @@ Package Repository
 TLP and ThinkPad-related packages below are available via the official Debian
 repositories.
 
-Newer TLP packages may be provided via `Debian backports`_. Add the following line
-to your **/etc/apt/sources.list**: ::
+Newer TLP packages are provided via `Debian backports`_. Add a new file
+**/etc/apt/sources.list.d/debian-backports.sources**:  ::
 
-    deb http://ftp.debian.org/debian DIST-backports main
+    Types: deb deb-src
+    URIs: http://deb.debian.org/debian
+    Suites: DIST-backports
+    Components: main
+    Enabled: yes
+    Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 Replace `DIST` with the codename of your installed Debian version.
 
-Update package data: ::
+Then run: ::
 
     sudo apt update
 
@@ -45,20 +50,21 @@ For `Debian backports`_ use: ::
 
 Replace `DIST` with the codename of your installed Debian version.
 
+.. note::
+
+    Installing TLP removes the default power management package **power-profiles-daemon**.
+    When uninstalling TLP, you should reinstall it manually.
+
 Legacy ThinkPads only: External Kernel Module for Battery Care
 --------------------------------------------------------------
 .. important::
 
-    As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
-    offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from the `Sandy Bridge` generation (2011) onwards.
-    Debian Bookworm meets this requirement with its kernel 6.1, the even newer Debian
-    Trixie kernel 6.12 anyway.
-
-    **An external kernel module (also referred to as "out-of-tree" module)
-    is not required in these cases, and the following steps are not necessary.
+    Currently supported Debian kernel versions offer full battery care support
+    – i.e. charge thresholds and recalibration – for ThinkPads from the `Sandy Bridge`
+    generation (2011) onwards. An external kernel module (also referred to as "out-of-tree" module)
+    is *not required*, and the following steps are not necessary.
     However, if your model is from the `Sandy Bridge` generation (2011) or older,
-    read on.**
+    read on.
 
 Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
 shows the line
@@ -79,8 +85,7 @@ either with your favorite package manager or the command ::
 
 .. note::
 
-    * Refer to `Debian backports`_ for setup instructions
-    * You must disable Secure Boot to use the ThinkPad specific packages
+    You must disable Secure Boot to use the ThinkPad specific packages
 
 
 .. _`Debian backports`: https://backports.debian.org/Instructions/
