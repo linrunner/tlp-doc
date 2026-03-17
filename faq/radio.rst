@@ -88,24 +88,37 @@ may not turn on Wi-Fi when undocking and changing to battery power.
 
 ----
 
-Cause 3: systemd implements its radio state restore scheme.
+Cause 3: systemd implements its own radio state restore scheme.
 
-Symptoms: :command:`tlp-stat -s` shows ::
 
-    Warning: systemd-rfkill.service is not masked, radio device switching may not work as configured.
-    >>> Invoke 'systemctl enable systemd-rfkill.service to correct this!
+Symptoms: :command:`tlp-stat -s` displays one or more of the following messages.
 
-and/or ::
+.. code-block:: none
 
-    Warning: systemd-rfkill.socket is not masked, radio device switching may not work as configured.
-    >>> Invoke 'systemctl enable systemd-rfkill.socket to correct this!
+    Warning: TLP's radio device switching on boot may not work as expected because
+    DEVICES_TO_DISABLE_ON_STARTUP or DEVICES_TO_ENABLE_ON_STARTUP is configured and
+    systemd-rfkill.service is not masked --> Run 'systemctl mask systemd-rfkill.service'
+    to ensure the full functionality of TLP.
+
+    Warning: TLP's radio device switching on boot may not work as expected because
+    DEVICES_TO_DISABLE_ON_STARTUP or DEVICES_TO_ENABLE_ON_STARTUP is configured and
+    systemd-rfkill.socket is not masked --> Run 'systemctl mask systemd-rfkill.socket'
+    to ensure the full functionality of TLP.
+
+    Warning: TLP's radio device switching on boot may not work as expected because
+    RESTORE_DEVICE_STATE_ON_STARTUP=1 is configured and systemd-rfkill.service is not masked
+    --> Run 'systemctl mask systemd-rfkill.service' to ensure the full functionality of TLP.
+
+    Warning: TLP's radio device switching on boot may not work as expected because
+    RESTORE_DEVICE_STATE_ON_STARTUP=1 is configured and systemd-rfkill.socket is not masked
+    --> Run 'systemctl mask systemd-socket.service' to ensure the full functionality of TLP.
 
 `systemd-rfkill.service/.socket` are part of systemd. Their purpose is
 to restore the state of the radio devices from the last shutdown at system startup.
 In case you enabled settings from :doc:`/settings/radio` or :doc:`/settings/rdw`
 this may lead to a conflict that produces unpredictable results.
 
-Solution: use either `RESTORE_DEVICE_STATE_ON_STARTUP=1` and mask systemd-rfkill.service
+Solution: use either TLP's settings and mask systemd-rfkill.service
 and systemd-rfkill.socket or use systemd's approach but not both.
 
 ----

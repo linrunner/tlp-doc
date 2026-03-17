@@ -7,22 +7,32 @@ Installation
 
 .. _faq-service-units:
 
-Must I enable TLP's systemd service unit?
+Must I enable TLP's systemd service units?
 ------------------------------------------
-Symptoms: :command:`tlp-stat -s` shows ::
+Symptoms: :command:`tlp-stat -s` displays one of the following messages:
 
-    Error: tlp.service is not enabled, power saving will not apply on boot.
-    >>> Invoke 'systemctl enable tlp.service' to correct this!
+.. code-block:: none
 
-Answer: *yes*, the service unit is *indispensable* for correct operation -
+    Error: TLP's power saving will not apply on boot because tlp.service is not enabled
+    --> Run 'systemctl enable tlp.service' to ensure the full functionality of TLP.
+
+    Error: You can't switch TLP profiles by mouse click because tlp-pd.service is not enabled
+    --> Run 'systemctl enable --now tlp-pd.service' to ensure the full functionality of TLP.
+
+    Error: After the next restart, you won't be able to switch TLP profiles by mouse click because
+    tlp-pd.service is not enabled --> Run 'systemctl enable tlp-pd.service' to ensure the
+    full functionality of TLP.
+
+Answer: YES, the service units are *indispensable* for correct operation -
 **tlp.service** applies power saving settings and charge thresholds
 as well as switching radio devices on system boot and shutdown.
+**tlp-pd.service** is required to switch TLP profiles by mouse click.
 
 .. note::
 
-    Debian, Fedora and Ubuntu enable the service by default as part of the
-    package :doc:`/installation/index`, others such as Arch Linux don't.
-    If unsure check the output of :command:`tlp-stat -s` for corresponding
+    Debian, Ubuntu and derivatives enable the service by default as part of the package
+    :doc:`/installation/index`, others such as Arch Linux, Fedora and openSUSE
+    don't. If unsure check the output of :command:`tlp-stat -s` for corresponding
     notes.
 
 Does TLP run on my laptop (not a ThinkPad)?
