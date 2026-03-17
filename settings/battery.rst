@@ -36,6 +36,8 @@ are disabled by default and must be enabled explicitly by removing the leading `
 
     * :ref:`faq-how-to-set-thresholds`
     * :ref:`faq-how-to-disable-thresholds`
+    * :ref:`cmd-tlp-fullcharge`
+
 
 RESTORE_THRESHOLDS_ON_BAT
 -------------------------

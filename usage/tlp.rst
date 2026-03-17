@@ -103,6 +103,9 @@ Applies thresholds of 70/90% to battery `BAT0`.
     To make the change permanent, you must activate or change the related settings
     in the config file. Refer to :doc:`/settings/battery`.
 
+
+.. _cmd-tlp-fullcharge:
+
 Charge battery to full capacity
 """""""""""""""""""""""""""""""
 ::
@@ -118,9 +121,9 @@ the charge to complete.
 
 Example: ::
 
-    sudo tlp fullcharge BAT1
+    sudo tlp fullcharge BAT0
 
-Charges battery `BAT1` to full capacity.
+Charges battery `BAT0` to full capacity.
 
 Charge battery to the stop charge threshold once
 """"""""""""""""""""""""""""""""""""""""""""""""
