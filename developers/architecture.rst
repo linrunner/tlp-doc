@@ -1,12 +1,18 @@
 Architecture
 ============
-TLP's actions are event-driven. There is no TLP daemon, instead TLP depends on
-standard system daemons to monitor the relevant events:
+TLP's actions are event-driven.
+
+There is no TLP daemon to monitor events related to power sources, hot-plugging,
+network interfaces or system startup/shutdown/suspend/resume. Instead TLP depends on
+standard system daemons:
 
 * systemd (or an alternative init system)
 * udevd
 * elogind
-* NetworkManager (when `tlp-rdw` is installed)
+* NetworkManager (when **tlp-rdw** is installed)
+
+However, if the user switches profiles by mouse click on the desktop or using :command:`tlpctl`,
+the `TLP profiles daemon` **tlp-pd** steps in.
 
 The following events will cause settings to be applied:
 
@@ -60,6 +66,10 @@ Non-systemd
       **/lib/elogind/system-sleep/49-tlp-sleep**.
     * Else: you must provide a way to run :command:`tlp suspend`
       or :command:`tlp resume` (your mileage may vary).
+
+User changes profile by mouse click or tlpctl - tlp-pd
+-------------------------------------------------------
+**tlp-pd** receives the D-Bus message and calls :command:`tlp <profile>`.
 
 LAN, Wi-Fi, WWAN connected/disconnected - NetworkManager
 --------------------------------------------------------
