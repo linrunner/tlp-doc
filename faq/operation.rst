@@ -61,6 +61,11 @@ Make sure, as a prerequisite, that:
   `tlp start` applies only power saving.
 
 
+How can I tell if TLP is running properly?
+------------------------------------------
+Refer to :ref:`Usage <usage-status>`.
+
+
 .. _faq-disable-auto-switch:
 
 How can I disable automatic profile switching?

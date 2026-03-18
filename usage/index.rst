@@ -5,15 +5,19 @@ Start
 =====
 After installation TLP will start automatically on boot. To avoid having to
 restart the system the first time, you can start it manually by using the
-command: ::
+shell command: ::
 
    sudo tlp start
 
-.. note:: Also use this command to apply changes after editing the configuration.
+.. note::
+
+    * Also use this command to apply changes after editing the configuration
+    * (Re-)starting `tlp.service` is *not* the best choice for this purpose; see the :ref:`FAQ <faq-start-tlp>`
 
 Profile Switch
 ==============
-As of version 1.9 TLP supports three profiles: *performance*, *balanced* and *power-saver*.
+As of version 1.9 TLP supports three :ref:`profiles <intro-profiles>`:
+*performance*, *balanced* and *power-saver*.
 They can be automatically switched when changing from AC to battery power and vice versa,
 or with a mouse click on your favorite desktop:
 
@@ -27,7 +31,10 @@ or with a mouse click on your favorite desktop:
     :width: 300px
     :alt: Cinnamon panel profile switcher: performance, balanced, power-saver
 
-Alternatively, you can also switch using a shell command (see below).
+Alternatively, you can switch using a shell command (see below).
+
+
+.. _usage-status:
 
 Status
 ======
@@ -46,25 +53,21 @@ Check the output for
    TLP profile    = balanced/BAT
    Power source   = battery
 
+.. note::
+
+    It is *not* recommended to use :command:`systemctl status tlp.service` for this purpose,
+    as `tlp.service` is only used during system startup and exits afterward.
+    :command:`tlp-stat -s` provides a plausible and complete status including `tlp-pd`.
 
 Version
 =======
-These shell commands show TLP's version:
-
-*Version 1.7 and newer*
-::
+This shell command shows TLP's version: ::
 
    tlp --version
 
+*Version 1.6.1 and older*: check the first output line of :command:`tlp-stat -s`.
 
-*Version 1.6.1 and older*
-::
-
-   tlp-stat -s
-
-See the first output line: ::
-
-   --- TLP 1.6.1 --------------------------------------------
+.. _usage-commands:
 
 Commands
 ========
