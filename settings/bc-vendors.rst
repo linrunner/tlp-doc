@@ -180,8 +180,10 @@ Chromebooks and Framework
        | Special:
        | 100 - hardware default, threshold off
    * - **Specifics**
-     - | EC firmware v2 supports stop threshold only (applies to Framework).
-       | EC firmware v3 supports start and stop threshold.
+     - | **Features depend on the EC firmware cmd version:**
+       | - v3 supports start and stop threshold
+       | - v2 supports stop threshold only (applies to Framework)
+       | - v1 does not feature charge thresholds and is not supported by TLP
        | **Prerequisite for Framework laptops**:
        | The module option `cros_charge-control.probe_with_fwk_charge_control=1` **must** be set.
        | *"It is a promise by the user not to use the custom Framework API,
@@ -189,10 +191,8 @@ Chromebooks and Framework
          All of them are incompatible with what cros_charge-control does."*
          (`source of the quote <https://github.com/linrunner/TLP/issues/814#issuecomment-3035573617>`_).
        | **Important note for Framework laptops**:
-       | Changes in the latest versions of the Framework EC firmware break the `cros_charge-control` driver
+       | Recent changes in the Framework EC firmware break the `cros_charge-control` driver
          (all models are affected; see `Issue #814 <https://github.com/linrunner/TLP/issues/814#issuecomment-3035509404>`_).
-         A `driver fix <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e40fc1160d491c3bcaf8e940ae0dde0a7c5e8e14>`_
-         is expected for Linux 6.17.
 
 .. rubric:: Sample configuration
 
@@ -201,22 +201,7 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     START_CHARGE_THRESH_BAT0=75 # Applies to EC firmware v3 only
     STOP_CHARGE_THRESH_BAT0=80
 
-.. rubric:: Sample output of tlp-stat -b (EC firmware v2)
-
-.. code-block:: none
-
-    +++ Battery Care
-    Plugin: cros-ec
-    Supported features: charge threshold, recalibration
-    Driver usage:
-    * natacpi (cros_charge-control) = active (charge threshold, recalibration) - EC cmd v2
-    Parameter value ranges:
-    * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
-    ...
-    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
-    /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
-
-.. rubric:: Sample output of tlp-stat -b (EC firmware v3)
+.. rubric:: Sample output of tlp-stat -b (EC firmware cmd v3)
 
 .. code-block:: none
 
@@ -232,6 +217,31 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     /sys/class/power_supply/BAT0/charge_control_start_threshold =     75 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
     /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
+
+.. rubric:: Sample output of tlp-stat -b (EC firmware cmd v2)
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: cros-ec
+    Supported features: charge threshold, recalibration
+    Driver usage:
+    * natacpi (cros_charge-control) = active (charge threshold, recalibration) - EC cmd v2
+    Parameter value ranges:
+    * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
+    ...
+    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     80 [%]
+    /sys/class/power_supply/BAT0/charge_behaviour               = [auto] inhibit-charge force-discharge
+
+.. rubric:: Sample output of tlp-stat -b (unsupported EC firmware cmd v1)
+
+.. code-block:: none
+
+    ++ Battery Care
+    Plugin: cros-ec
+    Supported features: none available
+    Driver usage:
+    * natacpi (cros_charge-control) = inactive (laptop not supported) - EC cmd v1
 
 
 .. _bc-vendor-dell:
@@ -269,10 +279,9 @@ Dell
          <https://www.dell.com/support/manuals/en-us/dcpm2.1/userguide_dell-v1/battery-settings?guid=guid-0fbbbeff-4928-4def-89af-3d28d0a231ce&lang=en-us>`_
          to `Custom` so that the thresholds are effective. Other Dell
          charge types are not supported by TLP.
-       | To be able to set the thresholds, it is necessary to remove
-         the BIOS Admin password that may have been set. It is sufficient
-         to do this temporarily in order to write the configured thresholds
-         once with :command:`tlp setcharge`.
+       | To be able to set the thresholds, you must remove a previously set
+         BIOS Admin password. It is sufficient to do this temporarily in order to
+         write the configured thresholds once with :command:`tlp setcharge`.
 
 .. rubric:: Sample configuration
 
@@ -325,9 +334,10 @@ Framework
        | Special:
        | 100 - hardware default, threshold off
    * - **See also**
-     - | The **recommended option** for Framework laptops is to use the
+     - | The **recommended option** for Framework laptops would normally be to use the
          :ref:`cros-ec plugin shown above <bc-vendor-cros-ec>`.
-       | Advantages are:
+         Unfortunately, it isn't working right now due to changes in Framework's EC firmware.
+       | Advantages would be:
        | - No need to install an out-of-tree kernel module, as everything is available in the distribution kernel
        | - Extra recalibration feature
 
@@ -538,7 +548,7 @@ Lenovo non-ThinkPad series
    * - **TLP version (min)**
      - 1.4
    * - **TLP plugin**
-     - lenovo
+     - lenovo, lenovo-legacy
    * - **Charge control options**
      - Fixed stop charge threshold aka *battery conservation mode*
    * - **Threshold configuration**
@@ -550,11 +560,12 @@ Lenovo non-ThinkPad series
      - | The fixed stop threshold value varies depending on the laptop model,
          60% or 80% are common.
        | There is no way to read out the actual threshold in Linux, therefore it
-         cannot be displayed by :command:`tlp-stat -b`. The figure of 60% shown up to
-         version 1.6 was based on an assumption, but (according to user feedback)
-         does not apply to all models.
+         cannot be displayed by :command:`tlp-stat -b`.
        | Some models ignore the setting, conservation mode remains
          off permanently.
+       | *Version 1.10* splits the plugin: `lenovo` uses the new sysfs attribute `charge_types`
+         introduced with kernel 6.17. `lenovo-legacy` continues the support for older kernels.
+         See sample outputs below.
 
 .. rubric:: Sample configuration
 
@@ -563,24 +574,40 @@ Stop charging battery `BAT0` and `BAT1` at the fixed threshold: ::
     START_CHARGE_THRESH_BAT0=0  # dummy value
     STOP_CHARGE_THRESH_BAT0=1
 
-Stop charging battery `BAT0` and `BAT1` at 100%: ::
+Charge battery `BAT0` and `BAT1` up to 100%: ::
 
     START_CHARGE_THRESH_BAT0=0  # dummy value
     STOP_CHARGE_THRESH_BAT0=0
 
 .. rubric:: Sample output of tlp-stat -b
 
+*Version 1.10 with kernel 6.17 (or newer)*
+
 .. code-block:: none
 
     +++ Battery Care
     Plugin: lenovo
+    Supported features: charge type
+    Driver usage:
+    * vendor (ideapad_laptop) = active (charge type)
+    Parameter value range:
+    * STOP_CHARGE_THRESH_BAT0/1:  0(Standard)..1(Long_Life) -- charge type
+    ...
+    /sys/class/power_supply/BAT0/charge_types                   = Standard [Long_Life]
+
+*Version 1.9.1 and older; Version 1.10 with kernel 6.16 (or older)*
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: lenovo-legacy
     Supported features: charge threshold
     Driver usage:
     * vendor (ideapad_laptop) = active (charge threshold)
     Parameter value range:
     * STOP_CHARGE_THRESH_BAT0: 0(off), 1(on) -- battery conservation mode
 
-    /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode = 1 (60%)
+    /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode = 1
 
 
 LG
@@ -592,11 +619,11 @@ LG
    * - **Hardware**
      - LG Gram laptops
    * - **Kernel driver**
-     - `lg_laptop` - required, included in distribution kernels
+     - `lg_laptop` - required, included in distribution kernels 5.18 or newer)
    * - **TLP version (min)**
      - 1.4
    * - **TLP plugins**
-     - lg, lg-legacy
+     - lg (lg-legacy)
    * - **Charge control options**
      - Fixed stop charge threshold at 80% aka *battery care limit*
    * - **Threshold configuration**
@@ -605,12 +632,11 @@ LG
      - | 80 - batteries charge to 80%
        | 100 - batteries charge to 100%, battery care limit off
    * - **Specifics**
-     - | 1.6 and newer:
-       | - When resuming from suspend TLP restores the threshold
-       | - Plugin lg/kernel 5.18 (and newer): standard sysfs attribute `charge_control_end_threshold` is used
-       | - Plugin lg-legacy/older kernels: `battery_care_limit` is used
-       | **Note**: a regression in kernel 6.9 breaks `lg_laptop` → upgrade to 6.10.7 or later;
-         mainline 6.6 LTS and Ubuntu's 6.8 were patched too
+     - | When resuming from suspend TLP restores the threshold.
+       | The current plugin `lg` uses the standard sysfs attribute `charge_control_end_threshold`.
+       | The old plugin `lg-legacy` will be removed with 1.10 → upgrade to kernel 5.18 or newer.
+       | Note: a regression in kernel 6.9 breaks `lg_laptop` → upgrade to 6.10.7 or newer;
+         mainline 6.6 LTS and Ubuntu's 6.8 were patched too.
 
 .. rubric:: Sample configuration
 
@@ -982,8 +1008,63 @@ Unsupported model:
     /sys/class/power_supply/BAT0/charge_control_end_threshold   = (not available) [%]
     /sys/class/power_supply/BAT0/charge_type                    = (not available)
 
-
 Please do *not* open a TLP issue for this (read specifics above).
+
+
+Wilco-EC
+""""""""
+.. list-table::
+   :widths: 250 1000
+   :align: left
+
+   * - **Hardware**
+     - Laptops with Wilco EC - such as Dell Chromebooks modded with chrultrabook/coreboot custom UEFI firmware
+   * - **Kernel drivers**
+     -  `wilco_charger` - required, included in distribution kernels
+   * - **TLP version (min)**
+     - 1.10
+   * - **TLP plugin**
+     - wilco-ec
+   * - **Charge control options**
+     - Start and stop charge threshold
+   * - **Threshold configuration**
+     - | All batteries - `BAT0`, `BAT1` share the `START/STOP_CHARGE_THRESH_BAT0` parameters
+   * - **Start threshold values**
+     - | Range: 50 .. 95
+       | Special:
+       | 95 - hardware default
+       | The hardware enforces start = stop - 5
+   * - **Stop threshold values**
+     - | Range: 55..100
+       | Special:
+       | 100 - hardware default, threshold off
+   * - **Specifics**
+     - | TLP changes the sysfs attribute `charge_type` to `Custom` so that the thresholds are effective.
+
+.. rubric:: Sample configuration
+
+Start charging the battery when below 75% and stop at 80%: ::
+
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=80
+
+.. rubric:: Sample output of tlp-stat -b
+
+.. code-block:: none
+
+    +++ Battery Care
+    Plugin: wilco-ec
+    Supported features: charge thresholds
+    Driver usage:
+    * natacpi (wilco_charger) = active (charge thresholds)
+    Parameter value ranges:
+    * START_CHARGE_THRESH_BAT0:  50..95(default)
+    * STOP_CHARGE_THRESH_BAT0:   55..100(default)
+
+    /sys/class/power_supply/wilco-charger/charge_control_start_threshold  =     75 [%]
+    /sys/class/power_supply/wilco-charger/charge_control_end_threshold    =     80 [%]
+    /sys/class/power_supply/wilco-charger/charge_type           = Custom
+
 
 Unsupported Hardware
 ^^^^^^^^^^^^^^^^^^^^

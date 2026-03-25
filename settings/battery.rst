@@ -50,30 +50,14 @@ Restore configured charge thresholds when AC is unplugged:
 * 0 – disable
 * 1 – enable
 
-Default when unconfigured: 0
+Default when unconfigured:
+
+    | 1 – *Version 1.10 and newer*
+    | 0 – *Version 1.9.1 and older*
 
 Hint: after the commands :command:`tlp fullcharge/recalibrate` the charge thresholds
 will stay at the vendor specific defaults until the next reboot. Use this
 feature to restore them prematurely.
-
-NATACPI/TPSMAPI_ENABLE
------------------------------
-::
-
-    NATACPI_ENABLE=1
-    TPSMAPI_ENABLE=1
-
-Control battery care drivers:
-
-* 0 – disable
-* 1 – enable
-
-Default when unconfigured: 1 (all)
-
-Scope:
-
-    * `NATACPI`: all supported laptops
-    * `TPSMAPI_ENABLE`: ThinkPad specific
 
 
 .. seealso::
