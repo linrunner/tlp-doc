@@ -7,7 +7,7 @@ For more event based switching refer to :doc:`/settings/rdw`.
 
 RESTORE_DEVICE_STATE_ON_STARTUP
 -------------------------------
-::
+*This parameter is deprecated since version 1.10, do not use anymore* ::
 
     RESTORE_DEVICE_STATE_ON_STARTUP=0
 

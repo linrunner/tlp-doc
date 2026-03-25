@@ -65,7 +65,7 @@ RADEON_DPM_STATE_ON_AC/BAT
 --------------------------
 .. rubric::  AMD GPU
 
-*This parameter was deprecated in version 1.10, do not use anymore* ::
+*This parameter is deprecated since version 1.10, do not use anymore* ::
 
     RADEON_DPM_STATE_ON_AC=performance
     RADEON_DPM_STATE_ON_BAT=balanced
