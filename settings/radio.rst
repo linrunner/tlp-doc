@@ -33,11 +33,12 @@ DEVICES_TO_DISABLE_ON_STARTUP
 -----------------------------
 ::
 
-    DEVICES_TO_DISABLE_ON_STARTUP="bluetooth wifi wwan"
+    DEVICES_TO_DISABLE_ON_STARTUP="bluetooth nfc wifi wwan"
 
 Disables builtin radio devices on boot:
 
 * bluetooth
+* nfc – Near Field Communication (NFC)
 * wifi – Wireless LAN (Wi-Fi)
 * wwan – Wireless Wide Area Network (3G/UMTS, 4G/LTE, 5G)
 
@@ -47,7 +48,7 @@ DEVICES_TO_ENABLE_ON_STARTUP
 ----------------------------
 ::
 
-    DEVICES_TO_ENABLE_ON_STARTUP="bluetooth wifi wwan"
+    DEVICES_TO_ENABLE_ON_STARTUP="wifi"
 
 Linux enables all builtin radio devices by default. In case of exception you
 can use this setting to enable the missing devices on boot.
