@@ -36,7 +36,7 @@ Reference: `Issue #813 <https://github.com/linrunner/TLP/issues/813>`_
 Bluetooth devices hang, disconnect or do not pair
 -------------------------------------------------
 Cause: most internal laptop bluetooth devices and all external bluetooth
-dongles are USB devices. Some do not implement autosuspend mode properly,
+dongles are USB devices. Some do not implement autosuspend properly,
 giving trouble to connected devices or preventing discovery or pairing.
 
 Solution: configure ::

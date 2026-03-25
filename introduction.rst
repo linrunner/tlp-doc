@@ -86,7 +86,7 @@ Charger unplugged (battery powered)
     Applies the TLP profile *balanced (BAT)*.
 
 USB device plugged in
-    Activates USB autosuspend mode for the device (if not excluded or denylisted).
+    Activates USB autosuspend for the device (if not excluded or denylisted).
 
 System startup (boot)
     Applies the TLP profile corresponding to the current switching mode,

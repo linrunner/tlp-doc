@@ -1,5 +1,5 @@
-Runtime Power Management and ASPM
-=================================
+PCIe Autosuspend and ASPM
+=========================
 .. rubric:: Scope:
 
 * Attached PCIe bus devices
@@ -11,7 +11,7 @@ RUNTIME_PM_ON_AC/BAT
     RUNTIME_PM_ON_AC=on
     RUNTIME_PM_ON_BAT=auto
 
-Controls runtime power management for PCIe devices. Possible values:
+Controls autosuspend for PCIe devices. Possible values:
 
 * auto – enabled (power down idle devices)
 * on – disabled (devices powered on permanently)
@@ -28,14 +28,13 @@ RUNTIME_PM_DENYLIST
 
     RUNTIME_PM_DENYLIST="11:22.3 44:55.6"
 
-Exclude listed PCIe device addresses from runtime power management. Use
+Exclude listed PCIe device addresses from autosuspend. Use
 :command:`lspci` to lookup the addresses (first output column).
 
 .. important::
 
     * Exclusion of a device means that the value `on` or `auto` as initialized by
       the kernel default at system startup is used and TLP won't touch it at all
-
     * A device initialized to `auto` by the kernel cannot be set to `on` by
       entering it into `RUNTIME_PM_DENYLIST`. Instead use `RUNTIME_PM_DISABLE`
       below.
@@ -50,7 +49,7 @@ RUNTIME_PM_DRIVER_DENYLIST
 
     RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon xhci_hcd"
 
-Exclude PCIe devices assigned to listed drivers from runtime power management.
+Exclude PCIe devices assigned to listed drivers from autosuspend.
 Use :command:`tlp-stat -e` to lookup the drivers (in parentheses at the end of
 each output line).
 
@@ -80,7 +79,7 @@ RUNTIME_PM_ENABLE
 
     RUNTIME_PM_ENABLE="11:22.3"
 
-Permanently enable (`auto`) Runtime PM for PCI(e) device addresses in the
+Permanently enable (`auto`) autosuspend for PCI(e) device addresses in the
 list (independent of the power source). This has priority over all
 preceding Runtime PM settings. Separate multiple addresses with spaces.
 Use :command:`lspci` to get the adresses (1st column).
@@ -92,7 +91,7 @@ RUNTIME_PM_DISABLE
 
     RUNTIME_PM_DISABLE="44:55.6"
 
-Permanently disable (`on`) Runtime PM for PCI(e) device addresses in the
+Permanently disable (`on`) autosuspend for PCI(e) device addresses in the
 list. The configuration works as for `RUNTIME_PM_ENABLE` above.
 
 

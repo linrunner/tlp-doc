@@ -51,7 +51,7 @@ Apply the TLP profile for battery power and enter manual mode: ::
 
 USB Autosuspend
 ^^^^^^^^^^^^^^^
-Apply autosuspend mode for all attached USB devices except those excluded by
+Apply autosuspend to all attached USB devices except those excluded by
 default or via configuration: ::
 
     sudo tlp usb

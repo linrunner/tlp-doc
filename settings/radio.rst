@@ -53,30 +53,6 @@ Linux enables all builtin radio devices by default. In case of exception you
 can use this setting to enable the missing devices on boot.
 Possible values are as above.
 
-DEVICES_TO_DISABLE_ON_SHUTDOWN
-------------------------------
-*This parameter was removed in version 1.7*
-
-::
-
-    DEVICES_TO_DISABLE_ON_SHUTDOWN="bluetooth wifi wwan"
-
-Disables builtin radio devices upon system shutdown. May be used as a workaround
-when enabled radio devices block the shutdown process.
-Possible values are as above.
-
-DEVICES_TO_ENABLE_ON_SHUTDOWN
------------------------------
-*This parameter was removed in version 1.7*
-
-::
-
-    DEVICES_TO_ENABLE_ON_SHUTDOWN="bluetooth wifi wwan"
-
-Enables builtin radio devices on shutdown. May be used as a workaround
-to prevent other operating systems from missing disabled devices.
-Possible values are as above.
-
 .. note::
 
     The following settings apply only at the moment where the power source
