@@ -58,7 +58,8 @@ Separate multiple drivers with spaces.
 
 Default when unconfigured:
 
-    | "mei_me nouveau radeon xhci_hcd" - *Version 1.7 and newer*
+    | "amdgpu mei_me nouveau nvidia xhci_hcd" - *Version 1.10 and newer*
+    | "mei_me nouveau radeon xhci_hcd" - *Version 1.7 through 1.9.1*
     | "mei_me nouveau radeon" - *Version 1.4 and newer*
 
 .. note::
