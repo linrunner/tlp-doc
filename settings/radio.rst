@@ -55,16 +55,23 @@ Possible values are as above.
 
 .. note::
 
-    The following settings apply only at the moment where the power source
-    actually changes (from AC to battery or vice versa).
+    The following settings apply only at the moment where the TLP profile
+    (or power source) actually changes.
 
 DEVICES_TO_ENABLE_ON_AC
 -----------------------
 ::
 
-    DEVICES_TO_ENABLE_ON_AC="bluetooth wifi wwan"
+    DEVICES_TO_ENABLE_ON_AC="bluetooth nfc wifi wwan"
+
+*Version 1.9 and newer*
+
+Enables builtin radio devices when changing to the *performance* profile.
+
+*Version 1.8 and older*
 
 Enables builtin radio devices when AC power is plugged in.
+
 Possible values are as above.
 
 
@@ -72,20 +79,36 @@ DEVICES_TO_DISABLE_ON_BAT
 -------------------------
 ::
 
-    DEVICES_TO_DISABLE_ON_BAT="bluetooth wifi wwan"
+    DEVICES_TO_DISABLE_ON_BAT="bluetooth nfc wifi wwan"
 
-Disables builtin radio devices when changing to battery power regardless of
-their connection state.
+*Version 1.9 and newer*
+
+Disables builtin radio devices regardless of their connection state
+when changing to the *balanced* or *power-saver* profile.
+
+*Version 1.8 and older*
+
+Disables builtin radio devices regardless of their connection state
+when changing to battery power.
+
 Possible values are as above.
 
 DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE
 ------------------------------------
 ::
 
-    DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE="bluetooth wifi wwan"
+    DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE="bluetooth nfc wifi wwan"
+
+*Version 1.9 and newer*
+
+Disables builtin radio devices that are not connected when changing to the
+*balanced* or *power-saver* profile.
+
+*Version 1.8 and older*
 
 Disables builtin radio devices that are not connected when changing to battery
 power.
+
 Possible values are as above.
 
 .. note::

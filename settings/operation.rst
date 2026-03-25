@@ -1,5 +1,5 @@
-Operation
-=========
+Operation and Profiles
+======================
 
 TLP_ENABLE
 ----------
@@ -88,60 +88,74 @@ the charger [#]_, when booting the system or when executing :command:`tlp start`
 
 Default when unconfigured: 2
 
+TLP_PROFILE_AC/BAT
+------------------
+*Version 1.10 and newer* ::
 
-.. _set-default-mode:
+   TLP_PROFILE_AC=BAL
+   TLP_PROFILE_BAT=SAV
 
-TLP_DEFAULT_MODE
-----------------
-::
-
-   TLP_DEFAULT_MODE=PRF
-
-*Version 1.8 and older*
-
-Defines TLP's default operation mode (`AC` or `BAT`) when a power source cannot
-be detected.
-
-*Version 1.9 and newer*
-
-Defines the TLP profile to use when automatic switching is disabled (`TLP_AUTO_SWITCH=0`),
-profile is locked (TLP_PERSISTENT_DEFAULT=1) or no power source is detected:
+TLP profiles to use for AC and battery power when automatic switching is enabled
+(`TLP_AUTO_SWITCH=1` or `2`):
 
 * `PRF` - performance
 * `BAL` - balanced
 * `SAV` - power-saver
 
-Note: Legacy values `AC` and `BAT` continue to work. They are mapped to `PRF` and `BAL`,
-respectively.
+Default when unconfigured: PRF (AC power), BAL (battery power)
+
+
+.. _set-default-mode:
+
+TLP_PROFILE_DEFAULT
+-------------------
+*Version 1.10 and newer* ::
+
+   TLP_PROFILE_DEFAULT=PRF
+
+*Version 1.9.1 and 1.9* ::
+
+    TLP_DEFAULT_MODE=PRF
+
+Defines the TLP profile to use when automatic switching is disabled (`TLP_AUTO_SWITCH=0`)
+or no power source is detected:
+
+* `PRF` - performance
+* `BAL` - balanced
+* `SAV` - power-saver
+
+Note: Legacy values `AC` and `BAT` continue to work. They are mapped respectively.
 
 .. note::
     To disable automatic switching and default to the *balanced* profile, configure: ::
 
         TLP_AUTO_SWITCH=0
-        TLP_DEFAULT_MODE=BAL
+        TLP_PROFILE_DEFAULT=BAL
+
+*Version 1.8 and older* ::
+
+    TLP_DEFAULT_MODE=BAT
+
+Defines TLP's default operation mode (`AC` or `BAT`) when a power source cannot
+be detected.
 
 
 .. _set-persistent-default:
 
 TLP_PERSISTENT_DEFAULT
 ----------------------
-::
+*This parameter is deprecated since version 1.10, do not use anymore. Instead use TLP_AUTO_SWITCH=0
+together with TLP_PROFILE_DEFAULT (or TLP_DEFAULT_MODE) to lock TLP to a fixed profile.* ::
 
    TLP_PERSISTENT_DEFAULT=0
 
 Lock TLP profile:
 
 * 0 - disabled: profile depends on automatic switching (see `TLP_AUTO_SWITCH` above)
-* 1 - enabled: profile is locked to `TLP_DEFAULT_MODE` (`TLP_AUTO_SWITCH` is ignored)
+* 1 - enabled: profile is locked to `TLP_PROFILE_DEFAULT` (or `TLP_DEFAULT_MODE`);
+  `TLP_AUTO_SWITCH` is ignored
 
 Default when unconfigured: 0
-
-.. note::
-    To always use the *balanced* profile, configure: ::
-
-        TLP_DEFAULT_MODE=BAL
-        TLP_PERSISTENT_DEFAULT=1
-
 
 TLP_PS_IGNORE
 -------------
