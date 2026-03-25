@@ -25,6 +25,8 @@ to get the best out of it.
       configured profiles may unintentionally spill over to the unconfigured
       ones. Therefore all parameters are listed below, the one
       to be changed is highlighted.
+    * Keep in mind that the profiles assigned to the power sources may differ
+      from those shown here, e.g. via `TLP_PROFILE_AC/BAT`.
     * Please activate and test the following suggestions individually if
       possible. This shows the specific effect, and problems are immediately
       apparent.
@@ -90,8 +92,8 @@ However, you can configure this additionally as shown.
     AMDGPU_ABM_LEVEL_ON_BAT=3
     AMDGPU_ABM_LEVEL_ON_SAV=3
 
-Improve performance on battery power
-------------------------------------
+Improve performance on battery power (balanced profile)
+-------------------------------------------------------
 5. Change :ref:`CPU energy/performance policy <set-cpu-energy-perf-policy>`
    to `balance_performance` (default is `balance_power`):
 
@@ -115,8 +117,8 @@ turbo boost on battery power.
     PLATFORM_PROFILE_ON_BAT=performance
     PLATFORM_PROFILE_ON_SAV=power-saver
 
-Improve performance on AC power
--------------------------------
+Improve performance on AC power (performance profile)
+-----------------------------------------------------
 7. Change :ref:`CPU energy/performance policy <set-cpu-energy-perf-policy>`
    to `performance` (default is `balance_performance`):
 
@@ -140,8 +142,8 @@ Improve performance on AC power
 
 .. _opt-reduce-power-on-ac:
 
-Reduce power consumption / fan noise on AC power
-------------------------------------------------
+Reduce power consumption / fan noise on AC power (performance profile)
+----------------------------------------------------------------------
 9. Enable :doc:`runtime power management </settings/runtimepm>`:
 
 .. code-block::

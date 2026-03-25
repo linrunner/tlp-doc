@@ -59,18 +59,23 @@ internet forum or file a bug report against your Linux distribution.
 
 .. _tsg-power-source:
 
-Step 4: Determine affected power sources
-----------------------------------------
+Step 4: Determine affected profiles or power sources
+----------------------------------------------------
 Many of TLP's power saving features have different settings depending on the
-actual power source, e.g.:
+currently active profile:
 
-* AC – setting named `FEATURE_ON_AC`
-* Battery – setting named `FEATURE_ON_BAT`
+* Parameters ending in `_AC` are used when the *performance* profile is active, i.e. when running on AC power.
+* Parameters ending in `_BAT` are used when the *balanced* profile is active, i.e. when running on battery power.
+* Parameters ending in `_SAV` are used when the *power-saver* profile is active.
+  If there is no `_SAV` parameter available for a feature, the `_BAT` parameter will be used instead.
 
-Examine your system if the symptom occurs on AC or battery or both. If it
-occurs with one power source only, then you can focus on settings that are
-different for AC and BAT when selectively disabling power saving features
-as described in the following sections.
+Examine your system to see which profile(s) or power source(s) are showing the symptom.
+If it occurs with one profile or power source only, then you can focus on settings which vary
+depending on the profile when selectively disabling power saving features as described in the
+following sections.
+
+Also keep in mind that the profiles assigned to the power sources depend on the configuration of
+`TLP_PROFILE_AC/BAT`.
 
 .. important::
 
