@@ -4,8 +4,7 @@ This document lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
-Version 1.10 (under development)
-
+Version 1.10
     Makefile:
 
     - Removed parameter: *TLP_CONF*
