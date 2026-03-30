@@ -161,13 +161,14 @@ Reduce power consumption / fan noise on AC power (performance profile)
     CPU_ENERGY_PERF_POLICY_ON_AC=balance_power
     CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
 
-11. Change the :ref:`platform profile <set-platform-profile>` to `balanced`
+11. Change the :ref:`platform profile <set-platform-profile>` to `balanced`,
+    or try the non-standard value `balanced-performance` if your hardware supports it
     (default is `performance`):
 
 .. code-block::
     :emphasize-lines: 1
 
-    PLATFORM_PROFILE_ON_AC=balanced
+    PLATFORM_PROFILE_ON_AC=balanced-performance
     PLATFORM_PROFILE_ON_BAT=balanced
     PLATFORM_PROFILE_ON_SAV=low-power
 

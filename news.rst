@@ -6,7 +6,7 @@ News
 .. _news-top-1:
 
 27.03.2026 - TLP 1.10 Beta 1 released / Call for Testers
-=======================================================
+========================================================
 I have just released the first beta version of TLP 1.10.
 
 You can now choose which profile is used when automatic switching occurs.
