@@ -18,7 +18,7 @@ TLP_DISABLE_DEFAULTS
 
     TLP_DISABLE_DEFAULTS=0
 
-Set to 1 to deactivate all intrinsic defaults of TLP. This means that
+Set to 1 to deactivate (almost) all defaults of TLP. This means that
 TLP only applies settings that have been explicitly activated i.e.
 parameters without a leading '#'.
 
@@ -26,6 +26,8 @@ Notes:
 
 * Helpful if one wants to use only selected features of TLP
 * After activation, use :command:`tlp-stat -c` to display your effective configuration
+* TLP's operation relies on the defaults of `TLP_ENABLE`, `TLP_WARN_LEVEL`,
+  `TLP_AUTO_SWITCH`, and `TLP_PROFILE_AC/BAT`, which are **not** disabled
 
 TLP_WARN_LEVEL
 --------------

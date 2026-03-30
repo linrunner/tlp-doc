@@ -1,5 +1,5 @@
-Operation
-================
+Operation and Profiles
+======================
 
 .. _faq-disable-tlp:
 
@@ -171,6 +171,7 @@ Solutions:
 * Reboot with AC connected
 * Ask the laptop vendor for a corrected BIOS
 * Fix the DSDT yourself
+
 
 .. _faq-resume-freeze:
 
