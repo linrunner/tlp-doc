@@ -16,13 +16,15 @@ What is "Battery Care"?
 -----------------------
 .. include:: ../include/battery-care-explain.rst
 
+.. _faq-battery-charge-control:
+
 .. rubric:: How does it work?
 
-The process of battery charging is not directly controlled by TLP, but by the
-embedded controller (EC) of your laptop. This makes the process work even when
-the laptop is switched off or no operating system is running. The contribution
-of TLP is to write the threshold values into the corresponding control registers
-of the EC using a hardware specific kernel driver.
+The process of battery charging is not managed by TLP, but by system firmware
+running on the laptop's embedded controller (EC). This makes the process
+work even when the laptop is switched off or no operating system is running.
+The contribution of TLP is to write the threshold values into the corresponding
+control registers of the EC using a hardware specific kernel driver.
 
 The charging process is determined by the charge thresholds:
 
@@ -296,8 +298,8 @@ Cause: your system configuration contains broken boot options for `thinkpad_acpi
 Solution: check and correct your GRUB config (distribution dependent)
 or module config files (**/etc/modprobe.d/*.conf**).
 
-External kernel module is not installed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+External tp-smapi kernel module is not installed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *Legacy ThinkPads only*
 
 Symptom: :command:`tlp-stat -b` shows the line:
@@ -316,8 +318,8 @@ the output for errors. See below for possible causes.
 
 .. _faq-dkms-package:
 
-Installation of kernel module package failed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installation of tp-smapi kernel module package failed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *Legacy ThinkPads only*
 
 .. important::
@@ -325,21 +327,10 @@ Installation of kernel module package failed
     `tp-smapi` derived packages are not provided by the TLP project.
     Please don't file bug reports for them in the TLP issue tracker.
 
-Symptom 1 (Ubuntu 23.10, 24.04 and later): see :ref:`Ubuntu <ubuntu-dkms-fail>`.
+Ubuntu 24.04 and later: see :ref:`Ubuntu <ubuntu-dkms-fail>`.
 
-Symptom 2: :command:`tlp-stat -b` displays
-
-.. code-block:: none
-
-    tpacpi-bat = inactive (kernel module 'acpi_call' not installed)
-
-Solution:
-
-Upgrade the kernel to 5.17 or later together with TLP version 1.5
-for full natacpi support, rendering `acpi_call` obsolete.
-
-Kernel module `tp-smapi` is not loaded
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Kernel module tp-smapi is not loaded
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *Legacy ThinkPads only*
 
 Symptom: :command:`tlp-stat -b` displays the message
@@ -375,56 +366,22 @@ It may be necessary to rebuild the kernel modules (as root): ::
 
     akmods --force
 
-ThinkPad E495
-^^^^^^^^^^^^^
-Symptom: thresholds have been written to the Embedded Controller (EC),
-:command:`tlp-stat -b` reads them back as configured
-(see `Issue #454 <https://github.com/linrunner/TLP/issues/454>`_):
 
-.. code-block:: none
+.. _faq-thinkpad-thresholds-not-respected:
 
-    /sys/class/power_supply/BAT0/charge_control_start_threshold =     45 [%]
-    /sys/class/power_supply/BAT0/charge_control_end_threshold   =     60 [%]
+ThinkPad charge thresholds not respected
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sometimes, a ThinkPad may ignore the charge thresholds even though the output
+of the :command:`tlp-stat -b` shows that they were correctly written to the
+EC: ::
 
-Yet they do not work.
+    /sys/class/power_supply/BAT1/charge_control_start_threshold =     75 [%]
+    /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
-Cause: bug in Lenovo's EC firmware.
+The cause may be a malfunction of the embedded controller (EC) e.g. a firmware
+bug or a "hiccup" of the firmware.
 
-Workaround:
-
-* Update BIOS (contains EC firmware) to 1.16 or higher
-* Remove thresholds once from EC with :command:`tlp fullcharge`
-* Leave the thresholds enabled in the config file
-* Reboot, which will restore the configured thresholds
-
-ThinkPad T430(s)/T530/W530/X230 (and all later models)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Solution: install kernel ≥ 5.17 for full `natacpi` support.
-
-ThinkPad T420(s)/T520/W520/X220
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`tp-smapi` doesn't support start threshold and recalibration on Sandy Bridge
-generation ThinkPads. Symptoms are:
-
-:command:`tlp-stat -b` shows
-
-.. code-block:: none
-
-    /sys/devices/platform/smapi/BAT0/start_charge_thresh = (not available)
-
-:command:`tlp setcharge/tlp fullcharge` show the message
-
-.. code-block:: none
-
-    start => Warning: cannot set threshold.
-
-:command:`tlp discharge/recalibrate` show the message
-
-.. code-block:: none
-
-    Error: battery discharge/recalibrate not available.
-
-Solution: install kernel ≥ 5.17 for full `natacpi` support.
+Solutions: see :ref:`faq-thinkpad-battery-malfunc` below.
 
 
 .. _faq-unsupported-thinkpads:
@@ -433,32 +390,6 @@ ThinkPad L420/520, L512, SL300/400/500, X121e
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 These models are neither supported by `tp-smapi` nor by `tpacpi-bat` or `natacpi`.
 Please refrain from opening issues.
-
-
-.. _faq-thinkpad-thresholds-not-respected:
-
-ThinkPad charge thresholds not respected
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Sometimes, a ThinkPad may ignore the charge thresholds even though the output
-of the :command:`tlp-stat -b` shows that they were correctly written to the
-hardware: ::
-
-    /sys/class/power_supply/BAT1/charge_control_start_threshold =     75 [%]
-    /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
-
-The cause may be a malfunction of the embedded controller (EC) e.g. a firmware
-bug or a "hiccup" of the firmware.
-
-Solutions:
-
-* Reset the EC: shut down the system, then press the emergency reset hole (button)
-  on the bottom of the ThinkPad with a paper clip. On older models, the EC is reset
-  by shutting down, removing all batteries, disconnecting the power supply and
-  pressing the power button for 30 seconds.
-* Update to the latest EC firmware (most elegantly with `fwupdmgr`).
-
-If the measures described above do not help, the battery or system board may be
-defective.
 
 
 .. _faq-asus-threshold-not-set-on-boot:
@@ -548,25 +479,19 @@ vendor specific defaults. To restore TLP's settings use
 
 .. _faq-wrong-threshold-values:
 
-Charge thresholds shown by `tlp-stat -b` do not correspond to the configured ones
----------------------------------------------------------------------------------
+Charge thresholds shown by tlp-stat -b do not correspond to the configured ones
+-------------------------------------------------------------------------------
 Possible causes are:
 
 .. rubric:: Configuration was not activated
 
-After changes to the configuration it is necessary to reboot. Alternatively use
-
-.. code-block:: sh
-
-    sudo tlp start
-
-or
+After a change to the threshold configuration use
 
 .. code-block:: sh
 
     sudo tlp setcharge
 
-to activate the thresholds.
+to activate the change.
 
 
 .. _faq-elsy-threshold-values:
@@ -606,13 +531,7 @@ below the old start threshold after writing the new threshold, i.e. via
 
 Do charge thresholds work even when TLP is not running or the laptop is powered off?
 ------------------------------------------------------------------------------------
-Yes. The charging process is not controlled by software running on behalf of the
-operating system but by the embedded controller (EC). TLP only passes the
-threshold values to the EC firmware using the appropriate driver.
-Once stored in the EC, the thresholds also take effect when the laptop is switched
-off. See below for removal.
-
-A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
+Yes. See the :ref:`explanation above <faq-battery-charge-control>`.
 
 
 .. _faq-start-threshold:
@@ -662,10 +581,8 @@ shows the stop threshold unchanged.
 Cause: after applying a stop threshold value < 100, Lenovo's EC firmware does not
 accept values higher than the previously set value.
 
-Solution: update EC firmware (contained in BIOS update)
-
-* T480s: ECP 1.13 (BIOS 1.31) or higher
-* X1 Carbon 6th Gen: ECP 1.12 (BIOS 1.37) or higher
+Solution: update to the latest EC firmware – most elegantly with `fwupdmgr`,
+but the EC firmware is also included in Lenovo's BIOS update ISOs.
 
 Workaround (without BIOS update):
 
@@ -687,7 +604,7 @@ Workaround (without BIOS update):
 
 Various ThinkPad battery malfunctions
 -------------------------------------
-Affected hardware: ThinkPad T480, X280, X1 Carbon 4th Gen (and possibly others)
+Affected hardware: ThinkPad E495, T480, X280, X1 Carbon 4th/6th Gen and possibly others
 
 .. note::
 
@@ -696,6 +613,7 @@ Affected hardware: ThinkPad T480, X280, X1 Carbon 4th Gen (and possibly others)
 At times, ThinkPads may exhibit symptoms that suggest a battery or hardware defect.
 Users have reported the following:
 
+* Charge thresholds are not respected
 * ThinkPad switches off as soon as the internal battery BAT0 is empty,
   even if the external battery BAT1 is still charged.
   Reference: `Arch Linux forum <https://bbs.archlinux.org/viewtopic.php?id=285210>`_.
@@ -714,11 +632,17 @@ However, in the mentioned cases, there was no battery or hardware defect,
 but rather a malfunction of the EC firmware, which controls all battery
 functions independently of the operating system.
 
-Solutions:
+Solution:
 
+* Update to the latest EC firmware – most elegantly with `fwupdmgr`,
+  but the EC firmware is also included in Lenovo's BIOS update ISOs.
 * Reset the EC: shut down the system, then press the emergency reset hole (button)
-  on the bottom of the ThinkPad with a paper clip
-* Update to the latest EC firmware (most elegantly with `fwupdmgr`)
+  on the bottom of the ThinkPad with a paper clip. On older models, the EC is reset
+  by shutting down, removing all batteries, disconnecting the power supply and pressing
+  the power button for 30 seconds.
+
+If the measures described above do not help, the battery or system board may be
+the cause.
 
 .. seealso::
 
@@ -875,19 +799,6 @@ Cause: this may be an issue with your laptop's EC firmware.
 
 Workaround: retry the operation. If that doesn't help, the timeout in TLP may need to be extended.
 File an issue for this.
-
-.. _faq-panel-applet-soc:
-
-Why does the panel applet show the battery state "charging" despite charge thresholds are effective?
-----------------------------------------------------------------------------------------------------
-*ThinkPads only*
-
-Existing panel applets query `upowerd` or the standard kernel interface which may
-not reflect the charging condition correctly as soon as charge thresholds intervene.
-
-In this situation :command:`tlp-stat -b` shows "Idle" for **/sys/class/power_supply/BATx/status**.
-For ThinkPad models supporting `tp-smapi`, the correct state "Idle" is shown
-for **/sys/devices/platform/smapi/BATx/state**.
 
 
 .. _faq-cycle-count:
