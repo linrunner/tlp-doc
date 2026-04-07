@@ -3,7 +3,23 @@ News
 `#TLPlinux <https://fosstodon.org/tags/TLPlinux>`_ - Follow us at
 `@linrunner@fosstodon.org <https://fosstodon.org/@linrunner>`_
 
+
 .. _news-top-1:
+
+07.04.2026 - TLP 1.10 Beta 2 released / Call for Testers
+========================================================
+A number of changes and fixes have accumulated since the first beta of TLP 1.10,
+so I published the second beta today.
+The `release notes <https://github.com/linrunner/TLP/releases>`__
+provide a quick overview of the changes. Further details, including bug fixes, can be found in the
+`changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+
+**Please take the opportunity to participate in the**
+`beta test <https://github.com/linrunner/TLP/issues/870>`_ **.**
+**I'm looking forward to your results!**
+
+
+.. _news-top-2:
 
 27.03.2026 - TLP 1.10 Beta 1 released / Call for Testers
 ========================================================
@@ -20,9 +36,6 @@ can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/chang
 
 **Please take part in the** `beta test <https://github.com/linrunner/TLP/issues/870>`_ **.**
 **I'm excited to see your results!**
-
-
-.. _news-top-2:
 
 07.01.2026 - TLP 1.9.1 released
 ===============================
