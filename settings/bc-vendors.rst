@@ -149,19 +149,20 @@ Stop charging battery `BAT0`, `BATC` and `BATT` at 80%: ::
 
 
 .. _bc-vendor-cros-ec:
+.. _bc-vendor-framework:
 
-Chromebooks and Framework
-"""""""""""""""""""""""""
+Chromebooks (and Framework)
+"""""""""""""""""""""""""""
 .. list-table::
    :widths: 250 1000
    :align: left
 
    * - **Hardware**
      - | Chromebooks - modded with chrultrabook/coreboot custom UEFI firmware
-       | Framework laptops
+       | Framework laptops (see note below)
    * - **Kernel drivers**
      - `cros_charge-control` - required, included in distribution kernels
-       (6.12 or newer, possibly 6.17 for Framework as explained below)
+       (6.12 or newer, possibly 6.17 for Framework)
    * - **TLP version (min)**
      - 1.8
    * - **TLP plugin**
@@ -185,14 +186,26 @@ Chromebooks and Framework
        | - v2 supports stop threshold only (applies to Framework)
        | - v1 does not feature charge thresholds and is not supported by TLP
        | **Prerequisite for Framework laptops**:
-       | The module option `cros_charge-control.probe_with_fwk_charge_control=1` **must** be set.
-       | *"It is a promise by the user not to use the custom Framework API,
-         either through the out-of-tree module framework_laptop [see below], ectool or the firmware setup.
-         All of them are incompatible with what cros_charge-control does."*
-         (`source of the quote <https://github.com/linrunner/TLP/issues/814#issuecomment-3035573617>`_).
-       | **Important note for Framework laptops**:
-       | Recent changes in the Framework EC firmware break the `cros_charge-control` driver
-         (all models are affected; see `Issue #814 <https://github.com/linrunner/TLP/issues/814#issuecomment-3035509404>`_).
+       | The module option `cros_charge-control.probe_with_fwk_charge_control=1` **must** be set
+         and :command:`framework_tool` or :command:`ectool` must **not** be used simultanueously.
+
+.. note::
+
+  Unfortunately, the current state of setting charge thresholds on **Framework** hardware
+  is as follows:
+
+  * The out-of-tree kernel module `framework_laptop` was abandoned in favor of the
+    upstream driver `cros_charge-control`
+    `back in 2024 <https://github.com/DHowett/framework-laptop-kmod/issues/8>`_.
+    That is why TLP's native `framework` plugin has been removed from *version 1.10 onwards*.
+  * Recent changes to Framework's EC firmware have broken the `cros_charge-control`
+    kernel module
+    (see `Issue #814 <https://github.com/linrunner/TLP/issues/814#issuecomment-3035509404>`_),
+    which forms the base of TLP's alternative `cros-ec` plugin.
+  * The only remaining viable option is currently to use :command:`framework_tool`
+    (part of the `framework-system` library). However, this does not provide
+    the standard sysfs attributes `charge_control_start/end_threshold`,
+    which prevents TLP from setting charge thresholds.
 
 .. rubric:: Sample configuration
 
@@ -306,62 +319,6 @@ Start charging battery `BAT0` when below 75% and stop at 80%: ::
     /sys/class/power_supply/BAT0/charge_control_start_threshold =      75 [%]
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =      80 [%]
     /sys/class/power_supply/BAT0/charge_types                   = Trickle Fast Standard Adaptive [Custom]
-
-.. _bc-vendor-framework:
-
-Framework
-"""""""""
-.. list-table::
-   :widths: 250 1000
-   :align: left
-
-   * - **Hardware**
-     - Framework laptops
-   * - **Kernel drivers**
-     - `framework_laptop` - required, out-of-tree i.e. not included in distribution kernels
-       → install from source
-   * - **TLP version (min)**
-     - 1.8
-   * - **TLP plugin**
-     - framework
-   * - **Charge control options**
-     - Stop charge threshold
-   * - **Threshold configuration**
-     - | `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
-       | `BAT1` uses the `START/STOP_CHARGE_THRESH_BAT1` parameters
-   * - **Stop threshold values**
-     - | Range: 1 .. 100
-       | Special:
-       | 100 - hardware default, threshold off
-   * - **See also**
-     - | The **recommended option** for Framework laptops would normally be to use the
-         :ref:`cros-ec plugin shown above <bc-vendor-cros-ec>`.
-         Unfortunately, it isn't working right now due to changes in Framework's EC firmware.
-       | Advantages would be:
-       | - No need to install an out-of-tree kernel module, as everything is available in the distribution kernel
-       | - Extra recalibration feature
-
-
-.. rubric:: Sample configuration
-
-Stop charging battery `BAT1` at 80%: ::
-
-    START_CHARGE_THRESH_BAT1=0 # don't care
-    STOP_CHARGE_THRESH_BAT1=80
-
-.. rubric:: Sample output of tlp-stat -b
-
-.. code-block:: none
-
-    +++ Battery Care
-    Plugin: framework
-    Supported features: charge threshold
-    Driver usage:
-    * natacpi (cros_charge-control) = active (charge threshold)
-    Parameter value ranges:
-    * STOP_CHARGE_THRESH_BAT0/1:   1..100(default)
-    ...
-    /sys/class/power_supply/BAT1/charge_control_end_threshold   =     80 [%]
 
 
 Huawei
