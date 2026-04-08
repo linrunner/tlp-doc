@@ -42,6 +42,7 @@ Please refer to the dedicated page: :doc:`powertop`.
 
 Slimbook Battery
 ^^^^^^^^^^^^^^^^
+
 Slimbook Battery uses TLP as a backend to control
 :ref:`kernel tunables <intro-how-it-works>`.
 For this purpose, it continuously overwrites your TLP configuration.
