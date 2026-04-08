@@ -1,28 +1,29 @@
-.. TLP documentation main file, created by
-   sphinx-quickstart on Fri Nov 29 09:27:44 2019.
+.. TLP documentation main file, created by sphinx-quickstart
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 TLP - Optimize Linux Laptop Battery Life
 ########################################
 .. meta::
-    :keywords: Linux, Ubuntu, Debian, Fedora, openSUSE, Arch Linux, Gentoo, ThinkPad
-    :keywords: power management, power save, battery save, battery tweak, improve battery
+    :keywords: Linux, Arch, Debian, Fedora, Gentoo, Mint, openSUSE, Ubuntu,
+    :keywords: Laptop, ThinkPad
+    :keywords: power management, power save, power saving,
+    :keywords: battery life, battery runtime, battery save, battery tweak, improve battery
+    :keywords: charge threshold, recalibrate
 
 .. container:: teaser
 
-    TLP is a feature-rich utility for Linux, **saving laptop battery power**
-    without the need to delve deeper into technical details.
-    *Version 1.9* introduced **tlp-pd**, which enables easy **profile switching
-    with a mouse click** and **replaces power-profiles-daemon**.
+    TLP is a feature-rich Linux utility that **saves laptop battery power**
+    without requiring users to delve into technical details. The newly introduced
+    **tlp-pd** enables easy **profile switching with a mouse click** and
+    **replaces power-profiles-daemon**.
 
-    TLP's default settings are already **optimized for battery life** and
-    implement Powertop's recommendations out of the box, so you may install
-    it and just **sit back and relax**.
+    TLP's default settings are **optimized for battery life** and implement
+    Powertop's recommendations straight away, so you can install it and **relax**.
 
-    But wait, there's more! TLP is **completely customizable**, which means
-    you can get **even more power savings** or meet your exact requirements –
-    the possibilities are endless.
+    But wait, there's more! TLP is **completely customisable**,
+    so you can achieve **even greater power savings** or meet your exact requirements
+    – the possibilities are endless.
 
     Last but not least, TLP provides a unified approach to **battery charge
     thresholds** on supported laptops.
