@@ -88,6 +88,9 @@ Hints:
    * **00-template.conf** is provided as an example
 
 * If in doubt, put your configuration changes in **/etc/tlp.d/01-mytlp.conf**
+* When installing upgrades of TLP, the package manager asks for confirmation
+  before overwriting a changed config file with an updated version. Please
+  refer to :ref:`faq-set-upgrade`
 * :ref:`Transfer settings when upgrading <faq-set-mig-from-13>` describes how to
   migrate your configuration from versions before 1.3
 
@@ -203,9 +206,8 @@ file, will take effect only
 
 .. note::
 
-    When installing upgrades of TLP, the package manager asks for confirmation
-    before overwriting a changed config file with an updated version. Please
-    refer to :ref:`faq-set-upgrade`
+    If you prefer to use a GUI to change the configuration, take a look at the separate
+    `TLPUI <https://github.com/d4nj1/TLPUI>`_ project.
 
 
 .. seealso::

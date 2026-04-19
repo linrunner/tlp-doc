@@ -15,15 +15,20 @@ No. After uninstalling and rebooting, it's as if it never happened.
 TLP only applies tuning while it is running. It does not make permanent
 changes to your system or hardware.
 
-However, there may be one exception, refer to :ref:`faq-how-to-disable-thresholds`
+There may be one exception, however – refer to :ref:`faq-how-to-disable-thresholds`
 
 
 .. _faq-set-upgrade:
 
-Does upgrading TLP overwrite my settings?
------------------------------------------
+Does upgrading TLP overwrite my configuration?
+----------------------------------------------
 No. Package managers take care not to replace a user edited configuration file
 without explicit user confirmation and create a backup copy too.
+
+I want a GUI to edit my configuration
+-------------------------------------
+Get `TLPUI <https://github.com/d4nj1/TLPUI>`_, which is a separate project.
+
 
 .. _faq-set-mig-from-13:
 

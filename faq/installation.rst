@@ -79,8 +79,3 @@ How do I install TLP on a development release of my distribution?
 TLP packages for new distribution versions appear in due time for the release.
 If you want to use TLP with alpha or beta releases, download the packages for
 the predecessor and install them manually with your favorite package manager.
-
-
-What if I want a GUI?
----------------------
-Get `TLPUI <https://github.com/d4nj1/TLPUI>`_.
