@@ -1,15 +1,14 @@
 Introduction
 ************
-TLP is a feature-rich utility for Linux, saving laptop battery power
-without the need to delve deeper into technical details.
-*Version 1.9* introduces **tlp-pd**, which enables easy TLP profile switching
-with a mouse click. tlp-pd replaces `power-profiles-daemon` by implementing
-the same D-Bus API that major Linux desktop environments like GNOME, KDE and
-Cinnamon already use.
+TLP is a feature-rich Linux utility that saves laptop battery power
+without requiring users to delve into technical details. The newly introduced
+**tlp-pd** enables easy profile switching with a mouse click. It completely
+replaces **power-profiles-daemon** by implementing the same D-Bus API that
+major Linux desktop environments like GNOME, KDE and Cinnamon already use.
 
-TLP's default settings are already optimized for battery life. Nevertheless,
-TLP is completely customizable to get even more power savings or meet your
-exact requirements.
+TLP's default settings are optimized for battery life. Nevertheless,
+TLP is completely customizable so you can achieve even greater power savings
+or meet your exact requirements
 
 Last but not least, TLP provides a unified approach to battery charge thresholds
 on supported laptops.
@@ -61,7 +60,18 @@ can be configured separately.
 
 You can manually change the active profile with:
 
-* A mouse click on the GNOME, KDE, or Cinnamon desktop (list not exhaustive)
+* A mouse click on the GNOME, KDE Plasma, or Cinnamon desktop (perhaps even more):
+
+    .. image:: usage/gnome-profiles.png
+        :width: 210px
+        :alt: GNOME panel profile switcher: performance, balanced, power-saver
+    .. image:: usage/kde-profiles.png
+        :width: 250px
+        :alt: KDE Plasma panel profile switcher: performance, balanced, power-saver
+    .. image:: usage/cinnamon-profiles.png
+        :width: 250px
+        :alt: Cinnamon panel profile switcher: performance, balanced, power-saver
+
 * The :ref:`command tlpctl <usage-tlpctl-profiles>`
 * The :ref:`command tlp <usage-tlp-profiles>` (as root)
 

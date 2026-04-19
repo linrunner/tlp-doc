@@ -16,7 +16,7 @@ TLP - Optimize Linux Laptop Battery Life
     TLP is a feature-rich Linux utility that **saves laptop battery power**
     without requiring users to delve into technical details. The newly introduced
     **tlp-pd** enables easy **profile switching with a mouse click** and
-    **replaces power-profiles-daemon**.
+    completely **replaces power-profiles-daemon**.
 
     TLP's default settings are **optimized for battery life** and implement
     Powertop's recommendations straight away, so you can install it and **relax**.
