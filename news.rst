@@ -6,6 +6,28 @@ News
 
 .. _news-top-1:
 
+20.04.2026 - TLP 1.10 released
+================================
+Following a successful beta phase, TLP 1.10 has been completed and published.
+
+You can now choose which profile is used when automatic switching occurs.
+For example, you can set it to *balanced* on AC and *power-saving* on battery power.
+Support for SLPC power profiles and frequency limits on Intel Xe and Arc GPUs has been added,
+and charge thresholds work with newer kernels and additional hardware.
+
+The `release notes <https://github.com/linrunner/TLP/releases>`__
+provide a quick overview of the new features. Details, including bug fixes,
+can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+Your favorite distribution will make release packages available in their repository,
+see :doc:`/installation/index`.
+
+A big thank you to everyone who contributed, tested and reported bugs!
+
+Have fun! :-)
+
+
+.. _news-top-2:
+
 07.04.2026 - TLP 1.10 Beta 2 released / Call for Testers
 ========================================================
 A number of changes and fixes have accumulated since the first beta of TLP 1.10,
@@ -18,8 +40,6 @@ provide a quick overview of the changes. Further details, including bug fixes, c
 `beta test <https://github.com/linrunner/TLP/issues/870>`_ **.**
 **I'm looking forward to your results!**
 
-
-.. _news-top-2:
 
 27.03.2026 - TLP 1.10 Beta 1 released / Call for Testers
 ========================================================
