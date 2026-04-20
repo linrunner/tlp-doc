@@ -86,7 +86,7 @@ polkit - *depends*
 power-profiles-daemon - *provides (and/or conflicts)*
     tlp-pd offers similiar functionality and replaces power-profiles-daemon.
 
-PyGObjects - *depends*
+PyGObject - *depends*
     Required by tlp-pd and tlpctl for D-Bus functionality.
 
 python3 - *depends*
