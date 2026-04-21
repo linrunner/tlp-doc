@@ -22,17 +22,16 @@ Install them either with your favorite package manager or the command:
 
     sudo zypper install tlp tlp-rdw
 
-*openSUSE Leap 15.4 and newer as well as Tumbleweed*
+.. note::
 
-Uninstall the conflicting `power-profiles-daemon` package: ::
-
-   sudo zypper remove power-profiles-daemon
+    Installing TLP removes the default power management package **power-profiles-daemon**.
+    Remember to reinstall it if you decide to uninstall TLP.
 
 Service Units
 -------------
-To complete the installation you must enable TLP's service: ::
+To complete the installation you must enable TLP's service(s): ::
 
-   sudo systemctl enable tlp.service
+   sudo systemctl enable --now tlp.service
 
 *For version 1.9 and newer* with tlp-pd, additionally: ::
 

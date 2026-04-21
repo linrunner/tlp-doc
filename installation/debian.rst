@@ -53,7 +53,7 @@ Replace `DIST` with the codename of your installed Debian version.
 .. note::
 
     Installing TLP removes the default power management package **power-profiles-daemon**.
-    When uninstalling TLP, you should reinstall it manually.
+    Remember to reinstall it if you decide to uninstall TLP.
 
 Legacy ThinkPads only: External Kernel Module for Battery Care
 --------------------------------------------------------------

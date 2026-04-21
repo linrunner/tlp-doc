@@ -62,15 +62,17 @@ Or on older installations: ::
 
     sudo dnf remove power-profiles-daemon
 
+Remember to reinstall them if you decide to uninstall TLP.
+
 .. seealso::
 
     FAQ: :doc:`/faq/ppd`
 
 Service Units
 -------------
-To complete the installation you must enable TLP's service: ::
+To complete the installation you must enable TLP's service(s): ::
 
-   sudo systemctl enable tlp.service
+   sudo systemctl enable --now tlp.service
 
 *For version 1.9 and newer* with tlp-pd, additionally: ::
 
