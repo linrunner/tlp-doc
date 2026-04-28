@@ -37,7 +37,7 @@ Should the latest version not yet be available in the official Fedora
 repositories, you can get it from the `tlp-updates` repository, which
 can be set up with the following command: ::
 
-   sudo dnf install https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
+   sudo dnf install "https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm"
 
 Hint: the above step is only needed after a clean Fedora installation,
 not after release upgrades.
