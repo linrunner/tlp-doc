@@ -20,7 +20,17 @@ TLP packages are available from the official Fedora repositories:
 
 Hint: packages for RHEL/CentOS are available from the EPEL repositories.
 
-Install the packages either with your favorite package manager or the command:
+First remove conflicting power management tools: ::
+
+    sudo dnf remove tuned tuned-ppd
+
+Or on older installations: ::
+
+    sudo dnf remove power-profiles-daemon
+
+Remember to reinstall them if you decide to uninstall TLP.
+
+Next install the TLP packages either with your favorite package manager or the command:
 
 *Version 1.9 and newer* ::
 
@@ -42,31 +52,12 @@ can be set up with the following command: ::
 Hint: the above step is only needed after a clean Fedora installation,
 not after release upgrades.
 
-After the repository is set up, install TLP with the command:
+After the repository is set up, install TLP with the command: ::
 
-*Version 1.9 and newer* ::
+    sudo dnf install --allowerasing tlp tlp-pd tlp-rdw
 
-    sudo dnf install tlp tlp-pd tlp-rdw
-
-*Version 1.8 and older* ::
-
-   sudo dnf install tlp tlp-rdw
-
-Remove conflicting power management tools
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-When installing TLP, conflicting power management tools must be uninstalled: ::
-
-    sudo dnf remove tuned tuned-ppd
-
-Or on older installations: ::
-
-    sudo dnf remove power-profiles-daemon
-
+This simultanously uninstalls the conflicting power management packages `tuned/tuned-ppd` or `power-profiles-daemon`.
 Remember to reinstall them if you decide to uninstall TLP.
-
-.. seealso::
-
-    FAQ: :doc:`/faq/ppd`
 
 Service Units
 -------------
