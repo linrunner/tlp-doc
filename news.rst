@@ -6,8 +6,22 @@ News
 
 .. _news-top-1:
 
-20.04.2026 - TLP 1.10 released
+04.05.2026 - TLP 1.10.1 released
 ================================
+Version 1.10.1 fixes a charge threshold issue on Lenovo laptops (non-ThinkPad
+and ThinkBook series) and the start of `tlp.service` on Fedora.
+
+See the
+`changelog <https://github.com/linrunner/TLP/blob/main/changelog#L12>`__
+for details.
+
+Enjoy! :-)
+
+
+.. _news-top-2:
+
+20.04.2026 - TLP 1.10 released
+==============================
 Following a successful beta phase, TLP 1.10 has been completed and published.
 
 You can now choose which profile is used when automatic switching occurs.
@@ -25,8 +39,6 @@ A big thank you to everyone who contributed, tested and reported bugs!
 
 Have fun! :-)
 
-
-.. _news-top-2:
 
 07.04.2026 - TLP 1.10 Beta 2 released / Call for Testers
 ========================================================
