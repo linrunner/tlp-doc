@@ -14,9 +14,9 @@ PLATFORM_PROFILE_ON_AC/BAT/SAV
 
     PLATFORM_PROFILE_ON_SAV=low-power
 
-Select the platform profile to control system operating characteristics around
-power/performance levels, thermal and fan speed. Possible values in order of
-increasing power saving are:
+Select the platform profile (implemented by the firmware) to control system
+operating characteristics around power/performance levels, thermal and fan speed.
+Possible values in order of increasing power saving are:
 
 * performance
 * balanced

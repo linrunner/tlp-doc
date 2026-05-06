@@ -1,17 +1,24 @@
 Introduction
 ************
 TLP is a feature-rich Linux utility that saves laptop battery power
-without requiring users to delve into technical details. The newly introduced
-**tlp-pd** enables easy profile switching with a mouse click. It completely
-replaces **power-profiles-daemon** by implementing the same D-Bus API that
-major Linux desktop environments like GNOME, KDE and Cinnamon already use.
+without requiring users to delve into technical details.
 
-TLP's default settings are optimized for battery life. Nevertheless,
-TLP is completely customizable so you can achieve even greater power savings
-or meet your exact requirements
+The :doc:`settings </settings/index>` are organized into three profiles
+*performance*, *balanced* and *power-saver*.
+The profiles switch automatically, allowing you to adjust between savings
+and performance independently for AC and battery operation.
+TLP's default settings are optimized for battery life and also fully customizable.
+
+The newly introduced **tlp-pd** enables manual profile switching with a
+mouse click. It completely replaces **power-profiles-daemon** by
+implementing the same D-Bus API that major Linux desktop environments
+like GNOME, KDE and Cinnamon already use.
+
+In addition TLP can enable or disable Bluetooth, NFC, Wi-Fi and WWAN radio
+devices on boot and when connecting or removing the LAN cable.
 
 Last but not least, TLP provides a unified approach to battery charge thresholds
-on supported laptops.
+for ThinkPads and many other supported laptops.
 
 .. important::
 
@@ -156,12 +163,14 @@ Settings per profile are:
 * Processor frequency scaling and turbo boost
 * Intel CPU max/min P-state limits to control power dissipation
 * AMD/Intel CPU energy/performance policies (EPP) and dynamic boost
-* Platform profile to control power/performance levels, thermal and fan speed
+* Platform profile (implemented by the firmware) to control power/performance levels,
+  thermal and fan speed
 * Hard disk advanced power magement level (APM) and spin down timeout (per disk)
 * AHCI link power management (ALPM) with device denylist
 * AHCI runtime power management for NVMe/SATA/USB disks and SATA ports
 * PCIe active state power management (ASPM)
 * Runtime power management for PCIe bus devices
+* Intel Arc and Xe GPU power profile
 * Intel GPU frequency limits
 * AMD GPU power management
 * Wi-Fi power save
