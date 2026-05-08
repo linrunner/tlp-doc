@@ -41,7 +41,7 @@ command ::
 
 TLP Profiles
 ------------
-TLP settings are grouped into profiles:
+TLP's settings are grouped into profiles:
 
 *Version 1.9 and newer* has three profiles:
 
@@ -49,6 +49,9 @@ TLP settings are grouped into profiles:
 * Parameters ending in `_BAT` are used when the *balanced* profile is active, i.e. when running on battery power.
 * Parameters ending in `_SAV` are used when the *power-saver* profile is active.
   If there is no `_SAV` parameter available for a feature, the `_BAT` parameter will be used instead.
+
+Note: *Version 1.10 and newer* allows an arbitrary profile to be assigned to AC and
+battery power.
 
 *Version 1.8 and older* has two:
 

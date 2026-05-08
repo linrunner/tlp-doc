@@ -1,18 +1,18 @@
 Introduction
 ************
-TLP is a feature-rich Linux utility that saves laptop battery power
-without requiring users to delve into technical details.
+TLP is a feature-rich Linux utility designed to save laptop battery power.
 
-The :doc:`settings </settings/index>` are organized into three profiles
-*performance*, *balanced* and *power-saver*.
-The profiles switch automatically, allowing you to adjust between savings
-and performance independently for AC and battery operation.
-TLP's default settings are optimized for battery life and also fully customizable.
+While TLP's default settings are optimized for battery life straight away,
+the settings are also fully customizable. They are organized into three
+profiles: *performance*, *balanced* and *power-saver*.
 
+You can switch profiles automatically depending on whether the device is
+running on AC or battery power, enabling you to adjust the settings
+independently.
 The newly introduced **tlp-pd** enables manual profile switching with a
-mouse click. It completely replaces **power-profiles-daemon** by
-implementing the same D-Bus API that major Linux desktop environments
-like GNOME, KDE and Cinnamon already use.
+mouse click. It completely replaces **power-profiles-daemon** by implementing
+the same D-Bus API that major Linux desktop environments like GNOME, KDE and
+Cinnamon already use.
 
 In addition TLP can enable or disable Bluetooth, NFC, Wi-Fi and WWAN radio
 devices on boot and when connecting or removing the LAN cable.
@@ -56,14 +56,16 @@ paths.
 
 TLP Profiles
 ------------
-TLP has a number of profiles, whose :doc:`settings </settings/index>`
-can be configured separately.
+TLP has several profiles, each with its own configurable :doc:`settings </settings/index>`.
 
 *Version 1.9 and newer* supports three profiles:
 
 * **performance**: is automatically selected on AC power, or manually by the user.
 * **balanced**: is automatically selected on battery power, or manually by the user.
 * **power-saver**: is manually selected by the user.
+
+Note: *Version 1.10 and newer* allows an arbitrary profile to be assigned to AC and
+battery power.
 
 You can manually change the active profile with:
 
