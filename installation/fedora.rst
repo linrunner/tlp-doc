@@ -18,34 +18,40 @@ TLP packages are available from the official Fedora repositories:
 * **tlp-pd** – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
 * **tlp-rdw** – optional – :doc:`/settings/rdw`
 
-Hint: packages for RHEL/CentOS are available from the EPEL repositories.
+Fedora 44
+^^^^^^^^^
+*Version 1.9 and newer*
 
-First remove conflicting power management tools: ::
+Install the TLP packages either with your favorite package manager or the command: ::
+
+    sudo dnf install --allowerasing tlp tlp-pd tlp-rdw
+
+.. note::
+
+    From Fedora 44 onwards, the packages will enforce the uninstallation of the conflicting
+    tools `tuned` and `power-profiles-daemon`. Remember to reinstall them if you decide to
+    uninstall TLP.
+
+
+Fedora 43
+^^^^^^^^^
+*Version 1.8*
+
+First remove conflicting tools: ::
 
     sudo dnf remove tuned tuned-ppd
-
-Or on older installations: ::
-
-    sudo dnf remove power-profiles-daemon
+    sudo dnf remove power-profiles-daemon # on older installations
 
 Remember to reinstall them if you decide to uninstall TLP.
 
-Next install the TLP packages either with your favorite package manager or the command:
-
-*Version 1.9 and newer* ::
-
-    sudo dnf install tlp tlp-pd tlp-rdw
-
-*Version 1.8 and older* ::
+Next install the TLP packages either with your favorite package manager or the command: ::
 
     sudo dnf install tlp tlp-rdw
 
-
-TLP Repository (tlp-updates)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Should the latest version not yet be available in the official Fedora
-repositories, you can get it from the `tlp-updates` repository, which
-can be set up with the following command: ::
+TLP Repository
+^^^^^^^^^^^^^^
+If the latest version is not yet available in the official Fedora repositories, you can get it
+from the `TLP repository`. Here is the command to set it up: ::
 
    sudo dnf install "https://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm"
 
@@ -56,7 +62,7 @@ After the repository is set up, install TLP with the command: ::
 
     sudo dnf install --allowerasing tlp tlp-pd tlp-rdw
 
-This simultanously uninstalls the conflicting power management packages `tuned/tuned-ppd` or `power-profiles-daemon`.
+Note: this will uninstall the conflicting tools `tuned` and `power-profiles-daemon`.
 Remember to reinstall them if you decide to uninstall TLP.
 
 Service Units
