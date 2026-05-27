@@ -200,7 +200,7 @@ Discharging may be stopped at any time with :kbd:`Control-C`.
 * ThinkPads with two batteries: the battery controller can only handle one
   battery at a time; while discharging one battery with this command the other
   battery can neither be charged nor discharged.
-  * When encountering problems, see the :ref:`FAQ <faq-discharge-shutdown>`.
+* When encountering problems, see the :ref:`FAQ <faq-discharge-shutdown>`.
 
   .. include:: ../include/discharge-shutdown.rst
 
