@@ -686,14 +686,15 @@ no way to do this, either manually or automatically.
 
 .. _faq-charging-stops-at-80:
 
-`tlp fullcharge BAT1` stops at ~80%
-------------------------------------
-Affected hardware: ThinkPad T440s (based on user feedback)
+Charging stops at 80% even though no threshold has been set
+-----------------------------------------------------------
+Affected hardware: ThinkPad T440s, T450s and possibly others with two batteries
 
 Symptom: although the stop threshold is set to 100% either by configuration
 or by :command:`tlp fullcharge/setcharge`, the charge of BAT1 stops at about
 80%. When BAT1 reaches 80%, BAT0 starts charging to 100%, then BAT1 continues
 to 100%. If a stop threshold is set for BAT0, the last step may never happen.
+Also occurs with the roles of BAT0 and BAT1 reversed.
 
 No solution: Lenovo's EC firmware offers no possibility to change the behaviour
 (see above).
