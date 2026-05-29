@@ -17,7 +17,8 @@ Default when unconfigured: 0 (AC), 2 (battery)
 .. note::
 
     The `laptop_mode` feature has been disabled in kernel 7.0 and will be removed
-    in a *future TLP version*.
+    in a *future TLP version*. The corresponding kernel message
+    *"tlp: vm.laptop_mode is deprecated. Ignoring setting."* can be safely ignored.
 
 MAX_LOST_WORK_SECS_ON_AC/BAT
 ----------------------------
