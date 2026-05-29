@@ -48,7 +48,7 @@ limits (see below).
       boot option; see the driver documentation linked at the bottom.
     * It should be kept in mind that not all laptop BIOSes allow the activation
       of `amd-pstate` despite a suitable CPU. This situation is identifiable by
-      the kernel message "_CPC object is not present in SBIOS or ACPI disabled".
+      the kernel message *"_CPC object is not present in SBIOS or ACPI disabled"*.
       Please do *not* open TLP issues for this.
     * `passive` and `guided` mode do *not* support EPP (:ref:`set-cpu-energy-perf-policy`).
     * Some users have observed limited frequency or P-state ranges after
