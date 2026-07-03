@@ -27,9 +27,12 @@ Bug reports may be filed via the
 
 .. important::
 
-    Please read the
-    `Bug Reporting Howto <https://github.com/linrunner/TLP/blob/main/.github/Bug_Reporting_Howto.md>`_
-    first.
+    * Please read the
+      `Bug Reporting Howto <https://github.com/linrunner/TLP/blob/main/.github/Bug_Reporting_Howto.md>`_
+      first.
+    * The *use of Copilot* for creating issues is *strongly discouraged*,
+      as this generally results in the template requirements not being followed.
+      These issues may be closed without further notice.
 
 .. note::
 
