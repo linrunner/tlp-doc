@@ -5,7 +5,7 @@ Platform
 
 PLATFORM_PROFILE_ON_AC/BAT/SAV
 ------------------------------
-::
+*All versions* ::
 
     PLATFORM_PROFILE_ON_AC=performance
     PLATFORM_PROFILE_ON_BAT=balanced

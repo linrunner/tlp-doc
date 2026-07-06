@@ -42,7 +42,7 @@ RADEON_DPM_PERF_LEVEL_ON_AC/BAT/SAV
 -----------------------------------
 .. rubric::  AMD GPU
 
-::
+*All versions* ::
 
     RADEON_DPM_PERF_LEVEL_ON_AC=auto
     RADEON_DPM_PERF_LEVEL_ON_BAT=auto
