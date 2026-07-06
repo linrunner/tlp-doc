@@ -6,19 +6,30 @@ News
 
 .. _news-top-1:
 
+06.07.2026 - TLP 1.10.2 released
+================================
+Version 1.10.2 provides a bug fix that restores the ability
+to set the charge threshold on ASUS laptops. This feature was broken by a
+`change in kernel 7.1 <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/drivers/platform/x86?id=186bf9031666602d61b40832181b6b6fdc3ba4dc>`_.
+
+See the
+`changelog <https://github.com/linrunner/TLP/blob/main/changelog#L30>`__
+for all contained fixes.
+
+
+.. _news-top-2:
+
 04.05.2026 - TLP 1.10.1 released
 ================================
 Version 1.10.1 fixes a charge threshold issue on Lenovo laptops (non-ThinkPad
 and ThinkBook series) and the start of `tlp.service` on Fedora.
 
 See the
-`changelog <https://github.com/linrunner/TLP/blob/main/changelog#L12>`__
-for details.
+`changelog <https://github.com/linrunner/TLP/blob/main/changelog>`__
+for all contained fixes.
 
 Enjoy! :-)
 
-
-.. _news-top-2:
 
 20.04.2026 - TLP 1.10 released
 ==============================
@@ -72,7 +83,7 @@ can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/chang
 07.01.2026 - TLP 1.9.1 released
 ===============================
 Version 1.9.1 primarily resolves a security issue. See the
-`changelog <https://github.com/linrunner/TLP/blob/main/changelog#L12>`__
+`changelog <https://github.com/linrunner/TLP/blob/main/changelog>`__
 for details.
 
 Happy new year! :-)

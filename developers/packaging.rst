@@ -4,7 +4,7 @@ This document lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
-Version 1.10
+Version 1.10.x
     Makefile:
 
     - Removed parameter: *TLP_CONF*
@@ -13,7 +13,7 @@ Version 1.10
 
     - Removed dependency: **dbus-python** – tlp-pd was rewritten to use only Gio/GLib
 
-Version 1.9
+Version 1.9.x
     Files:
 
     - New: **bat.d/70-tuxedo**
