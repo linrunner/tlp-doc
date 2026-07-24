@@ -108,3 +108,15 @@ By default, Linux Mint 22 (and later) installs power-profiles-daemon
 as an optional component of the Cinnamon desktop environment.
 power-profiles-daemon competes and conflicts with TLP,
 please refer to the dedicated page: :doc:`/faq/ppd`.
+
+
+.. _faq-conflict-xfce:
+
+XFCE Desktop
+^^^^^^^^^^^^
+The xfce4-power-manager (version 4.20.0 and later), accessible via
+`Applications -> Settings -> Power Manager`, has a `Power Profile` setting in the
+`System` tab, separated into `On battery` and `Plugged in`. It takes effect after
+the user logs in and cannot be disabled. To prevent the xfce4-power-manager from
+activating a profile that differs from TLP’s, it is recommended to enter the same
+profiles as in TLP.

@@ -92,6 +92,12 @@ To select a specific profile at system startup, additionally configure: ::
     * :ref:`set-default-mode`
     * :ref:`set-persistent-default` to permanently set a profile
 
+When the power source changes, profiles other than those configured are activated
+---------------------------------------------------------------------------------
+*Version 1.9 and newer*
+
+If you're using the XFCE desktop: see :ref:`Conflicts <faq-conflict-xfce>`
+for the solution.
 
 How to temporarily use battery settings on AC (and vice versa)?
 ---------------------------------------------------------------
