@@ -282,7 +282,7 @@ Dell
      - | Range: 50 .. 95
        | Special:
        | 95 - hardware default
-       | The hardware enforces start = stop - 5
+       | The kernel driver enforces start ≤ stop - 5
    * - **Stop threshold values**
      - | Range: 55..100
        | Special:
