@@ -170,12 +170,12 @@ Which external kernel module do I need for my ThinkPad?
 
     As of version 5.17, the Linux kernel in combination with TLP 1.5 or later
     offers full battery care support (i.e. charge thresholds and recalibration)
-    for ThinkPads from the `Sandy Bridge` generation (2011) onwards. The majority
+    for ThinkPads from the *Sandy Bridge* generation (2011) onwards. The majority
     of current Linux distributions meet the kernel requirement.
 
     **An external kernel module (also referred to as an "out-of-tree" module)
     is not required in this case, and the following steps are not necessary.
-    However, if your model is from the `Sandy Bridge` generation (2011) or older,
+    However, if your model is from the Sandy Bridge generation (2011) or older,
     read on.**
 
 Prerequisite: make sure to install the most recent version of TLP for
@@ -191,6 +191,12 @@ shows the line
 then install the required package as explained in
 :doc:`/installation/index` for your distribution.
 
+Note: the Sandy Bridge generation (T420, X220, et al.) already mentioned above
+is a hybrid case: *tp-smapi* can be installed optionally to enable
+:command:`tlp-stat -b` to display additional battery details, such as cycle count,
+cell voltages (:command:`-v`), manufacturing date, and date of first use.
+For normal operation, i.e. charge thresholds and recalibration, *tp-smapi* is not
+required; the Linux kernel's built-in *thinkpad_acpi* takes care of that.
 
 .. seealso::
 
@@ -276,8 +282,8 @@ Laptop is not supported
 ^^^^^^^^^^^^^^^^^^^^^^^
 :doc:`/settings/bc-vendors` lists supported hardware and explains the prerequisites.
 
-Kernel module `thinkpad_acpi` is not loaded
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Kernel module thinkpad_acpi is not loaded
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 *ThinkPads only*
 
 Symptoms:
