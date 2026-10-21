@@ -46,11 +46,17 @@ Targets
    * - checkbashisms
      - Check all shell scripts for bashisms
    * - checkbatdrv
-     - Verify that bat.d plugins implement the must-have batdrv_() functions
+     - Verify that bat.d plugins implement the complete set of e batdrv_() functions
+   * - checkconf
+     - Scan tlp.conf for active parameters
+   * - checkdepren
+     - Scan defaults.conf, tlp.conf for deprecated or renamed parameters
    * - checkdupconst
      - Check shell scripts for duplicate constant definitions
    * - checkman
      - Show manpage headers (for visual inspection)
+   * - checkoldsfx
+     - Scan scripts for old _AC/_BAT parameters
    * - checkwip
      - Check shell scripts for comments indicating work in progress
    * - perlcritic

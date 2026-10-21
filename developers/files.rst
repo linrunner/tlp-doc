@@ -97,7 +97,7 @@ packages:
    * - tlp.init
      - tlp
      - /etc/init.d/tlp
-     - SysV init script that must run at system startup/shutdown:
+     - SysVinit script that must run at system startup/shutdown:
        calls :command:`tlp init start/stop` to apply power saving settings,
        switch radio devices and set the battery thresholds
    * - tlp-pcilist
@@ -224,6 +224,14 @@ packages:
      - tlp-pd
      - /usr/share/polkit-1/actions
      - PolKit policy configuration
+   * - tlp-pd.init
+     - tlp-pd
+     - /etc/init.d/tlp-pd
+     - SysVinit script to run the TLP profiles daemon
+   * - tlp-pd.default
+     - tlp-pd
+     - /etc/default/tlp-pd
+     - Config file sourced by tlp-pd.init
    * - completions/bash/tlpctl.bash_completion
      - tlp-pd
      - /usr/share/bash-completion/completions/tlpctl

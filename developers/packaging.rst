@@ -4,10 +4,23 @@ This document lists changes that are relevant for packaging TLP.
 For feature changes see the
 `user oriented changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
 
+Version 1.11.x
+    Makefile:
+
+    - Removed parameter: *TLP_SYSVD*
+    - New targets: *checkdepren*, *checkoldsfx*
+
+    Subpackage tlp-pd:
+      New files:
+
+      - **tlp-pd.init** - SysVinit script for tlp-pd; install to **/etc/init.d/tlp-pd**
+      - **tlp-pd.default** - install to **/etc/default/tlp-pd**
+
 Version 1.10.x
     Makefile:
 
     - Removed parameter: *TLP_CONF*
+    - New target: *checkconf*
 
     Subpackage tlp-pd:
 
