@@ -3,8 +3,28 @@ News
 `#TLPlinux <https://fosstodon.org/tags/TLPlinux>`_ - Follow us at
 `@linrunner@fosstodon.org <https://fosstodon.org/@linrunner>`_
 
-
 .. _news-top-1:
+
+22.10.2026 - TLP 1.11 Beta released / Call for Testers
+========================================================
+I have just released the first beta version of TLP 1.11.
+
+The new configuration scheme is the most noticeable change in this release:
+parameter suffixes have been adjusted to clarify the profile assignments,
+`_AC` becomes `_PRF`, and `_BAT` becomes `_BAL`.
+`_SAV` parameters were added to features that did not yet have them,
+all three profiles now offer the option to turn radio devices on or off,
+and serial port adapters are excluded from autosuspend by default.
+
+The `Release Notes <https://github.com/linrunner/TLP/releases>`__
+provide a quick overview of the new features. Details, including bug fixes,
+can be found in the `Changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+
+**Please participate in the** `Beta Test <https://github.com/linrunner/TLP/issues/909>`_ **.**
+**I look forward to your feedback!**
+
+
+.. _news-top-2:
 
 06.07.2026 - TLP 1.10.2 released
 ================================
@@ -15,9 +35,6 @@ to set the charge threshold on ASUS laptops. This feature was broken by a
 See the
 `changelog <https://github.com/linrunner/TLP/blob/main/changelog#L30>`__
 for all contained fixes.
-
-
-.. _news-top-2:
 
 04.05.2026 - TLP 1.10.1 released
 ================================
