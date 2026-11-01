@@ -1,6 +1,6 @@
 News
 ****
-`#TLPlinux <https://fosstodon.org/tags/TLPlinux>`_ - Follow us at
+`#TLP #Linux #powersaving <https://fosstodon.org/search?q=TLP+Linux+powersaving&type=statuses>`_ - Follow us at
 `@linrunner@fosstodon.org <https://fosstodon.org/@linrunner>`_
 
 .. _news-top-1:
