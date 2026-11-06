@@ -9,15 +9,15 @@ USB Autosuspend
 
 USB_AUTOSUSPEND
 ---------------
-::
-
-    USB_AUTOSUSPEND=1
-
 Controls autosuspend for USB devices on boot and when plugged.
 Possible values:
 
 * 1 – enable
 * 0 – disable
+
+::
+
+    USB_AUTOSUSPEND=1
 
 Default when unconfigured: 1
 
@@ -29,25 +29,26 @@ USB_DENYLIST
 -------------
 .. include:: /include/usb-excluded-devices.rst
 
+Exclude USB device IDs from autosuspend. Useful for devices having difficulties
+in waking up from autosuspend. Use :command:`tlp-stat -u` to the determine IDs.
+Multiple IDs are separated with blanks.
+
 ::
 
     USB_DENYLIST="1111:2222 3333:4444"
 
-Exclude USB device IDs from autosuspend. Useful for devices having difficulties
-in waking up from autosuspend. Use :command:`tlp-stat -u` to determine IDs.
-Multiple IDs are separated with blanks.
-
+Default when unconfigured: <none>
 
 USB_EXCLUDE_AUDIO
 -----------------
-::
-
-    USB_EXCLUDE_AUDIO=1
-
 Exclude audio devices from autosuspend:
 
 * 0 – do not exclude
 * 1 – exclude
+
+::
+
+    USB_EXCLUDE_AUDIO=1
 
 Default when unconfigured: 1
 
@@ -57,14 +58,14 @@ Default when unconfigured: 1
 
 USB_EXCLUDE_BTUSB
 -----------------
-::
-
-    USB_EXCLUDE_BTUSB=1
-
 Exclude bluetooth devices from autosuspend:
 
 * 0 – do not exclude
 * 1 – exclude
+
+::
+
+    USB_EXCLUDE_BTUSB=1
 
 Default when unconfigured: 0
 
@@ -82,14 +83,14 @@ Default when unconfigured: 0
 
 USB_EXCLUDE_PHONE
 -----------------
-::
-
-    USB_EXCLUDE_PHONE=1
-
 Exclude smartphones from autosuspend to enable charging:
 
 * 0 – do not exclude
 * 1 – exclude
+
+::
+
+    USB_EXCLUDE_PHONE=1
 
 Default when unconfigured: 0
 
@@ -98,14 +99,14 @@ Default when unconfigured: 0
 
 USB_EXCLUDE_PRINTER
 -------------------
-::
-
-    USB_EXCLUDE_PRINTER=1
-
 Exclude printers from autosuspend:
 
 * 0 – do not exclude
 * 1 – exclude
+
+::
+
+    USB_EXCLUDE_PRINTER=1
 
 Default when unconfigured: 1
 
@@ -114,14 +115,14 @@ Default when unconfigured: 1
 
 USB_EXCLUDE_WWAN
 ----------------
-::
-
-    USB_EXCLUDE_WWAN=0
-
 Exclude builtin WWAN devices from autosuspend:
 
 * 0 – do not exclude
 * 1 – exclude
+
+::
+
+    USB_EXCLUDE_WWAN=0
 
 Default when unconfigured: 0
 
@@ -137,14 +138,15 @@ Default when unconfigured: 0
 
 USB_ALLOWLIST
 -------------
+Re-enable autosuspend for USB device IDs already excluded by any of the
+settings above (allowlist always wins). Use :command:`tlp-stat -u` to determine
+the IDs. Multiple IDs are separated with blanks.
+
 ::
 
     USB_ALLOWLIST="5555:6666 7777:8888"
 
-Re-enable autosuspend for USB device IDs already excluded by any of the
-settings above (allowlist always wins). Use :command:`tlp-stat -u` to determine
-IDs. Multiple IDs are separated with blanks.
-
+Default when unconfigured: <none>
 
 .. seealso::
 

@@ -3,23 +3,26 @@ Networking
 
 .. _set-wifi-pwr:
 
-WIFI_PWR_ON_AC/BAT
-------------------
-::
-
-    WIFI_PWR_ON_AC=off
-    WIFI_PWR_ON_BAT=on
-
+WIFI_PWR_ON_PRF/BAL/SAV
+-----------------------
 Sets Wi-Fi power saving mode. Adapter support depends on kernel and driver.
 Possible values:
 
 * off – disabled
 * on – enabled
 
-Default when unconfigured: off (AC), on (BAT)
+*Version 1.11 and newer* ::
 
-Hint: deprecated config values 1=off/5=on are supported for backwards
-compatibility.
+    WIFI_PWR_ON_PRF=off
+    WIFI_PWR_ON_BAL=on
+    WIFI_PWR_ON_SAV=on
+
+*Version 1.10 and older* ::
+
+    WIFI_PWR_ON_AC=off
+    WIFI_PWR_ON_BAT=on
+
+Default when unconfigured: off (PRF/AC), on (BAL/BAT, SAV)
 
 .. note::
 
@@ -29,12 +32,14 @@ compatibility.
 
 WOL_DISABLE
 -----------
-::
-
-    WOL_DISABLE=Y
+Provision for Wake-On-LAN:
 
 * Y – Disable Wake-on-LAN
 * N – Do not disable Wake-on-LAN (keep BIOS default)
+
+::
+
+    WOL_DISABLE=Y
 
 Default when unconfigured: Y
 

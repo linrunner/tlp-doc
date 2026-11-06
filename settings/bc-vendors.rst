@@ -48,9 +48,9 @@ Apple Macbooks
    :align: left
 
    * - **Hardware**
-     - Apple Silicon Macbooks - M* models with macOS firmware 13.0 or newer
+     - Apple Silicon Macbooks – M* models with macOS firmware 13.0 or newer
    * - **Kernel drivers**
-     -  `macsmc_power` - required, provided by the Asahi Linux kernel 6.3 or newer
+     -  `macsmc_power` – required, provided by the Asahi Linux kernel 6.3 or newer
    * - **TLP version (min)**
      - 1.7
    * - **TLP plugin**
@@ -58,14 +58,14 @@ Apple Macbooks
    * - **Charge control options**
      - Start and stop charge threshold
    * - **Threshold configuration**
-     - One battery only - `macsmc-battery` uses the `STOP_CHARGE_THRESH_BAT0` parameter
+     - One battery only – `macsmc-battery` uses the `STOP_CHARGE_THRESH_BAT0` parameter
    * - **Start threshold values**
-     - | The hardware enforces the start threshold depending on the stop threshold:
-       | - stop=80 results in start=75
-       | - stop=100 results in start=100
+     - | The firmware enforces the start threshold depending on the stop threshold:
+       | – stop=80 results in start=75
+       | – stop=100 results in start=100
    * - **Stop threshold values**
-     - | 80 - battery charges to 80%
-       | 100 - battery charges to 100%, hardware default
+     - | 80 – battery charges to 80%
+       | 100 – battery charges to 100%, firmware default
 
 .. rubric:: Sample configuration
 
@@ -84,7 +84,7 @@ Start charging battery `macsmc-battery` when below 75% and stop at 80%: ::
     Driver usage:
     * natacpi (macsmc_power) = active (charge thresholds)
     Parameter value ranges:
-    * START_CHARGE_THRESH_BAT0:  don't care (hardware enforces 75, 100)
+    * START_CHARGE_THRESH_BAT0:  don't care (firmware enforces 75, 100)
     * STOP_CHARGE_THRESH_BAT0:   80, 100(default)
     ...
     /sys/class/power_supply/macsmc-battery/charge_control_start_threshold =     75 [%]
@@ -100,7 +100,7 @@ ASUS
    * - **Hardware**
      - ASUS laptops
    * - **Kernel driver**
-     - `asus_wmi` - required, included in distribution kernels (5.4 or newer)
+     - `asus_wmi` – required, included in distribution kernels (5.4 or newer)
    * - **TLP version (min)**
      - 1.4
    * - **TLP plugin**
@@ -113,12 +113,13 @@ ASUS
    * - **Stop threshold values**
      - | Range: 1 .. 100
        | Special:
-       | 0 - threshold off
-       | 100 - hardware default
+       | 0 – threshold off
+       | 100 – firmware default
    * - **Specifics**
      - | Some ASUS laptops silently ignore stop threshold values other than 40, 60 or 80.
          Please check if your configuration works as expected.
-       | When resuming from suspend TLP restores the threshold.
+       | When resuming from suspend or hibernate TLP restores the threshold and could thus
+         render a prior :command:`tlp fullcharge` ineffective.
        | When powering on, ASUS laptops reset the charge thresholds. TLP
          restores them on boot, but due to the hardware's behaviour, there
          is a short time window where the thresholds do not take effect.
@@ -158,10 +159,10 @@ Chromebooks (and Framework)
    :align: left
 
    * - **Hardware**
-     - | Chromebooks - modded with chrultrabook/coreboot custom UEFI firmware
+     - | Chromebooks – modded with chrultrabook/coreboot custom UEFI firmware
        | Framework laptops (see note below)
    * - **Kernel drivers**
-     - `cros_charge-control` - required, included in distribution kernels
+     - `cros_charge-control` – required, included in distribution kernels
        (6.12 or newer, possibly 6.17 for Framework)
    * - **TLP version (min)**
      - 1.8
@@ -175,16 +176,16 @@ Chromebooks (and Framework)
    * - **Start threshold values**
      - | Range: 0 .. 99
        | Special:
-       | 0 - hardware default, treshold off
+       | 0 – firmware default, treshold off
    * - **Stop threshold values**
      - | Range: 1 .. 100
        | Special:
-       | 100 - hardware default, threshold off
+       | 100 – firmware default, threshold off
    * - **Specifics**
      - | **Features depend on the EC firmware cmd version:**
-       | - v3 supports start and stop threshold
-       | - v2 supports stop threshold only (applies to Framework)
-       | - v1 does not feature charge thresholds and is not supported by TLP
+       | – v3 supports start and stop threshold
+       | – v2 supports stop threshold only (applies to Framework)
+       | – v1 does not feature charge thresholds and is not supported by TLP
        | **Prerequisite for Framework laptops**:
        | The module option `cros_charge-control.probe_with_fwk_charge_control=1` **must** be set
          and :command:`framework_tool` or :command:`ectool` must **not** be used simultanueously.
@@ -268,7 +269,7 @@ Dell
    * - **Hardware**
      - Dell laptops
    * - **Kernel drivers**
-     -  `dell_laptop` - required, included in distribution kernels (6.12 or newer)
+     -  `dell_laptop` – required, included in distribution kernels (6.12 or newer)
    * - **TLP version (min)**
      - 1.8
    * - **TLP plugin**
@@ -281,12 +282,12 @@ Dell
    * - **Start threshold values**
      - | Range: 50 .. 95
        | Special:
-       | 95 - hardware default
+       | 95 – firmware default
        | The kernel driver enforces start ≤ stop - 5
    * - **Stop threshold values**
      - | Range: 55..100
        | Special:
-       | 100 - hardware default, threshold off
+       | 100 – firmware default, threshold off
    * - **Specifics**
      - | TLP changes the `battery charge type
          <https://www.dell.com/support/manuals/en-us/dcpm2.1/userguide_dell-v1/battery-settings?guid=guid-0fbbbeff-4928-4def-89af-3d28d0a231ce&lang=en-us>`_
@@ -330,7 +331,7 @@ Huawei
    * - **Hardware**
      - Huawei MateBooks
    * - **Kernel driver**
-     - `huawei_wmi` - required, included in distribution kernels (5.4 or newer)
+     - `huawei_wmi` – required, included in distribution kernels (5.4 or newer)
    * - **TLP version (min)**
      - 1.4
    * - **TLP plugin**
@@ -342,13 +343,14 @@ Huawei
    * - **Start threshold values**
      - | Range: 0 .. 99
        | Special:
-       | 0 - hardware default, threshold off
+       | 0 – firmware default, threshold off
    * - **Stop threshold values**
      - | Range: 1 .. 100
        | Special:
-       | 100 - hardware default
+       | 100 – firmware default, threshold off
    * - **Specifics**
-     - | When resuming from suspend TLP restores the threshold
+     - | When resuming from suspend or hibernate TLP restores the threshold and could thus
+         render a prior :command:`tlp fullcharge` ineffective.
 
 
 .. rubric:: Sample configuration
@@ -384,7 +386,7 @@ Lenovo ThinkPads
    * - **Hardware**
      - Lenovo ThinkPad series from the `Sandy Bridge` generation (2011) onwards
    * - **Kernel drivers**
-     -  `thinkpad_acpi` - required, included in distribution kernels
+     -  `thinkpad_acpi` – required, included in distribution kernels
    * - **TLP version (min)**
      - all
    * - **TLP plugin**
@@ -397,16 +399,16 @@ Lenovo ThinkPads
    * - **Start threshold values**
      - | Range: 0 .. 99
        | Special:
-       | 0 - threshold off
-       | 96 - hardware default
+       | 0 – threshold off, restores firmware default
+       | 96 – firmware default
    * - **Stop threshold values**
      - | Range: 1 .. 100
        | Special:
-       | 100 - hardware default, threshold off
+       | 100 – firmware default, threshold off
    * - **See also**
-     - | - :ref:`faq-which-kernel-module`
-       | - :ref:`faq-thinkpad-battery-malfunc`
-       | - :ref:`Erratic Battery Behaviour <faq-erratic-battery-behavior>`
+     - | – :ref:`faq-which-kernel-module`
+       | – :ref:`faq-thinkpad-battery-malfunc`
+       | – :ref:`Erratic Battery Behaviour <faq-erratic-battery-behavior>`
 
 
 .. rubric:: Sample configuration
@@ -444,8 +446,8 @@ Lenovo/IBM legacy ThinkPads
    * - **Hardware**
      - Lenovo or IBM ThinkPad series before the `Sandy Bridge` generation (2011)
    * - **Kernel drivers**
-     - | `thinkpad_acpi` - required, included in distribution kernels
-       | `tp_smapi` - required, out-of-tree → distribution specific package needed
+     - | `thinkpad_acpi` – required, included in distribution kernels
+       | `tp_smapi` – required, out-of-tree → distribution specific package needed
    * - **TLP version (min)**
      - all
    * - **TLP plugin**
@@ -458,11 +460,11 @@ Lenovo/IBM legacy ThinkPads
    * - **Start threshold values**
      - | Range: 2 .. 96
        | Special:
-       | 96 - hardware default
+       | 96 – firmware default
    * - **Stop threshold values**
      - | Range: 6 .. 100
        | Special:
-       | 100 - hardware default, threshold off
+       | 100 – firmware default, threshold off
    * - **See also**
      - :ref:`faq-which-kernel-module`
 
@@ -501,7 +503,7 @@ Lenovo non-ThinkPad series
    * - **Hardware**
      - Lenovo laptops (all non-ThinkPad series including ThinkBooks)
    * - **Kernel driver**
-     - `ideapad_laptop` - required, included in distribution kernels
+     - `ideapad_laptop` – required, included in distribution kernels
    * - **TLP version (min)**
      - 1.4
    * - **TLP plugin**
@@ -509,10 +511,10 @@ Lenovo non-ThinkPad series
    * - **Charge control options**
      - Fixed stop charge threshold aka *battery conservation mode*
    * - **Threshold configuration**
-     - All batteries - `BAT0`, `BAT1` - share the `START/STOP_CHARGE_THRESH_BAT0` parameter
+     - All batteries – `BAT0`, `BAT1` – share the `START/STOP_CHARGE_THRESH_BAT0` parameter
    * - **Stop threshold values**
-     - | 1 - batteries charge to the fixed threshold
-       | 0 - batteries charge to 100%, conservation mode off
+     - | 1 – batteries charge to the fixed threshold
+       | 0 – batteries charge to 100%, conservation mode off
    * - **Specifics**
      - | The fixed stop threshold value varies depending on the laptop model,
          60% or 80% are common.
@@ -520,6 +522,8 @@ Lenovo non-ThinkPad series
          cannot be displayed by :command:`tlp-stat -b`.
        | Some models ignore the setting, conservation mode remains
          off permanently.
+       | When resuming from suspend or hibernate TLP restores conservation mode and could thus
+         render a prior :command:`tlp fullcharge` ineffective.
        | *Version 1.10* splits the plugin: `lenovo` uses the new sysfs attribute `charge_types`
          introduced with kernel 6.17. `lenovo-legacy` continues the support for older kernels.
          See sample outputs below.
@@ -548,9 +552,9 @@ Charge battery `BAT0` and `BAT1` up to 100%: ::
     Driver usage:
     * vendor (ideapad_laptop) = active (charge type)
     Parameter value range:
-    * STOP_CHARGE_THRESH_BAT0/1:  0(Standard)..1(Long_Life) -- charge type
+    * STOP_CHARGE_THRESH_BAT0/1:  0(off/Standard)..1(on/Long_Life) -- conservation mode
     ...
-    /sys/class/power_supply/BAT0/charge_types                   = Standard [Long_Life]
+    /sys/class/power_supply/BAT0/charge_types                  = Standard [Long_Life]
 
 *Version 1.9.1 and older; Version 1.10 with kernel 6.16 (or older)*
 
@@ -562,7 +566,7 @@ Charge battery `BAT0` and `BAT1` up to 100%: ::
     Driver usage:
     * vendor (ideapad_laptop) = active (charge threshold)
     Parameter value range:
-    * STOP_CHARGE_THRESH_BAT0: 0(off), 1(on) -- battery conservation mode
+    * STOP_CHARGE_THRESH_BAT0: 0(off), 1(on) -- conservation mode
 
     /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode = 1
 
@@ -576,7 +580,7 @@ LG
    * - **Hardware**
      - LG Gram laptops
    * - **Kernel driver**
-     - `lg_laptop` - required, included in distribution kernels 5.18 or newer)
+     - `lg_laptop` – required, included in distribution kernels 5.18 (or newer)
    * - **TLP version (min)**
      - 1.4
    * - **TLP plugins**
@@ -584,14 +588,15 @@ LG
    * - **Charge control options**
      - Fixed stop charge threshold at 80% aka *battery care limit*
    * - **Threshold configuration**
-     - All batteries - `BAT0`, `BAT1`, `CMB0`, `CMB1` - share the `STOP_CHARGE_THRESH_BAT0` parameter
+     - All batteries – `BAT0`, `BAT1`, `CMB0`, `CMB1` – share the `STOP_CHARGE_THRESH_BAT0` parameter
    * - **Stop threshold values**
-     - | 80 - batteries charge to 80%
-       | 100 - batteries charge to 100%, battery care limit off
+     - | 80 – batteries charge to 80%
+       | 100 – batteries charge to 100%, battery care limit off
    * - **Specifics**
-     - | When resuming from suspend TLP restores the threshold.
+     - | When resuming from suspend or hibernate TLP restores the battery care limit and could thus
+         render a prior :command:`tlp fullcharge` ineffective.
        | The current plugin `lg` uses the standard sysfs attribute `charge_control_end_threshold`.
-       | The old plugin `lg-legacy` will be removed with 1.10 → upgrade to kernel 5.18 or newer.
+       | The old plugin `lg-legacy` has been removed in *version 1.10* → upgrade to kernel 5.18 or newer.
        | Note: a regression in kernel 6.9 breaks `lg_laptop` → upgrade to 6.10.7 or newer;
          mainline 6.6 LTS and Ubuntu's 6.8 were patched too.
 
@@ -607,7 +612,7 @@ Stop charging battery `BAT0`, `BAT1`, `CMB0` and `CMB1` at 100%: ::
     START_CHARGE_THRESH_BAT0=0  # dummy value
     STOP_CHARGE_THRESH_BAT0=0
 
-.. rubric:: Sample outputs of tlp-stat -b
+.. rubric:: Sample output of tlp-stat -b
 
 .. code-block:: none
 
@@ -621,16 +626,6 @@ Stop charging battery `BAT0`, `BAT1`, `CMB0` and `CMB1` at 100%: ::
     ...
     /sys/class/power_supply/BAT0/charge_control_end_threshold   =      80 [%]
 
-    +++ Battery Care
-    Plugin: lg-legacy
-    Supported features: charge threshold
-    Driver usage:
-    * vendor (lg_laptop) = active (charge threshold)
-    Parameter value range:
-    * STOP_CHARGE_THRESH_BAT0: 80(on), 100(off) -- battery care limit
-
-    /sys/devices/platform/lg-laptop/battery_care_limit          = 80 [%]
-
 
 MSI laptops
 """""""""""
@@ -641,7 +636,7 @@ MSI laptops
    * - **Hardware**
      - MSI laptops
    * - **Kernel driver**
-     - `msi_ec` - required, included in distribution kernels (6.3 or newer)
+     - `msi_ec` – required, included in distribution kernels (6.3 or newer)
    * - **TLP version (min)**
      - 1.7
    * - **TLP plugin**
@@ -652,12 +647,12 @@ MSI laptops
      - | Battery `BAT0` uses the `STOP_CHARGE_THRESH_BAT0` parameter
        | Battery `BAT1` uses the `STOP_CHARGE_THRESH_BAT1` parameter
    * - **Start threshold values**
-     - | The hardware enforces the start threshold depending on the stop threshold:
+     - | The firmware enforces the start threshold depending on the stop threshold:
        | start = stop - 10
    * - **Stop threshold values**
      - | Range: 10 .. 100
        | Special:
-       | 100 - hardware default
+       | 100 – firmware default
    * - **Specifics**
      - | The kernel driver **only accepts very specific models and BIOS versions**, for the unsupported ones :command:`tlp-stat -b` will display `"Plugin: generic / Supported features: none available"`. Please do *not* open a TLP issue for this, instead create an `issue with the msi-ec driver <https://github.com/BeardOverflow/msi-ec/issues?q=is%3Aopen+is%3Aissue>`_.
 
@@ -679,7 +674,7 @@ Start charging battery `BAT1` when below 70% and stop at 80%: ::
     Driver usage:
     * natacpi (msi_ec) = active (charge thresholds)
     Parameter value ranges:
-    * START_CHARGE_THRESH_BAT0/1:  don't care (hardware enforces stop - 10)
+    * START_CHARGE_THRESH_BAT0/1:  don't care (firmware enforces stop - 10)
     * STOP_CHARGE_THRESH_BAT0/1:   10..100(default)
     ...
     /sys/class/power_supply/BAT1/charge_control_start_threshold =     70 [%]
@@ -695,7 +690,7 @@ Samsung
    * - **Hardware**
      - Samsung laptops
    * - **Kernel driver**
-     - `samsung_laptop` - required, included in distribution kernels
+     - `samsung_laptop` – required, included in distribution kernels
    * - **TLP version (min)**
      - 1.4
    * - **TLP plugin**
@@ -703,10 +698,10 @@ Samsung
    * - **Charge control options**
      - Fixed stop charge threshold at 80% aka *battery life extender*
    * - **Threshold configuration**
-     - All batteries - `BAT0`, `BAT1` - share the `STOP_CHARGE_THRESH_BAT0` parameter
+     - All batteries – `BAT0`, `BAT1` – share the `STOP_CHARGE_THRESH_BAT0` parameter
    * - **Stop threshold values**
-     - | 1 - batteries charge to 80%
-       | 0 - batteries charge to 100%, battery life extender off
+     - | 1 – batteries charge to 80%
+       | 0 – batteries charge to 100%, battery life extender off
 
 .. rubric:: Sample configuration
 
@@ -730,7 +725,7 @@ Stop charging battery `BAT0` and `BAT1` at 100%: ::
     Driver usage:
     * vendor (samsung_laptop) = active (charge threshold)
     Parameter value range:
-    * STOP_CHARGE_THRESH_BAT0: 0(off), 1(on) -- -- battery life extender
+    * STOP_CHARGE_THRESH_BAT0: 0(off), 1(on) -- battery life extender
 
     /sys/devices/platform/samsung/battery_life_extender         = 1 (80%)
 
@@ -744,7 +739,7 @@ Sony
    * - **Hardware**
      - Sony VAIO laptops
    * - **Kernel driver**
-     - `sony_laptop` - required, included in distribution kernels
+     - `sony_laptop` – required, included in distribution kernels
    * - **TLP version (min)**
      - 1.5
    * - **TLP plugin**
@@ -752,11 +747,11 @@ Sony
    * - **Charge control options**
      - Stop threshold at 50, 80 or 100% aka *battery care limiter*
    * - **Threshold configuration**
-     - All batteries - `BAT0`, `BAT1` - share the `STOP_CHARGE_THRESH_BAT0` parameter
+     - All batteries – `BAT0`, `BAT1` – share the `STOP_CHARGE_THRESH_BAT0` parameter
    * - **Stop threshold values**
-     - | 50 - batteries charge to 50%
-       | 80 - batteries charge to 80%
-       | 100 - batteries charge to 100%, battery care limiter off
+     - | 50 – batteries charge to 50%
+       | 80 – batteries charge to 80%
+       | 100 – batteries charge to 100%, battery care limiter off
 
 .. rubric:: Sample configuration
 
@@ -792,9 +787,9 @@ System76
    :align: left
 
    * - **Hardware**
-     - System76 laptops - models with with **open source EC firmware** only
+     - System76 laptops – models with with **open source EC firmware** only
    * - **Kernel drivers**
-     -  `system76_acpi` - required, included in distribution kernels (5.16 or newer)
+     -  `system76_acpi` – required, included in distribution kernels (5.16 or newer)
    * - **TLP version (min)**
      - 1.6
    * - **TLP plugin**
@@ -802,20 +797,21 @@ System76
    * - **Charge control options**
      - Start and stop charge threshold
    * - **Threshold configuration**
-     - One battery only - `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
+     - One battery only – `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
    * - **Start threshold values**
      - | Range: 0 .. 99
        | Special:
-       | 0 - threshold off
-       | 90 - hardware default
+       | 0 – threshold off
+       | 90 – firmware default
    * - **Stop threshold values**
      - | Range: 1 .. 100
        | Special:
-       | 100 - hardware default, threshold off
+       | 100 – firmware default, threshold off
    * - **Specifics**
      - | A stop threshold of 100 disables the feature.
-       | A start value of 0 will always enable the charger, and charge up to the stop threshold.
-       | The thresholds will be set to their defaults on EC reset (i.e. AC is unplugged when powered off).
+       | A start threshold of 0 enables charging up to the stop threshold.
+       | The thresholds will be reset to firmware defaults if AC is unplugged while powered off
+         (causing an EC reset).
 
 .. rubric:: Sample configuration
 
@@ -849,7 +845,7 @@ Toshiba
    * - **Hardware**
      - Toshiba and Dynabook laptops
    * - **Kernel driver**
-     - `toshiba_laptop` - required, included in distribution kernels (6.0 and newer)
+     - `toshiba_laptop` – required, included in distribution kernels (6.0 and newer)
    * - **TLP version (min)**
      - 1.6
    * - **TLP plugins**
@@ -860,8 +856,8 @@ Toshiba
      - | `BAT0` uses the `STOP_CHARGE_THRESH_BAT0` parameter
        | `BAT1` uses the `STOP_CHARGE_THRESH_BAT1` parameter
    * - **Stop threshold values**
-     - | 80 - battery charges to 80%
-       | 100 - battery charges to 100%, hardware default
+     - | 80 – battery charges to 80%
+       | 100 – battery charges to 100%, firmware default
    * - **Specifics**
      - The threshold is persistent (stored in NVRAM), even if the battery is removed and reinserted.
 
@@ -901,7 +897,7 @@ Tuxedo Laptops
        * - **Hardware**
          - Tuxedo laptops with a Clevo ODM chassis (as far as supported by the driver)
        * - **Kernel drivers**
-         -  `clevo_acpi` - required, out-of-tree → provided by distribution specific
+         -  `clevo_acpi` – required, out-of-tree → provided by distribution specific
             **tuxedo-drivers** packages
        * - **TLP version (min)**
          - 1.9 and newer
@@ -913,10 +909,10 @@ Tuxedo Laptops
          - | Battery `BAT0` uses the `START/STOP_CHARGE_THRESH_BAT0` parameters
        * - **Start threshold values**
          - | 40, 50, 60, 70, 80, 95
-           | Special: 95 - hardware default
+           | Special: 95 – firmware default
        * - **Stop threshold values**
          - | 60, 70, 80, 90, 100
-           | Special: 100 - hardware default, threshold off
+           | Special: 100 – firmware default, threshold off
        * - **Specifics**
          - | Charge thresholds are only possible on certain models with Clevo ODM chassis
              and the distribution specific **tuxedo-drivers** package. All other models are
@@ -975,9 +971,9 @@ Wilco-EC
    :align: left
 
    * - **Hardware**
-     - Laptops with Wilco EC - such as Dell Chromebooks modded with chrultrabook/coreboot custom UEFI firmware
+     - Laptops with Wilco EC – such as Dell Chromebooks modded with chrultrabook/coreboot custom UEFI firmware
    * - **Kernel drivers**
-     -  `wilco_charger` - required, included in distribution kernels
+     -  `wilco_charger` – required, included in distribution kernels
    * - **TLP version (min)**
      - 1.10
    * - **TLP plugin**
@@ -985,16 +981,16 @@ Wilco-EC
    * - **Charge control options**
      - Start and stop charge threshold
    * - **Threshold configuration**
-     - | All batteries - `BAT0`, `BAT1` share the `START/STOP_CHARGE_THRESH_BAT0` parameters
+     - | All batteries – `BAT0`, `BAT1` – share the `START/STOP_CHARGE_THRESH_BAT0` parameters
    * - **Start threshold values**
      - | Range: 50 .. 95
        | Special:
-       | 95 - hardware default
-       | The hardware enforces start = stop - 5
+       | 95 – firmware default
+       | The firmware enforces start = stop - 5
    * - **Stop threshold values**
      - | Range: 55..100
        | Special:
-       | 100 - hardware default, threshold off
+       | 100 – firmware default, threshold off
    * - **Specifics**
      - | TLP changes the sysfs attribute `charge_type` to `Custom` so that the thresholds are effective.
 
@@ -1046,9 +1042,9 @@ detected, and yet no charge control options are available:
     Plugin: <any of the above>
     Supported features: none available
 
-Here the obstacle can be on any level - hardware capabilities or firmware
+Here the obstacle can be on any level – hardware capabilities or firmware
 of the vendor's model in question as well as the corresponding kernel driver
-- without TLP being able to determine exactly where.
+– without TLP being able to determine exactly where.
 
 No Kernel Driver
 """"""""""""""""

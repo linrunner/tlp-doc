@@ -3,12 +3,10 @@ Disks and Controllers
 
 DISK_DEVICES
 ------------
-::
+Defines the disk devices on which the following parameters act. Multiple
+devices are separated with blanks. ::
 
     DISK_DEVICES="nvme0n1 sda"
-
-Defines the disk devices on which the following parameters act. Multiple
-devices are separated with blanks.
 
 Default when unconfigured: "nvme0n1 sda"
 
@@ -20,16 +18,12 @@ the device assignment using IDs: ::
 
 The command :command:`tlp diskid` shows the IDs of all attached disks.
 
+
 .. _set-disks-apm:
 
-DISK_APM_LEVEL_ON_AC/BAT
-------------------------
+DISK_APM_LEVEL_ON_PRF/BAL/SAV
+-----------------------------
 .. rubric: Advanced Power Management (APM)
-
-::
-
-    DISK_APM_LEVEL_ON_AC="254 254"
-    DISK_APM_LEVEL_ON_BAT="128 128"
 
 Set the "Advanced Power Management Level". Possible values range between 1 and 255.
 
@@ -44,17 +38,24 @@ Some selected values are:
 * 255 – disable APM (not supported by some disk models)
 * keep – special value to skip this setting for the particular disk (synonym: _)
 
-Default when unconfigured: "254 254" (AC), "128 128" (BAT)
-
 Values for multiple disks are separated with blanks.
+
+*Version 1.11 and newer* ::
+
+    DISK_APM_LEVEL_ON_PRF="254 254"
+    DISK_APM_LEVEL_ON_BAL="128 128"
+    DISK_APM_LEVEL_ON_SAV="128 128"
+
+*Version 1.10 and older* ::
+
+    DISK_APM_LEVEL_ON_AC="254 254"
+    DISK_APM_LEVEL_ON_BAT="128 128"
+
+Default when unconfigured: "254 254" (PRF/AC), "128 128" (BAL/BAT, SAV)
 
 
 DISK_APM_CLASS_DENYLIST
 -----------------------
-::
-
-    DISK_APM_CLASS_DENYLIST="usb ieee1394"
-
 Exclude disk classes from advanced power management (APM). Possible values:
 
 * sata
@@ -62,9 +63,11 @@ Exclude disk classes from advanced power management (APM). Possible values:
 * usb
 * ieee1394
 
-Default when unconfigured: "usb ieee1394"
+Separate multiple classes with spaces. ::
 
-Separate multiple classes with spaces.
+    DISK_APM_CLASS_DENYLIST="usb ieee1394"
+
+Default when unconfigured: "usb ieee1394"
 
 .. caution::
 
@@ -75,13 +78,8 @@ Separate multiple classes with spaces.
 
 .. _set-disks-spindown:
 
-DISK_SPINDOWN_TIMEOUT_ON_AC/BAT
--------------------------------
-::
-
-    DISK_SPINDOWN_TIMEOUT_ON_AC="0 0"
-    DISK_SPINDOWN_TIMEOUT_ON_BAT="0 0"
-
+DISK_SPINDOWN_TIMEOUT_ON_PRF/BAL/SAV
+------------------------------------
 Timeout value until the spindle motor stops when the disk is idle. Valid settings:
 
 * 0 – disabled
@@ -90,6 +88,19 @@ Timeout value until the spindle motor stops when the disk is idle. Valid setting
 * keep – special value to skip this setting for the particular disk (synonym: _)
 
 Values for multiple disks are separated with blanks.
+
+*Version 1.11 and newer* ::
+
+    DISK_SPINDOWN_TIMEOUT_ON_PRF="0 0"
+    DISK_SPINDOWN_TIMEOUT_ON_BAL="0 0"
+    DISK_SPINDOWN_TIMEOUT_ON_SAV="0 0"
+
+*Version 1.10 and older* ::
+
+    DISK_SPINDOWN_TIMEOUT_ON_AC="0 0"
+    DISK_SPINDOWN_TIMEOUT_ON_BAT="0 0"
+
+Default when unconfigured: <none>
 
 .. note::
 
@@ -100,101 +111,92 @@ Values for multiple disks are separated with blanks.
       for a 2nd disk in a swappable drive slot or the Ultrabay that is not accessed
       permanently, this setting may be quite useful.
 
+
 DISK_IOSCHED
 ------------
-::
+Sets the I/O scheduler per disk. Possible values:
 
-    DISK_IOSCHED="mq-deadline mq-deadline"
-
-Sets the I/O scheduler per disk. Possible values below.
-
-.. rubric:: Multi queue (blk-mq) schedulers:
-
-* mq-deadline – recommended
+* mq-deadline
 * none
 * kyber
 * bfq
-* keep – special value to use the kernel's default scheduler for the particular disk (synonym: _)
+* keep – recommended: special value to use the kernel's default scheduler for the particular disk (synonym: _)
 
-.. rubric:: Single queue schedulers:
+Values for multiple disks are separated with blanks. ::
 
-* deadline – recommended
-* cfq
-* bfq
-* noop
-* keep – special value to use the kernel's default scheduler for the particular disk (synonym: _)
+    DISK_IOSCHED="mq-deadline mq-deadline"
 
-Default when unconfigured: keep
+Default when unconfigured: "keep"
 
-.. note::
-
-    * Single queue schedulers are legacy now and were removed together with the
-      old block layer for kernels ≥ 5.0.
-    * Multi queue (blk-mq) may need kernel boot options `scsi_mod.use_blk_mq=1`
-      and `dm_mod.use_blk_mq=y` as well as :command:`modprobe mq-deadline-iosched|kyber|bfq`
-      on kernels < 5.0.
 
 .. _set-disks-alpm:
 
-SATA_LINKPWR_ON_AC/BAT
-----------------------
+SATA_LINKPWR_ON_PRF/BAL/SAV
+---------------------------
 .. rubric:: AHCI Link Power Management (ALPM)
-
-::
-
-    SATA_LINKPWR_ON_AC="med_power_with_dipm"
-    SATA_LINKPWR_ON_BAT="med_power_with_dipm"
 
 Sets the power management mode for the SATA links connecting disks and optical
 drives. Possible values (in order of increasing power saving):
 
 * max_performance – minimum power saving / max performance
-* medium_power – medium power saving and performance
-* med_power_with_dipm – best balance between power saving and performance
-  (recommended, kernel ≥ 4.15 required)
-* min_power – max power saving / minimum performance
-
-Default when unconfigured: med_power_with_dipm (AC and BAT)
+* medium_power – medium power saving and performance – **do not use!**
+* med_power_with_dipm – **recommended:** best balance between power saving and performance
+  (kernel ≥ 4.15 required)
+* min_power – max power saving / minimum performance – **do not use!**
 
 Use empty strings (“”) to disable the feature completely.
 Multiple values separated with spaces are tried sequentially until success.
 
-.. note::
+*Version 1.11 and newer* ::
 
-    Until version 1.5 a second value was provided in the default configuration
-    as a fallback for older kernels. TLP determines automatically if
-    `med_power_with_dipm` is available and otherwise uses the second value.
+    SATA_LINKPWR_ON_PRF="med_power_with_dipm"
+    SATA_LINKPWR_ON_BAL="med_power_with_dipm"
+    SATA_LINKPWR_ON_SAV="med_power_with_dipm"
+
+*Version 1.10 and older* ::
+
+    SATA_LINKPWR_ON_AC="med_power_with_dipm"
+    SATA_LINKPWR_ON_BAT="med_power_with_dipm"
+
+Default when unconfigured: "med_power_with_dipm"
+
 
 .. _SATA_LINKPWR_BLACKLIST:
 
 SATA_LINKPWR_DENYLIST
 ----------------------
-::
-
-    SATA_LINKPWR_DENYLIST="host1"
-
 Exclude SATA disks from AHCI link power management (ALPM). This is intended as
 a workaround for SATA disks not bearing link power management.
 
 Disks are specified by their host. Refer to the output of :command:`tlp-stat -d`
 to determine the host; the format is `hostX`. Separate multiple hosts with spaces.
+::
+
+    SATA_LINKPWR_DENYLIST="host1"
 
 
 .. _set-disks-ahci-runtime-pm:
 
-AHCI_RUNTIME_PM_ON_AC/BAT
--------------------------
-::
-
-    AHCI_RUNTIME_PM_ON_AC=on
-    AHCI_RUNTIME_PM_ON_BAT=auto
-
-
+AHCI_RUNTIME_PM_ON_PRF/BAL/SAV
+------------------------------
 Controls runtime power management for NVMe, SATA, ATA and USB disks
 as well as SATA ports. Possible values:
 
 * auto – enabled (power down idle devices)
 * on – disabled (devices powered on permanently)
+
+*Version 1.11 and newer* ::
+
+    AHCI_RUNTIME_PM_ON_AC=on
+    AHCI_RUNTIME_PM_ON_BAL=auto
+    AHCI_RUNTIME_PM_ON_SAV=auto
+
+*Version 1.10 and older* ::
+
+    AHCI_RUNTIME_PM_ON_AC=on
+    AHCI_RUNTIME_PM_ON_BAT=auto
+
+Default when unconfigured: on (PRF/AC), auto (BAL/BAT, SAV)
 
 .. note::
 
@@ -202,17 +204,13 @@ as well as SATA ports. Possible values:
     * SATA *controllers* are PCIe bus devices and handled by the corresponding
       :doc:`RUNTIME_PM settings</settings/runtimepm>`
 
-Default when unconfigured: on (AC), auto (BAT)
-
 
 AHCI_RUNTIME_PM_TIMEOUT
 -----------------------
-::
+Seconds of inactivity before a disk or a port is suspended. Effective only when
+`AHCI_RUNTIME_PM_ON_AC/BAT` is activated. ::
 
     AHCI_RUNTIME_PM_TIMEOUT=15
-
-Seconds of inactivity before a disk or a port is suspended. Effective only when
-`AHCI_RUNTIME_PM_ON_AC/BAT` is activated.
 
 Default when unconfigured: 15
 
@@ -222,4 +220,3 @@ Default when unconfigured: 15
     * Settings: :doc:`/settings/introduction`
     * FAQ: :doc:`/faq/disks`
     * `Linux I/O schedulers <https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers>`_ – Ubuntu Wiki article
-    * `med_power_with_dipm <https://hansdegoede.livejournal.com/18412.html>`_ – Explanation from kernel developer Hans de Goede

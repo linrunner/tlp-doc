@@ -12,64 +12,67 @@ DEVICES_TO_DISABLE_ON_*_CONNECT
 -------------------------------------------
 .. rubric:: Disable on Network Connect
 
-::
-
-    DEVICES_TO_DISABLE_ON_LAN_CONNECT="wifi wwan"
-    DEVICES_TO_DISABLE_ON_WIFI_CONNECT="wwan"
-    DEVICES_TO_DISABLE_ON_WWAN_CONNECT="wifi"
-
-When a LAN, Wi-Fi or WWAN connection has been established, the stated radio
-devices are disabled:
+When a LAN, Wi-Fi or WWAN connection has been established, the radio
+devices entered here will be disabled:
 
 * bluetooth
 * wifi – Wireless LAN
 * wwan – Wireless Wide Area Network (3G/UMTS, 4G/LTE, 5G)
 
-Multiple devices are separated with blanks.
+Multiple devices are separated with blanks. ::
+
+    DEVICES_TO_DISABLE_ON_LAN_CONNECT="wifi wwan"
+    DEVICES_TO_DISABLE_ON_WIFI_CONNECT="wwan"
+    DEVICES_TO_DISABLE_ON_WWAN_CONNECT="wifi"
+
+Default when unconfigured: <none>
+
 
 DEVICES_TO_ENABLE_ON_*_DISCONNECT
 ---------------------------------------------
 .. rubric:: Enable on Network Disconnect
 
-::
+When a LAN, Wi-Fi, WWAN connection has been disconnected, the radio
+devices entered here will be enabled. ::
 
     DEVICES_TO_ENABLE_ON_LAN_DISCONNECT="wifi wwan"
     DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT=""
     DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT=""
 
-When a LAN, Wi-Fi, WWAN connection has been disconnected, the stated radio
-devices are enabled.
+Default when unconfigured: <none>
+
 
 DEVICES_TO_ENABLE/DISABLE_ON_DOCK
 ---------------------------------
 .. rubric:: Enable/Disable on Dock
 
-::
+After docking the radio devices entered here will be enabled/disabled. ::
 
     DEVICES_TO_ENABLE_ON_DOCK=""
     DEVICES_TO_DISABLE_ON_DOCK=""
 
-After docking the stated radio devices are enabled/disabled.
+Default when unconfigured: <none>
+
 
 DEVICES_TO_ENABLE/DISABLE_ON_UNDOCK
 -----------------------------------
 .. rubric:: Enable/Disable on Undock
 
-::
-
+After undocking the radio devices entered here will be enabled/disabled. ::
 
     DEVICES_TO_ENABLE_ON_UNDOCK="wifi"
     DEVICES_TO_DISABLE_ON_UNDOCK=""
 
-After undocking the stated radio devices are enabled/disabled.
+Default when unconfigured: <none>
 
 .. note::
 
     * Not all docks can be recognized, especially USB-C docks.
       However, a generic detection exists for Thunderbolt docks.
-    * If your dock is not recognized and a LAN cable is connected,
+    * If your dock is not recognized but a LAN cable is connected,
       use `DEVICES_TO_DISABLE_ON_LAN_CONNECT`
       and `DEVICES_TO_ENABLE_ON_LAN_DISCONNECT` instead.
+
 
 .. seealso::
 

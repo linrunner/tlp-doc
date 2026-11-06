@@ -15,8 +15,8 @@ Open TLP’s main config file with a text editor: ::
 
 Change the desired line(s). Before: ::
 
-    #CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
-    #CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+    #CPU_ENERGY_PERF_POLICY_ON_PRF=balance_performance
+    #CPU_ENERGY_PERF_POLICY_ON_BAL=balance_power
     #CPU_ENERGY_PERF_POLICY_ON_SAV=power
 
 After – remember to remove the leading #:
@@ -24,8 +24,8 @@ After – remember to remove the leading #:
 .. code-block::
     :emphasize-lines: 2, 3
 
-    CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
-    CPU_ENERGY_PERF_POLICY_ON_BAT=balance_performance
+    CPU_ENERGY_PERF_POLICY_ON_PRF=balance_performance
+    CPU_ENERGY_PERF_POLICY_ON_BAL=balance_performance
     CPU_ENERGY_PERF_POLICY_ON_SAV=balance_power
 
 .. note::
@@ -45,20 +45,22 @@ TLP's settings are grouped into profiles:
 
 *Version 1.9 and newer* has three profiles:
 
-* Parameters ending in `_AC` are used when the *performance* profile is active, i.e. when running on AC power.
-* Parameters ending in `_BAT` are used when the *balanced* profile is active, i.e. when running on battery power.
+* Parameters ending in `_PRF` or `_AC` are used when the *performance* profile is active, i.e. when running on AC power.
+* Parameters ending in `_BAL` or `_BAT` are used when the *balanced* profile is active, i.e. when running on battery power.
 * Parameters ending in `_SAV` are used when the *power-saver* profile is active.
-  If there is no `_SAV` parameter available for a feature, the `_BAT` parameter will be used instead.
+  If there is no `_SAV` parameter available for a feature, the `_BAL` or `_BAT` parameter will be used instead.
 
-Note: *Version 1.10 and newer* allows an arbitrary profile to be assigned to AC and
-battery power.
+Notes:
+
+* *Version 1.11 and newer* changed parameter suffixes: `_AC` became `_PRF`, and `_BAT` became `_BAL`
+* *Version 1.10 and newer* allows an arbitrary profile to be assigned to AC and battery power.
 
 *Version 1.8 and older* has two:
 
 * Parameters ending in `_AC` are used when running on AC power
 * Parameters ending in `_BAT` are used when running on battery power
 
-Parameters ending neither in `_AC,` nor in `_BAT` or `_SAV` apply to all profiles.
+Parameters ending neither in `_PRF`/`_AC,` nor in `_BAL`/`_BAT` or `_SAV` apply to all profiles.
 
 .. important::
 
@@ -94,13 +96,10 @@ Hints:
 * When installing upgrades of TLP, the package manager asks for confirmation
   before overwriting a changed config file with an updated version. Please
   refer to :ref:`faq-set-upgrade`
-* :ref:`Transfer settings when upgrading <faq-set-mig-from-13>` describes how to
-  migrate your configuration from versions before 1.3
-
-.. note::
-
-    TLP versions 1.2.2 and older stored all settings in a single
-    config file named **/etc/default/tlp**.
+* *Historical versions (before 1.3)* stored all settings in a single config file
+  named **/etc/default/tlp**, which is ignored by modern versions.
+  :ref:`Transfer settings when upgrading <faq-set-mig-from-13>` describes how to
+  migrate your configuration from historical versions.
 
 
 .. _set-param-defaults:
@@ -111,10 +110,13 @@ Two kinds of parameters exist:
 
 * Parameters with intrinsic default:
 
-    * Marked with `"Default when unconfigured:"` in this documentation
+    * Marked with `"Default when unconfigured: ..."` in this documentation
     * Preceded by `"Default:"` in **/etc/tlp.conf**
 
-* Parameters without intrinsic default
+* Parameters without intrinsic default:
+
+    * Marked with `"Default when unconfigured: <none>"` in this documentation
+    * Preceded by `"Default: <none>"` in **/etc/tlp.conf**
 
 .. note::
 
@@ -124,7 +126,7 @@ Two kinds of parameters exist:
 
 Parameter Syntax
 ----------------
-:ref:`set-config-files` consist of parameter and comment lines.
+:ref:`Config files <set-config-files>` consist of parameter and comment lines.
 
 .. rubric:: Parameter lines
 
@@ -141,16 +143,15 @@ Parameter values containing blanks must be enclosed in double quotes: ::
 The content of lines beginning with a `#` in the first column
 is ignored completely: ::
 
-    #What is written here does not matter.
+    # Write whatever you want
 
 Empty lines are ignored as well.
 
-Until version 1.5 comments after parameters are not allowed, the whole line
-will be silently ignored: ::
+From version 1.6 onwards, comments after parameters are allowed: ::
 
-   EXAMPLE="do not use like this" # Parameter in front is ignored - until version 1.5!
+   PARAMETER="value" # Write whatever you want
 
-As of version 1.6 the above line is valid and taken into account.
+Version 1.5 and older will ignore the entire line silently.
 
 .. rubric:: Disabling features
 

@@ -2,21 +2,28 @@ PCIe Autosuspend and ASPM
 =========================
 .. rubric:: Scope:
 
-* Attached PCIe bus devices
+* Builtin or externally attached PCIe bus devices
+
 
 RUNTIME_PM_ON_AC/BAT
 --------------------
-::
-
-    RUNTIME_PM_ON_AC=on
-    RUNTIME_PM_ON_BAT=auto
-
 Controls autosuspend for PCIe devices. Possible values:
 
 * auto – enabled (power down idle devices)
 * on – disabled (devices powered on permanently)
 
-Default when unconfigured: on (AC), auto (BAT)
+*Version 1.11 and newer* ::
+
+    RUNTIME_PM_ON_PRF=on
+    RUNTIME_PM_ON_BAL=auto
+    RUNTIME_PM_ON_SAV=auto
+
+*Versions 1.10 through 1.9* ::
+
+    RUNTIME_PM_ON_AC=on
+    RUNTIME_PM_ON_BAT=auto
+
+Default when unconfigured: on (PRF/AC), auto (BAL/BAT, SAV)
 
 
 .. _set-runtimepm-denylist:
@@ -24,12 +31,12 @@ Default when unconfigured: on (AC), auto (BAT)
 
 RUNTIME_PM_DENYLIST
 --------------------
-::
+Exclude listed PCIe device addresses from autosuspend. Use
+:command:`lspci` to lookup the addresses (first output column). ::
 
     RUNTIME_PM_DENYLIST="11:22.3 44:55.6"
 
-Exclude listed PCIe device addresses from autosuspend. Use
-:command:`lspci` to lookup the addresses (first output column).
+Default when unconfigured: <none>
 
 .. important::
 
@@ -45,21 +52,18 @@ Exclude listed PCIe device addresses from autosuspend. Use
 
 RUNTIME_PM_DRIVER_DENYLIST
 ---------------------------
-::
-
-    RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon xhci_hcd"
-
 Exclude PCIe devices assigned to listed drivers from autosuspend.
 Use :command:`tlp-stat -e` to lookup the drivers (in parentheses at the end of
 each output line).
 
-Separate multiple drivers with spaces.
+Separate multiple drivers with spaces. ::
+
+    RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon xhci_hcd"
 
 Default when unconfigured:
 
-    | "amdgpu mei_me nouveau nvidia xhci_hcd" - *Version 1.10 and newer*
-    | "mei_me nouveau radeon xhci_hcd" - *Version 1.7 through 1.9.1*
-    | "mei_me nouveau radeon" - *Version 1.4 and newer*
+    | "amdgpu mei_me nouveau nvidia xhci_hcd" – *Version 1.10 and newer*
+    | "mei_me nouveau radeon xhci_hcd" – *Versions 1.9.1 through 1.7*
 
 .. note::
 
@@ -75,34 +79,29 @@ Default when unconfigured:
 
 RUNTIME_PM_ENABLE
 -----------------
-::
-
-    RUNTIME_PM_ENABLE="11:22.3"
-
 Permanently enable (`auto`) autosuspend for PCI(e) device addresses in the
 list (independent of the power source). This has priority over all
 preceding Runtime PM settings. Separate multiple addresses with spaces.
-Use :command:`lspci` to get the adresses (1st column).
+Use :command:`lspci` to get the adresses (1st column). ::
+
+    RUNTIME_PM_ENABLE="11:22.3"
+
+Default when unconfigured: <none>
 
 
 RUNTIME_PM_DISABLE
 ------------------
-::
+Permanently disable (`on`) autosuspend for PCI(e) device addresses in the
+list. The configuration works as for `RUNTIME_PM_ENABLE` above. ::
 
     RUNTIME_PM_DISABLE="44:55.6"
 
-Permanently disable (`on`) autosuspend for PCI(e) device addresses in the
-list. The configuration works as for `RUNTIME_PM_ENABLE` above.
+Default when unconfigured: <none>
 
 
 PCIE_ASPM_ON_AC/BAT
 -------------------
 .. rubric:: Active State Power Management (ASPM)
-
-::
-
-    PCIE_ASPM_ON_AC=default
-    PCIE_ASPM_ON_BAT=default
 
 Sets PCIe ASPM power saving mode. Possible values:
 
@@ -110,6 +109,23 @@ Sets PCIe ASPM power saving mode. Possible values:
 * performance
 * powersave
 * powersupersave
+
+*Version 1.11 and newer* ::
+
+    PCIE_ASPM_ON_PRF=default
+    PCIE_ASPM_ON_BAL=default
+    PCIE_ASPM_ON_SAV=default
+
+*Versions 1.10 through 1.9* ::
+
+    PCIE_ASPM_ON_AC=default
+    PCIE_ASPM_ON_BAT=default
+    PCIE_ASPM_ON_SAV=default
+
+*Version 1.8 and older* ::
+
+    PCIE_ASPM_ON_AC=default
+    PCIE_ASPM_ON_BAT=default
 
 Default when unconfigured: default
 
