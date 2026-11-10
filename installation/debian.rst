@@ -66,7 +66,7 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
     However, if your model is from the `Sandy Bridge` generation (2011) or older,
     read on.
 
-Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
+Only if the bottom of the output of :command:`tlp-stat -b`, section "Recommendations",
 shows the line
 
 .. code-block:: none

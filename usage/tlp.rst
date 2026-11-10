@@ -80,14 +80,13 @@ Battery Care
     the secondary battery `BAT1`. When in doubt, check the output of :command:`tlp-stat -b`,
     which lists all batteries.
 
-Change battery charge thresholds temporarily
-""""""""""""""""""""""""""""""""""""""""""""
+Change battery charge thresholds
+""""""""""""""""""""""""""""""""
 ::
 
     sudo tlp setcharge [<start threshold> <stop threshold>] [<battery>]
 
-Changes the charge thresholds for the battery to the given values.
-
+Change the charge thresholds for the battery to the given values.
 Configured thresholds will be restored at the next boot or by using
 :command:`tlp setcharge` again but without the threshold arguments.
 
@@ -112,18 +111,18 @@ Charge battery to full capacity
 
     sudo tlp fullcharge [<battery>]
 
-This is done by applying vendor presets to the charge thresholds temporarily.
+Remove the charge thresholds by reverting them to the vendor specific defaults.
 Configured thresholds will be restored at the next boot or by using
 :command:`tlp setcharge` without the threshold arguments.
 
-Hint: after setting the thresholds the command terminates; it does not wait for
+Hint: after setting the thresholds the command terminates. It does not wait for
 the charge to complete.
 
 Example: ::
 
     sudo tlp fullcharge BAT0
 
-Charges battery `BAT0` to full capacity.
+Initiates a full-capacity charge of battery `BAT0`.
 
 Charge battery to the stop charge threshold once
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -131,18 +130,18 @@ Charge battery to the stop charge threshold once
 
      sudo tlp chargeonce [<battery>]
 
-This is done by temporarily lifting the start charge threshold.
+Lifts the start charge threshold temporarily.
 The configured start charge threshold will be restored at the next boot or by using
 :command:`tlp setcharge` without the threshold arguments.
 
-Hint: after setting he thresholds the command terminates; it does not wait for
+Hint: after setting he thresholds the command terminates. It does not wait for
 the charge to complete.
 
 Example: ::
 
     sudo tlp chargeonce BAT0
 
-Charges battery `BAT0` up to the stop threshold.
+Initiates a charge of battery `BAT0` up to the stop threshold.
 
 Force a complete/partial discharge of the battery while on AC power
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -158,18 +157,18 @@ Force a complete/partial discharge of the battery while on AC power
 
     sudo tlp discharge [<battery>]
 
-The selected battery is discharged to target level (in %). If none is specified
-the battery is fully discharged. The command continously shows remaining
-capacity and estimated discharge time. Discharging may be stopped at any time
-with :kbd:`Control-C`.
+Discharge the selected battery to the desired percentage. If no percentage
+is specified, the battery will be fully discharged. The command continuously
+shows remaining the capacity and the estimated discharge time. You can stop
+the process at any time by pressing :kbd:`Control-C`.
 
-* The command needs the charger plugged in.
-* If the target level is below the start threshold, the battery will begin
+* The command requires the charger to be plugged in.
+* If the target percentage is below the start threshold, the battery will begin
   recharging once the command ends.
 * ThinkPads with two batteries: the battery controller can only handle one
-  battery at a time; while discharging one battery with this command the other
-  battery can neither be charged nor discharged.
-* When encountering problems, see the :ref:`FAQ <faq-discharge-shutdown>`.
+  battery at a time. While discharging one battery with this command the other
+  battery cannnot be charged or discharged.
+* If you encounter any problems, see the :ref:`FAQ <faq-discharge-shutdown>`.
 
 .. include:: ../include/discharge-shutdown.rst
 
@@ -185,24 +184,24 @@ Perform a battery recalibration while on AC power
 
     sudo tlp recalibrate [<battery>]
 
-First, vendor presets are applied to the charge thresholds. Then, the
-selected battery is discharged completely. The command continously
-shows remaining capacity and estimated discharge time.
-Discharging may be stopped at any time with :kbd:`Control-C`.
+First, remove the charge thresholds. Then, fully discharge the selected
+battery. The command continuously shows remaining the capacity and the
+estimated discharge time. You can stop the process at any time by
+pressing :kbd:`Control-C`.
 
-* The command needs the charger plugged in.
-* As soon as the battery is empty, he command ends and recharging begins;
-  it does not wait for the recharge to complete.
-* Configured thresholds will be restored at the next boot or by using
+* The command requires the charger to be plugged in.
+* As soon as the battery is empty, the command ends and the recharge process
+  begins. It does not wait for the recharge to complete.
+* The configured thresholds will be restored at the next boot or by using
   :command:`tlp setcharge` without the threshold arguments.
-* Important: to complete the recalibration process, let the battery charge to
-  100 % subsequently; you may power off but not remove the charger.
+* Important: To complete the recalibration process, fully charge the battery;
+  you may power off, but do not remove the charger.
 * ThinkPads with two batteries: the battery controller can only handle one
-  battery at a time; while discharging one battery with this command the other
-  battery can neither be charged nor discharged.
-* When encountering problems, see the :ref:`FAQ <faq-discharge-shutdown>`.
+  battery at a time. While discharging one battery with this command the other
+  battery cannnot be charged or discharged.
+* If you encounter any problems, see the :ref:`FAQ <faq-discharge-shutdown>`.
 
-  .. include:: ../include/discharge-shutdown.rst
+.. include:: ../include/discharge-shutdown.rst
 
 Example: ::
 

@@ -21,11 +21,18 @@ or elsewhere.
 
 Testing
 -------
-You may install and test the `main` branch at any time. Feel free to `file bug
+You are welcome to install and test the `main` branch at any time. Feel free to `file bug
 reports <https://github.com/linrunner/TLP/blob/main/.github/Bug_Reporting_Howto.md>`_
 against it. Please refer to :doc:`/developers/index` for more information.
 
-Beta packages are `published here <https://download.linrunner.de/packages/>`_
+.. important::
+
+    Beta tests and other activities requiring volunteers to help with
+    testing are tracked as GitHub issues labeled
+    `"needs testing" <https://github.com/linrunner/TLP/issues?q=is%3Aissue+state%3Aopen+label%3A%22needs+testing%22>`_.
+    If you're interested and have time, check in every now and then.
+
+Beta and Alpha packages are `published here <https://download.linrunner.de/packages/>`_
 once available.
 
 Documentation

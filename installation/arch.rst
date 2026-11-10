@@ -65,7 +65,7 @@ Legacy ThinkPads only: External Kernel Module for Battery Care
     read on.**
 
 
-Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
+Only if the bottom of the output of :command:`tlp-stat -b`, section "Recommendations",
 shows the line
 
 .. code-block:: none
