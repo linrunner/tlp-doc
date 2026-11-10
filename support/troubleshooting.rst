@@ -64,10 +64,10 @@ Step 4: Determine affected profiles or power sources
 Many of TLP's power saving features have different settings depending on the
 currently active profile:
 
-* Parameters ending in `_AC` are used when the *performance* profile is active, i.e. when running on AC power.
-* Parameters ending in `_BAT` are used when the *balanced* profile is active, i.e. when running on battery power.
+* Parameters ending in `_PRF` or `_AC` are used when the *performance* profile is active, i.e. when running on AC power.
+* Parameters ending in `_BAL` or `_BAT` are used when the *balanced* profile is active, i.e. when running on battery power.
 * Parameters ending in `_SAV` are used when the *power-saver* profile is active.
-  If there is no `_SAV` parameter available for a feature, the `_BAT` parameter will be used instead.
+  If there is no `_SAV` parameter available for a feature, the `_BAL` or `_BAT` parameter will be used instead.
 
 Examine your system to see which profile(s) or power source(s) are showing the symptom.
 If it occurs with one profile or power source only, then you can focus on settings which vary
@@ -128,10 +128,19 @@ This step applies the following strategy to isolate a bus oriented device:
 ^^^^^^^^^^^^^^^^
 .. rubric:: Disable Runtime Power Management completely
 
-Change both related config lines: ::
+Change all related config lines:
 
-    RUNTIME_PM_ON_AC=
-    RUNTIME_PM_ON_BAT=
+*Version 1.11 and newer* ::
+
+    RUNTIME_PM_ON_PRF=""
+    RUNTIME_PM_ON_BAL=""
+    RUNTIME_PM_ON_SAV=""
+
+*Version 1.10 and older* ::
+
+    RUNTIME_PM_ON_AC=""
+    RUNTIME_PM_ON_BAT=""
+    RUNTIME_PM_ON_SAV=""
 
 When the problem disappears, uncomment above lines and try to narrow
 down the problem to a single device or driver as described in the following

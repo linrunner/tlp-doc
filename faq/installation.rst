@@ -58,14 +58,24 @@ guest. Install TLP in the host operating system instead.
 
 Ubuntu/Debian: I do not use Network Manager, how do I install tlp without tlp-rdw?
 ----------------------------------------------------------------------------------
-::
+*Version 1.9 and newer* ::
+
+    sudo apt install --no-install-recommends tlp tlp-pd
+
+*Version 1.8 and older* ::
 
     sudo apt install --no-install-recommends tlp
 
 Ubuntu: How do I prevent the installation of postfix as a dependency?
 ---------------------------------------------------------------------
 The package `tlp` recommends `smartmontools` which pulls `postfix`
-(via recommends too). Use: ::
+(via recommends too). Use:
+
+*Version 1.9 and newer* ::
+
+    sudo apt install --no-install-recommends tlp tlp-pd tlp-rdw ethtool smartmontools
+
+*Version 1.8 and older* ::
 
     sudo apt install --no-install-recommends tlp tlp-rdw ethtool smartmontools
 

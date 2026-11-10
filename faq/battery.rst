@@ -181,7 +181,7 @@ Which external kernel module do I need for my ThinkPad?
 Prerequisite: make sure to install the most recent version of TLP for
 accurate recommendations.
 
-Only if the bottom of the output of :command:`tlp-stat -b`, section 'Recommendations',
+Only if the bottom of the output of :command:`tlp-stat -b`, section "Recommendations",
 shows the line
 
 .. code-block:: none
@@ -269,8 +269,8 @@ When the recognition works, the capabilities are limited:
 
 Solutions:
 
-* Version 1.6(.1) properly recognizes ThinkPads with coreboot
-* Version 1.7 displays complete battery readings
+* *Version 1.6* properly recognizes ThinkPads with coreboot
+* *Version 1.7 and later* displays complete battery readings
 
 .. _faq-thresholds-ignored:
 
@@ -427,9 +427,7 @@ Symptom: :command:`tlp-stat -b` shows
 
 Cause: for reasons unknown, the kernel module `asus_wmi` occasionally loads on foreign hardware.
 
-Solution: upgrade to version 1.7.0.
-
-Workaround for versions before 1.7.0: unload and blacklist the `asus_wmi` kernel module.
+Solution: upgrade to version 1.7.
 
 Reference: `Issue #739 <https://github.com/linrunner/TLP/issues/739>`_
 
@@ -477,10 +475,7 @@ vendor specific defaults. To restore TLP's settings use
 
     sudo tlp setcharge
 
-(see :ref:`cmd-tlp-battery-features`) or
-
-* Restart system
-* Shutdown and power off system
+(see :ref:`cmd-tlp-battery-features`) or reboot.
 
 
 .. _faq-wrong-threshold-values:
@@ -561,14 +556,14 @@ Therefore, it is not sufficient to simply remove the thresholds from
 the configuration (by the way, disabling or uninstalling TLP is not
 enough either). In fact, two steps are required to disable the thresholds:
 
-1. Removing the charge thresholds from the configuration by inserting a leading `#`
+1. Remove the charge thresholds from the configuration by inserting a leading `#`
 
 .. code-block:: none
 
     #START_CHARGE_THRESH_BAT0=75
     #STOP_CHARGE_THRESH_BAT0=80
 
-2. Reverting to vendor specific defaults with the command
+2. Revert to vendor specific defaults with the command
 
 .. code-block:: sh
 
@@ -587,8 +582,8 @@ shows the stop threshold unchanged.
 Cause: after applying a stop threshold value < 100, Lenovo's EC firmware does not
 accept values higher than the previously set value.
 
-Solution: update to the latest EC firmware – most elegantly with `fwupdmgr`,
-but the EC firmware is also included in Lenovo's BIOS update ISOs.
+Solution: update to the latest EC firmware. This is done most elegantly with `fwupdmgr`.
+Alternatively, the EC firmware is also included in Lenovo's BIOS update ISOs.
 
 Workaround (without BIOS update):
 
@@ -751,7 +746,7 @@ Workaround: change **/etc/UPower/UPower.conf** to contain the lines:
       reaches a critical level during normal battery operation. Instead, the ThinkPad powers off
       abruptly when the battery is empty, which carries the risk of data loss.
 
-Solution: UPower version 1.91.1 provides a permanent fix, though added configuration
+Solution: UPower version 1.91.1 (or newer) provides a permanent fix, though added configuration
 in **/etc/UPower/UPower.conf** is still required:
 
 .. code-block::

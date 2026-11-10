@@ -60,7 +60,7 @@ idle state.
     * `nvidia`: to enable power down (autosuspend) on AC with the proprietary
       Nvidia GPU driver, other related devices that are not easily identifiable
       (e.g., one of the PCI bridges) must be sent to autosuspend. Therefore,
-      enable runtime power management generally with `RUNTIME_PM_ON_AC=auto`
+      enable runtime power management generally with `RUNTIME_PM_ON_PRF/AC=auto`
       and enable audio power saving too (see below); also refer to:
 
       * `Nvidia's RTD3 guide <https://download.nvidia.com/XFree86/Linux-x86_64/450.57/README/dynamicpowermanagement.html>`_
@@ -101,10 +101,19 @@ Nvidia Optimus and Audio power saving
 
 Disabling audio power saving on AC prevents automatic power down of the dGPU.
 Make sure you either use TLP's defaults or change your different configuration
-to: ::
+to:
+
+*Version 1.11 and newer* ::
+
+    SOUND_POWER_SAVE_ON_PRF=1
+    SOUND_POWER_SAVE_ON_BAL=1
+    SOUND_POWER_SAVE_ON_SAV=1
+
+*Version 1.10 and older* ::
 
     SOUND_POWER_SAVE_ON_AC=1
     SOUND_POWER_SAVE_ON_BAT=1
+    SOUND_POWER_SAVE_ON_SAV=1
 
 .. seealso ::
 

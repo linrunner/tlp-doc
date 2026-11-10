@@ -42,11 +42,16 @@ Please refer to the dedicated page: :doc:`powertop`.
 
 Slimbook Battery
 ^^^^^^^^^^^^^^^^
+
 Slimbook Battery uses TLP as a backend to control
 :ref:`kernel tunables <intro-how-it-works>`.
 For this purpose, it continuously overwrites your TLP configuration.
 If you wish to configure TLP individually, you must **first uninstall
 Slimbook Battery**.
+
+.. note::
+    Slimbook Battery has been unmaintained since the end of 2024.
+    It is unknown whether it is still compatible with current versions of TLP.
 
 system76-power (Pop!_OS)
 ^^^^^^^^^^^^^^^^^^^^^^^^

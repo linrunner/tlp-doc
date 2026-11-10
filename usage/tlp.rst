@@ -19,15 +19,15 @@ TLP Profiles
 ^^^^^^^^^^^^
 *Version 1.9 and newer*
 
-Apply the *performance* profile (`_AC` parameters): ::
+Apply the *performance* profile): ::
 
     sudo tlp performance
 
-Apply the *balanced* profile (`_BAT` parameters): ::
+Apply the *balanced* profile: ::
 
         sudo tlp balanced
 
-Apply the *power-saver* profile (`_SAV` parameters): ::
+Apply the *power-saver* profile: ::
 
     sudo tlp power-saver
 

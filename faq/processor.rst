@@ -9,7 +9,7 @@ Processor
 Governor `performance` also locks EPP to `performance`
 ------------------------------------------------------
 Symptom: `energy_performance_preference` is set to `performance` regardless of
-`CPU_ENERGY_PERF_POLICY_ON_AC/BAT`. Happens with `amd_pstate` and `intel_pstate`
+`CPU_ENERGY_PERF_POLICY_ON_PRF/BAL/SAV`. Happens with `amd_pstate` and `intel_pstate`
 in active mode. :command:`tlp-stat -p` gives ::
 
     /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver    = amd-pstate-epp | intel_pstate
@@ -25,10 +25,19 @@ Solution: AMD EPP requires at least TLP version 1.6.
 
 Sluggish performance with kernel 5.7 (and newer)
 -------------------------------------------------
-Symptoms: you have configured the `powersave` scaling governor for `intel_pstate`: ::
+Symptoms: you have configured the `powersave` scaling governor for `intel_pstate`
+
+*Version 1.11 and newer* ::
+
+    CPU_SCALING_GOVERNOR_ON_PRF=powersave
+    CPU_SCALING_GOVERNOR_ON_BAL=powersave
+    CPU_SCALING_GOVERNOR_ON_SAV=powersave
+
+*Version 1.10 and older* ::
 
     CPU_SCALING_GOVERNOR_ON_AC=powersave
     CPU_SCALING_GOVERNOR_ON_BAT=powersave
+    CPU_SCALING_GOVERNOR_ON_SAV=powersave
 
 and :command:`tlp-stat -p` displays ::
 
@@ -43,15 +52,24 @@ P-states (HWP), i.e. Intel Core i 5th gen. or older. The governor
 by `intel_pstate` and produces the sluggish behaviour.
 
 Solution: use the default governor – should be `schedutil` - by commenting
-above configuration lines or configure it explictly: ::
+above configuration lines or configure it explictly:
+
+*Version 1.11 and newer* ::
+
+    CPU_SCALING_GOVERNOR_ON_PRF=schedutil
+    CPU_SCALING_GOVERNOR_ON_BAL=schedutil
+    CPU_SCALING_GOVERNOR_ON_SAV=schedutil
+
+*Version 1.10 and older* ::
 
     CPU_SCALING_GOVERNOR_ON_AC=schedutil
     CPU_SCALING_GOVERNOR_ON_BAT=schedutil
+    CPU_SCALING_GOVERNOR_ON_SAV=schedutil
 
 For details refer to :ref:`set-cpu-scaling-governor`.
 
-CPU_BOOST_ON_BAT/AC=0 decreases scaling_max_freq
-------------------------------------------------
+CPU_BOOST_ON_PRF/BAL/SAV=0 decreases scaling_max_freq
+-----------------------------------------------------
 Affected hardware: Intel Core i5 11th Gen CPU
 
 Symptom: :command:`tlp-stat -p` shows `scaling_max_freq` way below the nominal
@@ -76,10 +94,19 @@ Connecting the charger afterwards cannot remove the block.
 
 Affected hardware: Lenovo IdeaPad 3 15IML05 (81WB)
 
-Workaround: disable runtime power management completely: ::
+Workaround: disable runtime power management completely:
 
-    RUNTIME_PM_ON_AC=
-    RUNTIME_PM_ON_BAT=
+*Version 1.11 and newer* ::
+
+    RUNTIME_PM_ON_PRF=""
+    RUNTIME_PM_ON_BAL=""
+    RUNTIME_PM_ON_SAV=""
+
+*Version 1.10 and older* ::
+
+    RUNTIME_PM_ON_AC=""
+    RUNTIME_PM_ON_BAT=""
+    RUNTIME_PM_ON_SAV=""
 
 Related issue: `#824 <https://github.com/linrunner/TLP/issues/824>`_.
 

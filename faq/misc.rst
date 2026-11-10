@@ -3,7 +3,7 @@ Miscellaneous
 
 What does `TLP` stand for?
 --------------------------
-TLP is not an acronym, it's just a three-letter name.
+TLP is **not** an acronym, it's just a three-letter name.
 
 Features excluded from TLP intentionally
 ----------------------------------------

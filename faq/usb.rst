@@ -34,12 +34,24 @@ Workarounds (please try one by one):
 
       RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon xhci_hcd"
 
-* Disable runtime power management for AHCI devices an execute :command:`tlp start` ::
+* Disable runtime power management for AHCI devices, then execute :command:`tlp start`.
 
-      AHCI_RUNTIME_PM_ON_BAT=on
+*Version 1.11 and newer* ::
+
+    AHCI_RUNTIME_PM_ON_BAL=on
+    AHCI_RUNTIME_PM_ON_SAV=on
+
+*Versions 1.10 through 1.9* ::
+
+    AHCI_RUNTIME_PM_ON_BAT=on
+    AHCI_RUNTIME_PM_ON_SAV=on
+
+*Version 1.8 and older* ::
+
+        AHCI_RUNTIME_PM_ON_BAT=on
 
 * Disable runtime power management for AHCI the disk controllers by
-  adding `ahci` to the denylist *and reboot* ::
+  adding `ahci` to the denylist **and reboot** ::
 
       RUNTIME_PM_DRIVER_DENYLIST="mei_me nouveau radeon ahci"
 

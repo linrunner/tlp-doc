@@ -14,10 +14,10 @@ is idle, such as when there is no user input.
 
 power-profiles-daemon only covers a subset of TLP's settings:
 
-1. `PLATFORM_PROFILE_ON_AC/BAT/SAV`
-2. `CPU_ENERGY_PERF_POLICY_ON_AC/BAT/SAV`
-3. `CPU_BOOST_ON_AC/BAT/SAV`
-4. `AMDGPU_ABM_LEVEL_ON_AC/BAT/SAV`
+1. `PLATFORM_PROFILE_ON_PRF/BAL/SAV`
+2. `CPU_ENERGY_PERF_POLICY_ON_PRF/BAL/SAV`
+3. `CPU_BOOST_ON_PRF/BAL/SAV`
+4. `AMDGPU_ABM_LEVEL_ON_PRF/BAL/SAV`
 
 The second item is only activated if the first item is not supported
 by the hardware. When the second item is active, turbo boost (third item)
@@ -83,13 +83,13 @@ advisable to uninstall power-profiles-daemon when using TLP.
 If your distribution allows for parallel installation, the behaviour
 depends on the version of TLP:
 
-*Version 1.6 and later* will automatically *not* apply the settings listed
+*Version 1.6 and newer* will automatically **not** apply the settings listed
 above if a running power-profiles-daemon is detected. In addition the
 :command:`tlp start` issues a warning about the conflict:
 
 .. code-block:: none
 
-    Warning: PLATFORM_PROFILE_ON_AC/BAT is not set because power-profiles-daemon is running.
+    Warning: <PARAMETER> is not set because power-profiles-daemon is running.
 
 *Version 1.5* merely detects the situation and the commands
 :command:`tlp start` and :command:`tlp-stat -s` issue a message about the conflict:
@@ -123,7 +123,19 @@ In addition, TLP's *"aggressive"* Runtime PM defaults are said to *"cause proble
 particularly at suspend. All of the important drivers for the AMD Framework systems have correct default
 kernel policies in the upstream kernel".*
 
-Solution: with TLP, you can configure the desired behavior as follows: ::
+Solution: with TLP, you can configure the desired behavior as follows:
+
+*Version 1.11 and newer* ::
+
+    CPU_ENERGY_PERF_POLICY_ON_PRF=""
+    CPU_ENERGY_PERF_POLICY_ON_BAL=""
+    CPU_ENERGY_PERF_POLICY_ON_SAV=""
+
+    RUNTIME_PM_ON_PRF=""
+    RUNTIME_PM_ON_BAL=""
+    RUNTIME_PM_ON_SAV=""
+
+*Versions 1.10 through 1.9* ::
 
     CPU_ENERGY_PERF_POLICY_ON_AC=""
     CPU_ENERGY_PERF_POLICY_ON_BAT=""
@@ -132,6 +144,18 @@ Solution: with TLP, you can configure the desired behavior as follows: ::
     PLATFORM_PROFILE_ON_AC=performance
     PLATFORM_PROFILE_ON_BAT=balanced
     PLATFORM_PROFILE_ON_SAV=low-power
+
+    RUNTIME_PM_ON_AC=""
+    RUNTIME_PM_ON_BAT=""
+    RUNTIME_PM_ON_SAV=""
+
+*Version 1.8 and older* ::
+
+    CPU_ENERGY_PERF_POLICY_ON_AC=""
+    CPU_ENERGY_PERF_POLICY_ON_BAT=""
+
+    PLATFORM_PROFILE_ON_AC=performance
+    PLATFORM_PROFILE_ON_BAT=balanced
 
     RUNTIME_PM_ON_AC=""
     RUNTIME_PM_ON_BAT=""

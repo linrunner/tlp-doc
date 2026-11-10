@@ -5,7 +5,19 @@ Slow or unstable Wi-Fi on battery power
 ---------------------------------------
 Cause: kernel driver does not implement power saving properly.
 
-Solution: disable power saving on battery in configuration ::
+Solution: disable power saving on battery in configuration:
+
+*Version 1.11 and newer* ::
+
+    WIFI_PWR_ON_BAL=off
+    WIFI_PWR_ON_SAV=off
+
+*Versions 1.10 through 1.9* ::
+
+    WIFI_PWR_ON_BAT=off
+    WIFI_PWR_ON_SAV=off
+
+*Version 1.8 and older* ::
 
     WIFI_PWR_ON_BAT=off
 

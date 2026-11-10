@@ -15,15 +15,15 @@ In addition to clicking on the Linux desktop panel, the TLP profile can also be
 selected via the command line. Unlike the traditional command :doc:`tlp <tlp>`,
 root privileges are not required.
 
-Switch to the *performance* profile (`_AC` parameters): ::
+Switch to the *performance* profile: ::
 
     tlpctl performance
 
-Switch to the *balanced* profile (`_BAT` parameters): ::
+Switch to the *balanced* profile: ::
 
     tlpctl balanced
 
-Switch to the *power-saver* profile (`_SAV` parameters): ::
+Switch to the *power-saver* profile: ::
 
     tlpctl power-saver
 

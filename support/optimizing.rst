@@ -18,26 +18,30 @@ Therefore TLP's defaults can not achieve the maximum savings for any
 hardware and use case. It may be necessary to make adjustments yourself
 to get the best out of it.
 
-.. note::
+.. note ::
 
-    * TLP's parameters must always be specified for all TLP profiles, i.e. `_AC`,
-      `_BAT` and `_SAV` where applicable, otherwise, parameters from the
-      configured profiles may unintentionally spill over to the unconfigured
-      ones. Therefore all parameters are listed below, the one
-      to be changed is highlighted.
-    * Keep in mind that the profiles assigned to the power sources may differ
-      from those shown here, e.g. via `TLP_PROFILE_AC/BAT`.
-    * Please activate and test the following suggestions individually if
-      possible. This shows the specific effect, and problems are immediately
-      apparent.
-    * Feel free to try out a suggested change in one of the other scenarios.
-    * If adjusting the settings does not yield the desired results,
-      it may be worthwhile to experiment with a more recent kernel or
-      BIOS version.
-    * The inconsistent use of terms such as `performance`, `balance(d)` and
-      `(low-)power` in tunables and for profiles is confusing,
-      but this is specified by the kernel and the power profiles API and
-      therefore cannot be avoided. The following examples will hopefully help.
+  * TLP's parameters must always be specified for all TLP profiles. Otherwise,
+    parameters from the configured profiles may unintentionally spill over to
+    the unconfigured ones. Therefore all parameters are listed below, the one
+    to be changed is highlighted.
+  * Keep in mind that the profiles assigned to the power sources may differ
+    from those shown here, e.g. via `TLP_PROFILE_AC/BAT`.
+  * Please activate and test the following suggestions individually if
+    possible. This shows the specific effect, and problems are immediately
+    apparent.
+  * Feel free to try out a suggested change in one of the other scenarios.
+  * If adjusting the settings does not yield the desired results,
+    it may be worthwhile to experiment with a more recent kernel or
+    BIOS version.
+  * The inconsistent use of terms such as `performance`, `balance(d)` and
+    `(low-)power` in tunables and for profiles is confusing,
+    but this is specified by the kernel and the power profiles API and
+    therefore cannot be avoided. The following examples will hopefully help.
+
+.. important ::
+
+    The examples shown below follow the new suffix scheme introduced in version 1.11;
+    for older versions, use `_AC` instead of `_PRF`, and `_BAT` instead of `_BAL`.
 
 Extend battery runtime
 ----------------------
@@ -53,8 +57,8 @@ The following describes the adjustment of the *balanced* profile.
 .. code-block::
     :emphasize-lines: 2
 
-    CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
-    CPU_ENERGY_PERF_POLICY_ON_BAT=power
+    CPU_ENERGY_PERF_POLICY_ON_PRF=balance_performance
+    CPU_ENERGY_PERF_POLICY_ON_BAL=power
     CPU_ENERGY_PERF_POLICY_ON_SAV=power
 
 2. Change the :ref:`platform profile <set-platform-profile>` to `low-power`
@@ -63,8 +67,8 @@ The following describes the adjustment of the *balanced* profile.
 .. code-block::
     :emphasize-lines: 2
 
-    PLATFORM_PROFILE_ON_AC=performance
-    PLATFORM_PROFILE_ON_BAT=low-power
+    PLATFORM_PROFILE_ON_PRF=performance
+    PLATFORM_PROFILE_ON_BAL=low-power
     PLATFORM_PROFILE_ON_SAV=low-power
 
 3. Disable :ref:`turbo boost <set-cpu-boost>`:
@@ -72,12 +76,12 @@ The following describes the adjustment of the *balanced* profile.
 .. code-block::
     :emphasize-lines: 2, 3, 6, 7
 
-    CPU_BOOST_ON_AC=1
-    CPU_BOOST_ON_BAT=0
+    CPU_BOOST_ON_PRF=1
+    CPU_BOOST_ON_BAL=0
     CPU_BOOST_ON_SAV=0
 
-    CPU_HWP_DYN_BOOST_ON_AC=1
-    CPU_HWP_DYN_BOOST_ON_BAT=0
+    CPU_HWP_DYN_BOOST_ON_PRF=1
+    CPU_HWP_DYN_BOOST_ON_BAL=0
     CPU_HWP_DYN_BOOST_ON_SAV=0
 
 Note: the *power-saver* profile does not disable turbo boost by default.
@@ -88,8 +92,8 @@ However, you can configure this additionally as shown.
 .. code-block::
     :emphasize-lines: 2
 
-    AMDGPU_ABM_LEVEL_ON_AC=0
-    AMDGPU_ABM_LEVEL_ON_BAT=3
+    AMDGPU_ABM_LEVEL_ON_PRF=0
+    AMDGPU_ABM_LEVEL_ON_BAL=3
     AMDGPU_ABM_LEVEL_ON_SAV=3
 
 Improve performance on battery power (balanced profile)
@@ -100,8 +104,8 @@ Improve performance on battery power (balanced profile)
 .. code-block::
     :emphasize-lines: 2
 
-    CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
-    CPU_ENERGY_PERF_POLICY_ON_BAT=balance_performance
+    CPU_ENERGY_PERF_POLICY_ON_PRF=balance_performance
+    CPU_ENERGY_PERF_POLICY_ON_BAL=balance_performance
     CPU_ENERGY_PERF_POLICY_ON_SAV=power
 
 Note: this may be necessary in particular if the Intel Core i 12th gen. refuses to activate
@@ -113,8 +117,8 @@ turbo boost on battery power.
 .. code-block::
     :emphasize-lines: 2
 
-    PLATFORM_PROFILE_ON_AC=performance
-    PLATFORM_PROFILE_ON_BAT=performance
+    PLATFORM_PROFILE_ON_PRF=performance
+    PLATFORM_PROFILE_ON_BAL=performance
     PLATFORM_PROFILE_ON_SAV=power-saver
 
 Improve performance on AC power (performance profile)
@@ -125,8 +129,8 @@ Improve performance on AC power (performance profile)
 .. code-block::
     :emphasize-lines: 1
 
-    CPU_ENERGY_PERF_POLICY_ON_AC=performance
-    CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+    CPU_ENERGY_PERF_POLICY_ON_PRF=performance
+    CPU_ENERGY_PERF_POLICY_ON_BAL=balance_power
     CPU_ENERGY_PERF_POLICY_ON_SAV=power
 
 8. Enable the :ref:`platform profile <set-platform-profile>` `performance`:
@@ -149,8 +153,9 @@ Reduce power consumption / fan noise on AC power (performance profile)
 .. code-block::
     :emphasize-lines: 1
 
-    RUNTIME_PM_ON_AC=auto
-    RUNTIME_PM_ON_BAT=auto
+    RUNTIME_PM_ON_PRF=auto
+    RUNTIME_PM_ON_BAL=auto
+    RUNTIME_PM_ON_SAV=auto
 
 10. Change :ref:`CPU energy/performance policy <set-cpu-energy-perf-policy>`
     to `balance_power` (default is `balance_performance`):
@@ -158,8 +163,9 @@ Reduce power consumption / fan noise on AC power (performance profile)
 .. code-block::
     :emphasize-lines: 1
 
-    CPU_ENERGY_PERF_POLICY_ON_AC=balance_power
-    CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+    CPU_ENERGY_PERF_POLICY_ON_PRF=balance_power
+    CPU_ENERGY_PERF_POLICY_ON_BAL=balance_power
+    CPU_ENERGY_PERF_POLICY_ON_SAV=power
 
 11. Change the :ref:`platform profile <set-platform-profile>` to `balanced`,
     or try the non-standard value `balanced-performance` if your hardware supports it
@@ -168,8 +174,8 @@ Reduce power consumption / fan noise on AC power (performance profile)
 .. code-block::
     :emphasize-lines: 1
 
-    PLATFORM_PROFILE_ON_AC=balanced-performance
-    PLATFORM_PROFILE_ON_BAT=balanced
+    PLATFORM_PROFILE_ON_PRF=balanced-performance
+    PLATFORM_PROFILE_ON_BAL=balanced
     PLATFORM_PROFILE_ON_SAV=low-power
 
 12. Enable :ref:`Wi-Fi power save <set-wifi-pwr>` (default is `off`):
@@ -177,8 +183,9 @@ Reduce power consumption / fan noise on AC power (performance profile)
 .. code-block::
     :emphasize-lines: 1
 
-    WIFI_PWR_ON_AC=on
-    WIFI_PWR_ON_BAT=on
+    WIFI_PWR_ON_PRF=on
+    WIFI_PWR_ON_BAL=on
+    WIFI_PWR_ON_SAV=on
 
 .. seealso::
 
@@ -196,8 +203,9 @@ Employ the settings
 .. code-block::
     :emphasize-lines: 1, 2
 
-    CPU_MAX_PERF_ON_AC=nn
-    CPU_MAX_PERF_ON_BAT=nn
+    CPU_MAX_PERF_ON_PRF=nn
+    CPU_MAX_PERF_ON_BAL=nn
+    CPU_MAX_PERF_ON_SAV=nn
 
 with `nn` < 100 to achieve it.
 

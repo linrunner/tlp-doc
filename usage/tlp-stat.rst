@@ -88,7 +88,8 @@ View battery data: ::
     sudo tlp-stat -b
     sudo tlp-stat --battery
 
-Add `-v` to see battery voltages (if available).
+Add `-v` to see battery voltages, and (Version 1.11 and newer)* mAh values converted to mWh,
+battery serial number.
 
 
 Information

@@ -44,9 +44,22 @@ settings deviate from Powertop's recommendations for a few but important excepti
 
 Powertop insists on a value of 1500 centisecs, whereas TLP's defaults are 1500
 on AC and 6000 on battery power. If you incline towards Powertop's opinion then
-change the setting to: ::
+change the setting to:
+
+*Version 1.11 and newer* ::
+
+    MAX_LOST_WORK_SECS_ON_BAL=15
+    MAX_LOST_WORK_SECS_ON_SAV=15
+
+*Versions 1.10 through 1.9* ::
 
     MAX_LOST_WORK_SECS_ON_BAT=15
+    MAX_LOST_WORK_SECS_ON_SAV=15
+
+*Version 1.8 and older* ::
+
+    MAX_LOST_WORK_SECS_ON_BAT=15
+
 
 .. rubric:: Message *"SATA ALPM link power"*
 

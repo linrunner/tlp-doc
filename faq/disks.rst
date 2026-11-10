@@ -14,12 +14,13 @@ capabilities differ, so it stuck with btrfs.
 
 Why is my HDD parking the read-write heads so frequently (clicking noises)?
 ---------------------------------------------------------------------------
-The APM setting for battery mode ::
+The APM settings for the *balanced* and *power-saver* profiles ::
 
-    DISK_APM_LEVEL_ON_BAT=128
+    DISK_APM_LEVEL_ON_BAL=128
+    DISK_APM_LEVEL_ON_SAV=128
 
-corresponds to the Ubuntu default and should cause no problems. Unfortunately
-drive vendors interpret the APM levels quite spaciously to save power.
+shouldn't cause any problems. Unfortunately drive vendors interpret the
+APM levels quite spaciously to save power.
 
 Solution: try values > 128. See :ref:`set-disks-apm`.
 
@@ -38,10 +39,19 @@ no real solution for this other than changing many applications and daemons.
 
 How can I stop my 2nd HDD?
 --------------------------
-To spin down after 1 minute (= 12 · 5 seconds) idle time use: ::
+To spin down after 1 minute (= 12 · 5 seconds) idle time use:
+
+*Version 1.11 and newer* ::
+
+    DISK_SPINDOWN_TIMEOUT_ON_PRF="0 12"
+    DISK_SPINDOWN_TIMEOUT_ON_BAL="0 12"
+    DISK_SPINDOWN_TIMEOUT_ON_SAV="0 12"
+
+*Version 1.10 and older* ::
 
     DISK_SPINDOWN_TIMEOUT_ON_AC="0 12"
     DISK_SPINDOWN_TIMEOUT_ON_BAT="0 12"
+    DISK_SPINDOWN_TIMEOUT_ON_SAV="0 12"
 
 See :ref:`set-disks-spindown`.
 
@@ -60,10 +70,19 @@ See :ref:`set-disks-apm`.
 Why is my Crucial M4 SSD so slow on battery?
 --------------------------------------------
 The Crucial M4 reduces performance according to the APM level. You may disable
-APM with ::
+APM with:
 
-    DISK_APM_LEVEL_ON_AC="255 255"
-    DISK_APM_LEVEL_ON_BAT="255 255"
+*Version 1.11 and newer* ::
+
+    DISK_APM_LEVEL_ON_PRF=""
+    DISK_APM_LEVEL_ON_BAL=""
+    DISK_APM_LEVEL_ON_SAV=""
+
+*Version 1.10 and older* ::
+
+    DISK_APM_LEVEL_ON_AC=""
+    DISK_APM_LEVEL_ON_BAT=""
+    DISK_APM_LEVEL_ON_SAV=""
 
 .. _faq-odd-poweroff:
 

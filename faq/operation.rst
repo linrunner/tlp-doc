@@ -173,7 +173,7 @@ References: Issues `#223 <https://github.com/linrunner/TLP/issues/223>`_,
 
 Solutions:
 
-* Update to the newest version – highly recommended
+* Update to the *newest version of TLP* – highly recommended
 * Reboot with AC connected
 * Ask the laptop vendor for a corrected BIOS
 * Fix the DSDT yourself
@@ -186,14 +186,7 @@ System freezes on wakeup from suspend on battery
 Symptom: on battery power, trying to wake up, the laptop freezes (either showing
 a black screen or a static lock screen) and becomes unresponsive to input.
 
-Solutions:
-
-* Update to version 1.6
-* Workaround for older versions: change your configuration to disable
-  :ref:`disk runtime power management <set-disks-ahci-runtime-pm>`
-  on battery power: ::
-
-    AHCI_RUNTIME_PM_ON_BAT=on
+Solution: Update to *version 1.6*.
 
 Related issues: `#593 <https://github.com/linrunner/TLP/issues/593>`_,
 `#606 <https://github.com/linrunner/TLP/issues/606>`_,
@@ -211,10 +204,19 @@ Solution: deactivate Wake-on-LAN in the BIOS.
 
 Affected hardware: ThinkPad T14 Gen 6 Intel (and possibly other vendors and models)
 
-Solution: deactivate Runtime PM: ::
+Solution: deactivate Runtime PM:
 
-    RUNTIME_PM_ON_AC=
-    RUNTIME_PM_ON_BAT=
+*Version 1.11 and newer* ::
+
+    RUNTIME_PM_ON_PRF=""
+    RUNTIME_PM_ON_BAL=""
+    RUNTIME_PM_ON_SAV=""
+
+*Version 1.10 or older* ::
+
+    RUNTIME_PM_ON_AC=""
+    RUNTIME_PM_ON_BAT=""
+    RUNTIME_PM_ON_SAV=""
 
 Related issue: `#830 <https://github.com/linrunner/TLP/issues/830>`_.
 
