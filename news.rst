@@ -5,6 +5,31 @@ News
 
 .. _news-top-1:
 
+12.11.2026 - TLP 1.11 released
+==============================
+Following a sucessful beta test, I'm excited to announce the final version of TLP 1.11.
+
+The highlight is the updated configuration scheme: parameter suffixes have been
+adjusted to clarify the profile assignments, `_AC` becomes `_PRF`, and `_BAT` becomes `_BAL`.
+The old identifiers still work; they are automatically translated at runtime.
+
+Notable new features include: `_SAV` parameters were added to features that did not
+yet have them. All three profiles are given the option to turn radio devices on or off.
+Lastly, serial port adapters are now excluded from autosuspend by default.
+
+The `release notes <https://github.com/linrunner/TLP/releases>`__
+provide a quick overview of the new features. Details, including bug fixes,
+can be found in the `changelog <https://github.com/linrunner/TLP/blob/main/changelog>`_.
+Your favorite distribution will make release packages available in their repository,
+see the :doc:`installation guides </installation/index>`.
+
+A big thank you to everyone who contributed, tested and reported bugs!
+
+Have fun! :-)
+
+
+.. _news-top-2:
+
 22.10.2026 - TLP 1.11 Beta released / Call for Testers
 ========================================================
 I have just released the first beta version of TLP 1.11.
@@ -23,8 +48,6 @@ can be found in the `Changelog <https://github.com/linrunner/TLP/blob/main/chang
 **Please participate in the** `Beta Test <https://github.com/linrunner/TLP/issues/909>`_ **.**
 **I look forward to your feedback!**
 
-
-.. _news-top-2:
 
 06.07.2026 - TLP 1.10.2 released
 ================================
