@@ -4,21 +4,16 @@ Arch Linux
 Package Installation
 --------------------
 
-Packages are available in the offical repositories:
+Packages are available through the offical Arch Linux repositories:
 
 * **tlp** *(Community)* – Power saving
-* **tlp-pd** *(Community)* – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-pd** *(Community)* – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click
 * **tlp-rdw** *(Community)* – optional – :doc:`/settings/rdw`
 
 Install them either with your favorite package manager or the command:
 
-*Version 1.9 and newer* ::
-
     sudo pacman -S tlp tlp-pd tlp-rdw
 
-*Version 1.8 and older* ::
-
-    sudo pacman -S tlp tlp-rdw
 
 .. note::
 

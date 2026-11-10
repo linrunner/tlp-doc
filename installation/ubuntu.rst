@@ -21,13 +21,13 @@ Add the `TLP PPA`_ to your package sources with the commands: ::
 
 Package Installation
 --------------------
-Install the packages
+Packages are available through the official Ubuntu repositories or the `TLP PPA`_:
 
 * **tlp** *(PPA or main)* – Power saving
 * **tlp-pd** *(PPA or main)* – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
 * **tlp-rdw** *(PPA or main)* – optional – :doc:`/settings/rdw`
 
-either with your favorite package manager or the command:
+Install them either with your favorite package manager or the command:
 
 *Version 1.9 and newer* ::
 
@@ -95,8 +95,6 @@ either with your favorite package manager or the command ::
 .. seealso::
 
     * `TLP PPA`_ - Contains latest TLP packages for Ubuntu
-    * `Debian Bug #1034233 <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1034233>`_ -
-      Cause of the not enabled service with the 1.5 packages
     * For systems with Secure Boot enabled, please refer to
       `DKMS Secure Boot <https://wiki.ubuntu.com/UEFI/SecureBoot/DKMS>`_
     * :ref:`faq-ppd-conflict` - FAQ

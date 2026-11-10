@@ -12,17 +12,13 @@ Fedora
 
 Package Installation
 --------------------
-TLP packages are available from the official Fedora repositories:
+TLP packages are available through the official Fedora repositories:
 
 * **tlp** – Power saving
-* **tlp-pd** – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-pd** – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click
 * **tlp-rdw** – optional – :doc:`/settings/rdw`
 
-Fedora 44
-^^^^^^^^^
-*Version 1.9 and newer*
-
-Install the TLP packages either with your favorite package manager or the command: ::
+Install them either with your favorite package manager or the command: ::
 
     sudo dnf install --allowerasing tlp tlp-pd tlp-rdw
 
@@ -31,22 +27,6 @@ Install the TLP packages either with your favorite package manager or the comman
     From Fedora 44 onwards, the packages will enforce the uninstallation of the conflicting
     tools `tuned` and `power-profiles-daemon`. Remember to reinstall them if you decide to
     uninstall TLP.
-
-
-Fedora 43
-^^^^^^^^^
-*Version 1.8*
-
-First remove conflicting tools: ::
-
-    sudo dnf remove tuned tuned-ppd
-    sudo dnf remove power-profiles-daemon # on older installations
-
-Remember to reinstall them if you decide to uninstall TLP.
-
-Next install the TLP packages either with your favorite package manager or the command: ::
-
-    sudo dnf install tlp tlp-rdw
 
 TLP Repository
 ^^^^^^^^^^^^^^

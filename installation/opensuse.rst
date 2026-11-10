@@ -6,21 +6,15 @@ openSUSE
 
 Package Installation
 --------------------
-Packages are available from the official repositories:
+Packages are available through the official openSUSE repositories:
 
 * **tlp** – Power saving
-* **tlp-pd** – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click *(Version 1.9 and newer)*
+* **tlp-pd** – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click
 * **tlp-rdw** – optional – :doc:`/settings/rdw`
 
-Install them either with your favorite package manager or the command:
-
-*Version 1.9 and newer* ::
+Install them either with your favorite package manager or the command: ::
 
     sudo zypper install tlp tlp-pd tlp-rdw
-
-*Version 1.8 and older* ::
-
-    sudo zypper install tlp tlp-rdw
 
 .. note::
 
@@ -31,11 +25,7 @@ Service Units
 -------------
 To complete the installation you must enable TLP's service(s): ::
 
-   sudo systemctl enable --now tlp.service
-
-*For version 1.9 and newer* with tlp-pd, additionally: ::
-
-    sudo systemctl enable --now tlp-pd.service
+   sudo systemctl enable --now tlp.service tlp-pd.service
 
 You should also mask the following services to avoid conflicts and assure proper
 operation of TLP's :doc:`/settings/radio` options: ::
