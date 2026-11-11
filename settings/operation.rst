@@ -90,6 +90,8 @@ Default when unconfigured: 2
 .. [#] Behavior identical to *version 1.8 or older*
 
 
+.. _set-profile-ac-bat:
+
 TLP_PROFILE_AC/BAT
 ------------------
 TLP profiles to use for AC and battery power when automatic switching is enabled

@@ -99,10 +99,14 @@ To accomplish all of the above, TLP's actions are event-driven. The following ev
 cause settings to be applied:
 
 Charger plugged in (AC powered)
-    Applies the TLP profile *performance (AC)*.
+    Applies the TLP profile defined by :ref:`TLP_PROFILE_AC <set-profile-ac-bat>`.
 
 Charger unplugged (battery powered)
-    Applies the TLP profile *balanced (BAT)*.
+    Applies the TLP profile defined by :ref:`TLP_PROFILE_BAT <set-profile-ac-bat>`.
+
+User switches profile by mouse click (or running tlpctl)
+    **tlp-pd** receives the D-Bus message from the desktop (see above)
+    or :command:`tlpctl` and runs :command:`tlp <profile>`.
 
 USB device plugged in
     Activates USB autosuspend for the device (if not excluded or denylisted).

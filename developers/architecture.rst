@@ -20,6 +20,10 @@ Charger plugged/unplugged - udevd
 ---------------------------------
 A rule in **tlp.rules** calls :command:`tlp auto` which applies the appropriate TLP profile.
 
+User changes profile by mouse click or tlpctl - tlp-pd
+------------------------------------------------------
+**tlp-pd** receives the D-Bus message and calls :command:`tlp <profile>`.
+
 USB device plugged in - udevd
 -----------------------------
 A rule in **tlp.rules** calls :command:`tlp-usb-udev` to activate USB
@@ -66,10 +70,6 @@ Non-systemd
       **/lib/elogind/system-sleep/49-tlp-sleep**.
     * Else: you must provide a way to run :command:`tlp suspend`
       or :command:`tlp resume` (your mileage may vary).
-
-User changes profile by mouse click or tlpctl - tlp-pd
--------------------------------------------------------
-**tlp-pd** receives the D-Bus message and calls :command:`tlp <profile>`.
 
 LAN, Wi-Fi, WWAN connected/disconnected - NetworkManager
 --------------------------------------------------------
