@@ -465,7 +465,6 @@ Cause: the `msi_ec` kernel driver only accepts very specific models and BIOS ver
 
 Solution: create an `issue with the msi-ec driver <https://github.com/BeardOverflow/msi-ec/issues?q=is%3Aopen+is%3Aissue>`_.
 
-
 Battery has been removed
 ^^^^^^^^^^^^^^^^^^^^^^^^
 By removing (and re-inserting) the battery the charge thresholds may be reset to
@@ -530,10 +529,6 @@ below the old start threshold after writing the new threshold, i.e. via
 :command:`tlp setcharge` or reboot
 (see `Issue #173 <https://github.com/linrunner/TLP/issues/183#issuecomment-175228097>`_).
 
-Do charge thresholds work even when TLP is not running or the laptop is powered off?
-------------------------------------------------------------------------------------
-Yes. See the :ref:`explanation above <faq-battery-charge-control>`.
-
 
 .. _faq-start-threshold:
 
@@ -544,6 +539,29 @@ after every short discharge process. The charging process starts only when the
 previous discharge was below the value of `START_CHARGE_THRESH_BATx`.
 
 A general explanation of charge thresholds is given :ref:`above <faq-battery-care>`.
+
+Do charge thresholds work even when TLP is not running or the laptop is powered off?
+------------------------------------------------------------------------------------
+Yes. See the :ref:`explanation above <faq-battery-charge-control>`.
+
+
+.. _faq-tlp-battery-wont-charge:
+
+I installed TLP and now my battery will not charge
+--------------------------------------------------
+TLP does not control the battery charging process (refer to :ref:`faq-battery-charge-control`).
+Therefore, if you have not set charge thresholds, the issue is not caused by TLP.
+
+Here's how you can narrow down the cause:
+
+1. Remove the charge thresholds (see below)
+2. Try a different charger or charging port
+3. Try to reset the embedded controller (EC). The procedure varies by vendor,
+   for ThinkPads see :ref:`faq-thinkpad-battery-malfunc`.
+4. Unplug the charger while the system is running (back up your data first).
+   If the laptop powers off immediately, even though the battery had previously
+   shown sufficient remaining capacity, then it's the fault of the battery,
+   which is probably defective and needs to be replaced.
 
 
 .. _faq-how-to-disable-thresholds:
