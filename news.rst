@@ -7,13 +7,13 @@ News
 
 12.11.2026 - TLP 1.11 released
 ==============================
-Following a sucessful beta test, I'm excited to announce the final version of TLP 1.11.
+Following a successful beta test, I'm excited to announce the final version of TLP 1.11.
 
-The highlight is the updated configuration scheme: parameter suffixes have been
-adjusted to clarify the profile assignments, `_AC` becomes `_PRF`, and `_BAT` becomes `_BAL`.
-The old identifiers still work; they are automatically translated at runtime.
+In addition to the many improvements, the configuration scheme has been adjusted
+to clarify the profile assignments of parameters. `_AC` becomes `_PRF` and `_BAT`
+becomes `_BAL`. The old identifiers still work and are automatically translated at runtime.
 
-Notable new features include: `_SAV` parameters were added to features that did not
+New features include: `_SAV` parameters were added to features that did not
 yet have them. All three profiles are given the option to turn radio devices on or off.
 Lastly, serial port adapters are now excluded from autosuspend by default.
 
