@@ -16,6 +16,13 @@ Version 1.11.x
       - **tlp-pd.init** - SysVinit script for tlp-pd; install to **/etc/init.d/tlp-pd**
       - **tlp-pd.default** - install to **/etc/default/tlp-pd**
 
+      Changes to the **tlp-pd** daemon for non-systemd environments:
+
+      - Automatically backgrounds ("daemonizes") itself on startup
+      - Creates a pidfile **/run/tlp-pd.pid** on startup
+      - Refuses to start if another instance is already running and claiming the D-Bus interface
+      - Handles SIGTERM for clean shutdown and SIGHUP for reload
+
 Version 1.10.x
     Makefile:
 
@@ -63,13 +70,10 @@ Version 1.9.x
 
         Conflicts: **laptop-mode-tools**, **tuned**
 
-
-
 Version 1.8
     Files:
 
     - New: **bat.d/55-cros-ec, 56-framework, 65-dell**
-
 
 Version 1.7
     Makefile:
