@@ -164,7 +164,7 @@ for battery and AC operation.
 
 Settings per profile are:
 
-* Kernel laptop mode and dirty buffer timeouts
+* File system dirty buffer timeouts
 * AMD/Intel CPU scaling driver operation mode (active/guided/passive)
 * Processor frequency scaling and turbo boost
 * Intel CPU max/min P-state limits to control power dissipation
@@ -180,7 +180,7 @@ Settings per profile are:
 * Intel GPU frequency limits
 * AMD GPU power management
 * Wi-Fi power save
-* Enable/disable integrated bluetooth, Wi-Fi and WWAN devices
+* Enable/disable integrated Bluetooth, NFC, Wi-Fi and WWAN devices
 * Power off removable optical drives (in drive bays)
 * Audio power save
 
@@ -188,11 +188,10 @@ Additional power saving settings - independent of the power source - are:
 
 * I/O scheduler (per disk)
 * USB autosuspend with device denylist/allowlist
-* Enable or disable radio devices (bluetooth, Wi-Fi and WWAN) upon boot and shutdown
-* Restore radio device state on boot (from previous shutdown)
+* Enable or disable radio devices (Bluetooth, NFC, Wi-Fi and WWAN) upon boot and shutdown
 * Radio device wizard: enable/disable radios upon network connect/disconnect and dock/undock
 * Disable Wake-On-LAN
-* Bluetooth and WWAN state is restored after suspend/hibernate
+* Disable kernel NMI watchdog timer
 
 Battery care settings are:
 
