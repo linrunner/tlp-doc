@@ -8,6 +8,7 @@ Packages are available through the offical Void Linux repositories:
 
 * **tlp** – Power saving
 * **tlp-pd** – optional – Select :ref:`TLP profile <intro-profiles>` with a mouse click
+* **tlp-rdw** *(Community)* – optional – :doc:`/settings/rdw`
 
 Install them with the command: ::
 
