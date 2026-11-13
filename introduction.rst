@@ -56,7 +56,7 @@ paths.
 
 TLP Profiles
 ------------
-TLP has several profiles, each with its own configurable :doc:`settings </settings/index>`.
+TLP has multiple profiles, each with its own configurable :doc:`settings </settings/index>`.
 
 *Version 1.9 and newer* supports three profiles:
 
@@ -64,8 +64,8 @@ TLP has several profiles, each with its own configurable :doc:`settings </settin
 * **balanced**: is automatically selected on battery power, or manually by the user.
 * **power-saver**: is manually selected by the user.
 
-Note: *Version 1.10 and newer* allows an arbitrary profile to be assigned to AC and
-battery power.
+Note: *Version 1.10 and newer* allows an arbitrary profile to be :ref:`assigned to AC and
+battery power <set-profile-ac-bat>`.
 
 You can manually change the active profile with:
 

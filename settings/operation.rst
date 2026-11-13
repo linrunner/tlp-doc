@@ -12,11 +12,13 @@ Default when unconfigured: 1
 
 TLP_DISABLE_DEFAULTS
 --------------------
+*Version 1.9 and newer*
+
 Set to 1 to deactivate (almost) all defaults of TLP. This means that
 TLP only applies settings that have been explicitly activated i.e.
 parameters without a leading '#'.
 
-*Version 1.9 and newer* ::
+::
 
     TLP_DISABLE_DEFAULTS=0
 
@@ -48,13 +50,14 @@ Default when unconfigured: 3
 
 TLP_MSG_COLORS
 --------------
+*Version 1.7 and newer*
+
 Colorize error, warning, notice and success messages. Colors are specified
 with ANSI codes:
 
     1=bold black, 90=grey, 91=red, 92=green, 93=yellow, 94=blue, 95=magenta, 96=cyan, 97=white.
 
-
-*Version 1.7 and newer* ::
+ ::
 
     TLP_MSG_COLORS="91 93 1 92"
 
@@ -72,6 +75,8 @@ Notes:
 
 TLP_AUTO_SWITCH
 ---------------
+*Version 1.9 and newer*
+
 Control automatic switching of the TLP profile when connecting or removing
 the charger [#]_, when booting the system or when executing :command:`tlp start`:
 
@@ -80,7 +85,7 @@ the charger [#]_, when booting the system or when executing :command:`tlp start`
 * | 2 – smart: like *auto*, but skips the switch if you have manually changed the profile away from the
   |     previous power source's default profile – as defined by `TLP_PROFILE_AC/BAT`.
 
-*Version 1.9 and newer* ::
+::
 
     TLP_AUTO_SWITCH=2
 
@@ -94,6 +99,8 @@ Default when unconfigured: 2
 
 TLP_PROFILE_AC/BAT
 ------------------
+*Version 1.10 and newer*
+
 TLP profiles to use for AC and battery power when automatic switching is enabled
 (`TLP_AUTO_SWITCH=1` or `2`):
 
@@ -101,13 +108,10 @@ TLP profiles to use for AC and battery power when automatic switching is enabled
 * `BAL` – balanced
 * `SAV` – power-saver
 
-Default when unconfigured: PRF (AC power), BAL (battery power)
-
-*Version 1.10 and newer* ::
-
    TLP_PROFILE_AC=BAL
    TLP_PROFILE_BAT=SAV
 
+Default when unconfigured: PRF (AC power), BAL (battery power)
 
 .. _set-default-mode:
 
@@ -148,16 +152,16 @@ Default when unconfigured: <none>
 
 TLP_PERSISTENT_DEFAULT
 ----------------------
+*Version 1.10 and older only – for version 1.11 and newer use TLP_AUTO_SWITCH=0 together with TLP_PROFILE_DEFAULT
+to lock TLP to a fixed profile*
+
 Lock TLP profile:
 
 * 0 – disabled: profile depends on automatic switching (see `TLP_AUTO_SWITCH` above)
 * 1 – enabled: profile is locked to `TLP_PROFILE_DEFAULT` (or `TLP_DEFAULT_MODE`);
   `TLP_AUTO_SWITCH` is ignored
 
-*Removed in Version 1.11 → Use TLP_AUTO_SWITCH=0 together with TLP_PROFILE_DEFAULT
-to lock TLP to a fixed profile.*
-
-*Version 1.10 and older* ::
+::
 
    TLP_PERSISTENT_DEFAULT=0
 
