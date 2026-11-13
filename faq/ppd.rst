@@ -46,16 +46,20 @@ already use for choosing from three profiles with a mouse click.
 The first advantage of TLP is that the three profiles can be customized
 individually, whereas with power-profiles-daemon they are "hard-wired".
 
-The second advantage of TLP is automatic switching: when AC power
-is connected, the *performance* profile is activated; when changing to
-battery operation, the *balanced* profile is activated. In addition,
-you can switch to the *power-saver* profile at any time with a click of the
-mouse, which remains set even when the power source changes.
+The second advantage of TLP is automatic profile switching: when AC power
+is connected, the *performance* profile is activated; when changing
+to battery operation, the *balanced* profile is activated. In addition,
+you can switch to the *power-saver* profile at any time with a click of
+the mouse, which remains set even when the power source changes.
 
-As with almost everything in TLP, however, automatic switching can be
-disabled via configuration, allowing you to always start your laptop
-with the *balanced* profile, for example – see :ref:`faq-disable-auto-switch`.
-In this way, TLP behaves identically to power-profiles-daemon.
+The third advantage is that, like almost everything in TLP, you can customize profile
+switching to your personal preference:
+
+* Automatic switching can be disabled via configuration, allowing you to always start
+  your laptop with the *balanced* profile, for example – see :ref:`faq-disable-auto-switch`.
+  In this way, TLP behaves identically to power-profiles-daemon.
+* *Version 1.10 and newer* allows an arbitrary profile to be :ref:`assigned to AC and
+  battery power <set-profile-ac-bat>`.
 
 .. seealso::
 
@@ -83,8 +87,8 @@ advisable to uninstall power-profiles-daemon when using TLP.
 If your distribution allows for parallel installation, the behaviour
 depends on the version of TLP:
 
-*Version 1.6 and newer* will automatically **not** apply the settings listed
-above if a running power-profiles-daemon is detected. In addition the
+*Version 1.6 and newer* will **not** apply the settings listed
+above if a running power-profiles-daemon is detected. In addition
 :command:`tlp start` issues a warning about the conflict:
 
 .. code-block:: none
