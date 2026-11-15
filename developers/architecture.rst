@@ -20,10 +20,6 @@ Charger plugged/unplugged - udevd
 ---------------------------------
 A rule in **tlp.rules** calls :command:`tlp auto` which applies the appropriate TLP profile.
 
-User changes profile by mouse click or tlpctl - tlp-pd
-------------------------------------------------------
-**tlp-pd** receives the D-Bus message and calls :command:`tlp <profile>`.
-
 USB device plugged in - udevd
 -----------------------------
 A rule in **tlp.rules** calls :command:`tlp-usb-udev` to activate USB
@@ -81,6 +77,10 @@ Laptop docked/undocked - udevd
 ------------------------------
 A rule in **tlp-rdw.rules** calls :command:`tlp-rdw-udev` switching the configured
 radio devices.
+
+User changes profile by mouse click or tlpctl - tlp-pd
+------------------------------------------------------
+**tlp-pd** receives the D-Bus message and calls :command:`tlp <profile>`.
 
 .. seealso::
 
