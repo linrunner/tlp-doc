@@ -231,7 +231,7 @@ packages:
    * - tlp-pd.default
      - tlp-pd
      - /etc/default/tlp-pd
-     - Config file sourced by tlp-pd.init
+     - SysVinit config file sourced by tlp-pd.init
    * - completions/bash/tlpctl.bash_completion
      - tlp-pd
      - /usr/share/bash-completion/completions/tlpctl

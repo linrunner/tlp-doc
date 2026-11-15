@@ -7,7 +7,7 @@ For feature changes see the
 Version 1.11.x
     Makefile:
 
-    - Removed parameter: *TLP_SYSVD*
+    - New parameter: *TLP_SYSVD*
     - New targets: *checkdepren*, *checkoldsfx*
 
     Subpackage tlp-pd:

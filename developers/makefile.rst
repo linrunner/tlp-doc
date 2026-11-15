@@ -157,7 +157,10 @@ Parameters
      - Install directory for systemd units
    * - TLP_SYSV
      - /etc/init.d
-     - Install directory for sysvinit script
+     - Install directory for SysVinit scripts
+   * - TLP_SYSVD
+     - [from 1.11] /etc/default
+     - Install directory for SysVinit config files
    * - TLP_TLIB
      - /usr/share/tlp
      - Install directory for function libs
