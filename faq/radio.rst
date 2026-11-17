@@ -47,7 +47,7 @@ Reference: `Issue #813 <https://github.com/linrunner/TLP/issues/813>`_
 
 Bluetooth devices hang, disconnect or do not pair
 -------------------------------------------------
-Cause: most internal laptop bluetooth devices and all external bluetooth
+Cause: most internal laptop Bluetooth devices and all external Bluetooth
 dongles are USB devices. Some do not implement autosuspend properly,
 giving trouble to connected devices or preventing discovery or pairing.
 
@@ -68,14 +68,21 @@ USB_EXCLUDE_BTUSB=1 does not disable autosuspend
 Refer to :ref:`faq-usb-bt-exclude`.
 
 
-Bluetooth is not disabled upon system startup
----------------------------------------------
-Probable cause: your desktop environment's bluetooth applet – or some other
-installed software – re-enables the bluetooth device after TLP disabled it.
+.. _faq-bluetooth-not-disabled:
+
+DEVICES_TO_DISABLE_ON_STARTUP="bluetooth" does not work
+-------------------------------------------------------
+Cause 1: your desktop environment's Bluetooth applet – or some other
+installed software – re-enables the Bluetooth device after TLP disabled it.
 
 Solution: disable the relevant applet's setting or disable/remove the causing
 applet. For XFCE/blueman see
 `Disable Bluetooth Auto Power-on in Blueman <https://winaero.com/blog/disable-bluetooth-auto-power-blueman/>`_.
+
+Cause 2: there is a problem with the ThinkPad kernel driver `thinkpad_acpi`. Refer to
+`Issue #905 <https://github.com/linrunner/TLP/issues/905#issuecomment-6903496013>`_.
+
+Workaround: add the boot option `rfkill.master_switch_mode=0` to your GRUB configuration.
 
 
 Radio states are not as expected after boot or a configured event
@@ -93,7 +100,7 @@ Solution: check if you configured contradictory instructions, for example
 
 ::
 
-    DEVICES_TO_DISABLE_ON_BAT="wifi"
+    DEVICES_TO_DISABLE_ON_BAL="wifi"
     DEVICES_TO_ENABLE_ON_LAN_DISCONNECT="wifi"
 
 may not turn on Wi-Fi when undocking and changing to battery power.
